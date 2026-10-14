@@ -21,7 +21,7 @@ Parte de un trabajo de Steven D. Shaw y Gideon Nave, de The Wharton School, que 
 
 **Qué no es.** Un diagnóstico. Es un autoinforme, los cuatro cuadrantes no son categorías validadas por ninguna investigación. El apartado 07 explica por qué esa limitación no es un detalle menor, sino parte del propio fenómeno que se describe.
 
-**Cómo usarla.** Puedes leerla de principio a fin o ir directamente al test del apartado 02, responder las veinte y volver después a lo demás. También existe en versión interactiva, que hace las sumas y sitúa el resultado por ti.
+**Cómo usarla.** El test se responde en la herramienta, que lleva la cuenta y sitúa el resultado por ti; estas páginas explican qué mide, de dónde viene y qué hacer con lo que te salga. Si quieres que la medida valga algo, respóndelo antes de leer el apartado 02.
 
 → **mrpiay.github.io/DianaCognitiva**
 
@@ -87,32 +87,15 @@ Por eso necesitamos dos ejes, no una escala que vaya de «usar poca IA» a «dep
 
 Las veinte van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.
 
-**Contesta cada una por su cuenta, sin intentar que encajen entre sí.** Ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final. Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes.
+**Se contestan de una en una, sin intentar que encajen entre sí.** Ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final. Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes.
 
 No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo.
 
-> **Responde las veinte antes de seguir leyendo.** Lo que viene después explica cómo se cuentan, y saberlo de antemano estropea la medida.
+> **El test se responde en la herramienta, no en estas páginas.** Son tres minutos: lleva ella la cuenta y sitúa el punto en el plano. Esta guía explica de dónde sale ese plano, qué mide cada eje y qué hacer con el resultado, pero no puede medirte.
 
-1. Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.
-2. La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.
-3. Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.
-4. La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.
-5. Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.
-6. Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.
-7. Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.
-8. La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.
-9. Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.
-10. La última vez que una respuesta de la IA incluyó una cifra, una cita o una afirmación importante, utilicé al menos una sin verificarla por otra vía.
-11. Normalmente distingo entre una respuesta de la IA bien fundamentada y otra que solo lo parece.
-12. Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.
-13. Si dejara de disponer de IA, mi forma habitual de trabajar cambiaría considerablemente.
-14. En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.
-15. Cuando voy con prisa, tiendo a usar lo que me da la IA sin revisarlo.
-16. La última vez que utilicé la IA para resolver un problema, acepté una propuesta suya sin desarrollar antes una alternativa propia.
-17. Cuando utilizo la IA, distingo entre lo que puedo aceptar directamente y lo que necesita comprobación adicional.
-18. La última vez que me atasqué en un problema, salí adelante sin consultar a la IA.
-19. Podría desarrollar una primera solución razonada a mis tareas habituales sin que la IA me indique por dónde empezar.
-20. En mi última entrega con IA, di por buena su estructura o su enfoque sin llegar a cuestionarlos.
+> **Respóndelo antes de seguir leyendo.** Lo que viene a continuación cuenta cómo está construido el cuestionario, y saberlo de antemano estropea la medida.
+
+→ **mrpiay.github.io/DianaCognitiva**
 
 ### Lo que acabas de responder
 
@@ -120,30 +103,21 @@ No era un cuestionario, eran dos entrelazados.
 
 **Diez preguntas te pedían que te describas** —cómo sueles trabajar, qué sueles comprobar— y **diez te pedían un hecho**: la última vez que, recientemente, en tu última entrega. Parecían lo mismo y no lo son. Lo que uno dice de sí mismo tiende a parecerse a lo que le gustaría ser; lo que recuerda haber hecho se parece algo más a lo que hizo.
 
-Tu posición en el plano se calcula **solo con las diez de hechos**. Las otras diez sirven para algo distinto y más interesante: medir la distancia entre las dos.
+Tu posición en el plano sale **solo de las diez de hechos**. Las otras diez sirven para algo distinto y más interesante: medir la distancia entre las dos.
 
-### Cómo contarlo
+> **Esa distancia es el hallazgo.** Si tu control «dices» supera al de «hechos» en dos puntos o más, te describes como más verificador de lo que muestran tus episodios. Es lo más común, y no es mentir: es que la autodescripción general se parece a lo que uno aspira a ser.
 
-Cuenta un punto por cada acierto según esta clave. En las preguntas marcadas **al revés**, el punto lo da responder **No**.
+### Cómo está construido
 
-| | Punto si respondiste Sí | Punto si respondiste No | Total |
-|---|---|---|---|
-| Intensidad · hechos | 4 · 12 · 16 | 6 · 18 | ___ / 5 |
-| Control · hechos | 2 · 8 · 14 | 10 · 20 | ___ / 5 |
-| Intensidad · dices | 1 · 5 · 13 | 9 · 19 | ___ / 5 |
-| Control · dices | 7 · 11 · 17 | 3 · 15 | ___ / 5 |
+Las veinte preguntas se reparten en cuatro bloques de cinco: intensidad de uso y control crítico, cada uno por duplicado —una vez preguntado como autodescripción y otra como episodio—. En el test aparecen mezcladas y en orden distinto cada vez, para que no se vea el emparejamiento mientras respondes.
 
-Las dos primeras filas te dan el punto que llevarás al plano. Las dos últimas, dónde te colocarían tus propias palabras.
+**Tres de cada cinco están escritas en un sentido y dos en el contrario.** Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en el centro exacto del plano.
 
-> **La distancia entre ambas es el hallazgo.** Si tu control «dices» supera al de «hechos» en dos puntos o más, te describes como más verificador de lo que muestran tus episodios. Es lo más común, y no es mentir: es que la autodescripción general se parece a lo que uno aspira a ser.
-
-Si prefieres no contar a mano, hay una versión interactiva que lo hace sola, con las preguntas además en orden distinto cada vez.
-
-→ **mrpiay.github.io/DianaCognitiva**
+Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos de ese bloque— y la división cae entre el 2 y el 3: ninguna puntuación puede quedarse encima de la línea. Lo que no hace el cuestionario es comprobar nada: pregunta y se cree la respuesta, con el problema que eso supone —el apartado 07 va de eso—.
 
 ## Tu posición en el plano
 
-En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar. Cada eje va de 0 a 5 —las cinco preguntas de hechos de ese eje— y la división cae entre el 2 y el 3, así que ninguna puntuación puede quedarse encima de la línea.
+En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar.
 
 ### 1. Apoyo puntual: la IA como recurso de consulta
 
@@ -286,9 +260,9 @@ Nada de eso cabe en un cuestionario que se responde solo. Lo que estas veinte pr
 
 Sería poco elegante y poco coherente terminar sin aplicarme el test.
 
-Esta guía y la herramienta que la acompaña se han escrito con ayuda intensiva de una IA. En el bloque A puntuaría alto y sin matices.
+Esta guía y la herramienta que la acompaña se han escrito con ayuda intensiva de una IA. En intensidad de uso puntuaría alto y sin matices.
 
-El bloque B no lo puedo responder con una cifra, sino con el proceso. Ha sido un trabajo iterativo e interactivo de principio a fin: prácticamente ningún párrafo generado se dio por bueno ni por definitivo tal como salía. Cada sección pasó por varias vueltas, con directrices sobre estructura, enfoque, terminología y tono, hasta que el texto decía lo que tenía que decir y como tenía que decirlo.
+El control crítico no lo puedo resumir en una cifra, sino en el proceso. Ha sido un trabajo iterativo e interactivo de principio a fin: prácticamente ningún párrafo generado se dio por bueno ni por definitivo tal como salía. Cada sección pasó por varias vueltas, con directrices sobre estructura, enfoque, terminología y tono, hasta que el texto decía lo que tenía que decir y como tenía que decirlo.
 
 Nada de eso habría ocurrido aceptando el primer borrador (ni el cuarto, en muchos casos). Y nada de eso exigía ser más listo que la máquina: exigía leer despacio, desconfiar de lo que suena bien y pedir que se rehiciera cuantas veces hiciera falta.
 

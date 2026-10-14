@@ -2,7 +2,9 @@
 
 Un test de veinte preguntas de sí o no que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: **intensidad de uso** y **control crítico**.
 
-→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (25 páginas)
+→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (23 páginas)
+
+La guía explica qué mide el test, de dónde sale y qué hacer con el resultado. Para evaluarte hace falta la herramienta: es ella la que lleva la cuenta y sitúa el punto.
 
 ## Qué mide
 
@@ -19,7 +21,7 @@ No hay un cuadrante al que convenga apuntar. Lo que debe cumplirse no es una pos
 
 ## Aviso
 
-**Esto es una orientación, no un diagnóstico.** Es un autoinforme, y el fenómeno que intenta describir consiste precisamente en no advertir cuándo has cedido el control. El umbral de 7 sobre 12 es una convención práctica de este test, no un punto de corte validado, y los cuatro cuadrantes no son categorías establecidas por ninguna investigación. Describen hábitos.
+**Esto es una orientación, no un diagnóstico.** Es un autoinforme, y el fenómeno que intenta describir consiste precisamente en no advertir cuándo has cedido el control. Cada eje va de 0 a 5 y la división cae entre el 2 y el 3: una convención práctica de este test, no un punto de corte validado. Los cuatro cuadrantes no son categorías establecidas por ninguna investigación. Describen hábitos.
 
 Nada de lo que respondas sale de tu navegador: el test se calcula entero en local y no guarda ni envía datos.
 
@@ -39,7 +41,7 @@ Es un *preprint*, no un artículo revisado por pares, y sus experimentos se real
 
 Una sola página sin dependencias ni compilación: `index.html` lo lleva todo, salvo las tipografías, que vienen de Google Fonts. Para trabajar en ella basta abrirla en el navegador.
 
-`guia/index.html` es el artículo completo compuesto como cuadernillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se compone desde el fichero local en dos pasadas —la primera averigua en qué página cae cada sección, para el índice— y lleva folios y marcadores:
+`articulo.md` es la guía en texto, extraída del HTML compuesto para que las dos versiones no se desvíen. `guia/index.html` es ese mismo texto compuesto como cuadernillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se compone desde el fichero local en dos pasadas —la primera averigua en qué página cae cada sección, para el índice— y lleva folios y marcadores:
 
 ```
 python guia/numerar.py
