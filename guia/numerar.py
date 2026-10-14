@@ -15,7 +15,7 @@ def chrome(url, destino, espera=15000):
                     '--virtual-time-budget=%d' % espera, '--print-to-pdf=' + destino, url],
                    check=True, capture_output=True)
 
-# 1 · el librillo
+# 1 · el cuadernillo
 crudo = os.path.join(TMP, 'guia-sin-folios.pdf')
 chrome(URL, crudo)
 n = len(pypdf.PdfReader(crudo).pages)
