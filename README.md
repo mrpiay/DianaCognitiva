@@ -4,7 +4,7 @@ Un test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un pla
 
 → **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (20 páginas)
 
-## De qué va
+## Qué mide
 
 Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. En el fondo, delegación **con** supervisión frente a delegación **sin** supervisión. Las dos son delegación; lo único que cambia es si alguien mira el resultado.
 
