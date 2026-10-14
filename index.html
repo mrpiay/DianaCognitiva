@@ -255,7 +255,7 @@ const CUADRANTES = {
 
 /* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
    distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
-const BANDAS = {leve:'Perfil leve', marcada:'', extrema:'Perfil extremo'};
+const BANDAS = {leve:'Posición leve', marcada:'Posición marcada', extrema:'Posición extrema'};
 function banda(a, b){
   const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
   if(da === 0.5 && db === 0.5) return 'leve';        // los dos ejes pegados al cruce
@@ -427,7 +427,7 @@ function sync(){
   $('#n-name').style.color = c.color;
 
   const bd = banda(ea, eb);
-  $('#r-riesgo').textContent = (BANDAS[bd] ? BANDAS[bd] + ' · ' : '') + 'Riesgo que conviene vigilar: ' + c.riesgo;
+  $('#r-riesgo').textContent = BANDAS[bd] + ' · Riesgo que conviene vigilar: ' + c.riesgo;
   $('#r-name').textContent = c.nombre;
   $('#r-name').style.color = c.color;
   $('#r-read').textContent = c.read;
