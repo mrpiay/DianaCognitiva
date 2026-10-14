@@ -169,6 +169,8 @@ Puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuici
 
 Dentro de un mismo cuadrante no es igual estar pegado al cruce que en una esquina. Un 5 y un 0 piden cambiar cómo trabajas; un 3 y un 2, afinar un hábito. La banda sale de los propios valores: **leve** si los dos ejes están en 2 o 3, **extrema** si los dos están en 0 o en 5, y **marcada** en todo lo demás.
 
+Tanto la división como las bandas son una convención de este test, no umbrales establecidos por nadie. Entre un 2 y un 3 hay una respuesta de diferencia, no dos conductas distintas: si tu punto cae junto a una línea, léelo como una zona.
+
 La tabla cruza las dos cosas: la fila es el cuadrante en el que has caído y la columna, cuánto se separa tu punto del cruce. Cada casilla es el paso que conviene dar en ese caso concreto.
 
 | Tu posición | Leve | Marcada | Extrema |
@@ -191,6 +193,8 @@ Por tres razones.
 **La intensidad adecuada depende de tu trabajo.** Dos funciones distintas no tienen por qué ocupar el mismo lugar del plano, porque el coste de equivocarse no es el mismo en todas. Los propios Shaw y Nave lo dicen: confiar en un sistema estadísticamente superior en un dominio concreto puede ser adaptativo, incluso óptimo.
 
 **El extremo superior derecho tampoco es la meta.** Un 5 en control crítico significa que lo compruebas todo, y comprobarlo todo cancela la ganancia que te dio delegar. Verificar cuesta tiempo y atención; gastarlos donde no hay riesgo es tan ineficiente como no gastarlos donde sí lo hay.
+
+De ahí sale la regla que sí es general: **cuánto revisar depende de tres cosas** —qué ocurre si la respuesta está mal, si llegarías a enterarte de que lo estaba y si tienes el conocimiento para juzgarla—. Una lluvia de ideas y una cláusula de un contrato salen del mismo sitio y no piden la misma comprobación.
 
 **Lo que debe cumplirse no es una posición, es una relación.** Tu control tiene que ir al ritmo de tu intensidad. Puedes desplazarte todo lo que quieras hacia la derecha mientras subas a la vez. El problema nunca fue estar a la derecha: fue estar a la derecha y abajo.
 
@@ -259,6 +263,8 @@ Hay una paradoja en el cuestionario que acabas de completar: te pide evaluar tu 
 El test tiene un defecto de origen. Es un autoinforme.
 
 Puedes declarar que verificas tus respuestas y, aun así, aceptar una recomendación equivocada cuando aparece bien argumentada, coincide con tus expectativas o tienes prisa. También puedes puntuar bajo por prudencia, aunque tu comportamiento real sea más sólido.
+
+Hay un segundo límite, menos visible: **el eje mide comprobación, y el criterio es algo más ancho**. Las preguntas de control preguntan si contrastaste una cifra, si reconstruiste un razonamiento, si descartaste una respuesta dudosa. Pero se puede comprobar todo sin entender nada, y se puede aceptar una respuesta sin contrastarla porque uno conoce el asunto lo bastante para juzgar en qué se apoya. Entender lo que te devuelve la máquina, advertir que se contradice, calibrar cuánta confianza merece y estar dispuesto a rectificar forman parte del mismo control, y ninguna pregunta los toca: lo que puntúa el eje es la conducta, que es lo único que cabe en un sí o un no.
 
 Por eso este cuestionario sirve como **orientación, no como diagnóstico**. No mide directamente la rendición cognitiva y sus cuadrantes no deben confundirse con categorías validadas por los autores del estudio.
 
