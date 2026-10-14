@@ -111,7 +111,7 @@ Tu posición en el plano sale **solo de las diez de hechos**. Las otras diez sir
 
 Las veinte preguntas se reparten en cuatro bloques de cinco: intensidad de uso y control crítico, cada uno por duplicado —una vez preguntado como autodescripción y otra como episodio—. En el test aparecen mezcladas y en orden distinto cada vez, para que no se vea el emparejamiento mientras respondes.
 
-**Tres de cada cinco están escritas en un sentido y dos en el contrario.** Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en el centro exacto del plano.
+**Tres de cada cinco están escritas en un sentido y dos en el contrario.** Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en la casilla más pegada al cruce —un 3 y un 3, o un 2 y un 2— en lugar de mandarlo a una esquina.
 
 Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos de ese bloque— y la división cae entre el 2 y el 3: ninguna puntuación puede quedarse encima de la línea. Lo que no hace el cuestionario es comprobar nada: pregunta y se cree la respuesta, con el problema que eso supone —el apartado 07 va de eso—.
 
@@ -145,7 +145,7 @@ Eso no significa que trabajes mal. Mientras el sistema acierte, puedes obtener r
 
 La transferencia de criterio no consiste simplemente en aceptar ayuda. Consiste en perder capacidad para distinguir entre una respuesta convincente y una respuesta justificada.
 
-**Qué hacer:** empieza por la pregunta 8. Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.
+**Qué hacer:** elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.
 
 ### 4. Autonomía intuitiva: confiar en el propio criterio sin contrastarlo
 
@@ -157,11 +157,13 @@ Puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuici
 
 **Qué probar:** introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos. La cuestión no es sustituir tu criterio por el de la IA, sino evitar que cualquiera de los dos se convierta en una autoridad incuestionable.
 
-### Cuán marcada está tu posición
+### Tu posición dentro del cuadrante
 
 Dentro de un mismo cuadrante no es igual estar pegado al cruce que en una esquina. Un 5 y un 0 piden cambiar cómo trabajas; un 3 y un 2, afinar un hábito. La banda sale de los propios valores: **leve** si los dos ejes están en 2 o 3, **extrema** si los dos están en 0 o en 5, y **marcada** en todo lo demás.
 
-|  | Leve | Marcada | Extrema |
+La tabla cruza las dos cosas: la fila es el cuadrante en el que has caído y la columna, cuánto se separa tu punto del cruce. Cada casilla es el paso que conviene dar en ese caso concreto.
+
+| Tu posición | Leve | Marcada | Extrema |
 |---|---|---|---|
 | Apoyo puntual | Delega una tarea más y mantén la misma revisión. | Delega parte de algo repetitivo y conserva la revisión. | Delega entero tu trabajo más rutinario una temporada. |
 | Delegación de trabajo | Escribe qué comprobarás siempre y trátalo como innegociable. | Haz de la verificación un procedimiento, no una virtud. | Suelta la revisión que ya es rutina y reserva el esfuerzo. |

@@ -82,6 +82,21 @@ a{color:var(--lav-p); text-decoration:none}
   border-radius:1mm; padding:.3mm 1.4mm; margin-left:2mm; color:var(--ink-3); white-space:nowrap}
 .stmt.resta .t{color:var(--ink-2)}
 h3.rompe{break-before:page; page-break-before:always; margin-top:0}
+.tablewrap{margin:5mm 0 2mm; break-inside:avoid}
+table{width:100%; table-layout:fixed; border-collapse:collapse; font-family:var(--sans)}
+thead th{font-family:var(--mono); font-size:7.2pt; font-weight:600; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--ink-3); text-align:left; padding:0 2.8mm 1.8mm}
+thead th.span{text-align:center; border-bottom:.3mm solid var(--line); padding-bottom:1.4mm}
+thead th.esq{vertical-align:bottom; color:var(--ink-2)}
+thead tr:last-child th{border-bottom:.5mm solid var(--ink-3)}
+thead th.esq{border-bottom:.5mm solid var(--ink-3)}
+tbody th{font-family:var(--sans); font-size:8.8pt; font-weight:600; text-align:left;
+  width:29mm; padding:3.4mm 2.6mm 3.4mm 0; vertical-align:top}
+tbody td{font-size:8.4pt; line-height:1.42; color:var(--ink-2); padding:3.4mm 2.8mm;
+  vertical-align:top; border-left:.3mm solid var(--line)}
+tbody tr + tr th, tbody tr + tr td{border-top:.3mm solid var(--line-2)}
+tbody th.lav{color:var(--lav-p)} tbody th.mint{color:var(--mint-p)}
+tbody th.coral{color:var(--coral-p)} tbody th.amber{color:var(--amber-p)}
 .formula{display:flex; align-items:baseline; gap:3mm; margin-top:5mm; padding:4mm 5mm;
   background:var(--ground); border-radius:2.5mm; font-family:var(--mono); font-size:10.5pt; color:var(--ink)}
 .formula .slot{border-bottom:.45mm solid var(--ink-3); width:16mm; display:inline-block}
@@ -314,7 +329,7 @@ h3.rompe{break-before:page; page-break-before:always; margin-top:0}
 
 <p>Las veinte preguntas se reparten en cuatro bloques de cinco: intensidad de uso y control crítico, cada uno por duplicado —una vez preguntado como autodescripción y otra como episodio—. En el test aparecen mezcladas y en orden distinto cada vez, para que no se vea el emparejamiento mientras respondes.</p>
 
-<p><b>Tres de cada cinco están escritas en un sentido y dos en el contrario.</b> Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en el centro exacto del plano.</p>
+<p><b>Tres de cada cinco están escritas en un sentido y dos en el contrario.</b> Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en la casilla más pegada al cruce —un 3 y un 3, o un 2 y un 2— en lugar de mandarlo a una esquina.</p>
 
 <p>Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos de ese bloque— y la división cae entre el 2 y el 3: ninguna puntuación puede quedarse encima de la línea. Lo que no hace el cuestionario es comprobar nada: pregunta y se cree la respuesta, con el problema que eso supone —el apartado 07 va de eso—.</p>
 
@@ -379,7 +394,7 @@ h3.rompe{break-before:page; page-break-before:always; margin-top:0}
 <p><b>Uso alto · Control crítico bajo.</b> Utilizas mucho la IA y declaras que examinas poco sus respuestas.</p>
 <p>Eso no significa que trabajes mal. Mientras el sistema acierte, puedes obtener resultados excelentes. El problema aparece cuando no detectas un error y careces de los elementos necesarios para corregirlo. Tus entregas pueden seguir llevando tu nombre, pero su calidad depende cada vez más de algo que no controlas por completo.</p>
 <p>La transferencia de criterio no consiste simplemente en aceptar ayuda. Consiste en perder capacidad para distinguir entre una respuesta convincente y una respuesta justificada.</p>
-<p><b>Qué hacer:</b> empieza por la pregunta 8. Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.</p>
+<p><b>Qué hacer:</b> elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.</p>
 
 <h3>4. Autonomía intuitiva: confiar en el propio criterio sin contrastarlo</h3>
 <p><b>Uso bajo · Control crítico bajo.</b> Utilizas poco la IA y declaras que verificas poco sus respuestas cuando la utilizas.</p>
@@ -388,18 +403,23 @@ h3.rompe{break-before:page; page-break-before:always; margin-top:0}
 <p><b>Qué probar:</b> introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos. La cuestión no es sustituir tu criterio por el de la IA, sino evitar que cualquiera de los dos se convierta en una autoridad incuestionable.</p>
 
 
-<h3>Cuán marcada está tu posición</h3>
+<h3>Tu posición dentro del cuadrante</h3>
 
 <p>Dentro de un mismo cuadrante no es igual estar pegado al cruce que en una esquina. Un 5 y un 0 piden cambiar cómo trabajas; un 3 y un 2, afinar un hábito. La banda sale de los propios valores: <b>leve</b> si los dos ejes están en 2 o 3, <b>extrema</b> si los dos están en 0 o en 5, y <b>marcada</b> en todo lo demás.</p>
 
+<p>La tabla cruza las dos cosas: la fila es el cuadrante en el que has caído y la columna, cuánto se separa tu punto del cruce. Cada casilla es el paso que conviene dar en ese caso concreto.</p>
+
 <div class="tablewrap">
 <table>
-  <thead><tr><th></th><th>Leve</th><th>Marcada</th><th>Extrema</th></tr></thead>
+  <thead>
+    <tr><th class="esq" rowspan="2">Tu posición</th><th class="span" colspan="3">Qué conviene hacer</th></tr>
+    <tr><th>Leve</th><th>Marcada</th><th>Extrema</th></tr>
+  </thead>
   <tbody>
-    <tr><th>Apoyo puntual</th><td>Delega una tarea más y mantén la misma revisión.</td><td>Delega parte de algo repetitivo y conserva la revisión.</td><td>Delega entero tu trabajo más rutinario una temporada.</td></tr>
-    <tr><th>Delegación de trabajo</th><td>Escribe qué comprobarás siempre y trátalo como innegociable.</td><td>Haz de la verificación un procedimiento, no una virtud.</td><td>Suelta la revisión que ya es rutina y reserva el esfuerzo.</td></tr>
-    <tr><th>Transferencia de criterio</th><td>Elige un tipo de dato y compruébalo siempre, sin excepciones.</td><td>Reconstruye sin ayuda el razonamiento de tu última entrega.</td><td>Define por escrito qué no sale sin comprobar, y quién lo hace.</td></tr>
-    <tr><th>Autonomía intuitiva</th><td>Añade un contraste a las decisiones importantes.</td><td>Busca una revisión externa o una explicación alternativa.</td><td>Pide a propósito que alguien te lleve la contraria.</td></tr>
+    <tr><th class="lav">Apoyo puntual</th><td>Delega una tarea más y mantén la misma revisión.</td><td>Delega parte de algo repetitivo y conserva la revisión.</td><td>Delega entero tu trabajo más rutinario una temporada.</td></tr>
+    <tr><th class="mint">Delegación de trabajo</th><td>Escribe qué comprobarás siempre y trátalo como innegociable.</td><td>Haz de la verificación un procedimiento, no una virtud.</td><td>Suelta la revisión que ya es rutina y reserva el esfuerzo.</td></tr>
+    <tr><th class="coral">Transferencia de criterio</th><td>Elige un tipo de dato y compruébalo siempre, sin excepciones.</td><td>Reconstruye sin ayuda el razonamiento de tu última entrega.</td><td>Define por escrito qué no sale sin comprobar, y quién lo hace.</td></tr>
+    <tr><th class="amber">Autonomía intuitiva</th><td>Añade un contraste a las decisiones importantes.</td><td>Busca una revisión externa o una explicación alternativa.</td><td>Pide a propósito que alguien te lleve la contraria.</td></tr>
   </tbody>
 </table>
 </div>

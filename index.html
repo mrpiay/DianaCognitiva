@@ -104,6 +104,8 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
 .brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
 .brecha .dice b{color:var(--ink); font-weight:600}
+#res .banda{font-family:var(--sans); font-size:14.5px; line-height:1.62;
+  color:var(--ink-3); margin-top:14px; max-width:52em}
 .alerta{
   margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
   border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
@@ -145,6 +147,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <div class="eyebrow" id="r-riesgo">—</div>
     <h2 id="r-name">—</h2>
     <p class="read" id="r-read"></p>
+    <p class="banda" id="r-banda"></p>
 
     <div class="brecha">
       <h3>Lo que dices y lo que cuentas</h3>
@@ -256,6 +259,18 @@ const CUADRANTES = {
 /* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
    distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
 const BANDAS = {leve:'Posición leve', marcada:'Posición marcada', extrema:'Posición extrema'};
+/* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
+   cuadrante no se lee igual pegado al cruce que en una esquina. */
+const MATIZ = {
+  leve: (a,b) => '<b>Leve</b> quiere decir que tus dos puntuaciones de hechos —intensidad '
+    + a + ', control ' + b + ' sobre 5— se quedan a un paso de las divisiones: lo que sigue '
+    + 'describe una inclinación, no un hábito asentado.',
+  marcada: (a,b) => '<b>Marcada</b> quiere decir que tus puntuaciones de hechos —intensidad '
+    + a + ', control ' + b + ' sobre 5— dejan el patrón claro sin llevarlo al extremo.',
+  extrema: (a,b) => '<b>Extrema</b> quiere decir que tus dos puntuaciones —intensidad '
+    + a + ', control ' + b + ' sobre 5— están en los bordes del plano: es la versión sin '
+    + 'matices de esta posición, y el consejo lo tiene en cuenta.'
+};
 function banda(a, b){
   const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
   if(da === 0.5 && db === 0.5) return 'leve';        // los dos ejes pegados al cruce
@@ -428,6 +443,7 @@ function sync(){
 
   const bd = banda(ea, eb);
   $('#r-riesgo').textContent = BANDAS[bd] + ' · Riesgo que conviene vigilar: ' + c.riesgo;
+  $('#r-banda').innerHTML = MATIZ[bd](ea, eb);
   $('#r-name').textContent = c.nombre;
   $('#r-name').style.color = c.color;
   $('#r-read').textContent = c.read;
