@@ -238,17 +238,40 @@ const clave = (a,b) => (a>=2) ? (b>=2 ? 'delegacion' : 'transferencia')
 
 const R = PREGUNTAS.map(()=>null);
 
+/* Se barajan en cada visita para que no se note el compás de alternancia, pero
+   sin dejar que el azar amontone más de tres de la misma clase seguidas. */
+function barajar(){
+  const o = PREGUNTAS.map((_,i)=>i);
+  const racha = () => {
+    let n = 1;
+    for(let i=1; i<o.length; i++){
+      if(PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl){ if(++n > 3) return true; }
+      else n = 1;
+    }
+    return false;
+  };
+  do{
+    for(let i=o.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [o[i],o[j]] = [o[j],o[i]];
+    }
+  } while(racha());
+  return o;
+}
+const ORDEN = barajar();
+
 (function pintar(){
   const host = $('#preguntas');
-  PREGUNTAS.forEach((p,i)=>{
+  ORDEN.forEach((idx,pos)=>{
+    const p = PREGUNTAS[idx], i = idx;
     const row = el('div','q');
     const tx = el('div','q-text');
-    tx.append(el('span','n', String(i+1)+'.'), document.createTextNode(p.t));
+    tx.append(el('span','n', String(pos+1)+'.'), document.createTextNode(p.t));
     const opts = el('div','opts');
     [['Sí',1],['No',0]].forEach(([etiqueta,valor])=>{
       const b = el('button','',etiqueta);
       b.type='button'; b.setAttribute('aria-pressed','false');
-      b.setAttribute('aria-label','Pregunta '+(i+1)+': '+etiqueta);
+      b.setAttribute('aria-label','Pregunta '+(pos+1)+': '+etiqueta);
       b.addEventListener('click', ()=>{
         R[i] = valor;
         [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
