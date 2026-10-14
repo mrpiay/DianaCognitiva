@@ -165,10 +165,10 @@ La tabla cruza las dos cosas: la fila es el cuadrante en el que has caído y la 
 
 | Tu posición | Leve | Marcada | Extrema |
 |---|---|---|---|
-| Apoyo puntual | Delega una tarea más y mantén la misma revisión. | Delega parte de algo repetitivo y conserva la revisión. | Delega entero tu trabajo más rutinario una temporada. |
-| Delegación de trabajo | Escribe qué comprobarás siempre y trátalo como innegociable. | Haz de la verificación un procedimiento, no una virtud. | Suelta la revisión que ya es rutina y reserva el esfuerzo. |
-| Transferencia de criterio | Elige un tipo de dato y compruébalo siempre, sin excepciones. | Reconstruye sin ayuda el razonamiento de tu última entrega. | Define por escrito qué no sale sin comprobar, y quién lo hace. |
-| Autonomía intuitiva | Añade un contraste a las decisiones importantes. | Busca una revisión externa o una explicación alternativa. | Pide a propósito que alguien te lleve la contraria. |
+| Apoyo puntual | Delega una tarea más y mantén la misma revisión. | Elige algo repetitivo, delega una parte y no bajes la revisión. | Delega por completo tu tarea más repetitiva y revisa solo el resultado. |
+| Delegación de trabajo | Escribe qué comprobarás siempre y trátalo como innegociable. | Haz de la verificación un procedimiento, no una virtud. | Deja de revisar lo que no tiene riesgo y concentra el esfuerzo en lo que sí. |
+| Transferencia de criterio | Elige un tipo de dato y compruébalo siempre, sin excepciones. | Reconstruye sin ayuda el razonamiento de tu última entrega. | Deja por escrito qué no se entrega sin comprobar y quién lo comprueba. |
+| Autonomía intuitiva | Contrasta tus decisiones importantes con una fuente independiente. | Busca una revisión externa o una explicación alternativa. | Pide a propósito que alguien te lleve la contraria. |
 
 Ninguna de las cuatro posiciones es permanente. Describen hábitos, y un hábito cambia con la tarea, con el contexto y, sobre todo, con el tiempo del que dispongas.
 
