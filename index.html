@@ -64,7 +64,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .block-head{display:flex; align-items:baseline; gap:13px; padding-bottom:11px; border-bottom:1px solid var(--line)}
 .block-head h2{font-size:20px}
 .block-head .axis{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
-.block-head .score{margin-left:auto; font-family:var(--mono); font-size:14px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.block-head .score{margin-left:auto; font-family:var(--mono); font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums}
 .block-head .score b{font-size:18px; font-weight:600}
 .block-head.a .score b{color:var(--lav-p)}
 .block-head.b .score b{color:var(--mint-p)}
@@ -73,6 +73,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
 @media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
 .q-text{font-size:15px; line-height:1.55}
 .q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:9px}
+.q-text .sg{font-family:var(--mono); font-size:10px; letter-spacing:.08em; border:1px solid var(--line-2); border-radius:3px; padding:1px 5px; margin-left:8px; white-space:nowrap; color:var(--ink-3)}
 .opts{display:flex; gap:5px}
 .opts button{
   width:42px; height:38px; border-radius:6px; border:1px solid var(--line-2);
@@ -81,6 +82,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
 }
 .opts button:hover{border-color:var(--ink-3); color:var(--ink)}
 .opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
+.q.resta .opts button[aria-pressed="true"]{background:var(--ink-3); border-color:var(--ink-3)}
 
 /* ── panel fijo ───────────────────────────────────────────── */
 .panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
@@ -104,9 +106,10 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .bar-top{display:flex; align-items:baseline; gap:10px; margin-bottom:7px}
 .bar-name{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
 .bar-val{margin-left:auto; font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums}
-.track{position:relative; height:7px; background:#E7E7F1; border:1px solid var(--line-2); border-radius:5px}
-.fill{position:absolute; left:0; top:0; bottom:0; border-radius:4px; transition:width .35s cubic-bezier(.2,.8,.3,1)}
-.thresh{position:absolute; top:-4px; bottom:-4px; width:1.5px; background:var(--ink-3); left:58.33%}
+.track{position:relative; height:9px; background:#E7E7F1; border:1px solid var(--line-2); border-radius:5px}
+.fill{position:absolute; top:0; bottom:0; border-radius:3px; transition:left .35s cubic-bezier(.2,.8,.3,1), width .35s cubic-bezier(.2,.8,.3,1)}
+.cero{position:absolute; top:-4px; bottom:-4px; left:50%; width:1.5px; background:var(--ink-3)}
+.ends{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; color:var(--ink-3); margin-top:4px}
 .panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
 @media(max-width:940px){.panel .foot{display:none}}
 
@@ -129,6 +132,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
 </style>
 </head>
 <body>
+
 <div class="app">
 
 <main>
@@ -139,16 +143,16 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <div class="scale">
       <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
     </div>
-    <p class="fine">Puntúa pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar. El bloque A mueve tu punto hacia la derecha; el bloque B, hacia arriba. Nada sale de tu navegador.</p>
+    <p class="fine">Puntúa pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar. Empiezas en el centro del plano, sin información. El bloque A mueve tu punto en horizontal y el bloque B en vertical, pero <b>dos afirmaciones de cada bloque lo mueven en sentido contrario</b>: van marcadas como «resta». Nada sale de tu navegador.</p>
   </header>
 
   <section class="block">
-    <div class="block-head a"><h2>Bloque A</h2><span class="axis">Intensidad de uso</span><span class="score"><b id="sa">0</b> / 12</span></div>
+    <div class="block-head a"><h2>Bloque A</h2><span class="axis">Intensidad de uso</span><span class="score"><b id="sa">0</b> &nbsp;−6…+6</span></div>
     <div id="qa"></div>
   </section>
 
   <section class="block">
-    <div class="block-head b"><h2>Bloque B</h2><span class="axis">Control crítico</span><span class="score"><b id="sb">0</b> / 12</span></div>
+    <div class="block-head b"><h2>Bloque B</h2><span class="axis">Control crítico</span><span class="score"><b id="sb">0</b> &nbsp;−6…+6</span></div>
     <div id="qb"></div>
   </section>
 
@@ -158,11 +162,12 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <p class="read" id="r-read"></p>
     <div class="advice" id="r-advice"></div>
     <p class="caveat">
-      <b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir consiste
-      precisamente en no advertir cuándo has cedido el control: puedes declarar que verificas y aun así aceptar una
-      recomendación equivocada cuando aparece bien argumentada o cuando tienes prisa. El umbral de 7 es una convención
-      práctica de este test, no un punto de corte validado, y los cuatro cuadrantes no son categorías establecidas por
-      la investigación. Describen hábitos, y los hábitos cambian según la tarea, el contexto y la presión de tiempo.
+      <b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir
+      consiste precisamente en no advertir cuándo has cedido el control: puedes declarar que verificas y aun así
+      aceptar una recomendación equivocada cuando aparece bien argumentada o cuando tienes prisa. Los cuatro
+      cuadrantes no son categorías establecidas por ninguna investigación: describen hábitos, y los hábitos
+      cambian según la tarea, el contexto y la presión de tiempo. Si tu resultado queda cerca de una división,
+      léelo como una zona y no como una frontera.
     </p>
     <div class="again"><button id="reset">Volver a empezar</button></div>
   </section>
@@ -176,13 +181,13 @@ h1 em{font-style:normal; color:var(--coral-p)}
     </div>
     <div>
       <div class="now">
-        <div class="tag" id="n-tag">Posición provisional</div>
-        <div class="name" id="n-name">Sin respuestas</div>
-        <div class="sums" id="n-sums">A 0/12 · B 0/12</div>
+        <div class="tag" id="n-tag">Sin responder</div>
+        <div class="name" id="n-name">En el centro</div>
+        <div class="sums" id="n-sums">A 0 · B 0 · faltan 8</div>
       </div>
       <div class="bars" id="bars"></div>
     </div>
-    <p class="foot">El umbral de cada eje está en 7 de 12. Las divisiones del plano marcan ese mismo corte.</p>
+    <p class="foot">Cada eje va de −6 a +6 y las divisiones del plano caen en el cero, que es donde empiezas.</p>
   </div>
 </aside>
 
@@ -192,19 +197,22 @@ h1 em{font-style:normal; color:var(--coral-p)}
 const $ = s => document.querySelector(s);
 const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
 
-const UMBRAL = 7, MAX = 12, FRAC = UMBRAL/MAX;   // 7 de 12 — el corte del artículo
+/* Cada eje se construye restando dos afirmaciones a las otras dos, de modo que
+   el cero sale de la propia construcción y no de un umbral elegido a ojo. El
+   emparejamiento además evita que asentir a todo empuje siempre al mismo sitio. */
+const MAX = 6;
 
 const A = [
-  'Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.',
-  'Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.',
-  'En una jornada normal, consulto la IA más de cinco veces.',
-  'Si mañana la IA dejara de estar disponible, mi ritmo de trabajo caería de forma notable.'
+  {t:'Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.', s:+1},
+  {t:'Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.', s:+1},
+  {t:'Hay semanas enteras en que no la abro para nada importante.', s:-1},
+  {t:'Resuelvo por mi cuenta tareas que podría delegarle sin ningún problema.', s:-1}
 ];
 const B = [
-  'Aunque una respuesta me encaje, compruebo al menos un dato, una fuente o un paso del razonamiento.',
-  'Recientemente he descartado alguna respuesta de la IA porque me ha parecido incorrecta o insuficientemente fundamentada.',
-  'Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.',
-  'Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.'
+  {t:'Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.', s:+1},
+  {t:'Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.', s:+1},
+  {t:'Si la respuesta suena razonable y encaja con lo que esperaba, la doy por buena.', s:-1},
+  {t:'Cuando voy con prisa, uso lo que me devuelve sin revisarlo.', s:-1}
 ];
 
 const CUADRANTES = {
@@ -224,7 +232,7 @@ const CUADRANTES = {
     nombre:'Transferencia de criterio', riesgo:'Ilusión de autoría', color:'var(--coral-p)',
     read:'Utilizas mucho la IA y declaras que examinas poco sus respuestas. Eso no significa que trabajes mal: mientras el sistema acierte, tus resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
     titulo:'Qué hacer',
-    cuerpo:'El problema aparece cuando no detectas un error y careces de los elementos para corregirlo. Tus entregas siguen llevando tu nombre, pero su calidad ya no es enteramente tuya.</p><p><b>Empieza por la afirmación 8.</b> Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.'
+    cuerpo:'El problema aparece cuando no detectas un error y careces de los elementos para corregirlo. Tus entregas siguen llevando tu nombre, pero su calidad ya no es enteramente tuya.</p><p><b>Empieza por la afirmación 6.</b> Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.'
   },
   intuitiva:{
     nombre:'Autonomía intuitiva', riesgo:'Sesgos propios sin contraste', color:'var(--amber-p)',
@@ -233,16 +241,17 @@ const CUADRANTES = {
     cuerpo:'Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p><p><b>Introduce un mecanismo de contraste en las decisiones importantes:</b> una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.'
   }
 };
-const clave = (a,b) => (a>=UMBRAL) ? (b>=UMBRAL ? 'delegacion' : 'transferencia')
-                                   : (b>=UMBRAL ? 'apoyo' : 'intuitiva');
+const clave = (a,b) => (a>=0) ? (b>=0 ? 'delegacion' : 'transferencia')
+                              : (b>=0 ? 'apoyo' : 'intuitiva');
 
 const R = {a:[null,null,null,null], b:[null,null,null,null]};
 
-function pintar(host, textos, k, base){
-  textos.forEach((t,i)=>{
-    const row = el('div','q');
+function pintar(host, items, k, base){
+  items.forEach((it,i)=>{
+    const row = el('div','q' + (it.s<0 ? ' resta' : ''));
     const tx = el('div','q-text');
-    tx.append(el('span','n', String(base+i)+'.'), document.createTextNode(t));
+    tx.append(el('span','n', String(base+i)+'.'), document.createTextNode(it.t));
+    tx.append(el('span','sg', it.s>0 ? 'suma' : 'resta'));
     const opts = el('div','opts');
     for(let v=0; v<=3; v++){
       const b = el('button','',String(v));
@@ -261,19 +270,21 @@ function pintar(host, textos, k, base){
 pintar($('#qa'), A, 'a', 1);
 pintar($('#qb'), B, 'b', 5);
 
-const suma = k => R[k].reduce((s,v)=>s+(v||0),0);
+const items = k => (k==='a' ? A : B);
+const suma  = k => R[k].reduce((s,v,i)=> s + (v||0) * items(k)[i].s, 0);
 const faltan = () => [...R.a, ...R.b].filter(v=>v===null).length;
+const signo = v => (v>0 ? '+' : '') + v;
 
 /* ═══════════════ PLANO 2×2 ═══════════════
-   Las divisiones van en 7/12, el mismo umbral con el que se puntúa, para que el
-   dibujo y el criterio digan lo mismo. En la versión compacta no hay rótulos:
-   el nombre del cuadrante lo lleva el panel, en HTML. */
+   Los ejes van de −6 a +6 y las divisiones caen en el cero, que es el punto de
+   partida: sin responder nada, el marcador está en el centro y no afirma nada. */
 function plane(dot, compacto){
   const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
   const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
   const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
-  const px = v => x0 + v*(x1-x0), py = v => y1 - v*(y1-y0);
-  const cutx = px(FRAC), cuty = py(FRAC);
+  const px = v => x0 + (v + MAX) / (2 * MAX) * (x1 - x0);
+  const py = v => y1 - (v + MAX) / (2 * MAX) * (y1 - y0);
+  const cutx = px(0), cuty = py(0);
   const q = [
     {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'APOYO PUNTUAL',             s:'usas poco, verificas'},
     {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'DELEGACIÓN DE TRABAJO',     s:'usas mucho, verificas'},
@@ -319,6 +330,8 @@ function plane(dot, compacto){
     s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
   }
   if(!compacto){
+    s += '<text x="'+x0+'" y="'+(y1+20)+'" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="500">−6</text>';
+    s += '<text x="'+x1+'" y="'+(y1+20)+'" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="500" text-anchor="end">+6</text>';
     s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">INTENSIDAD DE USO →</text>';
     s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CONTROL CRÍTICO →</text>';
   }
@@ -329,32 +342,35 @@ function barra(nombre, valor, color){
   const d = el('div','');
   const top = el('div','bar-top');
   top.append(el('span','bar-name', nombre));
-  const v = el('span','bar-val num', valor+' / 12'); v.style.color = color;
+  const v = el('span','bar-val num', signo(valor)); v.style.color = color;
   top.append(v); d.append(top);
   const tr = el('div','track');
-  const fl = el('div','fill'); fl.style.background = color; fl.style.width = (valor/MAX*100)+'%';
-  tr.append(fl, el('div','thresh'));
+  const fl = el('div','fill'); fl.style.background = color;
+  const ancho = Math.abs(valor) / MAX * 50;
+  fl.style.left  = (valor >= 0 ? 50 : 50 - ancho) + '%';
+  fl.style.width = ancho + '%';
+  tr.append(fl, el('div','cero'));
   d.append(tr);
+  const e = el('div','ends'); e.append(el('span','','−6'), el('span','','0'), el('span','','+6'));
+  d.append(e);
   return d;
 }
 
 function sync(){
   const a = suma('a'), b = suma('b'), f = faltan();
-  $('#sa').textContent = a;
-  $('#sb').textContent = b;
+  $('#sa').textContent = signo(a);
+  $('#sb').textContent = signo(b);
 
-  const hay = f < 8;
-  const punto = hay ? {x:a/MAX, y:b/MAX} : null;
-  $('#plane-full').innerHTML = plane(punto, false);
-  $('#plane-mini').innerHTML = plane(punto, true);
+  // el centro significa «sin información», así que el marcador se ve desde el principio
+  $('#plane-full').innerHTML = plane({x:a, y:b}, false);
+  $('#plane-mini').innerHTML = plane({x:a, y:b}, true);
 
   const c = CUADRANTES[clave(a,b)];
-  $('#n-tag').textContent = f===0 ? 'Tu posición' : 'Posición provisional';
-  $('#n-name').textContent = hay ? c.nombre : 'Sin respuestas';
-  $('#n-name').style.color = hay ? c.color : 'var(--ink-3)';
-  $('#n-sums').textContent = f===0
-    ? 'A ' + a + '/12 · B ' + b + '/12'
-    : 'A ' + a + '/12 · B ' + b + '/12 · faltan ' + f;
+  const virgen = f === 8;
+  $('#n-tag').textContent  = virgen ? 'Sin responder' : (f===0 ? 'Tu posición' : 'Posición provisional');
+  $('#n-name').textContent = virgen ? 'En el centro' : c.nombre;
+  $('#n-name').style.color = virgen ? 'var(--ink-3)' : c.color;
+  $('#n-sums').textContent = 'A ' + signo(a) + ' · B ' + signo(b) + (f ? ' · faltan ' + f : '');
 
   const bars = $('#bars'); bars.innerHTML = '';
   bars.append(barra('Intensidad de uso', a, 'var(--lav)'));
