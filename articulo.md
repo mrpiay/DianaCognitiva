@@ -306,6 +306,18 @@ El preprint puede consultarse, entre otros sitios, en PsyArXiv —con DOI 10.312
 
 El propio preprint declara el preregistro y los datos en **osf.io/n84tx**. Ese proyecto no era accesible públicamente a 14 de octubre de 2026, así que los tres preregistros que el trabajo menciona no pueden comprobarse desde fuera. Puede que se abra más adelante; mientras tanto, conviene saber que esa parte se acepta por confianza.
 
+### No es un hallazgo aislado
+
+Conviene saber que este trabajo no inaugura el asunto: si mañana no resistiera la revisión por pares, lo que describe seguiría en pie. Viene de una línea con treinta años de recorrido.
+
+**Parasuraman, R. y Riley, V.**, *Humans and Automation: Use, Misuse, Disuse, Abuse*. Human Factors, 1997, 39-2, 230-253. El sesgo de automatización: cuando una máquina recomienda, el operador deja de comprobar. Se describió en cabinas de avión mucho antes de que existiera esto.
+
+**Lee, J. D. y See, K. A.**, *Trust in Automation: Designing for Appropriate Reliance*. Human Factors, 2004, 46-1, 50-80. El problema no es confiar, es calibrar: la confianza debería seguir a la fiabilidad real del sistema, y casi nunca lo hace.
+
+**Risko, E. F. y Gilbert, S. J.**, *Cognitive Offloading*. Trends in Cognitive Sciences, 2016, 20-9, 676-688. Descargamos trabajo mental en el entorno cuando creemos que sale más barato que hacerlo por dentro. Esa creencia no siempre acierta.
+
+**Lee, H.-P., Sarkar, A. y otros**, *The Impact of Generative AI on Critical Thinking*. CHI 2025. Trescientos diecinueve profesionales y 936 casos de uso real: a más confianza en la IA, menos pensamiento crítico; a más confianza en uno mismo, más. Y el esfuerzo se desplaza de resolver a verificar, que es justo el eje vertical de este plano. También es un autoinforme: comparte el límite de este test.
+
 > **Conviene tener presentes tres límites.**
 
 > **Primero.** El trabajo es un *preprint*, no un artículo revisado por pares. Sus resultados deben leerse teniendo en cuenta ese estado de publicación.
