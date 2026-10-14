@@ -729,9 +729,9 @@ function sync(){
   if(eb===2 || eb===3) cerca.push([frase.b, M.perfiles[clave(ea, eb>2?1:4)].nombre]);
   const fr = $('#r-frontera');
   if(cerca.length){
-    fr.innerHTML = '<b>Estás pegado a una división.</b> Tu puntuación en '
+    fr.innerHTML = '<b>Estás justo en el borde.</b> Tu puntuación en '
       + cerca.map(x=>x[0]).join(' y en ')
-      + ' queda a una sola respuesta de la línea, así que '
+      + ' queda a una sola respuesta de la línea divisoria, así que '
       + (cerca.length>1 ? 'bastaría cambiar una para acabar en otro cuadrante' :
          'con una respuesta distinta estarías en «' + cerca[0][1] + '»')
       + '. Léelo como una zona, no como una frontera.';
