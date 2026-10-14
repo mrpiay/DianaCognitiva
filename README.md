@@ -33,6 +33,8 @@ El marco conceptual parte de:
 
 Tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos. El preprint puede consultarse, entre otros sitios, en [PsyArXiv](https://osf.io/preprints/psyarxiv/yk25n_v1), [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646) y [ResearchGate](https://www.researchgate.net/publication/399711077_Thinking-Fast_Slow_and_Artificial_How_AI_is_Reshaping_Human_Reasoning_and_the_Rise_of_Cognitive_Surrender).
 
+Los autores declaran el preregistro y los datos en [osf.io/n84tx](https://osf.io/n84tx), proyecto que no era accesible públicamente a 14 de octubre de 2026.
+
 Es un *preprint*, no un artículo revisado por pares, y sus experimentos se realizaron en condiciones de laboratorio con tareas de razonamiento de respuesta única.
 
 **Los nombres de los cuadrantes, el cuestionario y el plano de dos ejes son elaboración propia**, no del estudio. Los autores distinguen dos conductas (*cognitive offloading* y *cognitive surrender*); el resto es una lectura personal.

@@ -182,6 +182,8 @@ La tabla cruza las dos cosas: la fila es el cuadrante en el que has caído y la 
 
 Ninguna de las cuatro posiciones es permanente. Describen hábitos, y un hábito cambia con la tarea, con el contexto y, sobre todo, con el tiempo del que dispongas.
 
+Lo que convierte esa casilla en algo más que una frase es ponerle fecha. **Elige una sola conducta observable** —qué vas a comprobar siempre, qué vas a delegar, a quién vas a pedir que te lleve la contraria— y sosténla un mes. Luego vuelve a responder las veinte preguntas y mira si el punto se ha movido. Si no se ha movido, no es que el test falle: es que el hábito sigue donde estaba.
+
 Y hay una limitación que conviene no perder de vista: este plano mide lo que dices que haces, no lo que haces. Vuelvo sobre ello más abajo.
 
 ## ¿Hay un punto óptimo en el plano?
@@ -304,7 +306,9 @@ Shaw, S. D. y Nave, G., *Thinking—Fast, Slow, and Artificial: How AI is Reshap
 
 El trabajo recoge tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos.
 
-El preprint puede consultarse, entre otros sitios, en PsyArXiv, SSRN y ResearchGate. Wharton publicó además una versión divulgativa en su web. Los materiales, los preregistros y los libros de códigos están en Open Science Framework.
+El preprint puede consultarse, entre otros sitios, en PsyArXiv —con DOI 10.31234/osf.io/yk25n_v1—, en SSRN y en ResearchGate, y Wharton publicó además una versión divulgativa en su web.
+
+El propio preprint declara el preregistro y los datos en **osf.io/n84tx**. Ese proyecto no era accesible públicamente a 14 de octubre de 2026, así que los tres preregistros que el trabajo menciona no pueden comprobarse desde fuera. Puede que se abra más adelante; mientras tanto, conviene saber que esa parte se acepta por confianza.
 
 > **Conviene tener presentes tres límites.**
 
