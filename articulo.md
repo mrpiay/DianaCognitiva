@@ -226,8 +226,6 @@ En sus comparaciones, los grupos de mayor y menor uso de IA mostraron puntuacion
 
 Estos datos no demuestran que la inteligencia sea irrelevante en cualquier contexto ni permiten explicar por sí solos por qué una persona transfiere su criterio. Sí cuestionan una intuición extendida: que las personas más capaces estarán necesariamente a salvo de aceptar una recomendación equivocada.
 
-La vulnerabilidad no se reduce a la capacidad de razonar. También importa la confianza que depositamos en la herramienta y la disposición a invertir esfuerzo en comprobar lo que nos devuelve.
-
 **No es una cuestión de inteligencia.** Es una cuestión de cómo distribuimos la atención, el esfuerzo y la responsabilidad.
 
 ## Lo que sí cambia la conducta
@@ -254,9 +252,7 @@ Los participantes tenían más motivos para detenerse, comprobar y apartarse de 
 
 La mejora es significativa, pero no conviene exagerarla: la rendición seguía siendo mayoritaria, incluso en esa condición. La conclusión no es que basten un incentivo y una corrección para resolver el problema. Es que el entorno puede influir en cómo usamos la IA.
 
-Si quieres que un equipo conserve el criterio, no basta con decirle que verifique. Hay que darle tiempo para hacerlo, establecer qué debe revisar y ofrecer mecanismos de retroalimentación que permitan detectar los errores.
-
-La verificación no debería depender exclusivamente de que cada persona tenga un buen día, sea disciplinada o recuerde desconfiar. Debería formar parte del proceso de trabajo.
+La verificación no debería depender de que cada persona tenga un buen día, sea disciplinada o recuerde desconfiar: debería formar parte del proceso de trabajo. Eso significa dar tiempo para hacerla, establecer qué hay que revisar y ofrecer una retroalimentación que permita detectar los errores.
 
 ## El problema de este test
 
@@ -320,7 +316,7 @@ El propio preprint declara el preregistro y los datos en **osf.io/n84tx**. Ese p
 
 Los cuatro cuadrantes, el cuestionario y el plano de dos ejes son **elaboración propia**. El estudio distingue dos conductas; el resto es una lectura personal y no una categoría validada por nadie.
 
-Y tampoco conviene leer nada de esto como un argumento contra delegar. Confiar en un sistema que sabes que supera tu capacidad en una tarea concreta puede ser perfectamente racional.
+Y tampoco conviene leer nada de esto como un argumento contra delegar.
 
 El problema no es que la IA piense por ti en algún momento. Es que no sepas cuándo lo hace, que no puedas detectar cuándo se equivoca o que termines defendiendo como propia una decisión cuyos fundamentos no comprendes.
 
