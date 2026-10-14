@@ -20,7 +20,7 @@ const MODOS = {
 profesional:{
   rotulo:'Profesional',
   pie:'Para quien usa la IA en su trabajo',
-  titulo:'¿Delegas el trabajo,<br><em>o también el criterio?</em>',
+  titulo:'¿Qué delegas a la IA,<br><em>solo el trabajo o también el criterio?</em>',
   lede:'Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo.<br>Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.',
   como:[
     'Las veinte preguntas tratan de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.',
