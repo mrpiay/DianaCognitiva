@@ -123,6 +123,14 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
 .advice p + p{margin-top:11px}
 .advice b{color:var(--ink); font-weight:500}
+.alerta{
+  margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
+  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
+}
+.alerta b{color:var(--amber-p); font-weight:600}
+.alerta[hidden]{display:none}
+.panel .alerta{margin-top:14px; padding:11px 13px; font-size:12px}
+@media(max-width:940px){.panel .alerta{display:none}}
 .caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
 .caveat b{color:var(--ink-2); font-weight:500}
 .again{margin-top:26px}
@@ -160,6 +168,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <div class="eyebrow" id="r-riesgo">—</div>
     <h2 id="r-name">—</h2>
     <p class="read" id="r-read"></p>
+    <div class="alerta" id="r-alerta" hidden></div>
     <div class="advice" id="r-advice"></div>
     <p class="caveat">
       <b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir
@@ -186,6 +195,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
         <div class="sums" id="n-sums">A 0 · B 0 · faltan 8</div>
       </div>
       <div class="bars" id="bars"></div>
+      <div class="alerta" id="p-alerta" hidden></div>
     </div>
     <p class="foot">Cada eje va de −6 a +6 y las divisiones del plano caen en el cero, que es donde empiezas.</p>
   </div>
@@ -271,6 +281,10 @@ pintar($('#qa'), A, 'a', 1);
 pintar($('#qb'), B, 'b', 5);
 
 const items = k => (k==='a' ? A : B);
+/* P = lo que suma, N = lo que resta. Puntuar alto en ambos polos del mismo eje
+   es contradecirse: el neto queda en cero, pero no por moderación. */
+const polo = (k, signo) => R[k].reduce((t,v,i)=> t + (items(k)[i].s===signo ? (v||0) : 0), 0);
+const incoherente = k => R[k].every(v=>v!==null) && polo(k,+1) >= 4 && polo(k,-1) >= 4;
 const suma  = k => R[k].reduce((s,v,i)=> s + (v||0) * items(k)[i].s, 0);
 const faltan = () => [...R.a, ...R.b].filter(v=>v===null).length;
 const signo = v => (v>0 ? '+' : '') + v;
@@ -375,6 +389,19 @@ function sync(){
   const bars = $('#bars'); bars.innerHTML = '';
   bars.append(barra('Intensidad de uso', a, 'var(--lav)'));
   bars.append(barra('Control crítico', b, 'var(--mint)'));
+
+  const chocan = ['a','b'].filter(incoherente);
+  const aviso = chocan.length
+    ? '<b>Respuestas contradictorias.</b> En el bloque ' + chocan.map(k=>k.toUpperCase()).join(' y el ')
+      + ' has puntuado alto en afirmaciones que dicen lo contrario entre sí, así que el resultado se queda '
+      + 'en el centro por incoherencia y no por moderación. Vuelve sobre '
+      + chocan.map(k => k==='a' ? 'las afirmaciones 3 y 4' : 'las afirmaciones 7 y 8').join(' y sobre ') + '.'
+    : '';
+  ['#r-alerta','#p-alerta'].forEach(sel=>{
+    const n = $(sel);
+    n.innerHTML = aviso;
+    n.hidden = !aviso;
+  });
 
   const res = $('#res');
   if(f===0){
