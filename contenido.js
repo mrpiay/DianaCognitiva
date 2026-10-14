@@ -133,7 +133,7 @@ estudiante:{
   rotulo:'Estudiante',
   pie:'Para clase, de secundaria en adelante',
   titulo:'¿Pilotas tú o <em>vas de pasajero</em>?',
-  lede:'Usar mucho la IA no es el problema. El problema es entregar algo que no sabrías explicar si te la quitaran delante.',
+  lede:'Usar mucho la IA no es el problema.<br>El problema es entregar algo que no sabrías explicar si te la quitaran delante.',
   como:[
     'Son veinte preguntas de sí o no sobre lo mismo: cuánto entra la IA en tus trabajos y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes algo que pasó.',
     '<b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.',
