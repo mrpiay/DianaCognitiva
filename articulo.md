@@ -190,7 +190,7 @@ Por tres razones.
 
 **La intensidad adecuada depende de tu trabajo.** Dos funciones distintas no tienen por qué ocupar el mismo lugar del plano, porque el coste de equivocarse no es el mismo en todas. Los propios Shaw y Nave lo dicen: confiar en un sistema estadísticamente superior en un dominio concreto puede ser adaptativo, incluso óptimo.
 
-**El extremo superior derecho tampoco es la meta.** Un 12 en control crítico significa que lo compruebas todo, y comprobarlo todo cancela la ganancia que te dio delegar. Verificar cuesta tiempo y atención; gastarlos donde no hay riesgo es tan ineficiente como no gastarlos donde sí lo hay.
+**El extremo superior derecho tampoco es la meta.** Un 5 en control crítico significa que lo compruebas todo, y comprobarlo todo cancela la ganancia que te dio delegar. Verificar cuesta tiempo y atención; gastarlos donde no hay riesgo es tan ineficiente como no gastarlos donde sí lo hay.
 
 **Lo que debe cumplirse no es una posición, es una relación.** Tu control tiene que ir al ritmo de tu intensidad. Puedes desplazarte todo lo que quieras hacia la derecha mientras subas a la vez. El problema nunca fue estar a la derecha: fue estar a la derecha y abajo.
 
