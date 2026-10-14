@@ -2,7 +2,7 @@
 """Compone el PDF del cuadernillo.
 
 Chrome no implementa los contadores de página de CSS, así que hay dos pasadas:
-la primera averigua en qué página cae cada sección —para rellenar el índice—,
+la primera averigua en qué página cae cada apartado —para rellenar el índice—
 y la segunda compone el documento definitivo. Los folios se componen aparte y
 se superponen con pypdf, que además escribe los marcadores de navegación.
 """
@@ -15,17 +15,19 @@ TMP    = os.path.dirname(os.path.abspath(__file__))
 FUENTE = os.path.join(BASE, 'guia', 'index.html')
 SALIDA = os.path.join(BASE, 'guia', 'la-diana-cognitiva.pdf')
 
+# clave en el índice · título · texto con el que se localiza (None = clave+título)
 SECCIONES = [
-    ('01', 'Delegar trabajo no es transferir el criterio'),
-    ('02', 'El test: ¿cómo trabajas con la IA?'),
-    ('03', 'Tu posición en el plano'),
-    ('04', '¿Hay un punto óptimo en el plano?'),
-    ('05', 'Dos resultados que complican el diagnóstico'),
-    ('06', 'Lo que sí cambia la conducta'),
-    ('07', 'El problema de este test'),
-    ('08', 'Dónde me ha dejado a mí'),
-    ('09', 'La pregunta que queda'),
-    ('10', 'La fuente y sus límites'),
+    ('00', 'Sobre esta guía',                              'Sobre esta guía'),
+    ('01', 'Delegar trabajo no es transferir el criterio',  None),
+    ('02', 'El test: ¿cómo trabajas con la IA?',            None),
+    ('03', 'Tu posición en el plano',                       None),
+    ('04', '¿Hay un punto óptimo en el plano?',             None),
+    ('05', 'Dos resultados que complican el diagnóstico',   None),
+    ('06', 'Lo que sí cambia la conducta',                  None),
+    ('07', 'El problema de este test',                      None),
+    ('08', 'Dónde me ha dejado a mí',                       None),
+    ('09', 'La pregunta que queda',                         None),
+    ('10', 'La fuente y sus límites',                       None),
 ]
 
 
@@ -44,39 +46,40 @@ def plano(t):
     return re.sub(r'[^0-9a-záéíóúüñ]', '', (t or '').lower())
 
 
-def paginas_de_seccion(pdf):
-    """Primera página en que aparece el título de cada sección."""
+def paginas_de_apartado(pdf):
+    """Primera página en que aparece cada apartado. Portada e índice no cuentan:
+    el propio índice contiene todos los títulos y los capturaría todos."""
     hojas = [plano(p.extract_text()) for p in pypdf.PdfReader(pdf).pages]
     sitio = {}
-    for n, titulo in SECCIONES:
-        aguja = plano(n + titulo)
+    for clave, titulo, aguja in SECCIONES:
+        busca = plano(aguja if aguja else clave + titulo)
         for i, hoja in enumerate(hojas):
-            if i < 2:          # la portada y el propio indice no cuentan
+            if i < 2:
                 continue
-            if aguja in hoja:
-                sitio[n] = i          # índice base 0
+            if busca in hoja:
+                sitio[clave] = i          # índice base 0
                 break
     return sitio, len(hojas)
 
 
-# ── pasada 1: dónde cae cada sección ──
+# ── pasada 1: dónde cae cada apartado ──
 borrador = os.path.join(TMP, 'guia-borrador.pdf')
 componer(borrador)
-sitio, n = paginas_de_seccion(borrador)
-faltan = [k for k, _ in SECCIONES if k not in sitio]
-assert not faltan, 'secciones no localizadas: %s' % faltan
-print('secciones localizadas:', ', '.join('%s en p%d' % (k, v + 1) for k, v in sorted(sitio.items())))
+sitio, n = paginas_de_apartado(borrador)
+faltan = [c for c, _, _ in SECCIONES if c not in sitio]
+assert not faltan, 'apartados no localizados: %s' % faltan
+print('localizados:', ', '.join('%s en p%d' % (c, v + 1) for c, v in sorted(sitio.items())))
 
 # ── rellenar el índice y recomponer ──
 s = io.open(FUENTE, encoding='utf-8').read()
-for k, v in sitio.items():
-    s = re.sub(r'(<span class="pg" data-sec="%s">)[^<]*(</span>)' % k,
+for clave, v in sitio.items():
+    s = re.sub(r'(<span class="pg" data-sec="%s">)[^<]*(</span>)' % clave,
                r'\g<1>%d\g<2>' % (v + 1), s)
 io.open(FUENTE, 'w', encoding='utf-8').write(s)
 
 crudo = os.path.join(TMP, 'guia-sin-folios.pdf')
 componer(crudo)
-sitio, n = paginas_de_seccion(crudo)
+sitio, n = paginas_de_apartado(crudo)
 print('páginas compuestas:', n)
 
 # ── folios: la portada y el índice van sin número ──
@@ -107,8 +110,9 @@ for i, pag in enumerate(libro.pages):
     out.add_page(pag)
 out.add_outline_item('Portada', 0)
 out.add_outline_item('Contenido', 1)
-for k, titulo in SECCIONES:
-    out.add_outline_item('%s · %s' % (k, titulo), sitio[k])
+for clave, titulo, _ in SECCIONES:
+    rotulo = titulo if clave == '00' else '%s · %s' % (clave, titulo)
+    out.add_outline_item(rotulo, sitio[clave])
 with open(SALIDA, 'wb') as f:
     out.write(f)
 

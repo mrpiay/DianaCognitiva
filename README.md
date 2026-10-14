@@ -2,7 +2,7 @@
 
 Un test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: **intensidad de uso** y **control crítico**.
 
-→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (21 páginas)
+→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (22 páginas)
 
 ## Qué mide
 
