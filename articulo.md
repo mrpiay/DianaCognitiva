@@ -85,7 +85,7 @@ Por eso necesitamos dos ejes, no una escala que vaya de «usar poca IA» a «dep
 
 ## El test: veinte preguntas de sí o no
 
-Las veinte van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.
+Las veinte tratan de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.
 
 **Se contestan de una en una, sin intentar que encajen entre sí.** Ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final. Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes.
 
@@ -113,7 +113,7 @@ Las veinte preguntas se reparten en cuatro bloques de cinco: intensidad de uso y
 
 **Tres de cada cinco están escritas en un sentido y dos en el contrario.** Si todas apuntaran al mismo lado, contestar «sí» a todas daría el máximo sin haber dicho nada; de este modo, responder lo mismo a las veinte deja el punto en la casilla más pegada al cruce —un 3 y un 3, o un 2 y un 2— en lugar de mandarlo a una esquina.
 
-Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos de ese bloque— y la división cae entre el 2 y el 3: ninguna puntuación puede quedarse encima de la línea. Lo que no hace el cuestionario es comprobar nada: pregunta y se cree la respuesta, con el problema que eso supone —el apartado 07 va de eso—.
+Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos de ese bloque— y la división cae entre el 2 y el 3: ninguna puntuación puede quedarse encima de la línea. Lo que no hace el cuestionario es comprobar nada: pregunta y se cree la respuesta, con el problema que eso supone —el apartado 07 trata de eso—.
 
 ## Tu posición en el plano
 
