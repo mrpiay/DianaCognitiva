@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La diana cognitiva · guía</title>
+<title>La Diana Cognitiva · guía</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <style>
-/* Librillo 4:5 (200×250 mm), el formato que más pantalla ocupa en el feed de
-   LinkedIn. Una idea por página. Imprimir a PDF sin márgenes ni encabezados. */
+/* Librillo 200×250 mm (4:5). El texto fluye y cada sección abre página.
+   Imprimir sin encabezados ni pies: el formato ya va en @page. */
 :root{
   --ground:#F5F5F9; --surface:#FFFFFF; --line:#E3E3EC; --line-2:#CBCBDA;
   --ink:#191A21; --ink-2:#4E5262; --ink-3:#696E80;
@@ -21,468 +21,444 @@
 }
 *{box-sizing:border-box}
 html{background:#D8D8E2}
-body{margin:0; font-family:var(--sans); color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact}
-h1,h2,h3{font-family:var(--serif); font-weight:400; margin:0; letter-spacing:-.015em; text-wrap:balance}
-p{margin:0}
-b,strong{font-weight:600; color:var(--ink)}
-
-.page{
-  width:200mm; height:250mm; padding:20mm 18mm 16mm; background:var(--surface);
-  position:relative; overflow:hidden; margin:0 auto 8mm; box-shadow:0 2mm 8mm rgba(25,26,33,.14);
-  display:flex; flex-direction:column;
+body{
+  margin:0 auto; background:var(--surface); width:200mm; padding:22mm 26mm 20mm;
+  font-family:var(--serif); font-size:11pt; line-height:1.62; color:var(--ink);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  box-shadow:0 2mm 10mm rgba(25,26,33,.16);
 }
 @media print{
-  @page{size:200mm 250mm; margin:0}
+  @page{size:200mm 250mm; margin:22mm 26mm 20mm}
   html{background:#FFF}
-  .page{margin:0; box-shadow:none; page-break-after:always; break-after:page}
-  .page:last-child{page-break-after:auto; break-after:auto}
+  body{width:auto; padding:0; box-shadow:none; margin:0}
   .noprint{display:none}
 }
-.eyebrow{font-family:var(--mono); font-size:8pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3)}
-.page h2{font-size:23pt; line-height:1.1; margin-top:5mm}
-.lead{font-family:var(--serif); font-size:13pt; line-height:1.5; color:var(--ink-2); margin-top:4mm}
-.body{font-size:10.5pt; line-height:1.62; color:var(--ink-2)}
-.body p+p{margin-top:3mm}
-.folio{
-  position:absolute; left:18mm; right:18mm; bottom:9mm; display:flex; justify-content:space-between;
-  font-family:var(--mono); font-size:7.5pt; color:var(--ink-3); border-top:.4mm solid var(--line); padding-top:2.5mm;
+p{margin:0 0 3.4mm}
+h1,h2,h3{font-family:var(--serif); font-weight:400; margin:0; letter-spacing:-.015em; text-wrap:balance}
+h2{font-size:21pt; line-height:1.14; break-before:page; page-break-before:always; margin:0 0 5mm; padding-bottom:3mm; border-bottom:.4mm solid var(--line)}
+h3{font-size:13.5pt; line-height:1.25; margin:7mm 0 3mm; color:var(--ink); break-after:avoid; page-break-after:avoid}
+h2+p,h3+p{margin-top:0}
+b,strong{font-weight:600}
+em,i{font-style:italic}
+ul{margin:0 0 3.4mm; padding-left:5mm}
+li{margin-bottom:1.6mm}
+.sec-no{font-family:var(--mono); font-size:8.5pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:2mm}
+.lede{font-size:13pt; line-height:1.48; color:var(--ink-2)}
+.pull{
+  font-size:13.5pt; line-height:1.4; color:var(--ink); border-left:.8mm solid var(--lav);
+  padding:1mm 0 1mm 6mm; margin:6mm 0; break-inside:avoid;
 }
-.fill{flex:1}
+.note{background:var(--ground); border-radius:2.5mm; padding:5mm 6mm; margin:6mm 0; font-size:10pt; line-height:1.6; color:var(--ink-2); break-inside:avoid}
+.note p:last-child{margin-bottom:0}
+figure{margin:7mm 0; break-inside:avoid}
+figcaption{font-family:var(--sans); font-size:8.5pt; line-height:1.5; color:var(--ink-3); margin-top:3mm}
+svg{display:block; width:100%; height:auto}
+.url{
+  font-family:var(--mono); font-size:11pt; color:var(--lav-p); background:var(--ground);
+  border:.4mm solid var(--line-2); border-radius:2.5mm; padding:4.5mm; text-align:center; margin:6mm 0; word-break:break-all;
+}
+a{color:var(--lav-p); text-decoration:none}
 
 /* ── portada ─────────────────────────────────────────────── */
-.cover{background:var(--ground); justify-content:space-between}
-.cover h1{font-size:46pt; line-height:.98; font-weight:300}
-.cover .sub{font-family:var(--serif); font-size:16pt; line-height:1.35; color:var(--ink-2); margin-top:6mm; max-width:15em}
-.cover .by{font-family:var(--mono); font-size:9pt; color:var(--ink-3); letter-spacing:.04em}
+.cover{height:206mm; display:flex; flex-direction:column; justify-content:space-between; break-after:page; page-break-after:always}
+.cover h1{font-size:40pt; line-height:1; font-weight:300}
+.cover .sub{font-size:15pt; line-height:1.3; color:var(--ink-2); margin-top:6mm; max-width:16em}
+.cover .by{font-family:var(--mono); font-size:9pt; color:var(--ink-3); letter-spacing:.03em; margin:0}
 .cover .by b{color:var(--ink); font-weight:600}
-.cover-art{margin:10mm 0}
 
-/* ── pares enfrentados ───────────────────────────────────── */
-.duo{display:grid; grid-template-columns:1fr 1fr; gap:5mm; margin-top:7mm}
-.card{border:.4mm solid var(--line-2); border-radius:3mm; padding:6mm}
-.card.a{border-top:1.2mm solid var(--mint)}
-.card.b{border-top:1.2mm solid var(--coral)}
-.card h3{font-size:14pt; margin-bottom:3mm}
-.card.a h3{color:var(--mint-p)} .card.b h3{color:var(--coral-p)}
-.card p{font-size:10pt; line-height:1.55; color:var(--ink-2)}
+/* ── los dos conceptos ───────────────────────────────────── */
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:6mm 0; break-inside:avoid}
+.card{border:.4mm solid var(--line-2); border-radius:2.5mm; padding:5mm}
+.card.a{border-top:1mm solid var(--mint)} .card.b{border-top:1mm solid var(--coral)}
+.card h4{font-family:var(--serif); font-size:12.5pt; font-weight:500; margin:0 0 2.5mm}
+.card.a h4{color:var(--mint-p)} .card.b h4{color:var(--coral-p)}
+.card p{font-family:var(--sans); font-size:9.5pt; line-height:1.55; color:var(--ink-2); margin:0}
 
 /* ── afirmaciones ────────────────────────────────────────── */
-.stmt{display:grid; grid-template-columns:7mm 1fr 34mm; gap:4mm; align-items:center; padding:5mm 0; border-bottom:.4mm solid var(--line)}
+.stmt{display:grid; grid-template-columns:6mm 1fr 26mm; gap:3mm; align-items:center; padding:3.6mm 0; border-bottom:.35mm solid var(--line); break-inside:avoid}
 .stmt .n{font-family:var(--mono); font-size:9pt; color:var(--ink-3)}
-.stmt .t{font-size:10.5pt; line-height:1.5}
-.boxes{display:flex; gap:1.6mm; justify-content:flex-end}
-.boxes i{
-  width:7mm; height:7mm; border:.4mm solid var(--line-2); border-radius:1.5mm; display:flex;
-  align-items:center; justify-content:center; font-family:var(--mono); font-size:8pt; color:var(--ink-3); font-style:normal;
-}
-.sumline{display:flex; align-items:baseline; gap:3mm; margin-top:6mm; font-family:var(--mono); font-size:11pt; color:var(--ink-2)}
-.sumline .slot{border-bottom:.5mm solid var(--ink-3); width:18mm; display:inline-block}
+.stmt .t{font-family:var(--sans); font-size:9.8pt; line-height:1.45}
+.boxes{display:flex; gap:1.3mm; justify-content:flex-end}
+.boxes i{width:5.6mm; height:5.6mm; border:.35mm solid var(--line-2); border-radius:1.2mm; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:7.5pt; color:var(--ink-3); font-style:normal}
+.sum{display:flex; align-items:baseline; gap:3mm; margin-top:4.5mm; font-family:var(--mono); font-size:10.5pt; color:var(--ink-2)}
+.sum .slot{border-bottom:.45mm solid var(--ink-3); width:16mm; display:inline-block}
+.scale{display:flex; gap:5mm; flex-wrap:wrap; margin:4mm 0; padding:3.5mm 5mm; background:var(--ground); border-radius:2.5mm; font-family:var(--sans)}
+.scale span{display:flex; align-items:baseline; gap:1.8mm; font-size:9.2pt; color:var(--ink-2)}
+.scale b{font-family:var(--mono); font-size:8.5pt; color:var(--lav-p)}
 
-/* ── escala ──────────────────────────────────────────────── */
-.scale{display:flex; gap:6mm; flex-wrap:wrap; margin-top:5mm; padding:4mm 5mm; background:var(--ground); border-radius:2.5mm}
-.scale span{display:flex; align-items:baseline; gap:2mm; font-size:9.5pt; color:var(--ink-2)}
-.scale b{font-family:var(--mono); font-size:9pt; color:var(--lav-p)}
+/* ── cifras del estudio ──────────────────────────────────── */
+.bars{margin:5mm 0; break-inside:avoid}
+.bars .row{margin-bottom:3.2mm}
+.bars .lab{display:flex; justify-content:space-between; font-family:var(--sans); font-size:9.2pt; color:var(--ink-2); margin-bottom:1.2mm}
+.bars .lab b{font-family:var(--mono); color:var(--ink)}
+.bars .tr{height:2.8mm; background:var(--ground); border-radius:1.4mm}
+.bars .tr i{display:block; height:100%; border-radius:1.4mm}
 
-/* ── posiciones ──────────────────────────────────────────── */
-.quad{display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:6mm}
-.q{border:.4mm solid var(--line-2); border-radius:3mm; padding:5mm; display:flex; flex-direction:column}
-.q .nm{font-family:var(--serif); font-size:13pt; line-height:1.15}
-.q .ax{font-family:var(--mono); font-size:7.5pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-top:1.5mm}
-.q .tx{font-size:9.5pt; line-height:1.5; color:var(--ink-2); margin-top:3mm}
-.q .do{font-size:9.5pt; line-height:1.5; margin-top:auto; padding-top:3mm; border-top:.4mm solid var(--line)}
-.q.l1{border-top:1mm solid var(--lav)} .q.l1 .nm{color:var(--lav-p)}
-.q.l2{border-top:1mm solid var(--mint)} .q.l2 .nm{color:var(--mint-p)}
-.q.l3{border-top:1mm solid var(--coral)} .q.l3 .nm{color:var(--coral-p)}
-.q.l4{border-top:1mm solid var(--amber)} .q.l4 .nm{color:var(--amber-p)}
-
-/* ── cifras ──────────────────────────────────────────────── */
-.figs{display:flex; flex-direction:column; gap:4mm; margin-top:7mm}
-.fig{display:grid; grid-template-columns:30mm 1fr; gap:5mm; align-items:baseline}
-.fig .v{font-family:var(--mono); font-size:22pt; line-height:1; text-align:right}
-.fig .d{font-size:10pt; line-height:1.5; color:var(--ink-2)}
-.bar{height:3mm; background:var(--ground); border-radius:1.5mm; position:relative; margin-top:2mm}
-.bar i{position:absolute; left:0; top:0; bottom:0; border-radius:1.5mm; display:block}
-
-/* ── reproducción de la herramienta ──────────────────────── */
-.shot{border:.4mm solid var(--line-2); border-radius:3mm; overflow:hidden; margin-top:6mm; background:var(--ground)}
-.shot-bar{display:flex; align-items:center; gap:2mm; padding:2.5mm 4mm; background:#E7E7F1; border-bottom:.4mm solid var(--line-2)}
-.shot-bar i{width:2.4mm; height:2.4mm; border-radius:50%; background:var(--line-2); display:block}
-.shot-bar span{font-family:var(--mono); font-size:7.5pt; color:var(--ink-3); margin-left:2mm}
-.shot-in{display:grid; grid-template-columns:1fr 62mm; gap:5mm; padding:5mm; background:var(--surface)}
-.mini-q{font-size:9pt; line-height:1.45; padding:2.5mm 0; border-bottom:.4mm solid var(--line); display:flex; justify-content:space-between; gap:3mm; align-items:center}
-.mini-q em{font-style:normal; color:var(--ink-2)}
-.pick{display:flex; gap:1mm}
-.pick i{width:5.5mm; height:5mm; border:.35mm solid var(--line-2); border-radius:1mm; font-family:var(--mono); font-size:7pt; color:var(--ink-3); display:flex; align-items:center; justify-content:center; font-style:normal}
-.pick i.on{background:var(--lav); border-color:var(--lav); color:#FFF; font-weight:600}
-.panel{border:.4mm solid var(--line); border-radius:2.5mm; padding:4mm; background:var(--surface)}
-.panel .tag{font-family:var(--mono); font-size:7pt; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
-.panel .nm{font-family:var(--serif); font-size:13pt; margin-top:1.5mm; color:var(--coral-p); line-height:1.15}
-.panel .sm{font-family:var(--mono); font-size:8pt; color:var(--ink-3); margin-top:2mm}
-.caption{font-size:9pt; line-height:1.55; color:var(--ink-3); margin-top:4mm}
-
-/* ── cierre ──────────────────────────────────────────────── */
-.url{
-  font-family:var(--mono); font-size:13pt; color:var(--lav-p); background:var(--ground);
-  border:.4mm solid var(--line-2); border-radius:2.5mm; padding:5mm; text-align:center; margin-top:6mm; word-break:break-all;
-}
-.note{background:var(--ground); border-radius:2.5mm; padding:5mm 6mm; margin-top:6mm; font-size:9.5pt; line-height:1.6; color:var(--ink-2)}
-.src{font-size:9pt; line-height:1.6; color:var(--ink-3); margin-top:4mm}
-.src a{color:var(--lav-p)}
-svg{display:block; width:100%; height:auto}
-.toolbar{position:fixed; top:4mm; right:4mm; z-index:9; background:var(--ink); color:#FFF; border:0; border-radius:2mm; padding:3mm 5mm; font-family:var(--sans); font-size:10pt; cursor:pointer}
+.closing{font-family:var(--serif); font-size:13pt; line-height:1.4; color:var(--ink); background:var(--ground); border-radius:2.5mm; padding:6mm; margin:6mm 0; break-inside:avoid}
+.toolbar{position:fixed; top:4mm; z-index:9; background:var(--ink); color:#FFF; border:0; border-radius:2mm; padding:3mm 5mm; font-family:var(--sans); font-size:10pt; cursor:pointer; text-decoration:none}
 </style>
 </head>
 <body>
 
-<a class="toolbar noprint" href="la-diana-cognitiva.pdf" download style="text-decoration:none;right:46mm">Descargar PDF</a>
-<button class="toolbar noprint" onclick="window.print()">Imprimir</button>
+<a class="toolbar noprint" href="la-diana-cognitiva.pdf" download style="right:44mm">Descargar PDF</a>
+<button class="toolbar noprint" onclick="window.print()" style="right:4mm">Imprimir</button>
 
-<!-- 1 · PORTADA ─────────────────────────────────────────── -->
-<section class="page cover">
+<!-- ═════ PORTADA ═════ -->
+<section class="cover">
   <div>
-    <div class="eyebrow">Guía · autoevaluación</div>
-    <h1>La diana<br>cognitiva</h1>
-    <p class="sub">Delegar en la IA sin transferirle el criterio</p>
+    <span class="sec-no">Guía de autoevaluación</span>
+    <h1>La Diana<br>Cognitiva</h1>
+    <p class="sub">Guía para la autoevaluación del uso personal de la IA</p>
   </div>
 
-  <div class="cover-art">
-    <svg viewBox="0 0 440 300" role="img" aria-label="Plano de dos ejes con cuatro posiciones">
-      <rect x="60" y="20" width="340" height="230" rx="6" fill="none" stroke="#CBCBDA" stroke-width="1"/>
-      <rect x="60" y="20" width="198" height="96" fill="#725BAC" opacity=".16"/>
-      <rect x="258" y="20" width="142" height="96" fill="#499E79" opacity=".16"/>
-      <rect x="60" y="116" width="198" height="134" fill="#8A6516" opacity=".16"/>
-      <rect x="258" y="116" width="142" height="134" fill="#A24E3C" opacity=".16"/>
-      <line x1="258" y1="20" x2="258" y2="250" stroke="#CBCBDA" stroke-width="1"/>
-      <line x1="60" y1="116" x2="400" y2="116" stroke="#CBCBDA" stroke-width="1"/>
-      <circle cx="310" cy="160" r="20" fill="#725BAC" opacity=".16"/>
-      <circle cx="310" cy="160" r="8" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>
-      <text x="230" y="276" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
-      <text transform="translate(26,135) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
+  <div>
+    <svg viewBox="0 0 440 290" role="img" aria-label="Plano de dos ejes con cuatro posiciones">
+      <rect x="56" y="16" width="344" height="232" rx="6" fill="none" stroke="#B4B4C8" stroke-width="1"/>
+      <rect x="56" y="16" width="201" height="97" fill="#725BAC" opacity=".18"/>
+      <rect x="257" y="16" width="143" height="97" fill="#499E79" opacity=".18"/>
+      <rect x="56" y="113" width="201" height="135" fill="#8A6516" opacity=".18"/>
+      <rect x="257" y="113" width="143" height="135" fill="#A24E3C" opacity=".18"/>
+      <line x1="257" y1="16" x2="257" y2="248" stroke="#B4B4C8" stroke-width="1"/>
+      <line x1="56" y1="113" x2="400" y2="113" stroke="#B4B4C8" stroke-width="1"/>
+      <circle cx="312" cy="158" r="19" fill="#725BAC" opacity=".16"/>
+      <circle cx="312" cy="158" r="7.5" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="228" y="272" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
+      <text transform="translate(24,132) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
     </svg>
   </div>
 
   <div>
     <p class="by">Por <b>Mr. Piay Pombo</b></p>
     <p class="by" style="margin-top:2mm">Ocho afirmaciones · dos minutos · una posición</p>
+    <p class="by" style="margin-top:5mm">mrpiay.github.io/DianaCognitiva</p>
   </div>
 </section>
 
-<!-- 2 · LA DISTINCIÓN ───────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">01 · La distinción</div>
-  <h2>Delegar trabajo no es transferir el criterio</h2>
-  <p class="lead">Dos personas pueden pasar la misma jornada consultando un asistente y terminar en situaciones muy distintas.</p>
+<!-- ═════ APERTURA ═════ -->
+<p>Imagina este experimento.</p>
 
-  <div class="duo">
-    <div class="card a">
-      <h3>Delegación de trabajo</h3>
-      <p>Transfieres una tarea, pero conservas la responsabilidad de evaluar el resultado. Tú decides si la respuesta es válida, qué comprobar y qué descartar.</p>
-    </div>
-    <div class="card b">
-      <h3>Transferencia de criterio</h3>
-      <p>La respuesta empieza a sustituir tu propia evaluación. Aceptas una conclusión sin examinarla, confundes fluidez con fundamento o defiendes algo que no entiendes del todo.</p>
-    </div>
+<p>Reúnes a varios cientos de personas y les pides que resuelvan problemas de razonamiento. De esos que tienen una respuesta intuitiva que aparece sola y resulta ser falsa, y otra correcta que exige detenerse a pensar.</p>
+
+<p>A una parte del grupo la dejas trabajar por su cuenta. A la otra le das un asistente de IA que puede consultar cuantas veces quiera. Lo que esas personas no saben es que has amañado el asistente: unas veces responde bien y otras devuelve, con el mismo tono seguro y una explicación igual de convincente, precisamente la respuesta equivocada.</p>
+
+<p>Y entonces mides dos cosas. Cuántas veces siguen al asistente cuando se equivoca. Y qué le ocurre a su porcentaje de aciertos.</p>
+
+<p>Antes de seguir leyendo, arriesga una cifra. ¿Qué proporción de personas crees que adoptaría una respuesta errónea presentada con seguridad? ¿Y crees que, en conjunto, tener el asistente les dejaría mejor o peor que no tenerlo?</p>
+
+<p>El experimento existe. Lo hicieron Steven D. Shaw y Gideon Nave, de The Wharton School. Estos son los números.</p>
+
+<p><b>Cuando los participantes consultaban a la IA y esta se equivocaba, seguían su recomendación en el 79,8 % de los casos.</b> Solo la rechazaban en aproximadamente dos de cada diez ocasiones.</p>
+
+<p>Y eso tenía consecuencias en sus resultados: quienes resolvían los problemas sin ayuda acertaban el 45,8 % de las veces; quienes tenían el asistente disponible acertaban el 71 % cuando este daba la respuesta correcta, pero solo el 31,5 % cuando daba una respuesta equivocada.</p>
+
+<div class="bars">
+  <div class="row"><div class="lab"><span>Sin IA</span><b>45,8 %</b></div><div class="tr"><i style="width:45.8%;background:#696E80"></i></div></div>
+  <div class="row"><div class="lab"><span>Con IA, cuando acertaba</span><b>71,0 %</b></div><div class="tr"><i style="width:71%;background:#499E79"></i></div></div>
+  <div class="row"><div class="lab"><span>Con IA, cuando se equivocaba</span><b>31,5 %</b></div><div class="tr"><i style="width:31.5%;background:#A24E3C"></i></div></div>
+</div>
+
+<p>Es decir, <b>la IA podía mejorar el rendimiento, pero también empeorarlo por debajo del nivel de quienes razonaban sin ella</b>.</p>
+
+<p>El problema no era consultar una herramienta. Era seguirla incluso cuando se equivocaba.</p>
+
+<p>El trabajo recoge tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos. Los autores llaman al fenómeno <b>rendición cognitiva</b> (<i>cognitive surrender</i>): la tendencia a ceder el juicio propio ante una respuesta de IA, especialmente cuando llega con fluidez, seguridad y sin fricción.</p>
+
+<p>Lo inquietante no es que una máquina se equivoque. Eso ya lo sabemos. Lo inquietante es que su error pueda convertirse en nuestro criterio sin que nos demos cuenta.</p>
+
+<p>La pregunta, por tanto, no es cuánto usas la IA. Es otra, más incómoda y más personal:</p>
+
+<p class="pull">Cuando la IA trabaja contigo, ¿sigues decidiendo tú?</p>
+
+<p>Esta guía propone una forma de orientarte. Ocho afirmaciones, dos minutos y un lugar en un plano. No es un diagnóstico científico, pero puede ayudarte a identificar tus hábitos de trabajo y, sobre todo, a formularte las preguntas adecuadas.</p>
+
+<!-- ═════ 1 ═════ -->
+<h2><span class="sec-no">01</span>Delegar trabajo no es transferir el criterio</h2>
+
+<p>La conversación pública suele plantear una disyuntiva demasiado simple: cuanto más utilizas la IA, más dependes de ella y peor piensas.</p>
+
+<p>Pero usar una herramienta con frecuencia no equivale a renunciar al criterio. Dos personas pueden pasar la misma jornada consultando un asistente y terminar en situaciones cognitivas muy distintas.</p>
+
+<p>La diferencia empieza por distinguir dos conductas.</p>
+
+<div class="duo">
+  <div class="card a">
+    <h4>Delegación de trabajo</h4>
+    <p>Transfieres una tarea a la IA, pero conservas la responsabilidad de evaluar el resultado. Tú decides si la respuesta es válida, qué comprobar y qué merece ser descartado.</p>
   </div>
-
-  <div class="body" style="margin-top:7mm">
-    <p>En el primer caso transfieres trabajo. En el segundo transfieres también parte del juicio que debería permitirte evaluar ese trabajo.</p>
-    <p>En el fondo, todo esto es <b>delegación con supervisión frente a delegación sin supervisión</b>. Las dos son delegación. Lo único que cambia es si alguien mira el resultado.</p>
-    <p>Y hay una razón para que la segunda tenga nombre propio: no supervisar una vez es un descuido; no supervisar de forma sostenida es otra cosa. La capacidad de juzgar un trabajo se mantiene ejerciéndola. Cuando deja de ejercerse, el problema ya no es que no mires, sino que <b>cuando quieras mirar no sabrás qué estás mirando</b>.</p>
+  <div class="card b">
+    <h4>Transferencia de criterio</h4>
+    <p>La IA no solo ejecuta la tarea: su respuesta empieza a sustituir tu propia evaluación. Aceptas una conclusión sin examinarla, confundes fluidez con fundamento o defiendes algo sin entender del todo por qué es correcto.</p>
   </div>
+</div>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>2</span></div>
-</section>
+<p>Delegar no significa desentenderse. Significa saber qué puedes encomendar a una herramienta sin renunciar a comprender y supervisar el resultado.</p>
 
-<!-- 3 · DOS EJES ────────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">02 · El marco</div>
-  <h2>Por eso hacen falta dos ejes</h2>
-  <p class="lead">La conversación pública plantea una disyuntiva demasiado simple: cuanta más IA usas, peor piensas. Pero usar mucho una herramienta no equivale a renunciar al criterio.</p>
+<p>En el primer caso, transfieres trabajo. En el segundo, también transfieres parte del juicio que debería permitirte evaluar ese trabajo.</p>
 
-  <div class="duo" style="margin-top:8mm">
-    <div class="card" style="border-top:1.2mm solid var(--lav)">
-      <h3 style="color:var(--lav-p)">Intensidad de uso</h3>
-      <p>Con qué frecuencia recurres a la IA y hasta qué punto interviene en las tareas importantes de tu trabajo.</p>
-    </div>
-    <div class="card" style="border-top:1.2mm solid var(--mint)">
-      <h3 style="color:var(--mint-p)">Control crítico</h3>
-      <p>Cuánto verificas, cuestionas y contrastas sus respuestas antes de aceptarlas.</p>
-    </div>
-  </div>
+<p>En el fondo, todo esto es <b>delegación con supervisión frente a delegación sin supervisión</b>. Las dos son delegación. Lo único que cambia es si alguien mira el resultado.</p>
 
-  <div class="body" style="margin-top:8mm">
-    <p>Puedes usar la IA de forma intensiva y conservar una elevada autonomía. Puedes recurrir a ella de vez en cuando y aceptar sin examen la primera respuesta convincente. Y puedes no usarla apenas y confiar demasiado en tu propia intuición.</p>
-    <p>Son dos dimensiones independientes. Por eso hace falta un plano, y no una escala que vaya de «usar poca IA» a «depender demasiado de ella».</p>
-  </div>
+<p>Entonces, ¿por qué llamar a la segunda transferencia de criterio y no simplemente delegar sin supervisar? Porque no supervisar una vez es un descuido, y no supervisar de forma sostenida es otra cosa. La capacidad de juzgar un trabajo se mantiene ejerciéndola. Cuando deja de ejercerse, el problema ya no es que no mires: es que, cuando quieras mirar, no sabrás qué estás mirando.</p>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>3</span></div>
-</section>
+<p>Esta distinción cambia la pregunta. Ya no se trata de decidir si utilizar mucha IA es bueno o malo, sino de entender <b>cuánto trabajo delegas y cuánto criterio conservas</b>.</p>
 
-<!-- 4 · BLOQUE A ────────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">03 · El test · Bloque A</div>
-  <h2>Intensidad de uso</h2>
-  <p class="lead">Puntúa pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar.</p>
+<p>Son dos dimensiones diferentes:</p>
 
-  <div class="scale">
-    <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
-  </div>
+<ul>
+  <li><b>Intensidad de uso:</b> con qué frecuencia recurres a la IA y hasta qué punto interviene en las tareas importantes de tu trabajo.</li>
+  <li><b>Control crítico:</b> cuánto verificas, cuestionas y contrastas sus respuestas antes de aceptarlas.</li>
+</ul>
 
-  <div style="margin-top:6mm">
-    <div class="stmt"><span class="n">1</span><span class="t">Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">2</span><span class="t">Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">3</span><span class="t">En una jornada normal, consulto la IA más de cinco veces.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">4</span><span class="t">Si mañana la IA dejara de estar disponible, mi ritmo de trabajo caería de forma notable.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-  </div>
+<p>Puedes utilizar la IA de forma intensiva y conservar una elevada autonomía. También puedes recurrir a ella de vez en cuando y aceptar sin examen la primera respuesta convincente que recibas. Y puedes no utilizarla apenas y confiar demasiado en tu propia intuición.</p>
 
-  <div class="sumline"><span>Suma del bloque A</span><span class="slot"></span><span>/ 12</span></div>
+<p>Por eso necesitamos dos ejes, no una escala que vaya de «usar poca IA» a «depender demasiado de ella».</p>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>4</span></div>
-</section>
+<!-- ═════ 2 ═════ -->
+<h2><span class="sec-no">02</span>El test: ¿cómo trabajas con la IA?</h2>
 
-<!-- 5 · BLOQUE B ────────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">03 · El test · Bloque B</div>
-  <h2>Control crítico</h2>
-  <p class="lead">Este bloque pide honestidad incómoda: describe lo que haces, no lo que sabes que deberías hacer.</p>
+<p>Ocho afirmaciones. Puntúa cada una pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar ni en cómo crees que deberías hacerlo.</p>
 
-  <div class="scale">
-    <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
-  </div>
+<div class="scale">
+  <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
+</div>
 
-  <div style="margin-top:6mm">
-    <div class="stmt"><span class="n">5</span><span class="t">Aunque una respuesta me encaje, compruebo al menos un dato, una fuente o un paso del razonamiento.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">6</span><span class="t">Recientemente he descartado alguna respuesta de la IA porque me ha parecido incorrecta o insuficientemente fundamentada.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">7</span><span class="t">Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-    <div class="stmt"><span class="n">8</span><span class="t">Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-  </div>
+<p>Responde con honestidad. Este test no mide tu inteligencia ni tu competencia profesional. Intenta describir dos hábitos: cuánto trabajo transfieres a la IA y cuánto examinas sus respuestas.</p>
 
-  <div class="sumline"><span>Suma del bloque B</span><span class="slot"></span><span>/ 12</span></div>
+<h3>Bloque A · Intensidad de uso</h3>
 
-  <p class="caption">Sobre la afirmación 8: no basta con poder explicar de qué trata una entrega. La prueba es si podrías reconstruir su razonamiento y defender sus decisiones ante alguien que las cuestionara.</p>
+<div class="stmt"><span class="n">1</span><span class="t">Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">2</span><span class="t">Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">3</span><span class="t">En una jornada normal, consulto la IA más de cinco veces.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">4</span><span class="t">Si mañana la IA dejara de estar disponible, mi ritmo de trabajo caería de forma notable.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="sum"><span>Suma del bloque A</span><span class="slot"></span><span>/ 12</span></div>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>5</span></div>
-</section>
+<h3>Bloque B · Control crítico</h3>
 
-<!-- 6 · EL PLANO ────────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">04 · El resultado</div>
-  <h2>Tu posición en el plano</h2>
-  <p class="lead">Cada eje se puntúa de 0 a 12 y corta en 7. Lleva tus dos sumas a los ejes y marca dónde se cruzan.</p>
+<div class="stmt"><span class="n">5</span><span class="t">Aunque una respuesta me encaje, compruebo al menos un dato, una fuente o un paso del razonamiento.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">6</span><span class="t">Recientemente he descartado alguna respuesta de la IA porque me ha parecido incorrecta o insuficientemente fundamentada.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">7</span><span class="t">Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="stmt"><span class="n">8</span><span class="t">Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.</span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
+<div class="sum"><span>Suma del bloque B</span><span class="slot"></span><span>/ 12</span></div>
 
-  <div style="margin-top:7mm">
-    <svg viewBox="0 0 560 420" role="img" aria-label="Plano con los cuatro cuadrantes y sus riesgos">
-      <text x="152" y="26" fill="#5E4A93" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">APOYO PUNTUAL</text>
-      <text x="152" y="43" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas poco, verificas</text>
-      <text x="430" y="26" fill="#2F7A5C" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">DELEGACIÓN</text>
-      <text x="430" y="43" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas mucho, verificas</text>
+<h3>Cómo interpretar las puntuaciones</h3>
 
-      <rect x="60" y="56" width="440" height="280" rx="6" fill="none" stroke="#B4B4C8" stroke-width="1"/>
-      <rect x="60" y="56" width="257" height="117" fill="#725BAC" opacity=".18"/>
-      <rect x="317" y="56" width="183" height="117" fill="#499E79" opacity=".18"/>
-      <rect x="60" y="173" width="257" height="163" fill="#8A6516" opacity=".18"/>
-      <rect x="317" y="173" width="183" height="163" fill="#A24E3C" opacity=".18"/>
-      <line x1="317" y1="56" x2="317" y2="336" stroke="#B4B4C8" stroke-width="1"/>
-      <line x1="60" y1="173" x2="500" y2="173" stroke="#B4B4C8" stroke-width="1"/>
+<p>Para construir el plano, utiliza un umbral orientativo de 7 puntos. De 0 a 6, puntuación baja en esa dimensión; de 7 a 12, puntuación alta. Con las dos puntuaciones puedes situarte en uno de los cuatro cuadrantes.</p>
 
-      <text x="60" y="52" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end" dx="-8">12</text>
-      <text x="60" y="177" fill="#191A21" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="end" dx="-8">7</text>
-      <text x="60" y="340" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end" dx="-8">0</text>
-      <text x="60" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">0</text>
-      <text x="317" y="356" fill="#191A21" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="middle">7</text>
-      <text x="500" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">12</text>
+<p>Una precisión sobre la pregunta 8: no basta con poder explicar de qué trata una entrega. La prueba es si podrías reconstruir su razonamiento y defender sus decisiones ante alguien que las cuestionara.</p>
 
-      <text x="152" y="378" fill="#6F5112" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">AUTONOMÍA INTUITIVA</text>
-      <text x="152" y="395" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">ni consultas ni verificas</text>
-      <text x="430" y="378" fill="#8A3D2D" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">TRANSFERENCIA</text>
-      <text x="430" y="395" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas mucho, no verificas</text>
+<p>Y otra precisión importante: <b>el umbral de 7 es una convención práctica de este test, no un punto de corte validado por la investigación</b>. Las puntuaciones describen tus respuestas, no establecen una categoría psicológica demostrada.</p>
 
-      <text x="280" y="414" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
-      <text transform="translate(22,196) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
-    </svg>
-  </div>
+<p>Si prefieres no sumar a mano, hay una versión interactiva de este mismo test: las ocho afirmaciones, el plano y tu posición moviéndose con cada respuesta.</p>
 
-  <p class="caption">El umbral de 7 es una convención práctica de esta guía, no un punto de corte validado por la investigación. Un punto arriba o abajo puede cambiar el cuadrante: léelo como una zona, no como una frontera.</p>
+<div class="url">mrpiay.github.io/DianaCognitiva</div>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>6</span></div>
-</section>
+<!-- ═════ 3 ═════ -->
+<h2><span class="sec-no">03</span>Tu posición en el plano</h2>
 
-<!-- 7 · LAS CUATRO POSICIONES ───────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">05 · Qué significa cada una</div>
-  <h2>Las cuatro posiciones</h2>
+<figure>
+  <svg viewBox="0 0 560 420" role="img" aria-label="Plano con los cuatro cuadrantes y sus riesgos">
+    <text x="152" y="26" fill="#5E4A93" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">APOYO PUNTUAL</text>
+    <text x="152" y="43" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas poco, verificas</text>
+    <text x="430" y="26" fill="#2F7A5C" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">DELEGACIÓN DE TRABAJO</text>
+    <text x="430" y="43" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas mucho, verificas</text>
 
-  <div class="quad">
-    <div class="q l1">
-      <span class="nm">Apoyo puntual</span>
-      <span class="ax">Uso bajo · control alto</span>
-      <p class="tx">Tu criterio sigue intacto. El riesgo no es perder autonomía, sino dejar sin usar una herramienta que podría ampliar tu capacidad.</p>
-      <p class="do"><b>Prueba:</b> delega una tarea repetitiva y conserva la revisión.</p>
-    </div>
-    <div class="q l2">
-      <span class="nm">Delegación de trabajo</span>
-      <span class="ax">Uso alto · control alto</span>
-      <p class="tx">Productividad sin convertir la máquina en autoridad. Es frágil: verificar exige tiempo, lo primero que desaparece con prisa.</p>
-      <p class="do"><b>Protege:</b> haz de la verificación un procedimiento, no una virtud personal.</p>
-    </div>
-    <div class="q l3">
-      <span class="nm">Transferencia de criterio</span>
-      <span class="ax">Uso alto · control bajo</span>
-      <p class="tx">Mientras el sistema acierte, los resultados serán buenos. El problema llega cuando no detectas un error y te faltan elementos para corregirlo.</p>
-      <p class="do"><b>Empieza:</b> reconstruye sin ayuda el razonamiento de una entrega reciente.</p>
-    </div>
-    <div class="q l4">
-      <span class="nm">Autonomía intuitiva</span>
-      <span class="ax">Uso bajo · control bajo</span>
-      <p class="tx">El riesgo no viene de la máquina: exceso de confianza en el propio juicio, hábitos repetidos, primeras impresiones sin contrastar.</p>
-      <p class="do"><b>Introduce:</b> un contraste externo en las decisiones importantes.</p>
-    </div>
-  </div>
+    <rect x="60" y="56" width="440" height="280" rx="6" fill="none" stroke="#B4B4C8" stroke-width="1"/>
+    <rect x="60" y="56" width="257" height="117" fill="#725BAC" opacity=".18"/>
+    <rect x="317" y="56" width="183" height="117" fill="#499E79" opacity=".18"/>
+    <rect x="60" y="173" width="257" height="163" fill="#8A6516" opacity=".18"/>
+    <rect x="317" y="173" width="183" height="163" fill="#A24E3C" opacity=".18"/>
+    <line x1="317" y1="56" x2="317" y2="336" stroke="#B4B4C8" stroke-width="1"/>
+    <line x1="60" y1="173" x2="500" y2="173" stroke="#B4B4C8" stroke-width="1"/>
 
-  <div class="note">
-    <b>¿Hay un punto óptimo?</b> No. La intensidad adecuada depende del coste de equivocarse en tu trabajo, y un 12 en control significa que lo compruebas todo, lo que cancela la ganancia de haber delegado. Lo que debe cumplirse no es una posición sino una relación: <b>el control tiene que ir al ritmo de la intensidad</b>. No hay punto óptimo, pero sí una dirección prohibida — avanzar hacia la derecha sin subir.
-  </div>
+    <text x="52" y="60" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">12</text>
+    <text x="52" y="177" fill="#191A21" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="end">7</text>
+    <text x="52" y="340" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">0</text>
+    <text x="60" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">0</text>
+    <text x="317" y="356" fill="#191A21" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="middle">7</text>
+    <text x="500" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">12</text>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>7</span></div>
-</section>
+    <text x="152" y="378" fill="#6F5112" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">AUTONOMÍA INTUITIVA</text>
+    <text x="152" y="395" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">ni consultas ni verificas</text>
+    <text x="430" y="378" fill="#8A3D2D" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.2" text-anchor="middle">TRANSFERENCIA DE CRITERIO</text>
+    <text x="430" y="395" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" text-anchor="middle">usas mucho, no verificas</text>
 
-<!-- 8 · LA HERRAMIENTA ──────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">06 · La versión interactiva</div>
-  <h2>Si prefieres no sumar a mano</h2>
-  <p class="lead">Las mismas ocho afirmaciones, con el plano siempre a la vista y el punto moviéndose en cada respuesta.</p>
+    <text x="280" y="414" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
+    <text transform="translate(22,196) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
+  </svg>
+  <figcaption>Cada posición tiene su propio riesgo. Las divisiones caen en 7 sobre 12, el mismo umbral con el que se puntúa.</figcaption>
+</figure>
 
-  <div class="shot">
-    <div class="shot-bar"><i></i><i></i><i></i><span>mrpiay.github.io/DianaCognitiva</span></div>
-    <div class="shot-in">
-      <div>
-        <div class="mini-q"><em>1. Ante una tarea nueva, abro la IA antes de intentar nada…</em><span class="pick"><i>0</i><i>1</i><i>2</i><i class="on">3</i></span></div>
-        <div class="mini-q"><em>2. La utilizo en tareas del núcleo de mi criterio…</em><span class="pick"><i>0</i><i>1</i><i class="on">2</i><i>3</i></span></div>
-        <div class="mini-q"><em>3. En una jornada normal la consulto más de cinco veces.</em><span class="pick"><i>0</i><i>1</i><i>2</i><i class="on">3</i></span></div>
-        <div class="mini-q" style="border:0"><em>4. Si mañana dejara de estar disponible, mi ritmo caería…</em><span class="pick"><i>0</i><i class="on">1</i><i>2</i><i>3</i></span></div>
-      </div>
-      <div class="panel">
-        <svg viewBox="0 0 200 200" role="img" aria-label="Plano compacto con el punto del ejemplo">
-          <rect x="4" y="4" width="192" height="192" rx="5" fill="none" stroke="#B4B4C8" stroke-width="1"/>
-          <rect x="4" y="4" width="112" height="80" fill="#725BAC" opacity=".18"/>
-          <rect x="116" y="4" width="80" height="80" fill="#499E79" opacity=".18"/>
-          <rect x="4" y="84" width="112" height="112" fill="#8A6516" opacity=".18"/>
-          <rect x="116" y="84" width="80" height="112" fill="#A24E3C" opacity=".18"/>
-          <line x1="116" y1="4" x2="116" y2="196" stroke="#B4B4C8" stroke-width="1"/>
-          <line x1="4" y1="84" x2="196" y2="84" stroke="#B4B4C8" stroke-width="1"/>
-          <circle cx="148" cy="100" r="11" fill="#725BAC" opacity=".16"/>
-          <circle cx="148" cy="100" r="5.5" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>
-        </svg>
-        <div class="tag" style="margin-top:3mm">Tu posición</div>
-        <div class="nm">Transferencia de criterio</div>
-        <div class="sm">A 9/12 · B 6/12</div>
-      </div>
-    </div>
-  </div>
+<h3>1. Apoyo puntual: la IA como recurso de consulta</h3>
+<p><b>Uso bajo · Control crítico alto.</b> Recurres poco a la IA y declaras que examinas sus respuestas con cuidado.</p>
+<p>Tu principal riesgo no es la pérdida de autonomía, sino dejar sin aprovechar una herramienta que podría ampliar tu capacidad. Quizá sigues resolviendo manualmente tareas que podrías delegar sin comprometer tu criterio. La IA funciona aquí como un recurso de apoyo: una segunda perspectiva, una fuente de alternativas o una forma de contrastar una idea.</p>
+<p><b>Qué probar:</b> elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta. Delega una parte, pero conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.</p>
 
-  <p class="caption"><b>Ejemplo.</b> Con A&nbsp;=&nbsp;9 y B&nbsp;=&nbsp;6 el resultado cae en transferencia de criterio por un solo punto: con un 7 en el bloque B sería delegación de trabajo. No es una posición recomendada ni típica — ilustra lo fina que es la línea y por qué conviene leer el plano como una zona.</p>
+<h3>2. Delegación de trabajo: ampliar tu capacidad sin abdicar</h3>
+<p><b>Uso alto · Control crítico alto.</b> Utilizas mucho la IA y declaras que mantienes el control crítico.</p>
+<p>Es la combinación que buscas cuando quieres obtener productividad sin convertir la respuesta de la máquina en una autoridad automática. Delegas ejecución, análisis o producción, pero sigues evaluando lo que recibes.</p>
+<p>Sin embargo, esta posición tiene una fragilidad: verificar requiere tiempo y esfuerzo, justo lo primero que desaparece cuando hay prisa. Además, declarar que verificas no garantiza que lo hagas siempre. La diferencia entre la intención y la conducta real puede ser considerable.</p>
+<p><b>Qué proteger:</b> convierte la verificación en un procedimiento, no en una virtud personal. Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin una revisión humana. Delegar bien no significa revisar absolutamente todo: significa saber dónde está el riesgo y concentrar ahí el esfuerzo.</p>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>8</span></div>
-</section>
+<h3>3. Transferencia de criterio: cuando la respuesta sustituye al juicio</h3>
+<p><b>Uso alto · Control crítico bajo.</b> Utilizas mucho la IA y declaras que examinas poco sus respuestas.</p>
+<p>Eso no significa que trabajes mal. Mientras el sistema acierte, puedes obtener resultados excelentes. El problema aparece cuando no detectas un error y careces de los elementos necesarios para corregirlo. Tus entregas pueden seguir llevando tu nombre, pero su calidad depende cada vez más de algo que no controlas por completo.</p>
+<p>La transferencia de criterio no consiste simplemente en aceptar ayuda. Consiste en perder capacidad para distinguir entre una respuesta convincente y una respuesta justificada.</p>
+<p><b>Qué hacer:</b> empieza por la pregunta 8. Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.</p>
 
-<!-- 9 · EL ESTUDIO ──────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">07 · De dónde sale esto</div>
-  <h2>El experimento</h2>
-  <p class="lead">Participantes resolviendo problemas de razonamiento con un asistente de IA amañado: unas veces acertaba y otras daba, con total seguridad, la respuesta equivocada.</p>
+<h3>4. Autonomía intuitiva: confiar en el propio criterio sin contrastarlo</h3>
+<p><b>Uso bajo · Control crítico bajo.</b> Utilizas poco la IA y declaras que verificas poco sus respuestas cuando la utilizas.</p>
+<p>Aquí el riesgo no es necesariamente la dependencia de la máquina. Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: la autonomía también exige reconocer cuándo tu propio criterio necesita una segunda mirada.</p>
+<p>Puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p>
+<p><b>Qué probar:</b> introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos. La cuestión no es sustituir tu criterio por el de la IA, sino evitar que cualquiera de los dos se convierta en una autoridad incuestionable.</p>
 
-  <div class="figs">
-    <div class="fig">
-      <span class="v" style="color:var(--coral-p)">79,8 %</span>
-      <span class="d">de las veces que consultaban a un asistente equivocado, <b>seguían su recomendación</b>. Solo lo rechazaban en dos de cada diez ocasiones.</span>
-    </div>
-  </div>
+<p>Ninguna de las cuatro posiciones es permanente. Describen hábitos, y un hábito cambia con la tarea, con el contexto y, sobre todo, con el tiempo del que dispongas.</p>
 
-  <div style="margin-top:8mm">
-    <p class="eyebrow">Respuestas correctas, Estudio 1</p>
-    <div style="margin-top:4mm">
-      <div style="display:flex;justify-content:space-between;font-size:9.5pt;color:var(--ink-2)"><span>Sin IA</span><b class="mono">45,8 %</b></div>
-      <div class="bar"><i style="width:45.8%;background:var(--ink-3)"></i></div>
-    </div>
-    <div style="margin-top:4mm">
-      <div style="display:flex;justify-content:space-between;font-size:9.5pt;color:var(--ink-2)"><span>Con IA, cuando acertaba</span><b>71,0 %</b></div>
-      <div class="bar"><i style="width:71%;background:var(--mint)"></i></div>
-    </div>
-    <div style="margin-top:4mm">
-      <div style="display:flex;justify-content:space-between;font-size:9.5pt;color:var(--ink-2)"><span>Con IA, cuando se equivocaba</span><b>31,5 %</b></div>
-      <div class="bar"><i style="width:31.5%;background:var(--coral)"></i></div>
-    </div>
-  </div>
+<p>Y hay una limitación que conviene no perder de vista: este plano mide lo que dices que haces, no lo que haces. Vuelvo sobre ello más abajo.</p>
 
-  <div class="note">
-    La IA podía mejorar el rendimiento, pero también <b>empeorarlo por debajo del nivel de quienes razonaban sin ella</b>. El problema no era consultar una herramienta: era seguirla incluso cuando se equivocaba.
-    <br><br>
-    Dos datos más. La confianza declarada <b>subía</b> al consultar al asistente, también cuando la respuesta era incorrecta. Y la inteligencia fluida <b>no diferenciaba</b> a quienes usaban mucho la IA de quienes apenas la tocaban: 6,12 frente a 6,16.
-  </div>
+<!-- ═════ 4 ═════ -->
+<h2><span class="sec-no">04</span>¿Hay un punto óptimo en el plano?</h2>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>9</span></div>
-</section>
+<p>Si el test te sitúa en el plano, la siguiente pregunta es inevitable: ¿cuál es la posición deseada? La respuesta corta es que no hay un cuadrante al que convenga apuntar.</p>
 
-<!-- 10 · CIERRE ─────────────────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">08 · Para terminar</div>
-  <h2>La pregunta que queda</h2>
+<p>Por tres razones.</p>
 
-  <div class="body" style="margin-top:6mm">
-    <p>La afirmación 8 ya te hizo la pregunta decisiva, aunque entonces solo te pidiera una cifra del 0 al 3. Conviene volver sobre ella sin la prisa de estar puntuándote.</p>
-    <p>Importa porque el resultado de una tarea puede ser correcto por casualidad, por la calidad del sistema o por la solidez de tu propio juicio. Desde fuera, las tres cosas parecen iguales. <b>Solo cuando algo falla descubrimos de cuál dependíamos.</b></p>
-  </div>
+<p><b>La intensidad adecuada depende de tu trabajo.</b> Dos funciones distintas no tienen por qué ocupar el mismo lugar del plano, porque el coste de equivocarse no es el mismo en todas. Los propios Shaw y Nave lo dicen: confiar en un sistema estadísticamente superior en un dominio concreto puede ser adaptativo, incluso óptimo.</p>
 
-  <div class="note" style="font-family:var(--serif); font-size:13pt; line-height:1.45; color:var(--ink)">
-    Delegar es transferir una tarea. Transferir el criterio es ceder también parte de la capacidad para juzgar su resultado.
-  </div>
+<p><b>El extremo superior derecho tampoco es la meta.</b> Un 12 en control crítico significa que lo compruebas todo, y comprobarlo todo cancela la ganancia que te dio delegar. Verificar cuesta tiempo y atención; gastarlos donde no hay riesgo es tan ineficiente como no gastarlos donde sí lo hay.</p>
 
-  <div class="body" style="margin-top:6mm">
-    <p>La primera conducta amplía lo que eres capaz de hacer. La segunda puede hacerte confundir una respuesta convincente con una respuesta justificada. Y cuando esa confusión se vuelve hábito, la pregunta deja de ser cuánto trabajo te ahorra la IA: <b>es cuánto de tu capacidad para responder por ese trabajo sigue estando en tus manos</b>.</p>
-  </div>
+<p><b>Lo que debe cumplirse no es una posición, es una relación.</b> Tu control tiene que ir al ritmo de tu intensidad. Puedes desplazarte todo lo que quieras hacia la derecha mientras subas a la vez. El problema nunca fue estar a la derecha: fue estar a la derecha y abajo.</p>
 
-  <div class="url">mrpiay.github.io/DianaCognitiva</div>
+<p class="pull">No hay un punto óptimo, pero sí una dirección prohibida: avanzar hacia la derecha sin subir.</p>
 
-  <div class="fill"></div>
-  <div class="folio"><span>La diana cognitiva</span><span>10</span></div>
-</section>
+<p>Es el movimiento que se produce solo, sin que nadie lo decida, cada vez que una herramienta se vuelve más cómoda y los plazos más cortos.</p>
 
-<!-- 11 · LÍMITES Y FUENTE ───────────────────────────────── -->
-<section class="page">
-  <div class="eyebrow">09 · La fuente y sus límites</div>
-  <h2>Antes de citar nada de esto</h2>
+<!-- ═════ 5 ═════ -->
+<h2><span class="sec-no">05</span>Dos resultados que complican el diagnóstico</h2>
 
-  <div class="body" style="margin-top:6mm">
-    <p><b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir consiste precisamente en no advertir cuándo has cedido el control: puedes declarar que verificas y aun así aceptar una recomendación equivocada cuando aparece bien argumentada o cuando tienes prisa.</p>
-    <p>Los cuatro cuadrantes, el cuestionario y el plano de dos ejes son <b>elaboración propia</b>. El estudio distingue dos conductas; el resto es una lectura personal y no una categoría validada.</p>
-  </div>
+<p>La investigación deja dos hallazgos que no se pueden pasar por alto. Ambos ayudan a entender por qué la transferencia de criterio puede pasar inadvertida.</p>
 
-  <div class="note">
-    <b>Tres límites del estudio.</b><br><br>
-    <b>Uno.</b> Es un <i>preprint</i>, no un artículo revisado por pares.<br><br>
-    <b>Dos.</b> Los experimentos se hicieron en condiciones controladas y con tareas de razonamiento de respuesta única. Sus porcentajes no se trasladan automáticamente a cualquier profesión o entorno.<br><br>
-    <b>Tres.</b> Recogen una sola sesión de exposición. Queda por saber qué ocurre con el uso repetido durante meses, y en decisiones abiertas, cotidianas o de naturaleza moral.
-  </div>
+<h3>La confianza puede aumentar incluso cuando la respuesta es incorrecta</h3>
 
-  <p class="src" style="margin-top:7mm">
-    Shaw, S. D. y Nave, G. <i>Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender.</i> The Wharton School, University of Pennsylvania. Tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos.
-    <br><br>
-    El preprint puede consultarse, entre otros sitios, en PsyArXiv (osf.io/preprints/psyarxiv/yk25n_v1), SSRN y ResearchGate. Los materiales y preregistros están en Open Science Framework.
-    <br><br>
-    Y tampoco conviene leer nada de esto como un argumento contra delegar: confiar en un sistema que sabes que supera tu capacidad en una tarea concreta puede ser perfectamente racional.
-  </p>
+<p>Consultar al asistente elevó la confianza declarada de los participantes, también en condiciones en las que la respuesta no era correcta.</p>
 
-  <div class="fill"></div>
-  <div class="folio"><span>mrpiay.github.io/DianaCognitiva</span><span>11</span></div>
-</section>
+<p>Es una combinación peligrosa: no solo puedes aceptar una conclusión equivocada, sino hacerlo sintiéndote más seguro de ella.</p>
+
+<p>La confianza suele servirnos como señal interna para decidir cuándo revisar algo. Pero si una respuesta convincente aumenta esa confianza sin aumentar la calidad del razonamiento, la señal deja de ser fiable.</p>
+
+<p class="pull">Sentirse más seguro no equivale a tener mejores razones para estarlo.</p>
+
+<h3>La inteligencia no ofreció una protección clara</h3>
+
+<p>Los autores examinaron también diferencias individuales, entre ellas la inteligencia fluida, la confianza en la IA y la necesidad de cognición: la tendencia a disfrutar del esfuerzo de pensar.</p>
+
+<p>En sus comparaciones, los grupos de mayor y menor uso de IA mostraron puntuaciones de inteligencia fluida muy similares: 6,12 frente a 6,16. En cambio, diferían en confianza en la IA (4,44 frente a 3,45) y necesidad de cognición (3,36 frente a 3,57).</p>
+
+<p>Estos datos no demuestran que la inteligencia sea irrelevante en cualquier contexto ni permiten explicar por sí solos por qué una persona transfiere su criterio. Sí cuestionan una intuición extendida: que las personas más capaces estarán necesariamente a salvo de aceptar una recomendación equivocada.</p>
+
+<p>La vulnerabilidad no se reduce a la capacidad de razonar. También importa la confianza que depositamos en la herramienta y la disposición a invertir esfuerzo en comprobar lo que nos devuelve.</p>
+
+<p><b>No es una cuestión de inteligencia.</b> Es una cuestión de cómo distribuimos la atención, el esfuerzo y la responsabilidad.</p>
+
+<!-- ═════ 6 ═════ -->
+<h2><span class="sec-no">06</span>Lo que sí cambia la conducta</h2>
+
+<p>La investigación no se limitó a observar el fenómeno. También examinó si determinadas condiciones podían cambiar la conducta de los participantes. Dos resultados son especialmente relevantes para el trabajo cotidiano.</p>
+
+<h3>Con prisa, menos disposición a apartarse de la IA</h3>
+
+<p>Cuando los participantes dispusieron de solo 30 segundos por problema, lo que se desplomó fue la supervisión. De los casos en que consultaban a un asistente que se equivocaba, los que acababan en una corrección acertada pasaron del 19,7 % al 6,2 %.</p>
+
+<p>La presión temporal redujo la probabilidad de apartarse de la recomendación del asistente. Es compatible con una explicación sencilla: comprobar exige tiempo, y cuando ese tiempo desaparece, aceptar la respuesta resulta más fácil.</p>
+
+<p>No significa que toda decisión rápida sea una mala decisión. Significa que diseñar procesos que no dejan espacio para verificar puede favorecer precisamente la conducta que se pretende evitar.</p>
+
+<div class="note">
+  <p>Para quien dirige equipos, la implicación es directa: <b>los plazos imposibles no solo pueden reducir la calidad del trabajo; también pueden reducir el escrutinio de las respuestas generadas por IA</b>.</p>
+</div>
+
+<h3>Con incentivos y corrección inmediata, más evaluación crítica</h3>
+
+<p>En otra condición experimental, los participantes recibieron incentivos y retroalimentación inmediata sobre sus respuestas.</p>
+
+<p>Sobre esa misma base, las correcciones acertadas casi se duplicaron, del 19,7 % al 37,1 %, y los casos en que se adoptaba la respuesta equivocada bajaron del 73,2 % al 57,9 %.</p>
+
+<p>Los participantes tenían más motivos para detenerse, comprobar y apartarse de una recomendación cuando entraba en conflicto con la información disponible.</p>
+
+<p>La mejora es significativa, pero no conviene exagerarla: la rendición seguía siendo mayoritaria, incluso en esa condición. La conclusión no es que basten un incentivo y una corrección para resolver el problema. Es que el entorno puede influir en cómo usamos la IA.</p>
+
+<p>Si quieres que un equipo conserve el criterio, no basta con decirle que verifique. Hay que darle tiempo para hacerlo, establecer qué debe revisar y ofrecer mecanismos de retroalimentación que permitan detectar los errores.</p>
+
+<p>La verificación no debería depender exclusivamente de que cada persona tenga un buen día, sea disciplinada o recuerde desconfiar. Debería formar parte del proceso de trabajo.</p>
+
+<!-- ═════ 7 ═════ -->
+<h2><span class="sec-no">07</span>El problema de este test</h2>
+
+<p>Hay una paradoja en el cuestionario que acabas de completar: te pide evaluar tu propio control crítico, cuando el fenómeno que intenta describir consiste, precisamente, en no advertir cuándo has cedido ese control.</p>
+
+<p>El test tiene un defecto de origen. Es un autoinforme.</p>
+
+<p>Puedes declarar que verificas tus respuestas y, aun así, aceptar una recomendación equivocada cuando aparece bien argumentada, coincide con tus expectativas o tienes prisa. También puedes puntuar bajo por prudencia, aunque tu comportamiento real sea más sólido.</p>
+
+<p>Por eso este cuestionario sirve como <b>orientación, no como diagnóstico</b>. No mide directamente la rendición cognitiva y sus cuadrantes no deben confundirse con categorías validadas por los autores del estudio.</p>
+
+<p>Para detectar la conducta real hace falta observar qué sucede cuando la IA y la evidencia entran en conflicto. Eso es, precisamente, lo que intentaron hacer los investigadores: plantearon tareas de razonamiento, ofrecieron un asistente y manipularon experimentalmente sus respuestas para estudiar cuándo los participantes aceptaban su recomendación y cuándo se apartaban de ella.</p>
+
+<p>Nada de eso cabe en un cuestionario que se responde solo. Lo que estas ocho afirmaciones pueden darte es el principio de una conversación contigo mismo, no su conclusión.</p>
+
+<!-- ═════ 8 ═════ -->
+<h2><span class="sec-no">08</span>Dónde me ha dejado a mí</h2>
+
+<p>Sería poco elegante y poco coherente terminar sin aplicarme el test.</p>
+
+<p>Esta guía y la herramienta que la acompaña se han escrito con ayuda intensiva de una IA. En el bloque A puntuaría alto y sin matices.</p>
+
+<p>El bloque B no lo puedo responder con una cifra, sino con el proceso. Ha sido un trabajo iterativo e interactivo de principio a fin: prácticamente ningún párrafo generado se dio por bueno ni por definitivo tal como salía. Cada sección pasó por varias vueltas, con directrices sobre estructura, enfoque, terminología y tono, hasta que el texto decía lo que tenía que decir y como tenía que decirlo.</p>
+
+<p>Nada de eso habría ocurrido aceptando el primer borrador (ni el cuarto, en muchos casos). Y nada de eso exigía ser más listo que la máquina: exigía leer despacio, desconfiar de lo que suena bien y pedir que se rehiciera cuantas veces hiciera falta.</p>
+
+<p>Ahí está el control crítico, y por eso esta guía insiste en que no es un rasgo de carácter. <b>Es trabajo</b>, y eso se hace o no se hace.</p>
+
+<!-- ═════ 9 ═════ -->
+<h2><span class="sec-no">09</span>La pregunta que queda</h2>
+
+<p>La afirmación 8 ya te hizo la pregunta decisiva, aunque entonces solo te pidiera una cifra del 0 al 3. Conviene volver sobre ella sin la prisa de estar puntuándote.</p>
+
+<p>Importa porque el resultado de una tarea puede ser correcto por casualidad, por la calidad del sistema o por la solidez de tu propio juicio. Desde fuera, las tres cosas pueden parecer iguales. Solo cuando algo falla descubrimos de cuál dependíamos.</p>
+
+<div class="closing">
+  Delegar es transferir una tarea. Transferir el criterio es ceder también parte de la capacidad para juzgar su resultado.
+</div>
+
+<p>La primera conducta puede ampliar lo que eres capaz de hacer. La segunda puede hacerte confundir una respuesta convincente con una respuesta justificada.</p>
+
+<p>Y cuando esa confusión se convierte en hábito, la pregunta deja de ser cuánto trabajo te ahorra la IA.</p>
+
+<p><b>La pregunta es cuánto de tu capacidad para responder por ese trabajo sigue estando en tus manos.</b></p>
+
+<div class="url">mrpiay.github.io/DianaCognitiva</div>
+
+<!-- ═════ 10 ═════ -->
+<h2><span class="sec-no">10</span>La fuente y sus límites</h2>
+
+<p>Shaw, S. D. y Nave, G., <i>Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender</i>. The Wharton School, University of Pennsylvania.</p>
+
+<p>El trabajo recoge tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos.</p>
+
+<p>El preprint puede consultarse, entre otros sitios, en PsyArXiv, SSRN y ResearchGate. Wharton publicó además una versión divulgativa en su web. Los materiales, los preregistros y los libros de códigos están en Open Science Framework.</p>
+
+<div class="note">
+  <p><b>Conviene tener presentes tres límites.</b></p>
+  <p><b>Primero.</b> El trabajo es un <i>preprint</i>, no un artículo revisado por pares. Sus resultados deben leerse teniendo en cuenta ese estado de publicación.</p>
+  <p><b>Segundo.</b> Los experimentos se realizaron en condiciones controladas y con tareas de razonamiento de respuesta única. No permiten trasladar automáticamente sus porcentajes a cualquier profesión, tarea o entorno de trabajo.</p>
+  <p><b>Tercero.</b> Los autores señalan que todavía es necesario investigar qué sucede con la exposición repetida durante meses y cómo se comporta el fenómeno en decisiones abiertas, cotidianas o de naturaleza moral.</p>
+</div>
+
+<p>Los cuatro cuadrantes, el cuestionario y el plano de dos ejes son <b>elaboración propia</b>. El estudio distingue dos conductas; el resto es una lectura personal y no una categoría validada por nadie.</p>
+
+<p>Y tampoco conviene leer nada de esto como un argumento contra delegar. Confiar en un sistema que sabes que supera tu capacidad en una tarea concreta puede ser perfectamente racional.</p>
+
+<p>El problema no es que la IA piense por ti en algún momento. Es que no sepas cuándo lo hace, que no puedas detectar cuándo se equivoca o que termines defendiendo como propia una decisión cuyos fundamentos no comprendes.</p>
+
+<p class="pull">La autonomía no consiste en hacerlo todo tú. Consiste en conservar la capacidad de decidir qué delegas, por qué lo delegas y hasta dónde estás dispuesto a confiar.</p>
 
 </body>
 </html>
