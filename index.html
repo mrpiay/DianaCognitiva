@@ -117,6 +117,8 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
 .advice p + p{margin-top:11px}
 .advice b{color:var(--ink); font-weight:500}
+.advice .pensar{margin-top:14px; padding-top:14px; border-top:1px solid var(--line);
+  font-family:var(--serif); font-size:17px; line-height:1.55; color:var(--ink)}
 .caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
 .caveat b{color:var(--ink-2); font-weight:500}
 .again{margin-top:26px}
@@ -227,6 +229,7 @@ const CUADRANTES = {
     nombre:'Apoyo puntual', riesgo:'Desaprovechamiento', color:'var(--lav-p)',
     read:'Tus episodios describen poco uso y bastante comprobación. Tu criterio sigue intacto; lo que puede faltarte es aprovechamiento.',
     titulo:'Qué probar',
+    pregunta:'¿Qué tarea sigues haciendo a mano que podrías delegar sin renunciar a tu criterio?',
     leve:'Tienes margen para ganar sin arriesgar nada: delega una tarea más de las que ya haces y mantén exactamente la misma revisión que ahora.',
     marcada:'Elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta. Delega su primer borrador y conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.',
     extrema:'Apenas la usas y revisas todo lo que te devuelve. Es seguro, pero caro: estás pagando con tiempo una herramienta que no empleas. Escoge el tipo de tarea más repetitivo que tengas y delégalo entero una temporada, revisando solo el resultado final.'
@@ -235,6 +238,7 @@ const CUADRANTES = {
     nombre:'Delegación de trabajo', riesgo:'Erosión de la verificación', color:'var(--mint-p)',
     read:'Tus episodios describen uso intenso y comprobación sostenida. Es la combinación que buscas cuando quieres productividad sin convertir la respuesta de la máquina en una autoridad automática.',
     titulo:'Qué proteger',
+    pregunta:'¿Qué compruebas siempre, pase lo que pase, antes de dar algo por bueno?',
     leve:'Esta posición se pierde sin darse cuenta: basta una racha de prisa para que la verificación sea lo primero que caiga. Escribe qué vas a comprobar siempre, por corto que sea, y trátalo como innegociable.',
     marcada:'Convierte la verificación en un procedimiento, no en una virtud personal. Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin revisión humana. Delegar bien no es revisarlo todo: es saber dónde está el riesgo y concentrar ahí el esfuerzo.',
     extrema:'Usas mucho y compruebas casi todo. Cuidado con el coste: verificar donde no hay riesgo cancela la ganancia de haber delegado. Mira qué parte de tu revisión es ya rutina y suéltala; reserva el esfuerzo para lo que saldría caro si estuviera mal.'
@@ -243,6 +247,7 @@ const CUADRANTES = {
     nombre:'Transferencia de criterio', riesgo:'Ilusión de autoría', color:'var(--coral-p)',
     read:'Tus episodios describen uso intenso y poca comprobación. Eso no significa que trabajes mal: mientras el sistema acierte, los resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
     titulo:'Qué hacer',
+    pregunta:'¿Podrías defender ante un cliente, un jefe o un comité la razón de cada decisión de tu última entrega?',
     leve:'No hace falta una reforma. Elige un solo tipo de dato —cifras, citas, nombres— y compruébalo siempre, sin excepciones. Con una sola regla sostenida bastaría para cruzar de vuelta.',
     marcada:'Coge tu última entrega hecha con IA y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.',
     extrema:'Esto ya no se arregla acordándose. Define por escrito qué no sale de tu mesa sin una comprobación y quién la hace, porque a este nivel de uso la memoria y la buena intención no dan abasto. Empieza por aquello que tendría consecuencias si estuviera mal.'
@@ -251,6 +256,7 @@ const CUADRANTES = {
     nombre:'Autonomía intuitiva', riesgo:'Sesgos propios sin contraste', color:'var(--amber-p)',
     read:'Tus episodios describen poco uso y poca comprobación. Aquí el riesgo no viene necesariamente de la máquina: puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla.',
     titulo:'Qué probar',
+    pregunta:'¿Rechazas la IA por una decisión fundamentada o por no saber lo que puede hacer?',
     leve:'Introduce un contraste en las decisiones importantes: una fuente independiente o una segunda opinión. No por la máquina, por ti.',
     marcada:'No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba. Introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.',
     extrema:'Trabajas casi íntegramente desde tu propio criterio y sin someterlo a contraste. Puede ser perfectamente válido, pero no está verificado: nadie te ha llevado la contraria últimamente. Busca a propósito una revisión externa de tu próxima decisión importante, venga de una persona o de una máquina.'
@@ -470,7 +476,8 @@ function sync(){
     fr.hidden = false;
   } else fr.hidden = true;
 
-  $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c[bd] + '</p>';
+  $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c[bd] + '</p>'
+    + '<p class="pensar"><b>Para pensar:</b> ' + c.pregunta + '</p>';
   $('#res').hidden = false;
 }
 sync();

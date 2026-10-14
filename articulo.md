@@ -135,6 +135,8 @@ Tu principal riesgo no es la pérdida de autonomía, sino dejar sin aprovechar u
 
 **Qué probar:** elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta. Delega una parte, pero conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.
 
+**Para pensar:** ¿Qué tarea sigues haciendo a mano que podrías delegar sin renunciar a tu criterio?
+
 ### 2. Delegación de trabajo: ampliar tu capacidad sin abdicar
 
 **Uso alto · Control crítico alto.** Utilizas mucho la IA y declaras que mantienes el control crítico.
@@ -144,6 +146,8 @@ Es la combinación que buscas cuando quieres obtener productividad sin convertir
 Sin embargo, esta posición tiene una fragilidad: verificar requiere tiempo y esfuerzo, justo lo primero que desaparece cuando hay prisa. Además, declarar que verificas no garantiza que lo hagas siempre. La diferencia entre la intención y la conducta real puede ser considerable.
 
 **Qué proteger:** convierte la verificación en un procedimiento, no en una virtud personal. Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin una revisión humana. Delegar bien no significa revisar absolutamente todo: significa saber dónde está el riesgo y concentrar ahí el esfuerzo.
+
+**Para pensar:** ¿Qué compruebas siempre, pase lo que pase, antes de dar algo por bueno?
 
 ### 3. Transferencia de criterio: cuando la respuesta sustituye al juicio
 
@@ -155,6 +159,8 @@ La transferencia de criterio no consiste simplemente en aceptar ayuda. Consiste 
 
 **Qué hacer:** elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué afirmaciones puedes justificar, cuáles tendrías que comprobar y cuáles aceptaste porque sonaban convincentes. El objetivo no es dejar de utilizar la IA: es recuperar la capacidad de responder por lo que entregas.
 
+**Para pensar:** ¿Podrías defender ante un cliente, un jefe o un comité la razón de cada decisión de tu última entrega?
+
 ### 4. Autonomía intuitiva: confiar en el propio criterio sin contrastarlo
 
 **Uso bajo · Control crítico bajo.** Utilizas poco la IA y declaras que verificas poco sus respuestas cuando la utilizas.
@@ -164,6 +170,8 @@ Aquí el riesgo no es necesariamente la dependencia de la máquina. Puede ser el
 Puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.
 
 **Qué probar:** introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos. La cuestión no es sustituir tu criterio por el de la IA, sino evitar que cualquiera de los dos se convierta en una autoridad incuestionable.
+
+**Para pensar:** ¿Rechazas la IA por una decisión fundamentada o por no saber lo que puede hacer?
 
 ### Tu posición dentro del cuadrante
 
