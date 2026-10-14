@@ -77,9 +77,10 @@ a:hover{text-decoration:underline}
 @media(max-width:620px){.hero{padding:26px 22px; border-radius:18px}}
 .hero .pill{display:inline-block; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,.17);
   font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase}
-.hero h1{font-size:clamp(27px,4.2vw,42px); margin-top:14px; max-width:17em}
+.hero h1{font-size:clamp(27px,4.2vw,42px); max-width:17em}
 .hero h1 em{font-style:normal; color:#FDE68A}
-.hero .sub{font-size:13.5px; font-weight:600; color:rgba(255,255,255,.72); margin-top:12px; max-width:40em}
+.hero .sub{font-size:clamp(16px,2vw,20px); font-weight:600; line-height:1.35; color:rgba(255,255,255,.92);
+  letter-spacing:-.015em; margin-bottom:14px; max-width:36em}
 .hero .lede{font-size:16.5px; line-height:1.55; color:rgba(255,255,255,.88); margin-top:13px; max-width:42em}
 .hero .botones{display:flex; flex-wrap:wrap; gap:11px; margin-top:24px}
 .hero .botones button{border:0; border-radius:12px; padding:13px 24px; font-size:15px; font-weight:700;
@@ -87,9 +88,28 @@ a:hover{text-decoration:underline}
 .hero .botones button.g{background:rgba(255,255,255,.18); color:#fff}
 .hero .botones button:hover{filter:brightness(.96)}
 
+/* ── pestañas ── */
+.pest{display:flex; gap:4px; padding:4px; background:var(--suave); border-radius:999px;
+  margin:24px auto 0; width:fit-content}
+.pest button{padding:10px 22px; border-radius:999px; border:0; background:transparent;
+  font-size:14.5px; font-weight:600; color:var(--ink-3)}
+.pest button:hover{color:var(--ink)}
+.pest button[aria-selected="true"]{background:var(--card); color:var(--ind); box-shadow:0 1px 3px rgba(15,23,42,.1)}
+#vista-guia[hidden]{display:none}
+.vista-test.fuera{display:none}
+.guia .g{padding:24px 26px; margin-top:14px}
+.guia .g h3{font-size:19px}
+.guia .g p{font-size:15px; line-height:1.68; color:var(--ink-2); margin-top:9px}
+.guia .g p b{color:var(--ink); font-weight:600}
+.guia .g ul{margin:10px 0 0; padding-left:20px; font-size:15px; line-height:1.68; color:var(--ink-2)}
+.guia .g li{margin-top:7px}
+.guia .ref{font-size:14px; line-height:1.6; color:var(--ink-2); padding-left:14px;
+  border-left:3px solid var(--linea-2); margin-top:14px}
+.guia .ref b{color:var(--ink)}
+
 /* ── tres preguntas de entrada ── */
 .tresq{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-@media(max-width:860px){.tresq{grid-template-columns:1fr}}
+@media(max-width:980px){.tresq{grid-template-columns:1fr}}
 .tresq .tq{padding:22px 24px}
 .tresq .tq .nn{width:30px; height:30px; border-radius:9px; background:var(--ind-3); color:var(--ind);
   font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center}
@@ -120,16 +140,21 @@ a:hover{text-decoration:underline}
 .mapa svg{display:block; width:100%; height:auto; max-width:680px; margin:0 auto}
 .perfiles{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px}
 @media(max-width:700px){.perfiles{grid-template-columns:1fr}}
-.pf{padding:16px 18px; border:1px solid var(--linea); border-radius:14px; background:var(--card)}
-.pf .n{font-size:16.5px; font-weight:700; letter-spacing:-.02em}
+.pf{padding:18px 20px; border:1px solid var(--linea); border-left:4px solid var(--tono);
+  border-radius:14px; background:var(--card)}
+.pf[data-k="apoyo"]{--tono:#725BAC; --hondo:#5E4A93; --velo:#F3F0F9}
+.pf[data-k="delegacion"]{--tono:#499E79; --hondo:#2F7A5C; --velo:#EFF7F3}
+.pf[data-k="intuitiva"]{--tono:#8A6516; --hondo:#6F5112; --velo:#F8F4EC}
+.pf[data-k="transferencia"]{--tono:#A24E3C; --hondo:#8A3D2D; --velo:#F9F1EF}
+.pf .d{font-size:14.5px; line-height:1.6; color:var(--ink-2); margin-top:10px}
+.pf .n{font-size:16.5px; font-weight:700; letter-spacing:-.02em; color:var(--hondo)}
 .pf .tag{float:right; font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:#fff; background:var(--ind); padding:3px 9px; border-radius:999px; display:none}
-.pf.tuya{border-color:var(--ind); background:var(--ind-3)}
-.pf.tuya .n{color:var(--ind)}
-.pf.tuya .tag{display:block}
+.pf.tuya{background:var(--velo); border-color:var(--tono); box-shadow:0 0 0 3px color-mix(in srgb, var(--tono) 18%, transparent)}
+.pf.tuya .tag{display:block; background:var(--tono)}
 .pf .s{font-size:13px; color:var(--ink-3); margin-top:3px}
-.pf .r{font-size:13.5px; line-height:1.55; color:var(--ink-2); margin-top:10px; padding-top:10px; border-top:1px solid var(--linea)}
-.pf.tuya .r{border-color:#C7D2FE}
+.pf .r{font-size:13.5px; line-height:1.55; color:var(--ink-3); margin-top:12px; padding-top:11px; border-top:1px solid var(--linea)}
+.pf .r b{color:var(--hondo); font-weight:700}
 
 /* ── llamada ──────────────────────────────────────── */
 .llamada{margin-top:14px; padding:22px 26px; display:flex; align-items:center; justify-content:space-between;
@@ -141,19 +166,17 @@ a:hover{text-decoration:underline}
 .llamada button:hover{background:#4338CA}
 
 /* ── qué vas a obtener ────────────────────────────── */
-.obt{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
-@media(max-width:900px){.obt{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.obt{grid-template-columns:1fr}}
-.obt .o{padding:18px 20px}
+.obt{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media(max-width:700px){.obt{grid-template-columns:1fr}}
+.obt .o{padding:20px 24px}
 .obt .o .num{font-size:12px; font-weight:800; color:var(--ind); letter-spacing:.06em}
 .obt .o b{display:block; font-size:15.5px; font-weight:700; margin-top:7px}
 .obt .o p{font-size:13.5px; line-height:1.55; color:var(--ink-2); margin-top:5px}
 
 /* ── paneles de tres ──────────────────────────────── */
-.tres{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-@media(max-width:820px){.tres{grid-template-columns:1fr}}
-.tres .t{padding:18px 20px; font-size:14px; line-height:1.62; color:var(--ink-2)}
-.tres .t b{display:block; color:var(--ink); font-size:14.5px; font-weight:700; margin-bottom:5px}
+.tres{display:grid; gap:12px}
+.tres .t{padding:20px 24px; font-size:15px; line-height:1.68; color:var(--ink-2)}
+.tres .t b{display:block; color:var(--ink); font-size:15.5px; font-weight:700; margin-bottom:5px}
 .datos{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px}
 @media(max-width:620px){.datos{grid-template-columns:1fr}}
 .datos label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-3); margin-bottom:6px}
@@ -286,34 +309,38 @@ a:hover{text-decoration:underline}
   <div class="dentro ancho">
     <span class="txt" id="prog-txt">Faltan 20</span>
     <span class="tr"><i id="prog-bar"></i></span>
-    <button id="prog-ir">Ir a las preguntas ↓</button>
+    <button id="prog-ir">Ir a la autoevaluación ↓</button>
   </div>
 </div>
 
 <main class="ancho">
 
   <div class="hero">
-    <span class="pill">Veinte preguntas · tres minutos</span>
+    <p class="sub">Guía para la autoevaluación del uso personal de la IA<br>en entornos profesionales y educativos</p>
     <h1 id="h-titulo">—</h1>
-    <p class="sub">Guía para la autoevaluación del uso personal de la IA en entornos profesionales y educativos</p>
     <p class="lede" id="h-lede">—</p>
     <div class="botones">
-      <button id="h-empezar">Hacer el test</button>
+      <button id="h-empezar">Hacer la autoevaluación</button>
       <button class="g" id="h-ver">Ver cómo funciona ↓</button>
     </div>
   </div>
 
+  <div class="pest" role="tablist">
+    <button role="tab" data-vista="test" aria-selected="true">La autoevaluación</button>
+    <button role="tab" data-vista="guia" aria-selected="false">La guía</button>
+  </div>
+
   <!-- ── tres preguntas para empezar ── -->
-  <section class="seccion nop">
+  <section class="seccion nop vista-test">
     <div class="tit">
       <h2>Empieza por estas tres</h2>
-      <p>Respóndelas en la cabeza. No hace falta escribir nada todavía.</p>
+      <p>Respóndelas en la cabeza antes de seguir.</p>
     </div>
     <div class="tresq" id="tresq"></div>
   </section>
 
   <!-- ── por qué: el dato que lo motiva ── -->
-  <section class="seccion nop" id="s-ejes">
+  <section class="seccion nop vista-test" id="s-ejes">
     <div class="tit">
       <h2>Por qué</h2>
       <p>No es una intuición: está medido.</p>
@@ -328,7 +355,7 @@ a:hover{text-decoration:underline}
   </section>
 
   <!-- ── objetivo: los dos ejes ── -->
-  <section class="seccion nop">
+  <section class="seccion nop vista-test">
     <div class="tit">
       <h2>Qué mide</h2>
       <p>Dos cosas distintas que suelen confundirse en una.</p>
@@ -337,10 +364,10 @@ a:hover{text-decoration:underline}
   </section>
 
   <!-- ── el plano y las cuatro posiciones ── -->
-  <section class="seccion">
+  <section class="seccion vista-test">
     <div class="tit">
       <h2>Las cuatro posiciones</h2>
-      <p id="mapa-ay">Tu punto aparece al responder las veinte.</p>
+      <p id="mapa-ay">Tu punto aparece al terminar.</p>
     </div>
     <div class="mapa card">
       <div id="mapa"></div>
@@ -348,13 +375,13 @@ a:hover{text-decoration:underline}
     </div>
     <div class="llamada nop">
       <p>¿En cuál de las cuatro estás?
-        <span>Tres minutos de preguntas de sí o no. Nada sale de tu navegador.</span></p>
+        <span>Preguntas de sí o no. Nada sale de tu navegador.</span></p>
       <button id="h-empezar-2">Empezar</button>
     </div>
   </section>
 
   <!-- ── qué vas a obtener ── -->
-  <section class="seccion nop">
+  <section class="seccion nop vista-test">
     <div class="tit">
       <h2>Qué vas a obtener</h2>
       <p>Al terminar las veinte, de una vez.</p>
@@ -368,7 +395,7 @@ a:hover{text-decoration:underline}
   </section>
 
   <!-- ── alcance ── -->
-  <section class="seccion nop">
+  <section class="seccion nop vista-test">
     <div class="tit">
       <h2>Alcance</h2>
       <p>Lo que esto es, y lo que no.</p>
@@ -377,9 +404,9 @@ a:hover{text-decoration:underline}
   </section>
 
   <!-- ── cómo responder y las veinte ── -->
-  <section class="seccion nop" id="s-preguntas">
+  <section class="seccion nop vista-test" id="s-preguntas">
     <div class="tit">
-      <h2>Las veinte preguntas</h2>
+      <h2>La autoevaluación</h2>
       <p>Sí o no. Ninguna puntúa por separado.</p>
     </div>
     <div class="tres" id="h-como"></div>
@@ -401,7 +428,7 @@ a:hover{text-decoration:underline}
     </section>
   </section>
 
-  <section class="seccion" id="res" hidden>
+  <section class="seccion vista-test" id="res" hidden>
     <div class="ficha card">
       <div class="eyebrow" id="r-riesgo">—</div>
       <h2 id="r-name">—</h2>
@@ -443,6 +470,72 @@ a:hover{text-decoration:underline}
     <p class="enlaces"><a href="guia/la-diana-cognitiva.pdf">La guía completa en PDF</a> · <a href="https://github.com/mrpiay/DianaCognitiva">El repositorio</a></p>
   </section>
 
+
+  <section class="seccion guia" id="vista-guia" hidden>
+    <div class="tit">
+      <h2>La guía</h2>
+      <p>De dónde sale el plano, qué encontró el estudio y qué límites tiene esto.</p>
+    </div>
+
+    <div class="g card">
+      <h3>No hay un punto óptimo, pero sí una dirección prohibida</h3>
+      <p>La pregunta inevitable, en cuanto uno se ve en el plano, es a qué cuadrante conviene apuntar. La respuesta corta es que a ninguno.</p>
+      <p><b>La intensidad adecuada depende de tu trabajo.</b> Dos funciones distintas no tienen por qué ocupar el mismo lugar, porque el coste de equivocarse no es el mismo. Los propios autores del estudio lo dicen: confiar en un sistema estadísticamente superior en un dominio concreto puede ser adaptativo, incluso óptimo.</p>
+      <p><b>El extremo superior derecho tampoco es la meta.</b> Comprobarlo todo cancela la ganancia de haber delegado. Verificar cuesta tiempo y atención; gastarlos donde no hay riesgo es tan ineficiente como no gastarlos donde sí lo hay.</p>
+      <p><b>Lo que debe cumplirse no es una posición, es una relación:</b> tu control tiene que ir al ritmo de tu intensidad. Puedes desplazarte todo lo que quieras hacia la derecha mientras subas a la vez. El problema nunca fue estar a la derecha: fue estar a la derecha y abajo.</p>
+    </div>
+
+    <div class="g card">
+      <h3>Cuánto revisar: la regla que sí es general</h3>
+      <p>No todas las tareas piden la misma comprobación. <b>Cuánto revisar depende de tres cosas:</b> qué ocurre si la respuesta está mal, si llegarías a enterarte de que lo estaba y si tienes el conocimiento para juzgarla. Una lluvia de ideas y una cláusula de un contrato salen del mismo sitio y no piden lo mismo.</p>
+    </div>
+
+    <div class="g card">
+      <h3>Dos resultados que complican el diagnóstico</h3>
+      <p><b>La confianza sube aunque la respuesta sea incorrecta.</b> Consultar al asistente elevó la confianza declarada de los participantes, también cuando la respuesta no era correcta. La confianza suele servirnos de señal para decidir cuándo revisar algo; si una respuesta convincente la aumenta sin aumentar la calidad del razonamiento, la señal deja de ser fiable.</p>
+      <p><b>La inteligencia no ofreció una protección clara.</b> Los grupos de mayor y menor uso de IA mostraron puntuaciones de inteligencia fluida casi idénticas —6,12 frente a 6,16—. En cambio diferían en confianza en la IA (4,44 frente a 3,45) y en necesidad de cognición (3,36 frente a 3,57). No es una cuestión de inteligencia: es una cuestión de cómo distribuimos la atención, el esfuerzo y la responsabilidad.</p>
+    </div>
+
+    <div class="g card">
+      <h3>Lo que sí cambia la conducta</h3>
+      <p><b>Con prisa, menos supervisión.</b> Cuando los participantes disponían de solo 30 segundos por problema, de los casos en que consultaban a un asistente equivocado los que acababan en una corrección acertada cayeron del 19,7 % al 6,2 %. Para quien dirige equipos o aulas, la implicación es directa: los plazos imposibles no solo reducen la calidad del trabajo, también reducen el escrutinio de lo que devuelve la IA.</p>
+      <p><b>Con incentivos y corrección inmediata, más evaluación crítica.</b> Las correcciones acertadas casi se duplicaron, del 19,7 % al 37,1 %, y adoptar la respuesta equivocada bajó del 73,2 % al 57,9 %. La mejora es real y no conviene exagerarla: la rendición seguía siendo mayoritaria. La verificación no debería depender de que cada persona tenga un buen día: debería formar parte del proceso de trabajo.</p>
+    </div>
+
+    <div class="g card">
+      <h3>El problema de esta autoevaluación</h3>
+      <p>Hay una paradoja: te pide evaluar tu propio control crítico, cuando el fenómeno que describe consiste precisamente en no advertir cuándo lo has cedido. <b>Tiene un defecto de origen: es un autoinforme.</b> Puedes declarar que verificas y aun así aceptar una recomendación equivocada cuando aparece bien argumentada, coincide con tus expectativas o tienes prisa.</p>
+      <p><b>Hay un segundo límite, menos visible: el eje mide comprobación, y el criterio es algo más ancho.</b> Se puede comprobar todo sin entender nada, y se puede aceptar una respuesta sin contrastarla porque uno conoce el asunto lo bastante para juzgar en qué se apoya. Entender, advertir contradicciones, calibrar la confianza y rectificar son parte del mismo control, y ninguna pregunta los toca.</p>
+      <p>Para detectar la conducta real hace falta observar qué sucede cuando la IA y la evidencia entran en conflicto —que es lo que hicieron los investigadores—. Nada de eso cabe en un cuestionario que se responde solo: lo que estas veinte preguntas pueden darte es el principio de una conversación contigo mismo, no su conclusión.</p>
+    </div>
+
+    <div class="g card">
+      <h3>La fuente y sus límites</h3>
+      <p>Shaw, S. D. y Nave, G., <i>Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender</i>. The Wharton School, University of Pennsylvania. Tres experimentos preregistrados, 1.372 participantes y 9.593 ensayos.</p>
+      <ul>
+        <li>Es un <b>preprint</b>, no un artículo revisado por pares.</li>
+        <li>Los experimentos se hicieron en condiciones controladas y con tareas de razonamiento de respuesta única: no permiten trasladar sus porcentajes a cualquier profesión o entorno.</li>
+        <li>Queda por investigar qué ocurre con la exposición repetida durante meses y en decisiones abiertas o de naturaleza moral.</li>
+        <li>El preprint declara el preregistro y los datos en <b>osf.io/n84tx</b>, un proyecto que no era accesible públicamente a 14 de octubre de 2026.</li>
+      </ul>
+      <p><b>Los cuatro cuadrantes, el cuestionario y el plano de dos ejes son elaboración propia.</b> El estudio distingue dos conductas; el resto es una lectura personal y no una categoría validada por nadie.</p>
+    </div>
+
+    <div class="g card">
+      <h3>No es un hallazgo aislado</h3>
+      <p>Si ese trabajo no resistiera la revisión por pares, lo que describe seguiría en pie. Viene de una línea con treinta años de recorrido.</p>
+      <p class="ref"><b>Parasuraman, R. y Riley, V.</b>, <i>Humans and Automation: Use, Misuse, Disuse, Abuse</i>. Human Factors, 1997, 39-2, 230-253. El sesgo de automatización: cuando una máquina recomienda, el operador deja de comprobar.</p>
+      <p class="ref"><b>Lee, J. D. y See, K. A.</b>, <i>Trust in Automation: Designing for Appropriate Reliance</i>. Human Factors, 2004, 46-1, 50-80. El problema no es confiar, es calibrar.</p>
+      <p class="ref"><b>Risko, E. F. y Gilbert, S. J.</b>, <i>Cognitive Offloading</i>. Trends in Cognitive Sciences, 2016, 20-9, 676-688. Descargamos trabajo mental cuando creemos que sale más barato que hacerlo por dentro. Esa creencia no siempre acierta.</p>
+      <p class="ref"><b>Lee, H.-P., Sarkar, A. y otros</b>, <i>The Impact of Generative AI on Critical Thinking</i>. CHI 2025. 319 profesionales: a más confianza en la IA, menos pensamiento crítico; a más confianza en uno mismo, más. También es un autoinforme: comparte el límite de esta herramienta.</p>
+    </div>
+
+    <div class="g card">
+      <h3>La guía completa</h3>
+      <p>Esto es un resumen. El documento entero —24 páginas, con el plano dibujado, las cuatro posiciones desarrolladas y la discusión de los límites— está en <a href="guia/la-diana-cognitiva.pdf">PDF</a>, y en texto plano en <a href="https://github.com/mrpiay/DianaCognitiva/blob/main/articulo.md">articulo.md</a>.</p>
+    </div>
+  </section>
+
 </main>
 
 <script src="contenido.js"></script>
@@ -459,6 +552,8 @@ const alto = v => v > MAX / 2;
 const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
                                : (alto(b) ? 'apoyo' : 'intuitiva');
 const CUADRANTES = ['apoyo','delegacion','intuitiva','transferencia'];  // el orden del plano
+const TONO  = {apoyo:'#725BAC', delegacion:'#499E79', intuitiva:'#8A6516', transferencia:'#A24E3C'};
+const HONDO = {apoyo:'#5E4A93', delegacion:'#2F7A5C', intuitiva:'#6F5112', transferencia:'#8A3D2D'};
 
 /* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
    distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
@@ -531,10 +626,14 @@ function plane(dot){
   };
   let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano: '
         + M.ejes.a.toLowerCase() + ' frente a ' + M.ejes.b.toLowerCase() + '">';
+  /* Los cuatro tintes son los de la paleta validada: la misma del PDF, muy
+     suaves, y el tuyo algo más marcado. */
   CUADRANTES.forEach(k=>{
     const r = caja[k], mio = k === aqui;
     s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" rx="8" fill="'
-       + (mio ? '#4F46E5' : '#94A3B8') + '" opacity="' + (mio ? '0.13' : '0.06') + '"/>';
+       + TONO[k] + '" opacity="' + (mio ? '0.17' : '0.07') + '"/>';
+    if(mio) s += '<rect x="'+(r.a+1)+'" y="'+(r.c+1)+'" width="'+(r.b-r.a-2)+'" height="'+(r.d-r.c-2)
+       + '" rx="8" fill="none" stroke="' + HONDO[k] + '" stroke-width="2"/>';
   });
   s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" rx="10" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>';
   s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#CBD5E1" stroke-width="1.5"/>';
@@ -553,16 +652,17 @@ function plane(dot){
     const base = cy - (lineas.length-1)*11 - 4;
     lineas.forEach((ln,i)=>{
       s += '<text x="'+cx+'" y="'+(base+i*21)+'" text-anchor="middle" font-family="Inter,sans-serif"'
-         + ' font-size="16" font-weight="700" fill="'+(mio ? '#4338CA' : '#334155')+'">'+ln+'</text>';
+         + ' font-size="16" font-weight="700" fill="'+HONDO[k]+'">'+ln+'</text>';
     });
     s += '<text x="'+cx+'" y="'+(base+lineas.length*21+6)+'" text-anchor="middle" font-family="Inter,sans-serif"'
-       + ' font-size="12.5" fill="'+(mio ? '#6366F1' : '#64748B')+'">'+P.sub+'</text>';
+       + ' font-size="12.5" fill="#64748B">'+P.sub+'</text>';
   });
 
   if(dot){
     const cx = px(dot.x), cy = py(dot.y);
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="23" fill="#4F46E5" opacity="0.16"/>';
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="9.5" fill="#4F46E5" stroke="#FFFFFF" stroke-width="3"/>';
+    const t = TONO[clave(dot.x, dot.y)];
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="23" fill="'+t+'" opacity="0.2"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="9.5" fill="'+t+'" stroke="#FFFFFF" stroke-width="3"/>';
   }
   s += '<text x="'+((x0+x1)/2)+'" y="'+(H-14)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5"'
      + ' font-weight="700" letter-spacing=".08em" fill="#64748B">'+M.ejesPlano.a+'</text>';
@@ -597,8 +697,8 @@ function sync(){
   const listo = f === 0;
 
   $('#prog-bar').style.width = ((PREGUNTAS.length - f) / PREGUNTAS.length * 100) + '%';
-  $('#prog-txt').textContent = listo ? 'Las veinte, respondidas' : 'Faltan ' + f + ' de ' + PREGUNTAS.length;
-  $('#prog-ir').textContent = listo ? 'Ver resultado ↓' : 'Ir a las preguntas ↓';
+  $('#prog-txt').textContent = listo ? 'Completado' : 'Faltan ' + f;
+  $('#prog-ir').textContent = listo ? 'Ver resultado ↓' : 'Ir a la autoevaluación ↓';
   $('#prog-ir').dataset.destino = listo ? '#res' : '#s-preguntas';
 
   const donde = listo ? clave(ea, eb) : null;
@@ -606,7 +706,7 @@ function sync(){
   document.querySelectorAll('.pf').forEach(c => c.classList.toggle('tuya', c.dataset.k === donde));
   $('#mapa-ay').textContent = listo
     ? 'Tu punto: ' + M.ejesCorto.a + ' ' + ea + ' y ' + M.ejesCorto.b + ' ' + eb + ' sobre 5.'
-    : 'Tu punto aparece al responder las veinte.';
+    : 'Tu punto aparece al terminar.';
 
   if(!listo){ $('#res').hidden = true; return; }
 
@@ -695,6 +795,7 @@ function monta(nombre){
     const P = M.perfiles[k];
     return '<div class="pf" data-k="' + k + '"><span class="tag">Tu posición</span>'
       + '<div class="n">' + P.nombre + '</div><div class="s">' + P.sub + '</div>'
+      + '<div class="d">' + P.desc + '</div>'
       + '<div class="r"><b>Riesgo:</b> ' + P.riesgo.toLowerCase() + '</div></div>';
   }).join('');
 
@@ -775,6 +876,16 @@ const vaA = sel => document.querySelector(sel).scrollIntoView({behavior:'smooth'
     window.scrollTo({top:0, behavior:'smooth'});
   });
   $('#modos').append(b);
+});
+
+document.querySelectorAll('.pest button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const guia = b.dataset.vista === 'guia';
+    document.querySelectorAll('.pest button').forEach(x => x.setAttribute('aria-selected', x === b));
+    document.querySelectorAll('.vista-test').forEach(x => x.classList.toggle('fuera', guia));
+    $('#vista-guia').hidden = !guia;
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
 });
 
 $('#h-empezar').addEventListener('click', ()=> vaA('#s-preguntas'));
