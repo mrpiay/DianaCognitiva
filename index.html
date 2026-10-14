@@ -262,14 +262,13 @@ const BANDAS = {leve:'Posición leve', marcada:'Posición marcada', extrema:'Pos
 /* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
    cuadrante no se lee igual pegado al cruce que en una esquina. */
 const MATIZ = {
-  leve: (a,b) => '<b>Leve</b> quiere decir que tus dos puntuaciones de hechos —intensidad '
-    + a + ', control ' + b + ' sobre 5— se quedan a un paso de las divisiones: lo que sigue '
-    + 'describe una inclinación, no un hábito asentado.',
-  marcada: (a,b) => '<b>Marcada</b> quiere decir que tus puntuaciones de hechos —intensidad '
-    + a + ', control ' + b + ' sobre 5— dejan el patrón claro sin llevarlo al extremo.',
-  extrema: (a,b) => '<b>Extrema</b> quiere decir que tus dos puntuaciones —intensidad '
-    + a + ', control ' + b + ' sobre 5— están en los bordes del plano: es la versión sin '
-    + 'matices de esta posición, y el consejo lo tiene en cuenta.'
+  leve: (a,b) => 'tus dos puntuaciones de hechos —intensidad ' + a + ', control ' + b
+    + ' sobre 5— se quedan a un paso de las divisiones, así que esto describe una '
+    + 'inclinación y no un hábito asentado.',
+  marcada: (a,b) => 'tus puntuaciones de hechos —intensidad ' + a + ', control ' + b
+    + ' sobre 5— dejan el patrón claro sin llevarlo al extremo.',
+  extrema: (a,b) => 'tus dos puntuaciones —intensidad ' + a + ', control ' + b
+    + ' sobre 5— están en los bordes del plano: es la versión sin matices de esta posición.'
 };
 function banda(a, b){
   const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
@@ -442,8 +441,8 @@ function sync(){
   $('#n-name').style.color = c.color;
 
   const bd = banda(ea, eb);
-  $('#r-riesgo').textContent = BANDAS[bd] + ' · Riesgo que conviene vigilar: ' + c.riesgo;
-  $('#r-banda').innerHTML = MATIZ[bd](ea, eb);
+  $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
+  $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb);
   $('#r-name').textContent = c.nombre;
   $('#r-name').style.color = c.color;
   $('#r-read').textContent = c.read;
