@@ -2,7 +2,7 @@
 
 Un test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: **intensidad de uso** y **control crítico**.
 
-→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (11 páginas)
+→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (20 páginas)
 
 ## De qué va
 
@@ -39,7 +39,7 @@ Es un *preprint*, no un artículo revisado por pares, y sus experimentos se real
 
 Una sola página sin dependencias ni compilación: `index.html` lo lleva todo, salvo las tipografías, que vienen de Google Fonts. Para trabajar en ella basta abrirla en el navegador.
 
-La guía se compone en `guia/index.html`, en formato 4:5 (200×250 mm), una página por idea. El PDF se regenera desde la página publicada:
+`guia/index.html` es el artículo completo compuesto en librillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se regenera desde la página publicada:
 
 ```
 chrome --headless=new --no-pdf-header-footer --print-to-pdf=guia/la-diana-cognitiva.pdf https://mrpiay.github.io/DianaCognitiva/guia/
