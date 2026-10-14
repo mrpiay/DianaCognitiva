@@ -95,6 +95,14 @@ a{color:var(--lav-p); text-decoration:none}
 .bars .tr i{display:block; height:100%; border-radius:1.4mm}
 
 .closing{font-family:var(--serif); font-size:13pt; line-height:1.4; color:var(--ink); background:var(--ground); border-radius:2.5mm; padding:6mm; margin:6mm 0; break-inside:avoid}
+/* ── contenido ───────────────────────────────────────────── */
+.toc{break-after:page; page-break-after:always}
+.toc h2{break-before:auto; page-break-before:auto}
+.toc-row{display:flex; align-items:baseline; gap:3mm; padding:2.9mm 0; font-size:10.5pt}
+.toc-row .n{font-family:var(--mono); font-size:8.5pt; color:var(--ink-3); width:7mm; flex:none}
+.toc-row .t{color:var(--ink)}
+.toc-row .ld{flex:1; border-bottom:.3mm dotted var(--line-2); transform:translateY(-1mm); min-width:6mm}
+.toc-row .pg{font-family:var(--mono); font-size:9.5pt; color:var(--ink-2); flex:none}
 .toolbar{position:fixed; top:4mm; z-index:9; background:var(--ink); color:#FFF; border:0; border-radius:2mm; padding:3mm 5mm; font-family:var(--sans); font-size:10pt; cursor:pointer; text-decoration:none}
 </style>
 </head>
@@ -144,6 +152,22 @@ a{color:var(--lav-p); text-decoration:none}
     <p class="by">Por <b>Mr. Piay Pombo</b></p>
     <p class="by" style="margin-top:4mm">mrpiay.github.io/DianaCognitiva</p>
   </div>
+</section>
+
+
+<!-- ═════ CONTENIDO ═════ -->
+<section class="toc">
+  <h2><span class="sec-no">Contenido</span>Qué hay en estas páginas</h2>
+  <div class="toc-row"><span class="n">01</span><span class="t">Delegar trabajo no es transferir el criterio</span><span class="ld"></span><span class="pg" data-sec="01">5</span></div>
+  <div class="toc-row"><span class="n">02</span><span class="t">El test: ¿cómo trabajas con la IA?</span><span class="ld"></span><span class="pg" data-sec="02">7</span></div>
+  <div class="toc-row"><span class="n">03</span><span class="t">Tu posición en el plano</span><span class="ld"></span><span class="pg" data-sec="03">9</span></div>
+  <div class="toc-row"><span class="n">04</span><span class="t">¿Hay un punto óptimo en el plano?</span><span class="ld"></span><span class="pg" data-sec="04">12</span></div>
+  <div class="toc-row"><span class="n">05</span><span class="t">Dos resultados que complican el diagnóstico</span><span class="ld"></span><span class="pg" data-sec="05">13</span></div>
+  <div class="toc-row"><span class="n">06</span><span class="t">Lo que sí cambia la conducta</span><span class="ld"></span><span class="pg" data-sec="06">15</span></div>
+  <div class="toc-row"><span class="n">07</span><span class="t">El problema de este test</span><span class="ld"></span><span class="pg" data-sec="07">17</span></div>
+  <div class="toc-row"><span class="n">08</span><span class="t">Dónde me ha dejado a mí</span><span class="ld"></span><span class="pg" data-sec="08">18</span></div>
+  <div class="toc-row"><span class="n">09</span><span class="t">La pregunta que queda</span><span class="ld"></span><span class="pg" data-sec="09">19</span></div>
+  <div class="toc-row"><span class="n">10</span><span class="t">La fuente y sus límites</span><span class="ld"></span><span class="pg" data-sec="10">20</span></div>
 </section>
 
 <!-- ═════ APERTURA ═════ -->

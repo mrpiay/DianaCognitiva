@@ -2,7 +2,7 @@
 
 Un test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: **intensidad de uso** y **control crítico**.
 
-→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (20 páginas)
+→ **[Hacer el test](https://mrpiay.github.io/DianaCognitiva/)**  ·  **[Guía en PDF](https://mrpiay.github.io/DianaCognitiva/guia/la-diana-cognitiva.pdf)** (21 páginas)
 
 ## Qué mide
 
@@ -39,8 +39,8 @@ Es un *preprint*, no un artículo revisado por pares, y sus experimentos se real
 
 Una sola página sin dependencias ni compilación: `index.html` lo lleva todo, salvo las tipografías, que vienen de Google Fonts. Para trabajar en ella basta abrirla en el navegador.
 
-`guia/index.html` es el artículo completo compuesto como cuadernillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se regenera desde la página publicada:
+`guia/index.html` es el artículo completo compuesto como cuadernillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se compone desde el fichero local en dos pasadas —la primera averigua en qué página cae cada sección, para el índice— y lleva folios y marcadores:
 
 ```
-chrome --headless=new --no-pdf-header-footer --print-to-pdf=guia/la-diana-cognitiva.pdf https://mrpiay.github.io/DianaCognitiva/guia/
+python guia/numerar.py
 ```
