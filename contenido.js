@@ -34,9 +34,9 @@ profesional:{
   tres:[
     {q:'¿Podrías explicar tu última entrega sin la IA delante?',
      d:'Casi todo el mundo dice que sí hasta que lo intenta. No va de memoria: va de si el razonamiento llegó a ser tuyo en algún momento.'},
-    {q:'¿Cuándo fue la última vez que le llevaste la contraria?',
+    {q:'¿Cuándo fue la última vez que le llevaste la contraria a la IA?',
      d:'Si no recuerdas la última vez que descartaste una respuesta suya, puede que no te haya dado ninguna mala. O que hayas dejado de mirar.'},
-    {q:'¿Qué pasaría mañana si no estuviera?',
+    {q:'¿Qué pasaría mañana en tu trabajo si la IA no estuviera?',
      d:'No es una pregunta sobre productividad. Es sobre cuánto de lo que entregas depende de algo que no controlas del todo.'}
   ],
   banco:[
@@ -147,9 +147,9 @@ estudiante:{
   tres:[
     {q:'¿Podrías explicar tu último trabajo sin la IA delante?',
      d:'Casi todos dicen que sí hasta que lo prueban. No va de memorizar: va de si en algún momento llegaste a entenderlo.'},
-    {q:'¿Cuándo fue la última vez que le dijiste que estaba equivocada?',
+    {q:'¿Cuándo fue la última vez que le dijiste a la IA que se equivocaba?',
      d:'Si no te acuerdas, puede que no haya fallado nunca. O que hayas dejado de comprobarlo.'},
-    {q:'¿Qué harías mañana si te la quitaran?',
+    {q:'¿Qué harías mañana si te quitaran la IA?',
      d:'No es un castigo imaginario. Es la pregunta de qué parte del trabajo sigue sabiendo hacer tu cabeza.'}
   ],
   banco:[
@@ -257,12 +257,12 @@ docente:{
   ejesPlano:{a:'INTENSIDAD DE USO →', b:'CONTROL PEDAGÓGICO →'},
   ejesCorto:{a:'uso', b:'control'},
   tres:[
-    {q:'¿Podrías justificar ante una familia cada decisión de tu última programación?',
+    {q:'¿Podrías justificar ante una familia una decisión que tomaste con ayuda de la IA?',
      d:'No en general: decisión por decisión. Qué aprende el alumno, por qué en ese orden y cómo sabrás si lo ha aprendido.'},
-    {q:'¿Cuándo fue la última vez que descartaste una propuesta suya por una razón pedagógica?',
+    {q:'¿Cuándo fue la última vez que descartaste una propuesta de la IA por una razón pedagógica?',
      d:'Un material generado puede estar bien escrito y medir otra cosa. Si nunca descartas nada, la pregunta es quién está decidiendo.'},
-    {q:'¿Qué parte de tu criterio se ha quedado en el borrador que te da?',
-     d:'Partir de una propuesta ahorra horas. También fija el marco antes de que tú hayas pensado el tuyo.'}
+    {q:'¿Qué parte de tu criterio se ha quedado en el borrador que te da la IA?',
+     d:'Partir de una propuesta de la IA ahorra horas. También fija el marco antes de que tú hayas pensado el tuyo.'}
   ],
   banco:[
     {cl:'d', ej:'a', s:+1, t:'Uso la IA en tareas centrales de mi trabajo docente, no solo en gestión o administración.'},
