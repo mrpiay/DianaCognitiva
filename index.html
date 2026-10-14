@@ -26,8 +26,7 @@
   --linea:#E2E8F0; --linea-2:#CBD5E1;
   --ink:#0F172A; --ink-2:#475569; --ink-3:#64748B;
   --ind:#4F46E5; --ind-2:#6366F1; --ind-3:#EEF2FF; --vio:#7C3AED;
-  --lav:#725BAC; --mint:#499E79; --coral:#A24E3C; --amber:#8A6516;
-  --lav-p:#5E4A93; --mint-p:#2F7A5C; --coral-p:#8A3D2D; --amber-p:#6F5112;
+  --amber:#D97706; --amber-p:#B45309;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --sombra:0 1px 2px rgba(15,23,42,.04), 0 8px 24px -12px rgba(15,23,42,.12);
 }
@@ -123,19 +122,25 @@ aside{position:sticky; top:88px}
 .oro .nota{font-size:13px; color:var(--ink-3); margin-top:14px}
 
 /* ── panel lateral ────────────────────────────────── */
-.panel{padding:18px}
-@media(max-width:980px){.panel{display:grid; grid-template-columns:120px minmax(0,1fr); gap:18px; align-items:center}}
+.panel{padding:0}
+.panel .cab{padding:14px 18px; border-bottom:1px solid var(--linea)}
+.panel > div:nth-child(2){padding:18px 18px 0}
+.panel .now{padding:0 18px 18px}
+@media(max-width:980px){.panel .cab{grid-column:1 / -1; padding:12px 16px}
+  .panel > div:nth-child(2){padding:14px 0 14px 16px} .panel .now{padding:14px 16px 14px 0}}
+@media(max-width:980px){.panel{display:grid; grid-template-columns:120px minmax(0,1fr); gap:0 18px; align-items:center}}
 .plane-full{display:block}
 .plane-mini{display:none}
 @media(max-width:980px){.plane-full{display:none} .plane-mini{display:block}}
 .panel svg{display:block; width:100%; height:auto}
 .now{margin-top:16px; padding-top:15px; border-top:1px solid var(--linea)}
+.panel .foot{margin:0; padding:13px 18px 16px}
 @media(max-width:980px){.now{margin:0; padding:0; border:0}}
 .now .tag{font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3)}
 .now .name{font-size:22px; font-weight:800; letter-spacing:-.025em; line-height:1.2; margin-top:6px}
 .pista{height:7px; background:var(--suave); border-radius:999px; margin-top:13px; overflow:hidden}
 .pista i{display:block; height:100%; background:var(--ind); border-radius:999px; transition:width .3s}
-.panel .foot{font-size:11.5px; line-height:1.55; color:var(--ink-3); margin-top:14px; padding-top:13px; border-top:1px solid var(--linea)}
+.panel .foot{font-size:11.5px; line-height:1.55; color:var(--ink-3); border-top:1px solid var(--linea)}
 @media(max-width:980px){.panel .foot{display:none}}
 
 /* ── resultado ────────────────────────────────────── */
@@ -304,6 +309,9 @@ aside{position:sticky; top:88px}
 
 <aside>
   <div class="panel card">
+    <div class="cab">
+      <span class="eyebrow">El plano</span>
+    </div>
     <div>
       <div class="plane-full" id="plane-full"></div>
       <div class="plane-mini" id="plane-mini"></div>
@@ -330,7 +338,6 @@ const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; i
    Idéntico en los tres modos. Lo único que cambia es el contenido, que está
    en contenido.js: enunciados, nombres de perfil y rótulos. */
 
-const COLORES = {apoyo:'lav', delegacion:'mint', transferencia:'coral', intuitiva:'amber'};
 const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
 const alto = v => v > MAX / 2;
 const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
@@ -408,11 +415,13 @@ function plane(dot, compacto){
     {a:x0,   b:cutx, c:cuty, d:y1,   k:'intuitiva'},
     {a:cutx, b:x1,   c:cuty, d:y1,   k:'transferencia'}
   ];
-  const TINTE = {lav:'#725BAC', mint:'#499E79', coral:'#A24E3C', amber:'#8A6516'};
-  const HONDO = {lav:'#5E4A93', mint:'#2F7A5C', coral:'#8A3D2D', amber:'#6F5112'};
+  /* El cuadrante ya lleva su nombre escrito dentro, así que el color no
+     distingue nada que no esté dicho. Se tinta solo donde caes. */
+  const aqui = dot ? clave(dot.x, dot.y) : null;
   let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano: '
         + M.ejes.a.toLowerCase() + ' frente a ' + M.ejes.b.toLowerCase() + '">';
-  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+TINTE[COLORES[r.k]]+'" opacity="0.18"/>'; });
+  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'
+    + (r.k === aqui ? '#4F46E5' : '#94A3B8') + '" opacity="' + (r.k === aqui ? '0.13' : '0.07') + '"/>'; });
   s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" fill="none" stroke="#B4B4C8" stroke-width="1"/>';
   s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#B4B4C8" stroke-width="1"/>';
   s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
@@ -430,7 +439,7 @@ function plane(dot, compacto){
       const ny = arriba ? y0-50+(lineas.length<2?14:0) : y1+30;
       const sy = arriba ? y0-20 : y1+30+lineas.length*14+10;
       lineas.forEach((ln,k)=>{
-        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+HONDO[COLORES[r.k]]+'" font-family="Inter,sans-serif" font-size="11.5"'
+        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+(r.k === aqui ? '#4338CA' : '#64748B')+'" font-family="Inter,sans-serif" font-size="11.5"'
            + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
       });
       s += '<text x="'+cx+'" y="'+sy+'" fill="#4E5262" font-family="Inter,sans-serif" font-size="11"'
@@ -439,10 +448,9 @@ function plane(dot, compacto){
   }
 
   if(dot){
-    const t = TINTE[COLORES[clave(dot.x, dot.y)]];
     const cx = px(dot.x), cy = py(dot.y), r1 = compacto ? 11 : 18, r2 = compacto ? 5.5 : 7.5;
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="'+t+'" opacity="0.18"/>';
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="'+t+'" stroke="#FFFFFF" stroke-width="2.5"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#4F46E5" opacity="0.2"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#4F46E5" stroke="#FFFFFF" stroke-width="2.5"/>';
   }
   if(!compacto){
     s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="Inter,sans-serif" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">'+M.ejesPlano.a+'</text>';
@@ -489,23 +497,23 @@ function sync(){
 
   const ea = celda('e','a'), eb = celda('e','b');
   const da = celda('d','a'), db = celda('d','b');
-  const k = clave(ea, eb), c = M.perfiles[k], color = 'var(--' + COLORES[k] + '-p)';
+  const k = clave(ea, eb), c = M.perfiles[k];
 
   $('#plane-full').innerHTML = plane({x:ea, y:eb}, false);
   $('#plane-mini').innerHTML = plane({x:ea, y:eb}, true);
   $('#n-tag').textContent = 'Tu posición';
   $('#n-name').textContent = c.nombre;
-  $('#n-name').style.color = color;
+  $('#n-name').style.color = 'var(--ind)';
   $('#n-foot').textContent = 'El punto describe tus respuestas: no mide tu capacidad de razonar ni diagnostica dependencia de la IA.';
 
   const bd = banda(ea, eb);
   $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
   $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb, M.ejesCorto);
   $('#r-name').textContent = c.nombre;
-  $('#r-name').style.color = color;
+  $('#r-name').style.color = 'var(--ind)';
   $('#r-read').textContent = c.read;
-  parBarra($('#br-a'), M.ejes.a, da, ea, 'var(--lav)');
-  parBarra($('#br-b'), M.ejes.b, db, eb, 'var(--mint)');
+  parBarra($('#br-a'), M.ejes.a, da, ea, 'var(--ind)');
+  parBarra($('#br-b'), M.ejes.b, db, eb, 'var(--ind)');
 
   /* Que no haya empates no hace la frontera menos delicada: un 2 y un 3 están
      a una respuesta de distancia. Mejor decirlo que disimularlo. */
