@@ -183,6 +183,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
       </div>
     </div>
     <p class="foot" id="n-foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
+      <p class="foot"><a href="escolar/">Versión para clase: la brújula cognitiva</a></p>
   </div>
 </aside>
 
@@ -347,8 +348,11 @@ function plane(dot, compacto){
   const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
   const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
   const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
-  const px = v => x0 + v / MAX * (x1 - x0);
-  const py = v => y1 - v / MAX * (y1 - y0);
+  /* El punto se dibuja dentro de un marco un poco menor: en las esquinas
+     (un 5 y un 0) el centro caía justo sobre el borde y se salía medio. */
+  const m = compacto ? 7 : 11;
+  const px = v => x0 + m + v / MAX * (x1 - x0 - 2*m);
+  const py = v => y1 - m - v / MAX * (y1 - y0 - 2*m);
   const cutx = px(MAX/2), cuty = py(MAX/2);
   const q = [
     {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'APOYO PUNTUAL',             s:'usas poco, verificas'},

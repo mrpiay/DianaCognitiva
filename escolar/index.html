@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Veinte preguntas de sí o no sobre cómo usas la IA en clase. Al final, tu perfil y el reto que te toca este mes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/escolar/">
+<meta property="og:title" content="La brújula cognitiva">
+<meta property="og:description" content="¿Pilotas tú o vas de pasajero? Veinte preguntas, tres minutos y un reto para el mes.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
+<title>La brújula cognitiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap">
+
+<style>
+/* Tema claro único y deliberado. Paleta de datos validada contra fondo blanco:
+   banda de luminosidad, suelo de croma, separación bajo deuteranopia y
+   protanopia, y contraste. */
+:root{
+  --ground:#F5F5F9; --surface:#FFFFFF; --raised:#EDEDF4;
+  --line:#E3E3EC; --line-2:#CBCBDA;
+  --ink:#191A21; --ink-2:#4E5262; --ink-3:#696E80;
+  --lav:#725BAC; --mint:#499E79; --coral:#A24E3C; --amber:#8A6516;
+  --lav-p:#5E4A93; --mint-p:#2F7A5C; --coral-p:#8A3D2D; --amber-p:#6F5112;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; margin:0; padding:0 0 80px}
+h1,h2,h3{font-family:var(--serif); font-weight:400; text-wrap:balance; margin:0; letter-spacing:-.012em}
+p{margin:0}
+button{font-family:inherit; font-size:inherit; color:inherit; cursor:pointer}
+a{color:var(--lav-p)}
+:focus-visible{outline:2px solid var(--lav); outline-offset:3px; border-radius:3px}
+.eyebrow{font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3)}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+.app{width:min(1120px,100% - 44px); margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 352px; gap:52px; align-items:start}
+aside{position:sticky; top:22px}
+@media(max-width:940px){
+  .app{grid-template-columns:1fr; gap:0}
+  aside{order:-1; position:sticky; top:0; z-index:20; margin:0 -22px 26px; padding:10px 22px 12px;
+        background:var(--ground); border-bottom:1px solid var(--line-2); box-shadow:0 6px 18px rgba(25,26,33,.07)}
+}
+
+header{padding:56px 0 30px; border-bottom:1px solid var(--line)}
+@media(max-width:940px){header{padding-top:16px}}
+h1{font-size:clamp(32px,5vw,50px); line-height:1.05; font-weight:300; margin-top:16px}
+h1 em{font-style:normal; color:var(--coral-p)}
+.lede{font-family:var(--serif); font-size:18.5px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
+.como{margin-top:22px; padding:16px 19px; background:var(--surface); border:1px solid var(--line); border-radius:9px; font-size:14px; line-height:1.65; color:var(--ink-2); max-width:46em}
+.como b{color:var(--ink); font-weight:500}
+.como p + p{margin-top:9px}
+
+.q{display:grid; grid-template-columns:1fr auto; gap:11px 24px; align-items:center; padding:17px 0; border-bottom:1px solid var(--line)}
+@media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
+.q:first-child{border-top:1px solid var(--line)}
+.q-text{font-size:15px; line-height:1.55}
+.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:10px}
+.opts{display:flex; gap:7px}
+.opts button{
+  min-width:64px; height:38px; padding:0 14px; border-radius:6px; border:1px solid var(--line-2);
+  background:var(--surface); font-size:14px; color:var(--ink-3);
+  transition:border-color .12s, background .12s, color .12s;
+}
+.opts button:hover{border-color:var(--ink-3); color:var(--ink)}
+.opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
+
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
+@media(max-width:940px){
+  .panel{display:grid; grid-template-columns:104px minmax(0,1fr); gap:16px; align-items:center; padding:12px 15px}
+}
+.plane-full{display:block}
+.plane-mini{display:none}
+@media(max-width:940px){.plane-full{display:none} .plane-mini{display:block}}
+.panel svg{display:block; width:100%; height:auto}
+.now{margin-top:15px; padding-top:14px; border-top:1px solid var(--line)}
+@media(max-width:940px){.now{margin:0; padding:0; border:0}}
+.now .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+.now .name{font-family:var(--serif); font-size:23px; line-height:1.15; margin-top:5px}
+@media(max-width:940px){.now .name{font-size:19px}}
+.pista{height:5px; background:#E7E7F1; border-radius:3px; margin-top:11px; overflow:hidden}
+.pista i{display:block; height:100%; background:var(--lav); border-radius:3px; transition:width .3s}
+.panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
+@media(max-width:940px){.panel .foot{display:none}}
+
+#res[hidden]{display:none}
+#res{margin-top:46px; padding-top:34px; border-top:2px solid var(--line-2)}
+#res h2{font-size:clamp(27px,4.4vw,38px); line-height:1.1; font-weight:300; margin-top:11px}
+#res .read{font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
+.brecha{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 25px; margin-top:28px}
+.brecha h3{font-size:18px; margin-bottom:12px}
+.brecha .eje{padding:13px 0; border-bottom:1px solid var(--line)}
+.brecha .eje:last-of-type{border-bottom:0}
+.brecha .lab{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:7px}
+.par{display:flex; align-items:center; gap:10px; font-size:13.5px; margin-bottom:5px}
+.par .q1{width:92px; flex:none; color:var(--ink-3)}
+.par .bar{flex:1; height:8px; background:#E7E7F1; border-radius:4px; position:relative}
+.par .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px}
+.par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
+.brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
+.brecha .dice b{color:var(--ink); font-weight:600}
+#res .banda{font-family:var(--sans); font-size:14.5px; line-height:1.62;
+  color:var(--ink-3); margin-top:14px; max-width:52em}
+.alerta{
+  margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
+  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
+}
+.alerta b{color:var(--amber-p); font-weight:600}
+.alerta[hidden]{display:none}
+.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:22px}
+.advice h3{font-size:17px; margin-bottom:9px}
+.advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
+.advice p + p{margin-top:11px}
+.advice b{color:var(--ink); font-weight:500}
+.revela{font-size:14.5px; line-height:1.6; color:var(--ink-2); margin:2px 0 18px; max-width:52em}
+.compromiso{margin-top:26px; padding:20px 22px; background:var(--ground); border-radius:12px}
+.compromiso h3{margin:0 0 10px}
+.compromiso p{font-size:15px; line-height:1.62; color:var(--ink-2); margin:0 0 10px; max-width:52em}
+.compromiso p:last-child{margin-bottom:0}
+.caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
+.caveat b{color:var(--ink-2); font-weight:500}
+.again{margin-top:26px}
+.again button{background:var(--raised); border:1px solid var(--line-2); border-radius:7px; padding:11px 20px; font-size:14px}
+.again button:hover{border-color:var(--ink-3)}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<main>
+  <header>
+    <div class="eyebrow">La brújula cognitiva</div>
+    <h1>¿Pilotas tú o <em>vas de pasajero</em>?</h1>
+    <p class="lede">Usar mucho la IA no es el problema. El problema es entregar algo que no sabrías explicar si te la quitaran delante.</p>
+    <div class="como">
+      <p>Son veinte preguntas de sí o no sobre lo mismo: cuánto entra la IA en tus trabajos y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes algo que pasó.</p>
+      <p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.</p>
+      <p>Cuando una pregunta hable de algo que ocurrió, piensa en la vez más cercana que recuerdes. No hay respuestas buenas ni malas, y esto no es una nota — hay respuestas tuyas y respuestas que quedarían bien, y solo las primeras sirven de algo. Nada sale de tu navegador.</p>
+    </div>
+  </header>
+
+  <div id="preguntas"></div>
+
+  <section id="res" hidden>
+    <div class="eyebrow" id="r-riesgo">—</div>
+    <h2 id="r-name">—</h2>
+    <p class="read" id="r-read"></p>
+    <p class="banda" id="r-banda"></p>
+
+    <div class="brecha">
+      <h3>Lo que dices y lo que cuentas</h3>
+      <p class="revela">No era un cuestionario, eran dos mezclados: diez preguntas te pedían que te describieras y diez que recordaras algo que pasó. <b>Tu punto sale solo de las diez de hechos.</b> Lo que dices sirve para esto otro: ver cuánto se parece a lo que recuerdas.</p>
+      <div class="eje" id="br-a"></div>
+      <div class="eje" id="br-b"></div>
+    </div>
+
+    <div class="alerta" id="r-frontera" hidden></div>
+    <div class="advice" id="r-advice"></div>
+
+    <div class="compromiso">
+      <h3>Antes de cerrar</h3>
+      <p>Escribe una frase con lo que vas a hacer durante el próximo mes. Vale si dice <b>qué</b> vas a
+      hacer, <b>cuándo</b> y <b>cómo sabrás</b> que lo has hecho. «Revisar más» no vale; «comprobar una
+      fecha y una cifra antes de cada entrega», sí.</p>
+      <p>Dentro de un mes, vuelve y responde otra vez las veinte. Si el punto no se ha movido, no es que
+      el test falle: es que el hábito sigue donde estaba.</p>
+    </div>
+
+    <p class="caveat">
+      <b>Esto no es una nota.</b> Lo contestas tú, y lo que uno recuerda no siempre es lo que hizo.
+      Los cuatro perfiles describen hábitos, no personas, y un hábito cambia con la asignatura, con el
+      día y con la prisa que lleves. Sirve para pensar sobre cómo trabajas, no para ponerte una etiqueta.
+    </p>
+    <div class="again"><button id="reset">Volver a empezar</button></div>
+  </section>
+</main>
+
+<aside>
+  <div class="panel">
+    <div>
+      <div class="plane-full" id="plane-full"></div>
+      <div class="plane-mini" id="plane-mini"></div>
+    </div>
+    <div>
+      <div class="now">
+        <div class="tag" id="n-tag">Sin terminar</div>
+        <div class="name" id="n-name">Faltan 20</div>
+        <div class="pista"><i id="n-pista" style="width:0%"></i></div>
+      </div>
+    </div>
+    <p class="foot" id="n-foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
+      <p class="foot"><a href="../">Versión para profesionales</a> · <a href="../guia/la-diana-cognitiva.pdf">La guía en PDF</a></p>
+  </div>
+</aside>
+
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
+
+/* Dos cuestionarios entrelazados que el lector no distingue: las impares le
+   piden que se describa y las pares que recuerde algo ocurrido. La posición
+   sale solo de los episodios; la distancia entre ambas mitades es el hallazgo.
+   cl: d declaración · e episodio   ·   ej: a intensidad · b control
+   s:  +1 suma · -1 resta (responder «sí» apunta al lado contrario)          */
+const PREGUNTAS = [
+  /* cl: d te pide que te describas · e te pide un hecho que ocurrió
+     ej: a cuánto la usas · b cuánto la revisas
+     s:  +1 el sí suma · -1 el sí resta (la pregunta va al revés a propósito) */
+  {cl:'d', ej:'a', s:+1, t:'Uso la IA para trabajos de clase, no solo para cosas sueltas.'},
+  {cl:'d', ej:'a', s:+1, t:'Cuando no sé cómo empezar un trabajo, lo normal es que acuda a la IA.'},
+  {cl:'d', ej:'a', s:+1, t:'Si mañana no pudiera usar IA, mi forma de hacer los trabajos cambiaría bastante.'},
+  {cl:'d', ej:'a', s:-1, t:'Hay asignaturas o trabajos que prefiero hacer sin IA.'},
+  {cl:'d', ej:'a', s:-1, t:'Podría preparar un trabajo entero sin abrir la IA en ningún momento.'},
+
+  {cl:'e', ej:'a', s:+1, t:'La última vez que me mandaron algo que no sabía hacer, abrí la IA antes de intentarlo por mi cuenta.'},
+  {cl:'e', ej:'a', s:+1, t:'Recientemente he hecho con IA un trabajo que antes habría hecho solo.'},
+  {cl:'e', ej:'a', s:+1, t:'En mi última entrega importante, la IA participó de alguna forma.'},
+  {cl:'e', ej:'a', s:-1, t:'Mi último trabajo lo terminé sin usar la IA en ninguna parte.'},
+  {cl:'e', ej:'a', s:-1, t:'La última vez que me atasqué con un ejercicio, salí adelante sin preguntárselo a la IA.'},
+
+  {cl:'d', ej:'b', s:+1, t:'Antes de entregar algo hecho con IA, lo reviso.'},
+  {cl:'d', ej:'b', s:+1, t:'Normalmente noto cuándo una respuesta de la IA no encaja o suena rara.'},
+  {cl:'d', ej:'b', s:+1, t:'Cuando algo importante no me convence, busco otra fuente.'},
+  {cl:'d', ej:'b', s:-1, t:'Si la IA dice lo que yo esperaba, no suelo mirarlo mucho más.'},
+  {cl:'d', ej:'b', s:-1, t:'Cuando voy con prisa, uso lo que me da la IA tal cual.'},
+
+  {cl:'e', ej:'b', s:+1, t:'La última vez que usé la IA para una entrega, comprobé por mi cuenta alguno de sus datos.'},
+  {cl:'e', ej:'b', s:+1, t:'La última vez que vi un error en una respuesta de la IA, lo corregí en lugar de dejarlo pasar.'},
+  {cl:'e', ej:'b', s:+1, t:'En mi último trabajo con IA, comprobé si de verdad respondía a lo que pedían.'},
+  {cl:'e', ej:'b', s:-1, t:'En mi última entrega usé una fecha, una cifra o una cita de la IA sin comprobarla.'},
+  {cl:'e', ej:'b', s:-1, t:'Si me hubieran pedido explicar mi último trabajo sin la IA delante, me habría costado.'},
+];
+const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
+
+const CUADRANTES = {
+  apoyo:{
+    nombre:'\ud83c\udf31 Explorador', riesgo:'Quedarte sin descubrir en qué te ayuda', color:'var(--lav-p)',
+    read:'Usas poco la IA y, cuando la usas, la revisas. Tu criterio está entero; lo que te puede faltar es descubrir en qué te ayudaría de verdad.',
+    titulo:'Tu reto',
+    leve:'Prueba a usarla en una tarea más de las que ya haces, y revísala igual que ahora.',
+    marcada:'Elige un trabajo que normalmente empiezas desde cero y pídele a la IA solo el primer borrador. Luego compara: qué se te habría ocurrido a ti y qué no.',
+    extrema:'Coge la tarea más repetitiva que tengas y hazla entera con IA una vez, revisando solo el resultado. Es para ver qué te ahorra, no para dejar de pensar.'
+  },
+  delegacion:{
+    nombre:'\ud83d\ude80 Piloto', riesgo:'Dejar de revisar cuando llegan las prisas', color:'var(--mint-p)',
+    read:'Usas mucho la IA y sigues revisando lo que te devuelve. Es la combinación que te deja aprovechar la herramienta sin dejar de decidir tú.',
+    titulo:'Tu reto',
+    leve:'Esto se pierde sin darse cuenta: basta una semana de exámenes. Escribe qué vas a comprobar siempre, aunque sea una sola cosa, y cúmplelo también los días malos.',
+    marcada:'Antes de entregar, revisa tres cosas: un dato, una fuente y un razonamiento. Siempre las mismas tres, hasta que te salga sin pensarlo.',
+    extrema:'Revisas casi todo, y revisar también cuesta tiempo. Mira qué parte de tu revisión ya es rutina y guarda el esfuerzo para lo que de verdad se puede caer.'
+  },
+  transferencia:{
+    nombre:'\u26a0\ufe0f Pasajero', riesgo:'Entregar algo que no sabrías explicar', color:'var(--coral-p)',
+    read:'Usas mucho la IA y la revisas poco. No significa que hagas mal los trabajos: mientras la IA acierte, pueden salir bien. Significa que salen bien por algo que no estás comprobando.',
+    titulo:'Tu reto',
+    leve:'No hace falta cambiarlo todo. Elige un tipo de dato —fechas, cifras, nombres— y compruébalo siempre, sin excepciones.',
+    marcada:'Coge tu último trabajo hecho con IA y explícalo en voz alta sin mirarlo. Lo que no puedas explicar es lo que todavía no era tuyo.',
+    extrema:'Antes de entregar nada, escribe con tus palabras qué dice tu trabajo y por qué. Si no te sale, es que aún no lo has hecho tú.'
+  },
+  intuitiva:{
+    nombre:'\ud83e\udded Solitario', riesgo:'Repetir tus propias ideas sin contraste', color:'var(--amber-p)',
+    read:'Usas poco la IA y tampoco contrastas mucho tus propias ideas. Aquí el riesgo no es la máquina: es dar por buena la primera idea que se te ocurre.',
+    titulo:'Tu reto',
+    leve:'Antes de dar algo por bueno, busca una fuente más. Una sola basta para empezar.',
+    marcada:'Pregúntale a la IA, o a alguien de clase, qué le parece flojo de tu respuesta. No para copiar lo que diga: para ver si se te había escapado.',
+    extrema:'Pide a propósito que alguien te lleve la contraria en tu próximo trabajo importante, y escucha hasta el final antes de defenderte.'
+  }
+};
+
+/* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
+   distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
+const BANDAS = {leve:'Poco marcado', marcada:'Marcado', extrema:'Muy marcado'};
+/* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
+   cuadrante no se lee igual pegado al cruce que en una esquina. */
+const MATIZ = {
+  leve: (a,b) => 'tus dos puntuaciones de hechos —uso ' + a + ', revisión ' + b
+    + ' sobre 5— se quedan al lado de las líneas, así que esto es una tendencia y no '
+    + 'una costumbre fijada.',
+  marcada: (a,b) => 'tus puntuaciones de hechos —uso ' + a + ', revisión ' + b
+    + ' sobre 5— dejan claro el patrón sin llegar al extremo.',
+  extrema: (a,b) => 'tus dos puntuaciones —uso ' + a + ', revisión ' + b
+    + ' sobre 5— están en los bordes del plano: es la versión sin matices de este perfil.'
+};
+function banda(a, b){
+  const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
+  if(da === 0.5 && db === 0.5) return 'leve';        // los dos ejes pegados al cruce
+  if(da === MAX/2 && db === MAX/2) return 'extrema'; // los dos en un borde
+  return 'marcada';                                   // el caso corriente
+}
+
+const alto = v => v > MAX / 2;   // 2,5: ninguna puntuación entera cae encima
+const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
+                               : (alto(b) ? 'apoyo' : 'intuitiva');
+
+const R = PREGUNTAS.map(()=>null);
+
+/* Se barajan en cada visita para que no se note el compás de alternancia, pero
+   sin dejar que el azar amontone más de tres de la misma clase seguidas. */
+function barajar(){
+  const o = PREGUNTAS.map((_,i)=>i);
+  const racha = () => {
+    let n = 1;
+    for(let i=1; i<o.length; i++){
+      if(PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl){ if(++n > 3) return true; }
+      else n = 1;
+    }
+    return false;
+  };
+  do{
+    for(let i=o.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [o[i],o[j]] = [o[j],o[i]];
+    }
+  } while(racha());
+  return o;
+}
+const ORDEN = barajar();
+
+(function pintar(){
+  const host = $('#preguntas');
+  ORDEN.forEach((idx,pos)=>{
+    const p = PREGUNTAS[idx], i = idx;
+    const row = el('div','q');
+    const tx = el('div','q-text');
+    tx.append(el('span','n', String(pos+1)+'.'), document.createTextNode(p.t));
+    const opts = el('div','opts');
+    [['Sí',1],['No',0]].forEach(([etiqueta,valor])=>{
+      const b = el('button','',etiqueta);
+      b.type='button'; b.setAttribute('aria-pressed','false');
+      b.setAttribute('aria-label','Pregunta '+(pos+1)+': '+etiqueta);
+      b.addEventListener('click', ()=>{
+        R[i] = valor;
+        [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
+        sync();
+      });
+      opts.append(b);
+    });
+    row.append(tx, opts); host.append(row);
+  });
+})();
+
+/* Puntuación de una celda: 0 a 4. En las preguntas invertidas, «sí» resta. */
+function celda(cl, ej){
+  let t = 0;
+  PREGUNTAS.forEach((p,i)=>{
+    if(p.cl!==cl || p.ej!==ej || R[i]===null) return;
+    t += p.s > 0 ? R[i] : (1 - R[i]);
+  });
+  return t;
+}
+const faltan = () => R.filter(v=>v===null).length;
+
+/* ═══════════════ PLANO 2×2 ═══════════════
+   Sin escalas numéricas y con el mínimo de ambos ejes abajo a la izquierda. El
+   punto solo aparece al terminar: si se moviera con cada respuesta, delataría
+   hacia dónde empuja cada pregunta y se acabaría la gracia. */
+function plane(dot, compacto){
+  const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
+  const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
+  const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
+  /* El punto se dibuja dentro de un marco un poco menor: en las esquinas
+     (un 5 y un 0) el centro caía justo sobre el borde y se salía medio. */
+  const m = compacto ? 7 : 11;
+  const px = v => x0 + m + v / MAX * (x1 - x0 - 2*m);
+  const py = v => y1 - m - v / MAX * (y1 - y0 - 2*m);
+  const cutx = px(MAX/2), cuty = py(MAX/2);
+  const q = [
+    {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'EXPLORADOR', s:'la usas poco, la revisas'},
+    {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'PILOTO',     s:'la usas mucho, la revisas'},
+    {a:x0,   b:cutx, c:cuty, d:y1,   t:'#8A6516', p:'#6F5112', n:'SOLITARIO',  s:'la usas poco, no la revisas'},
+    {a:cutx, b:x1,   c:cuty, d:y1,   t:'#A24E3C', p:'#8A3D2D', n:'PASAJERO',   s:'la usas mucho, no la revisas'}
+  ];
+  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano: cuánto usas la IA frente a cuánto la revisas">';
+  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+r.t+'" opacity="0.18"/>'; });
+  s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" fill="none" stroke="#B4B4C8" stroke-width="1"/>';
+  s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#B4B4C8" stroke-width="1"/>';
+  s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
+
+  if(!compacto){
+    q.forEach(r=>{
+      const cx = (r.a+r.b)/2, arriba = r.c===y0;
+      const w = r.n.split(' ');
+      let corte = 1, mejor = Infinity;
+      for(let k=1; k<w.length; k++){
+        const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
+        if(dd < mejor){ mejor = dd; corte = k; }
+      }
+      const lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
+      const ny = arriba ? y0-50 : y1+30;
+      const sy = arriba ? y0-20 : y1+60;
+      lineas.forEach((ln,k)=>{
+        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+r.p+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
+           + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
+      });
+      s += '<text x="'+cx+'" y="'+sy+'" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11"'
+         + ' font-weight="500" text-anchor="middle">'+r.s+'</text>';
+    });
+  }
+
+  if(dot){
+    const cx = px(dot.x), cy = py(dot.y), r1 = compacto ? 11 : 18, r2 = compacto ? 5.5 : 7.5;
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#725BAC" opacity="0.16"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
+  }
+  if(!compacto){
+    s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CUÁNTO LA USO →</text>';
+    s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CUÁNTO LA REVISO →</text>';
+  }
+  return s + '</svg>';
+}
+
+function parBarra(host, titulo, dice, hace, color){
+  host.innerHTML = '';
+  host.append(el('div','lab', titulo));
+  [['Dices', dice], ['Cuentas', hace]].forEach(([etiqueta,v])=>{
+    const row = el('div','par');
+    row.append(el('span','q1', etiqueta));
+    const bar = el('div','bar');
+    const i = el('i'); i.style.width = (v/MAX*100)+'%'; i.style.background = color;
+    bar.append(i); row.append(bar);
+    const n = el('span','v num', v + '/' + MAX); n.style.color = color;
+    row.append(n); host.append(row);
+  });
+  const d = dice - hace;
+  const texto = Math.abs(d) <= 1
+    ? 'Lo que dices y lo que cuentas <b>encajan</b>.'
+    : (d > 0
+        ? 'Te describes <b>' + d + ' puntos por encima</b> de lo que muestran tus episodios.'
+        : 'Tus episodios te sitúan <b>' + (-d) + ' puntos por encima</b> de como te describes.');
+  const p = el('p','dice'); p.innerHTML = texto; host.append(p);
+}
+
+function sync(){
+  const f = faltan();
+  $('#n-pista').style.width = ((PREGUNTAS.length - f) / PREGUNTAS.length * 100) + '%';
+
+  if(f){
+    $('#plane-full').innerHTML = plane(null, false);
+    $('#plane-mini').innerHTML = plane(null, true);
+    $('#n-tag').textContent = 'Sin terminar';
+    $('#n-name').textContent = 'Faltan ' + f;
+    $('#n-name').style.color = 'var(--ink-3)';
+    $('#n-foot').textContent = 'El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.';
+    $('#res').hidden = true;
+    return;
+  }
+
+  const ea = celda('e','a'), eb = celda('e','b');
+  const da = celda('d','a'), db = celda('d','b');
+  const c = CUADRANTES[clave(ea,eb)];
+
+  $('#plane-full').innerHTML = plane({x:ea, y:eb}, false);
+  $('#plane-mini').innerHTML = plane({x:ea, y:eb}, true);
+  $('#n-tag').textContent = 'Tu posición';
+  $('#n-name').textContent = c.nombre;
+  $('#n-name').style.color = c.color;
+  $('#n-foot').textContent = 'El punto describe tus respuestas: no mide lo listo que eres ni lo bien que trabajas.';
+
+  const bd = banda(ea, eb);
+  $('#r-riesgo').textContent = 'Lo que conviene vigilar: ' + c.riesgo;
+  $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb);
+  $('#r-name').textContent = c.nombre;
+  $('#r-name').style.color = c.color;
+  $('#r-read').textContent = c.read;
+  parBarra($('#br-a'), 'Cuánto la uso', da, ea, 'var(--lav)');
+  parBarra($('#br-b'), 'Cuánto la reviso', db, eb, 'var(--mint)');
+  /* Que no haya empates no hace la frontera menos delicada: un 2 y un 3 están
+     a una respuesta de distancia. Mejor decirlo que disimularlo. */
+  const cerca = [];
+  if(ea===2 || ea===3) cerca.push(['cuánto la usas', CUADRANTES[clave(ea>2?1:4, eb)].nombre]);
+  if(eb===2 || eb===3) cerca.push(['cuánto la revisas',   CUADRANTES[clave(ea, eb>2?1:4)].nombre]);
+  const fr = $('#r-frontera');
+  if(cerca.length){
+    fr.innerHTML = '<b>Estás pegado a una división.</b> Tu puntuación en '
+      + cerca.map(x=>x[0]).join(' y en ')
+      + (cerca.length>1 ? ' queda' : ' queda') + ' a una sola respuesta de la línea, así que '
+      + (cerca.length>1 ? 'bastaría cambiar una para acabar en otro cuadrante' :
+         'con una respuesta distinta estarías en «' + cerca[0][1] + '»')
+      + '. Léelo como una zona, no como una frontera.';
+    fr.hidden = false;
+  } else fr.hidden = true;
+
+  $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c[bd] + '</p>';
+  $('#res').hidden = false;
+}
+sync();
+
+$('#reset').addEventListener('click', ()=>{
+  R.fill(null);
+  document.querySelectorAll('.opts button').forEach(b=>b.setAttribute('aria-pressed','false'));
+  sync();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>

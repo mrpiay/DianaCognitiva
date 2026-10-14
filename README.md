@@ -6,6 +6,10 @@ Un test de veinte preguntas de sí o no que sitúa tus hábitos de trabajo con I
 
 La guía explica qué mide el test, de dónde sale y qué hacer con el resultado. Para evaluarte hace falta la herramienta: es ella la que lleva la cuenta y sitúa el punto.
 
+### Para clase
+
+**[La brújula cognitiva](https://mrpiay.github.io/DianaCognitiva/escolar/)** es la misma herramienta con lenguaje de aula y cuatro perfiles reconocibles —Explorador, Piloto, Pasajero y Solitario—. Mecánica idéntica: veinte preguntas barajadas, diez de hechos y diez de autodescripción, tres directas y dos al revés por bloque. Cambian el banco de preguntas, los rótulos y los textos, y termina pidiendo un compromiso para el mes siguiente.
+
 ## Qué mide
 
 Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. En el fondo, delegación **con** supervisión frente a delegación **sin** supervisión. Las dos son delegación; lo único que cambia es si alguien mira el resultado.
