@@ -292,7 +292,7 @@ Ahí está el control crítico, y por eso esta guía insiste en que no es un ras
 
 ## La pregunta que queda
 
-Una de las veinte ya te hizo la pregunta decisiva —si podrías defender hoy, sin la IA delante, el razonamiento de tu última entrega—, aunque entonces solo te pidiera un sí o un no. Conviene volver sobre ella sin la prisa de estar puntuándote.
+Una de las veinte ya te hizo la pregunta decisiva —si podrías defender hoy, sin ayuda de la IA, el razonamiento de tu última entrega—, aunque entonces solo te pidiera un sí o un no. Conviene volver sobre ella sin la prisa de estar puntuándote.
 
 Importa porque el resultado de una tarea puede ser correcto por casualidad, por la calidad del sistema o por la solidez de tu propio juicio. Desde fuera, las tres cosas pueden parecer iguales. Solo cuando algo falla descubrimos de cuál dependíamos.
 

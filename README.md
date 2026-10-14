@@ -13,7 +13,7 @@ La misma herramienta sirve a tres públicos, y el modo va en la URL para poder r
 | Modo | Para quién | Enlace |
 |---|---|---|
 | Profesional | Quien usa la IA en su trabajo | [?modo=profesional](https://mrpiay.github.io/DianaCognitiva/) |
-| Estudiante | Clase, de 1º de ESO en adelante | [?modo=estudiante](https://mrpiay.github.io/DianaCognitiva/?modo=estudiante) |
+| Estudiante | Clase, de secundaria en adelante | [?modo=estudiante](https://mrpiay.github.io/DianaCognitiva/?modo=estudiante) |
 | Docente | Uso profesional de la IA en la enseñanza | [?modo=docente](https://mrpiay.github.io/DianaCognitiva/?modo=docente) |
 
 Cambian el banco de veinte preguntas, los nombres de los cuatro perfiles, los rótulos de los ejes, la

@@ -32,7 +32,7 @@ profesional:{
   ejesPlano:{a:'INTENSIDAD DE USO →', b:'CONTROL CRÍTICO →'},
   ejesCorto:{a:'intensidad', b:'control'},
   tres:[
-    {q:'¿Podrías explicar tu última entrega sin la IA delante?',
+    {q:'¿Podrías explicar tu última entrega sin ayuda de la IA?',
      d:'Casi todo el mundo dice que sí hasta que lo intenta. No va de memoria: va de si el razonamiento llegó a ser tuyo en algún momento.'},
     {q:'¿Cuándo fue la última vez que le llevaste la contraria a la IA?',
      d:'Si no recuerdas la última vez que descartaste una respuesta suya, puede que no te haya dado ninguna mala. O que hayas dejado de mirar.'},
@@ -111,7 +111,7 @@ profesional:{
     }
   },
   oro:{
-    q:'Si te pidieran ahora explicar tu última entrega, sin la IA delante, ¿podrías?',
+    q:'Si te pidieran ahora explicar tu última entrega, sin ayuda de la IA, ¿podrías?',
     opciones:['No', 'Solo una parte', 'Casi todo', 'Sí, completamente'],
     respuestas:[
       'Si no sabrías explicarla, la entrega es tuya solo en el nombre. Ahí es donde empieza el trabajo.',
@@ -145,7 +145,7 @@ estudiante:{
   ejesCorto:{a:'uso', b:'revisión'},
   ejesFrase:{a:'cuánto la usas', b:'cuánto la revisas'},
   tres:[
-    {q:'¿Podrías explicar tu último trabajo sin la IA delante?',
+    {q:'¿Podrías explicar tu último trabajo sin ayuda de la IA?',
      d:'Casi todos dicen que sí hasta que lo prueban. No va de memorizar: va de si en algún momento llegaste a entenderlo.'},
     {q:'¿Cuándo fue la última vez que le dijiste a la IA que se equivocaba?',
      d:'Si no te acuerdas, puede que no haya fallado nunca. O que hayas dejado de comprobarlo.'},
@@ -175,7 +175,7 @@ estudiante:{
     {cl:'e', ej:'b', s:+1, t:'La última vez que vi un error en una respuesta de la IA, lo corregí en lugar de dejarlo pasar.'},
     {cl:'e', ej:'b', s:+1, t:'En mi último trabajo con IA, comprobé si de verdad respondía a lo que pedían.'},
     {cl:'e', ej:'b', s:-1, t:'En mi última entrega usé una fecha, una cifra o una cita de la IA sin comprobarla.'},
-    {cl:'e', ej:'b', s:-1, t:'Si me hubieran pedido explicar mi último trabajo sin la IA delante, me habría costado.'}
+    {cl:'e', ej:'b', s:-1, t:'Si me hubieran pedido explicar mi último trabajo sin ayuda de la IA, me habría costado.'}
   ],
   perfiles:{
     apoyo:{
@@ -224,7 +224,7 @@ estudiante:{
     }
   },
   oro:{
-    q:'Si te pidieran ahora explicar tu último trabajo, sin la IA delante, ¿podrías?',
+    q:'Si te pidieran ahora explicar tu último trabajo, sin ayuda de la IA, ¿podrías?',
     opciones:['No', 'Solo una parte', 'Casi todo', 'Sí, completamente'],
     respuestas:[
       'Si no sabrías explicarlo, el trabajo todavía no es tuyo del todo. Empieza por ahí.',
@@ -336,7 +336,7 @@ docente:{
     }
   },
   oro:{
-    q:'Si te pidieran ahora justificar pedagógicamente las decisiones de tu último trimestre, sin la IA delante, ¿podrías?',
+    q:'Si te pidieran ahora justificar pedagógicamente las decisiones de tu último trimestre, sin ayuda de la IA, ¿podrías?',
     opciones:['No', 'Solo algunas', 'La mayoría', 'Todas'],
     respuestas:[
       'Si no sabrías justificarlas, las decisiones figuran a tu nombre pero no son del todo tuyas. Ahí es donde empieza el trabajo.',
