@@ -8,7 +8,9 @@ La guía explica qué mide el test, de dónde sale y qué hacer con el resultado
 
 ### Para clase
 
-**[La brújula cognitiva](https://mrpiay.github.io/DianaCognitiva/escolar/)** es la misma herramienta con lenguaje de aula y cuatro perfiles reconocibles —Explorador, Piloto, Pasajero y Solitario—. Mecánica idéntica: veinte preguntas barajadas, diez de hechos y diez de autodescripción, tres directas y dos al revés por bloque. Cambian el banco de preguntas, los rótulos y los textos, y termina pidiendo un compromiso para el mes siguiente.
+**[La brújula cognitiva](https://mrpiay.github.io/DianaCognitiva/escolar/)** es la versión para estudiantes: una pregunta por pantalla, cuatro perfiles reconocibles —Explorador, Piloto, Pasajero y Solitario—, la pregunta de oro y tres frases que terminan en un compromiso para el mes, con su rúbrica. Se puede imprimir o guardar en PDF para entregarla.
+
+La mecánica es la misma que la de la Diana, y a propósito: veinte preguntas barajadas, diez de hechos y diez de autodescripción, tres directas y dos al revés por bloque, la posición solo con los hechos. Cambian el banco, los rótulos y la interfaz, pensada para el móvil.
 
 ## Qué mide
 

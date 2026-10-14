@@ -2,219 +2,303 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Veinte preguntas de sí o no sobre cómo usas la IA en clase. Al final, tu perfil y el reto que te toca este mes.">
+<meta name="theme-color" content="#F5F5F9">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/escolar/">
 <meta property="og:title" content="La brújula cognitiva">
 <meta property="og:description" content="¿Pilotas tú o vas de pasajero? Veinte preguntas, tres minutos y un reto para el mes.">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
-<title>La brújula cognitiva</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23725BAC%22/><circle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22/><circle cx=%2221%22 cy=%2211%22 r=%223%22 fill=%22white%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap">
-
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<title>La brújula cognitiva</title>
 <style>
-/* Tema claro único y deliberado. Paleta de datos validada contra fondo blanco:
-   banda de luminosidad, suelo de croma, separación bajo deuteranopia y
-   protanopia, y contraste. */
 :root{
-  --ground:#F5F5F9; --surface:#FFFFFF; --raised:#EDEDF4;
-  --line:#E3E3EC; --line-2:#CBCBDA;
-  --ink:#191A21; --ink-2:#4E5262; --ink-3:#696E80;
   --lav:#725BAC; --mint:#499E79; --coral:#A24E3C; --amber:#8A6516;
   --lav-p:#5E4A93; --mint-p:#2F7A5C; --coral-p:#8A3D2D; --amber-p:#6F5112;
-  --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --ground:#F5F5F9; --surface:#FFFFFF; --line:#E3E3EC; --line-2:#CBCBDA;
+  --ink:#191A21; --ink-2:#4E5262; --ink-3:#696E80;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --color:var(--lav); --color-p:var(--lav-p);
 }
-*{box-sizing:border-box}
-body{background:var(--ground); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; margin:0; padding:0 0 80px}
-h1,h2,h3{font-family:var(--serif); font-weight:400; text-wrap:balance; margin:0; letter-spacing:-.012em}
-p{margin:0}
-button{font-family:inherit; font-size:inherit; color:inherit; cursor:pointer}
-a{color:var(--lav-p)}
-:focus-visible{outline:2px solid var(--lav); outline-offset:3px; border-radius:3px}
-.eyebrow{font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3)}
-.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
-
-.app{width:min(1120px,100% - 44px); margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 352px; gap:52px; align-items:start}
-aside{position:sticky; top:22px}
-@media(max-width:940px){
-  .app{grid-template-columns:1fr; gap:0}
-  aside{order:-1; position:sticky; top:0; z-index:20; margin:0 -22px 26px; padding:10px 22px 12px;
-        background:var(--ground); border-bottom:1px solid var(--line-2); box-shadow:0 6px 18px rgba(25,26,33,.07)}
+*{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--ground); color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  display:flex; justify-content:center;
 }
+.app{
+  width:100%; max-width:520px; background:var(--surface); min-height:100%;
+  display:flex; flex-direction:column; position:relative;
+  box-shadow:0 0 0 1px var(--line);
+}
+section{display:none; flex:1; flex-direction:column; padding:24px 20px 28px}
+section.on{display:flex}
 
-header{padding:56px 0 30px; border-bottom:1px solid var(--line)}
-@media(max-width:940px){header{padding-top:16px}}
-h1{font-size:clamp(32px,5vw,50px); line-height:1.05; font-weight:300; margin-top:16px}
+/* ── barra de progreso ─────────────────────────────── */
+.top{
+  position:sticky; top:0; z-index:5; background:var(--surface);
+  padding:14px 20px 12px; border-bottom:1px solid var(--line); display:none;
+}
+.top.on{display:block}
+.top .fila{display:flex; align-items:center; justify-content:space-between; gap:14px}
+.top .cuenta{font-family:var(--mono); font-size:14px; color:var(--ink-3)}
+.top .atras{
+  font-family:var(--sans); font-size:15px; color:var(--ink-2); background:none;
+  border:0; padding:6px 10px 6px 0; cursor:pointer;
+}
+.top .atras[disabled]{opacity:.3; cursor:default}
+.barra{height:6px; background:var(--ground); border-radius:3px; margin-top:10px; overflow:hidden}
+.barra i{display:block; height:100%; width:0; background:var(--color); border-radius:3px;
+  transition:width .25s ease, background .25s ease}
+
+/* ── portada ───────────────────────────────────────── */
+.marca{font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+h1{font-family:var(--serif); font-size:40px; line-height:1.1; font-weight:500; margin:14px 0 0; letter-spacing:-.02em}
 h1 em{font-style:normal; color:var(--coral-p)}
-.lede{font-family:var(--serif); font-size:18.5px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
-.como{margin-top:22px; padding:16px 19px; background:var(--surface); border:1px solid var(--line); border-radius:9px; font-size:14px; line-height:1.65; color:var(--ink-2); max-width:46em}
-.como b{color:var(--ink); font-weight:500}
-.como p + p{margin-top:9px}
-
-.q{display:grid; grid-template-columns:1fr auto; gap:11px 24px; align-items:center; padding:17px 0; border-bottom:1px solid var(--line)}
-@media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
-.q:first-child{border-top:1px solid var(--line)}
-.q-text{font-size:15px; line-height:1.55}
-.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:10px}
-.opts{display:flex; gap:7px}
-.opts button{
-  min-width:64px; height:38px; padding:0 14px; border-radius:6px; border:1px solid var(--line-2);
-  background:var(--surface); font-size:14px; color:var(--ink-3);
-  transition:border-color .12s, background .12s, color .12s;
+.lede{font-family:var(--serif); font-size:21px; line-height:1.45; color:var(--ink-2); margin-top:18px}
+.datos{margin-top:26px; display:grid; gap:12px}
+.datos label{display:block; font-size:15px; color:var(--ink-3); margin-bottom:5px}
+.datos input{
+  width:100%; font-family:var(--sans); font-size:18px; color:var(--ink);
+  padding:13px 14px; border:1.5px solid var(--line-2); border-radius:12px; background:var(--surface);
 }
-.opts button:hover{border-color:var(--ink-3); color:var(--ink)}
-.opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
-
-.panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
-@media(max-width:940px){
-  .panel{display:grid; grid-template-columns:104px minmax(0,1fr); gap:16px; align-items:center; padding:12px 15px}
+.datos input:focus{outline:none; border-color:var(--color)}
+.puntos{margin-top:26px; display:grid; gap:10px}
+.punto{display:flex; gap:12px; align-items:flex-start; font-size:16px; color:var(--ink-2)}
+.punto b{color:var(--ink)}
+.punto span{
+  flex:none; width:26px; height:26px; border-radius:50%; background:var(--ground);
+  font-family:var(--mono); font-size:13px; color:var(--ink-3);
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
 }
-.plane-full{display:block}
-.plane-mini{display:none}
-@media(max-width:940px){.plane-full{display:none} .plane-mini{display:block}}
-.panel svg{display:block; width:100%; height:auto}
-.now{margin-top:15px; padding-top:14px; border-top:1px solid var(--line)}
-@media(max-width:940px){.now{margin:0; padding:0; border:0}}
-.now .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
-.now .name{font-family:var(--serif); font-size:23px; line-height:1.15; margin-top:5px}
-@media(max-width:940px){.now .name{font-size:19px}}
-.pista{height:5px; background:#E7E7F1; border-radius:3px; margin-top:11px; overflow:hidden}
-.pista i{display:block; height:100%; background:var(--lav); border-radius:3px; transition:width .3s}
-.panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
-@media(max-width:940px){.panel .foot{display:none}}
+.crece{flex:1}
 
-#res[hidden]{display:none}
-#res{margin-top:46px; padding-top:34px; border-top:2px solid var(--line-2)}
-#res h2{font-size:clamp(27px,4.4vw,38px); line-height:1.1; font-weight:300; margin-top:11px}
-#res .read{font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
-.brecha{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 25px; margin-top:28px}
-.brecha h3{font-size:18px; margin-bottom:12px}
-.brecha .eje{padding:13px 0; border-bottom:1px solid var(--line)}
-.brecha .eje:last-of-type{border-bottom:0}
-.brecha .lab{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:7px}
-.par{display:flex; align-items:center; gap:10px; font-size:13.5px; margin-bottom:5px}
-.par .q1{width:92px; flex:none; color:var(--ink-3)}
-.par .bar{flex:1; height:8px; background:#E7E7F1; border-radius:4px; position:relative}
-.par .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px}
-.par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
-.brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
-.brecha .dice b{color:var(--ink); font-weight:600}
-#res .banda{font-family:var(--sans); font-size:14.5px; line-height:1.62;
-  color:var(--ink-3); margin-top:14px; max-width:52em}
-.alerta{
-  margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
-  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
+/* ── preguntas ─────────────────────────────────────── */
+.tipo{font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
+.q{font-family:var(--serif); font-size:26px; line-height:1.3; font-weight:400; margin-top:16px}
+@media (max-width:360px){ .q{font-size:23px} h1{font-size:34px} }
+.sino{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px}
+.sino button, .opcion{
+  font-family:var(--sans); font-size:20px; font-weight:600; color:var(--ink);
+  background:var(--surface); border:2px solid var(--line-2); border-radius:16px;
+  padding:20px 10px; cursor:pointer; transition:border-color .12s, background .12s;
 }
-.alerta b{color:var(--amber-p); font-weight:600}
-.alerta[hidden]{display:none}
-.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:22px}
-.advice h3{font-size:17px; margin-bottom:9px}
-.advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
-.advice p + p{margin-top:11px}
-.advice b{color:var(--ink); font-weight:500}
-.revela{font-size:14.5px; line-height:1.6; color:var(--ink-2); margin:2px 0 18px; max-width:52em}
-.compromiso{margin-top:26px; padding:20px 22px; background:var(--ground); border-radius:12px}
-.compromiso h3{margin:0 0 10px}
-.compromiso p{font-size:15px; line-height:1.62; color:var(--ink-2); margin:0 0 10px; max-width:52em}
-.compromiso p:last-child{margin-bottom:0}
-.caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
-.caveat b{color:var(--ink-2); font-weight:500}
-.again{margin-top:26px}
-.again button{background:var(--raised); border:1px solid var(--line-2); border-radius:7px; padding:11px 20px; font-size:14px}
-.again button:hover{border-color:var(--ink-3)}
-@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
+.sino button:active, .opcion:active{background:var(--ground)}
+.sino button[aria-pressed="true"]{border-color:var(--color); background:var(--color); color:#fff}
+
+/* ── botones ───────────────────────────────────────── */
+.btn{
+  display:block; width:100%; font-family:var(--sans); font-size:19px; font-weight:600;
+  color:#fff; background:var(--color); border:0; border-radius:16px; padding:19px;
+  cursor:pointer; text-align:center; text-decoration:none;
+}
+.btn:active{filter:brightness(.93)}
+.btn.sec{background:var(--surface); color:var(--ink-2); border:2px solid var(--line-2)}
+.pie{margin-top:22px; display:grid; gap:12px}
+
+/* ── pregunta de oro ───────────────────────────────── */
+.oro{display:grid; gap:12px; margin-top:24px}
+.opcion{text-align:left; font-size:18px; font-weight:500; padding:17px 18px}
+.opcion[aria-pressed="true"]{border-color:var(--color); background:var(--ground)}
+
+/* ── resultado ─────────────────────────────────────── */
+.ficha{
+  margin-top:4px; padding:22px; border-radius:20px; background:var(--ground);
+  border:2px solid var(--color);
+}
+.ficha .emoji{font-size:40px; line-height:1}
+.ficha h2{font-family:var(--serif); font-size:34px; font-weight:500; color:var(--color-p); margin:8px 0 0; letter-spacing:-.015em}
+.ficha .sub{font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-top:8px}
+.ficha p{font-size:17px; color:var(--ink-2); margin-top:14px}
+.bloque{margin-top:22px; padding:20px; border:2px solid var(--line); border-radius:20px}
+.bloque h3{font-family:var(--serif); font-size:22px; font-weight:500; margin-bottom:10px}
+.bloque p{font-size:16.5px; color:var(--ink-2)}
+.bloque p + p{margin-top:12px}
+.pensar{
+  margin-top:16px; padding-top:16px; border-top:1px solid var(--line);
+  font-family:var(--serif); font-size:19px; line-height:1.45; color:var(--ink);
+}
+svg{display:block; width:100%; height:auto}
+.plano{margin-top:22px}
+.barras{margin-top:18px}
+.par{display:flex; align-items:center; gap:10px; margin-top:8px}
+.par .et{font-size:15px; color:var(--ink-3); width:74px; flex:none}
+.par .tr{flex:1; height:12px; background:var(--ground); border-radius:6px; overflow:hidden}
+.par .tr i{display:block; height:100%; border-radius:6px}
+.par .n{font-family:var(--mono); font-size:14px; width:34px; text-align:right; flex:none}
+.titulin{font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-top:18px}
+.dif{font-size:16px; color:var(--ink-2); margin-top:10px}
+
+/* ── compromiso ────────────────────────────────────── */
+.frase{margin-top:20px}
+.frase label{display:block; font-family:var(--serif); font-size:19px; line-height:1.4; margin-bottom:8px}
+.frase textarea{
+  width:100%; min-height:82px; font-family:var(--sans); font-size:17px; line-height:1.5;
+  color:var(--ink); padding:13px 14px; border:1.5px solid var(--line-2); border-radius:12px;
+  background:var(--surface); resize:vertical;
+}
+.frase textarea:focus{outline:none; border-color:var(--color)}
+.rubrica{margin-top:22px; border:1px solid var(--line); border-radius:16px; overflow:hidden}
+.rubrica .r{display:flex; gap:12px; padding:12px 16px; font-size:15.5px; color:var(--ink-2); border-top:1px solid var(--line)}
+.rubrica .r:first-child{border-top:0; background:var(--ground); color:var(--ink); font-weight:600}
+.rubrica .r b{font-family:var(--mono); font-size:14px; width:16px; flex:none; color:var(--ink-3)}
+.nota{font-size:15px; line-height:1.6; color:var(--ink-3); margin-top:22px}
+.nota a{color:var(--ink-2)}
+.vuelve{font-family:var(--serif); font-size:19px; line-height:1.45; color:var(--ink); margin-top:22px;
+  padding:18px 20px; background:var(--ground); border-radius:16px}
+
+@media print{
+  body{background:#fff}
+  .app{max-width:none; box-shadow:none}
+  .top, .btn, .pie{display:none !important}
+  section{display:none !important}
+  section.imprime{display:block !important; padding:0}
+  .frase textarea{border:1px solid #999; min-height:70px}
+}
 </style>
 </head>
 <body>
 
 <div class="app">
 
-<main>
-  <header>
-    <div class="eyebrow">La brújula cognitiva</div>
-    <h1>¿Pilotas tú o <em>vas de pasajero</em>?</h1>
-    <p class="lede">Usar mucho la IA no es el problema. El problema es entregar algo que no sabrías explicar si te la quitaran delante.</p>
-    <div class="como">
-      <p>Son veinte preguntas de sí o no sobre lo mismo: cuánto entra la IA en tus trabajos y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes algo que pasó.</p>
-      <p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.</p>
-      <p>Cuando una pregunta hable de algo que ocurrió, piensa en la vez más cercana que recuerdes. No hay respuestas buenas ni malas, y esto no es una nota — hay respuestas tuyas y respuestas que quedarían bien, y solo las primeras sirven de algo. Nada sale de tu navegador.</p>
-    </div>
-  </header>
-
-  <div id="preguntas"></div>
-
-  <section id="res" hidden>
-    <div class="eyebrow" id="r-riesgo">—</div>
-    <h2 id="r-name">—</h2>
-    <p class="read" id="r-read"></p>
-    <p class="banda" id="r-banda"></p>
-
-    <div class="brecha">
-      <h3>Lo que dices y lo que cuentas</h3>
-      <p class="revela">No era un cuestionario, eran dos mezclados: diez preguntas te pedían que te describieras y diez que recordaras algo que pasó. <b>Tu punto sale solo de las diez de hechos.</b> Lo que dices sirve para esto otro: ver cuánto se parece a lo que recuerdas.</p>
-      <div class="eje" id="br-a"></div>
-      <div class="eje" id="br-b"></div>
-    </div>
-
-    <div class="alerta" id="r-frontera" hidden></div>
-    <div class="advice" id="r-advice"></div>
-
-    <div class="compromiso">
-      <h3>Antes de cerrar</h3>
-      <p>Escribe una frase con lo que vas a hacer durante el próximo mes. Vale si dice <b>qué</b> vas a
-      hacer, <b>cuándo</b> y <b>cómo sabrás</b> que lo has hecho. «Revisar más» no vale; «comprobar una
-      fecha y una cifra antes de cada entrega», sí.</p>
-      <p>Dentro de un mes, vuelve y responde otra vez las veinte. Si el punto no se ha movido, no es que
-      el test falle: es que el hábito sigue donde estaba.</p>
-    </div>
-
-    <p class="caveat">
-      <b>Esto no es una nota.</b> Lo contestas tú, y lo que uno recuerda no siempre es lo que hizo.
-      Los cuatro perfiles describen hábitos, no personas, y un hábito cambia con la asignatura, con el
-      día y con la prisa que lleves. Sirve para pensar sobre cómo trabajas, no para ponerte una etiqueta.
-    </p>
-    <div class="again"><button id="reset">Volver a empezar</button></div>
-  </section>
-</main>
-
-<aside>
-  <div class="panel">
-    <div>
-      <div class="plane-full" id="plane-full"></div>
-      <div class="plane-mini" id="plane-mini"></div>
-    </div>
-    <div>
-      <div class="now">
-        <div class="tag" id="n-tag">Sin terminar</div>
-        <div class="name" id="n-name">Faltan 20</div>
-        <div class="pista"><i id="n-pista" style="width:0%"></i></div>
-      </div>
-    </div>
-    <p class="foot" id="n-foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
-      <p class="foot"><a href="../">Versión para profesionales</a> · <a href="../guia/la-diana-cognitiva.pdf">La guía en PDF</a></p>
+<div class="top" id="top">
+  <div class="fila">
+    <button class="atras" id="atras" disabled>← Atrás</button>
+    <span class="cuenta" id="cuenta">1 / 20</span>
   </div>
-</aside>
+  <div class="barra"><i id="progreso"></i></div>
+</div>
+
+<!-- ═══ portada ═══ -->
+<section class="on" id="s-inicio">
+  <div class="marca">La brújula cognitiva</div>
+  <h1>¿Pilotas tú o <em>vas de pasajero</em>?</h1>
+  <p class="lede">Usar mucho la IA no es el problema. El problema es entregar algo que no sabrías explicar si te la quitaran delante.</p>
+
+  <div class="puntos">
+    <div class="punto"><span>20</span><div><b>Veinte preguntas de sí o no.</b> Tres minutos.</div></div>
+    <div class="punto"><span>✓</span><div><b>Esto no es una nota.</b> No hay respuestas buenas ni malas.</div></div>
+    <div class="punto"><span>🔒</span><div>Nada sale de tu móvil ni de tu ordenador.</div></div>
+  </div>
+
+  <div class="datos">
+    <div><label for="n-nombre">Nombre (si lo vas a entregar)</label><input id="n-nombre" autocomplete="off"></div>
+    <div><label for="n-curso">Curso</label><input id="n-curso" autocomplete="off"></div>
+  </div>
+
+  <div class="crece"></div>
+  <div class="pie"><button class="btn" id="empezar">Empezar</button></div>
+</section>
+
+<!-- ═══ preguntas ═══ -->
+<section id="s-pregunta">
+  <div class="tipo" id="q-tipo">Pregunta</div>
+  <p class="q" id="q-texto">—</p>
+  <div class="sino">
+    <button id="q-si" aria-pressed="false">Sí</button>
+    <button id="q-no" aria-pressed="false">No</button>
+  </div>
+  <div class="crece"></div>
+  <p class="nota">Contesta pensando en cómo trabajas de verdad, no en lo que quedaría bien. Si la pregunta habla de algo que pasó, piensa en la vez más cercana que recuerdes.</p>
+</section>
+
+<!-- ═══ pregunta de oro ═══ -->
+<section id="s-oro">
+  <div class="tipo">La pregunta de oro</div>
+  <p class="q">Si mañana no pudieras usar IA, ¿podrías explicar cómo hiciste tu último trabajo?</p>
+  <div class="oro" id="oro"></div>
+  <div class="crece"></div>
+  <p class="nota">Esta no puntúa en el mapa. Es la que de verdad importa.</p>
+</section>
+
+<!-- ═══ resultado ═══ -->
+<section id="s-result">
+  <div class="ficha">
+    <div class="emoji" id="r-emoji">—</div>
+    <h2 id="r-nombre">—</h2>
+    <div class="sub" id="r-sub">—</div>
+    <p id="r-read">—</p>
+  </div>
+
+  <div class="plano" id="r-plano"></div>
+
+  <div class="bloque">
+    <h3 id="r-titulo">Tu reto</h3>
+    <p id="r-reto">—</p>
+    <p class="pensar"><b>Para pensar:</b> <span id="r-pensar">—</span></p>
+  </div>
+
+  <div class="bloque">
+    <h3>Lo que dices y lo que cuentas</h3>
+    <p>No era un cuestionario, eran dos mezclados: diez preguntas te pedían que te describieras y diez que recordaras algo que pasó. <b>Tu punto sale solo de las diez de hechos.</b></p>
+    <div class="barras" id="r-barras"></div>
+  </div>
+
+  <div class="bloque" id="r-oro-bloque" hidden>
+    <h3>La pregunta de oro</h3>
+    <p id="r-oro">—</p>
+  </div>
+
+  <div class="pie">
+    <button class="btn" id="a-compromiso">Mi compromiso →</button>
+  </div>
+</section>
+
+<!-- ═══ compromiso ═══ -->
+<section id="s-fin" class="imprime">
+  <div class="tipo" id="f-quien">Tu compromiso</div>
+  <p class="q">Completa estas tres frases</p>
+
+  <div class="frase">
+    <label for="f1">1. Lo que mejor hago cuando uso la IA es…</label>
+    <textarea id="f1"></textarea>
+  </div>
+  <div class="frase">
+    <label for="f2">2. Lo que necesito mejorar es…</label>
+    <textarea id="f2"></textarea>
+  </div>
+  <div class="frase">
+    <label for="f3">3. Mi compromiso para este mes es…</label>
+    <textarea id="f3"></textarea>
+  </div>
+
+  <div class="rubrica">
+    <div class="r"><b></b><div>Así se valora la tercera frase</div></div>
+    <div class="r"><b>4</b><div>Dice qué vas a hacer, cuándo, y cómo sabrás que lo has hecho.</div></div>
+    <div class="r"><b>3</b><div>Dice algo concreto que puedes empezar mañana.</div></div>
+    <div class="r"><b>2</b><div>Dice algo concreto, pero no cuándo ni cómo.</div></div>
+    <div class="r"><b>1</b><div>Es un propósito general: «revisar más», «usarla menos».</div></div>
+    <div class="r"><b>0</b><div>No hay compromiso.</div></div>
+  </div>
+
+  <p class="vuelve">Vuelve dentro de un mes y responde otra vez las veinte. Si el punto no se ha movido, no es que el test falle: es que el hábito sigue donde estaba.</p>
+
+  <p class="nota"><b>Esto no es una nota.</b> Lo contestas tú, y lo que uno recuerda no siempre es lo que hizo. Los cuatro perfiles describen hábitos, no personas, y un hábito cambia con la asignatura, con el día y con la prisa que lleves.</p>
+
+  <div class="pie">
+    <button class="btn sec" id="imprimir">Imprimir o guardar en PDF</button>
+    <button class="btn sec" id="otra">Volver a empezar</button>
+  </div>
+  <p class="nota"><a href="../">Versión para profesionales</a> · <a href="../guia/la-diana-cognitiva.pdf">La guía en PDF</a></p>
+</section>
 
 </div>
 
 <script>
 const $ = s => document.querySelector(s);
-const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
 
-/* Dos cuestionarios entrelazados que el lector no distingue: las impares le
-   piden que se describa y las pares que recuerde algo ocurrido. La posición
-   sale solo de los episodios; la distancia entre ambas mitades es el hallazgo.
-   cl: d declaración · e episodio   ·   ej: a intensidad · b control
-   s:  +1 suma · -1 resta (responder «sí» apunta al lado contrario)          */
+/* Las veinte, igual que en la versión para profesionales: dos cuestionarios
+   mezclados que no se distinguen al responder.
+   cl: d te pide que te describas · e te pide un hecho que ocurrió
+   ej: a cuánto la usas · b cuánto la revisas
+   s:  +1 el sí suma · −1 el sí resta (la pregunta va al revés a propósito) */
 const PREGUNTAS = [
-  /* cl: d te pide que te describas · e te pide un hecho que ocurrió
-     ej: a cuánto la usas · b cuánto la revisas
-     s:  +1 el sí suma · -1 el sí resta (la pregunta va al revés a propósito) */
   {cl:'d', ej:'a', s:+1, t:'Uso la IA para trabajos de clase, no solo para cosas sueltas.'},
   {cl:'d', ej:'a', s:+1, t:'Cuando no sé cómo empezar un trabajo, lo normal es que acuda a la IA.'},
   {cl:'d', ej:'a', s:+1, t:'Si mañana no pudiera usar IA, mi forma de hacer los trabajos cambiaría bastante.'},
@@ -237,268 +321,236 @@ const PREGUNTAS = [
   {cl:'e', ej:'b', s:+1, t:'La última vez que vi un error en una respuesta de la IA, lo corregí en lugar de dejarlo pasar.'},
   {cl:'e', ej:'b', s:+1, t:'En mi último trabajo con IA, comprobé si de verdad respondía a lo que pedían.'},
   {cl:'e', ej:'b', s:-1, t:'En mi última entrega usé una fecha, una cifra o una cita de la IA sin comprobarla.'},
-  {cl:'e', ej:'b', s:-1, t:'Si me hubieran pedido explicar mi último trabajo sin la IA delante, me habría costado.'},
+  {cl:'e', ej:'b', s:-1, t:'Si me hubieran pedido explicar mi último trabajo sin la IA delante, me habría costado.'}
 ];
-const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
 
-const CUADRANTES = {
-  apoyo:{
-    nombre:'\ud83c\udf31 Explorador', riesgo:'Quedarte sin descubrir en qué te ayuda', color:'var(--lav-p)',
-    read:'Usas poco la IA y, cuando la usas, la revisas. Tu criterio está entero; lo que te puede faltar es descubrir en qué te ayudaría de verdad.',
-    titulo:'Tu reto',
-    leve:'Prueba a usarla en una tarea más de las que ya haces, y revísala igual que ahora.',
-    marcada:'Elige un trabajo que normalmente empiezas desde cero y pídele a la IA solo el primer borrador. Luego compara: qué se te habría ocurrido a ti y qué no.',
-    extrema:'Coge la tarea más repetitiva que tengas y hazla entera con IA una vez, revisando solo el resultado. Es para ver qué te ahorra, no para dejar de pensar.'
+const PERFILES = {
+  explorador:{
+    emoji:'🌱', nombre:'Explorador', color:'var(--lav)', colorP:'var(--lav-p)', tinte:'#725BAC',
+    sub:'La usas poco · La revisas',
+    read:'Piensas por tu cuenta y revisas lo que te devuelve la IA. Tu criterio está entero; lo que te falta es descubrir en qué te ayudaría de verdad.',
+    pensar:'¿Qué tarea sigues haciendo entera tú que podrías repartir sin dejar de decidir?',
+    poco:'Prueba a usarla en una tarea más de las que ya haces, y revísala igual que ahora.',
+    medio:'Elige un trabajo que normalmente empiezas desde cero y pídele a la IA solo el primer borrador. Luego compara: qué se te habría ocurrido a ti y qué no.',
+    mucho:'Coge la tarea más repetitiva que tengas y hazla entera con IA una vez, revisando solo el resultado. Es para ver qué te ahorra, no para dejar de pensar.'
   },
-  delegacion:{
-    nombre:'\ud83d\ude80 Piloto', riesgo:'Dejar de revisar cuando llegan las prisas', color:'var(--mint-p)',
+  piloto:{
+    emoji:'🚀', nombre:'Piloto', color:'var(--mint)', colorP:'var(--mint-p)', tinte:'#499E79',
+    sub:'La usas mucho · La revisas',
     read:'Usas mucho la IA y sigues revisando lo que te devuelve. Es la combinación que te deja aprovechar la herramienta sin dejar de decidir tú.',
-    titulo:'Tu reto',
-    leve:'Esto se pierde sin darse cuenta: basta una semana de exámenes. Escribe qué vas a comprobar siempre, aunque sea una sola cosa, y cúmplelo también los días malos.',
-    marcada:'Antes de entregar, revisa tres cosas: un dato, una fuente y un razonamiento. Siempre las mismas tres, hasta que te salga sin pensarlo.',
-    extrema:'Revisas casi todo, y revisar también cuesta tiempo. Mira qué parte de tu revisión ya es rutina y guarda el esfuerzo para lo que de verdad se puede caer.'
+    pensar:'¿Qué compruebas siempre, pase lo que pase, antes de entregar?',
+    poco:'Esto se pierde sin darse cuenta: basta una semana de exámenes. Escribe qué vas a comprobar siempre, aunque sea una sola cosa, y cúmplelo también los días malos.',
+    medio:'Antes de entregar, revisa tres cosas: un dato, una fuente y un razonamiento. Siempre las mismas tres, hasta que te salga sin pensarlo.',
+    mucho:'Revisas casi todo, y revisar también cuesta tiempo. Mira qué parte de tu revisión ya es rutina y guarda el esfuerzo para lo que de verdad se puede caer.'
   },
-  transferencia:{
-    nombre:'\u26a0\ufe0f Pasajero', riesgo:'Entregar algo que no sabrías explicar', color:'var(--coral-p)',
+  pasajero:{
+    emoji:'⚠️', nombre:'Pasajero', color:'var(--coral)', colorP:'var(--coral-p)', tinte:'#A24E3C',
+    sub:'La usas mucho · No la revisas',
     read:'Usas mucho la IA y la revisas poco. No significa que hagas mal los trabajos: mientras la IA acierte, pueden salir bien. Significa que salen bien por algo que no estás comprobando.',
-    titulo:'Tu reto',
-    leve:'No hace falta cambiarlo todo. Elige un tipo de dato —fechas, cifras, nombres— y compruébalo siempre, sin excepciones.',
-    marcada:'Coge tu último trabajo hecho con IA y explícalo en voz alta sin mirarlo. Lo que no puedas explicar es lo que todavía no era tuyo.',
-    extrema:'Antes de entregar nada, escribe con tus palabras qué dice tu trabajo y por qué. Si no te sale, es que aún no lo has hecho tú.'
+    pensar:'¿Podrías explicar delante de tu clase por qué tu último trabajo dice lo que dice?',
+    poco:'No hace falta cambiarlo todo. Elige un tipo de dato —fechas, cifras, nombres— y compruébalo siempre, sin excepciones.',
+    medio:'Coge tu último trabajo hecho con IA y explícalo en voz alta sin mirarlo. Lo que no puedas explicar es lo que todavía no era tuyo.',
+    mucho:'Antes de entregar nada, escribe con tus palabras qué dice tu trabajo y por qué. Si no te sale, es que aún no lo has hecho tú.'
   },
-  intuitiva:{
-    nombre:'\ud83e\udded Solitario', riesgo:'Repetir tus propias ideas sin contraste', color:'var(--amber-p)',
+  solitario:{
+    emoji:'🧭', nombre:'Solitario', color:'var(--amber)', colorP:'var(--amber-p)', tinte:'#8A6516',
+    sub:'La usas poco · No la revisas',
     read:'Usas poco la IA y tampoco contrastas mucho tus propias ideas. Aquí el riesgo no es la máquina: es dar por buena la primera idea que se te ocurre.',
-    titulo:'Tu reto',
-    leve:'Antes de dar algo por bueno, busca una fuente más. Una sola basta para empezar.',
-    marcada:'Pregúntale a la IA, o a alguien de clase, qué le parece flojo de tu respuesta. No para copiar lo que diga: para ver si se te había escapado.',
-    extrema:'Pide a propósito que alguien te lleve la contraria en tu próximo trabajo importante, y escucha hasta el final antes de defenderte.'
+    pensar:'¿No usas la IA porque lo has decidido, o porque no sabes lo que puede hacer?',
+    poco:'Antes de dar algo por bueno, busca una fuente más. Una sola basta para empezar.',
+    medio:'Pregúntale a la IA, o a alguien de clase, qué le parece flojo de tu respuesta. No para copiar lo que diga: para ver si se te había escapado.',
+    mucho:'Pide a propósito que alguien te lleve la contraria en tu próximo trabajo importante, y escucha hasta el final antes de defenderte.'
   }
 };
 
-/* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
-   distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
-const BANDAS = {leve:'Poco marcado', marcada:'Marcado', extrema:'Muy marcado'};
-/* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
-   cuadrante no se lee igual pegado al cruce que en una esquina. */
-const MATIZ = {
-  leve: (a,b) => 'tus dos puntuaciones de hechos —uso ' + a + ', revisión ' + b
-    + ' sobre 5— se quedan al lado de las líneas, así que esto es una tendencia y no '
-    + 'una costumbre fijada.',
-  marcada: (a,b) => 'tus puntuaciones de hechos —uso ' + a + ', revisión ' + b
-    + ' sobre 5— dejan claro el patrón sin llegar al extremo.',
-  extrema: (a,b) => 'tus dos puntuaciones —uso ' + a + ', revisión ' + b
-    + ' sobre 5— están en los bordes del plano: es la versión sin matices de este perfil.'
-};
+const ORO = [
+  {t:'No',                 r:'Si no sabrías explicarlo, el trabajo todavía no es tuyo del todo. Empieza por ahí.'},
+  {t:'Solo una parte',     r:'La parte que no sabrías explicar es justo la que conviene rehacer entendiéndola.'},
+  {t:'Casi todo',          r:'Vas bien. Localiza ese trozo que se te escapa: suele ser siempre del mismo tipo.'},
+  {t:'Sí, completamente',  r:'Entonces la IA te está ayudando a trabajar, no trabajando por ti. Eso es lo que hay que conservar.'}
+];
+
+/* Cinco preguntas por bloque: la división cae en 2,5 y nadie queda encima. */
+const MAX = 5;
+const alto = v => v > MAX / 2;
+const clave = (a, b) => alto(a) ? (alto(b) ? 'piloto' : 'pasajero')
+                                : (alto(b) ? 'explorador' : 'solitario');
+const BANDAS = {poco:'Poco marcado', medio:'Marcado', mucho:'Muy marcado'};
 function banda(a, b){
   const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
-  if(da === 0.5 && db === 0.5) return 'leve';        // los dos ejes pegados al cruce
-  if(da === MAX/2 && db === MAX/2) return 'extrema'; // los dos en un borde
-  return 'marcada';                                   // el caso corriente
+  if(da === 0.5 && db === 0.5) return 'poco';
+  if(da === MAX/2 && db === MAX/2) return 'mucho';
+  return 'medio';
 }
-
-const alto = v => v > MAX / 2;   // 2,5: ninguna puntuación entera cae encima
-const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
-                               : (alto(b) ? 'apoyo' : 'intuitiva');
-
-const R = PREGUNTAS.map(()=>null);
-
-/* Se barajan en cada visita para que no se note el compás de alternancia, pero
-   sin dejar que el azar amontone más de tres de la misma clase seguidas. */
-function barajar(){
-  const o = PREGUNTAS.map((_,i)=>i);
-  const racha = () => {
-    let n = 1;
-    for(let i=1; i<o.length; i++){
-      if(PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl){ if(++n > 3) return true; }
-      else n = 1;
-    }
-    return false;
-  };
-  do{
-    for(let i=o.length-1; i>0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [o[i],o[j]] = [o[j],o[i]];
-    }
-  } while(racha());
-  return o;
-}
-const ORDEN = barajar();
-
-(function pintar(){
-  const host = $('#preguntas');
-  ORDEN.forEach((idx,pos)=>{
-    const p = PREGUNTAS[idx], i = idx;
-    const row = el('div','q');
-    const tx = el('div','q-text');
-    tx.append(el('span','n', String(pos+1)+'.'), document.createTextNode(p.t));
-    const opts = el('div','opts');
-    [['Sí',1],['No',0]].forEach(([etiqueta,valor])=>{
-      const b = el('button','',etiqueta);
-      b.type='button'; b.setAttribute('aria-pressed','false');
-      b.setAttribute('aria-label','Pregunta '+(pos+1)+': '+etiqueta);
-      b.addEventListener('click', ()=>{
-        R[i] = valor;
-        [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
-        sync();
-      });
-      opts.append(b);
-    });
-    row.append(tx, opts); host.append(row);
-  });
-})();
-
-/* Puntuación de una celda: 0 a 4. En las preguntas invertidas, «sí» resta. */
 function celda(cl, ej){
   let t = 0;
-  PREGUNTAS.forEach((p,i)=>{
-    if(p.cl!==cl || p.ej!==ej || R[i]===null) return;
+  PREGUNTAS.forEach((p, i) => {
+    if(p.cl !== cl || p.ej !== ej || R[i] === null) return;
     t += p.s > 0 ? R[i] : (1 - R[i]);
   });
   return t;
 }
-const faltan = () => R.filter(v=>v===null).length;
 
-/* ═══════════════ PLANO 2×2 ═══════════════
-   Sin escalas numéricas y con el mínimo de ambos ejes abajo a la izquierda. El
-   punto solo aparece al terminar: si se moviera con cada respuesta, delataría
-   hacia dónde empuja cada pregunta y se acabaría la gracia. */
-function plane(dot, compacto){
-  const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
-  const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
-  const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
-  /* El punto se dibuja dentro de un marco un poco menor: en las esquinas
-     (un 5 y un 0) el centro caía justo sobre el borde y se salía medio. */
-  const m = compacto ? 7 : 11;
-  const px = v => x0 + m + v / MAX * (x1 - x0 - 2*m);
-  const py = v => y1 - m - v / MAX * (y1 - y0 - 2*m);
-  const cutx = px(MAX/2), cuty = py(MAX/2);
-  const q = [
-    {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'EXPLORADOR', s:'la usas poco, la revisas'},
-    {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'PILOTO',     s:'la usas mucho, la revisas'},
-    {a:x0,   b:cutx, c:cuty, d:y1,   t:'#8A6516', p:'#6F5112', n:'SOLITARIO',  s:'la usas poco, no la revisas'},
-    {a:cutx, b:x1,   c:cuty, d:y1,   t:'#A24E3C', p:'#8A3D2D', n:'PASAJERO',   s:'la usas mucho, no la revisas'}
+/* Se barajan en cada visita para que no se note el compás de alternancia,
+   pero sin dejar que el azar amontone más de tres de la misma clase. */
+function barajar(){
+  const o = PREGUNTAS.map((_, i) => i);
+  let corrido;
+  do{
+    for(let i = o.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [o[i], o[j]] = [o[j], o[i]];
+    }
+    corrido = 0;
+    let n = 1;
+    for(let i = 1; i < o.length; i++){
+      n = PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl ? n + 1 : 1;
+      if(n > 3) corrido = 1;
+    }
+  } while(corrido);
+  return o;
+}
+
+const ORDEN = barajar();
+const R = PREGUNTAS.map(() => null);
+let paso = 0, oro = null;
+
+/* ── plano ─────────────────────────────────────────── */
+function plano(x, y){
+  const W = 320, H = 320, m = 26;
+  const px = v => m + 16 + v / MAX * (W - 2*m - 32);
+  const py = v => H - m - 16 - v / MAX * (H - 2*m - 32);
+  const cx = (m + W - m) / 2, cy = (m + H - m) / 2;
+  const cuad = [
+    [m, m, 'explorador'], [cx, m, 'piloto'],
+    [m, cy, 'solitario'], [cx, cy, 'pasajero']
   ];
-  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano: cuánto usas la IA frente a cuánto la revisas">';
-  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+r.t+'" opacity="0.18"/>'; });
-  s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" fill="none" stroke="#B4B4C8" stroke-width="1"/>';
-  s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#B4B4C8" stroke-width="1"/>';
-  s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
-
-  if(!compacto){
-    q.forEach(r=>{
-      const cx = (r.a+r.b)/2, arriba = r.c===y0;
-      const w = r.n.split(' ');
-      let corte = 1, mejor = Infinity;
-      for(let k=1; k<w.length; k++){
-        const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
-        if(dd < mejor){ mejor = dd; corte = k; }
-      }
-      const lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
-      const ny = arriba ? y0-50 : y1+30;
-      const sy = arriba ? y0-20 : y1+60;
-      lineas.forEach((ln,k)=>{
-        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+r.p+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
-           + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
-      });
-      s += '<text x="'+cx+'" y="'+sy+'" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11"'
-         + ' font-weight="500" text-anchor="middle">'+r.s+'</text>';
-    });
-  }
-
-  if(dot){
-    const cx = px(dot.x), cy = py(dot.y), r1 = compacto ? 11 : 18, r2 = compacto ? 5.5 : 7.5;
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#725BAC" opacity="0.16"/>';
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
-  }
-  if(!compacto){
-    s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CUÁNTO LA USO →</text>';
-    s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CUÁNTO LA REVISO →</text>';
-  }
+  const w = (W - 2*m) / 2;
+  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Mapa: cuánto usas la IA frente a cuánto la revisas">';
+  cuad.forEach(([a, b, k]) => {
+    const p = PERFILES[k], activo = k === clave(x, y);
+    s += '<rect x="' + a + '" y="' + b + '" width="' + w + '" height="' + w + '" rx="10" fill="' + p.tinte + '" opacity="' + (activo ? .3 : .1) + '"/>';
+    s += '<text x="' + (a + w/2) + '" y="' + (b + w/2 - 4) + '" text-anchor="middle" font-size="19" opacity="' + (activo ? 1 : .55) + '">' + p.emoji + '</text>';
+    s += '<text x="' + (a + w/2) + '" y="' + (b + w/2 + 18) + '" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="500" letter-spacing=".7" fill="' + p.tinte + '" opacity="' + (activo ? 1 : .6) + '">' + p.nombre.toUpperCase() + '</text>';
+  });
+  s += '<circle cx="' + px(x) + '" cy="' + py(y) + '" r="13" fill="' + PERFILES[clave(x,y)].tinte + '" opacity=".25"/>';
+  s += '<circle cx="' + px(x) + '" cy="' + py(y) + '" r="7" fill="' + PERFILES[clave(x,y)].tinte + '" stroke="#fff" stroke-width="2.5"/>';
+  s += '<text x="' + W/2 + '" y="' + (H - 4) + '" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing=".8" fill="#696E80">CUÁNTO LA USO →</text>';
+  s += '<text transform="translate(11,' + H/2 + ') rotate(-90)" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing=".8" fill="#696E80">CUÁNTO LA REVISO →</text>';
   return s + '</svg>';
 }
 
-function parBarra(host, titulo, dice, hace, color){
-  host.innerHTML = '';
-  host.append(el('div','lab', titulo));
-  [['Dices', dice], ['Cuentas', hace]].forEach(([etiqueta,v])=>{
-    const row = el('div','par');
-    row.append(el('span','q1', etiqueta));
-    const bar = el('div','bar');
-    const i = el('i'); i.style.width = (v/MAX*100)+'%'; i.style.background = color;
-    bar.append(i); row.append(bar);
-    const n = el('span','v num', v + '/' + MAX); n.style.color = color;
-    row.append(n); host.append(row);
+function barras(host, titulo, dice, hace, tinte){
+  let s = '<div class="titulin">' + titulo + '</div>';
+  [['Dices', dice], ['Cuentas', hace]].forEach(([et, v]) => {
+    s += '<div class="par"><span class="et">' + et + '</span>'
+       + '<span class="tr"><i style="width:' + (v/MAX*100) + '%;background:' + tinte + '"></i></span>'
+       + '<span class="n" style="color:' + tinte + '">' + v + '/' + MAX + '</span></div>';
   });
   const d = dice - hace;
-  const texto = Math.abs(d) <= 1
-    ? 'Lo que dices y lo que cuentas <b>encajan</b>.'
-    : (d > 0
-        ? 'Te describes <b>' + d + ' puntos por encima</b> de lo que muestran tus episodios.'
-        : 'Tus episodios te sitúan <b>' + (-d) + ' puntos por encima</b> de como te describes.');
-  const p = el('p','dice'); p.innerHTML = texto; host.append(p);
+  s += '<p class="dif">' + (Math.abs(d) <= 1
+      ? 'Lo que dices y lo que cuentas <b>encajan</b>.'
+      : (d > 0 ? 'Te describes <b>' + d + ' puntos por encima</b> de lo que cuentan tus ejemplos.'
+               : 'Tus ejemplos te colocan <b>' + (-d) + ' puntos por encima</b> de como te describes.')) + '</p>';
+  host.insertAdjacentHTML('beforeend', s);
 }
 
-function sync(){
-  const f = faltan();
-  $('#n-pista').style.width = ((PREGUNTAS.length - f) / PREGUNTAS.length * 100) + '%';
+/* ── navegación ────────────────────────────────────── */
+function ver(id){
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('on', s.id === id));
+  window.scrollTo(0, 0);
+}
+function tinte(k){
+  document.documentElement.style.setProperty('--color', PERFILES[k].color);
+  document.documentElement.style.setProperty('--color-p', PERFILES[k].colorP);
+}
 
-  if(f){
-    $('#plane-full').innerHTML = plane(null, false);
-    $('#plane-mini').innerHTML = plane(null, true);
-    $('#n-tag').textContent = 'Sin terminar';
-    $('#n-name').textContent = 'Faltan ' + f;
-    $('#n-name').style.color = 'var(--ink-3)';
-    $('#n-foot').textContent = 'El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.';
-    $('#res').hidden = true;
-    return;
+function pinta(){
+  const i = ORDEN[paso], p = PREGUNTAS[i];
+  $('#q-tipo').textContent = p.cl === 'e' ? 'Algo que pasó' : 'Cómo trabajas';
+  $('#q-texto').textContent = p.t;
+  $('#q-si').setAttribute('aria-pressed', R[i] === 1);
+  $('#q-no').setAttribute('aria-pressed', R[i] === 0);
+  $('#cuenta').textContent = (paso + 1) + ' / ' + PREGUNTAS.length;
+  $('#progreso').style.width = (paso / PREGUNTAS.length * 100) + '%';
+  $('#atras').disabled = paso === 0;
+}
+
+function responde(v){
+  R[ORDEN[paso]] = v;
+  if(paso < PREGUNTAS.length - 1){ paso++; pinta(); }
+  else{
+    $('#progreso').style.width = '100%';
+    $('#cuenta').textContent = 'La de oro';
+    $('#atras').disabled = false;
+    ver('s-oro');
   }
+}
 
+$('#q-si').addEventListener('click', () => responde(1));
+$('#q-no').addEventListener('click', () => responde(0));
+$('#atras').addEventListener('click', () => {
+  if($('#s-oro').classList.contains('on')){ ver('s-pregunta'); pinta(); return; }
+  if(paso > 0){ paso--; pinta(); }
+});
+
+$('#empezar').addEventListener('click', () => {
+  $('#top').classList.add('on');
+  pinta();
+  ver('s-pregunta');
+});
+
+ORO.forEach((o, i) => {
+  const b = document.createElement('button');
+  b.className = 'opcion'; b.textContent = o.t; b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', () => {
+    oro = i;
+    document.querySelectorAll('#oro .opcion').forEach((x, j) => x.setAttribute('aria-pressed', j === i));
+    setTimeout(resultado, 180);
+  });
+  $('#oro').appendChild(b);
+});
+
+function resultado(){
   const ea = celda('e','a'), eb = celda('e','b');
   const da = celda('d','a'), db = celda('d','b');
-  const c = CUADRANTES[clave(ea,eb)];
+  const k = clave(ea, eb), p = PERFILES[k], bd = banda(ea, eb);
+  tinte(k);
 
-  $('#plane-full').innerHTML = plane({x:ea, y:eb}, false);
-  $('#plane-mini').innerHTML = plane({x:ea, y:eb}, true);
-  $('#n-tag').textContent = 'Tu posición';
-  $('#n-name').textContent = c.nombre;
-  $('#n-name').style.color = c.color;
-  $('#n-foot').textContent = 'El punto describe tus respuestas: no mide lo listo que eres ni lo bien que trabajas.';
+  $('#r-emoji').textContent = p.emoji;
+  $('#r-nombre').textContent = p.nombre;
+  $('#r-sub').textContent = BANDAS[bd] + ' · ' + p.sub;
+  $('#r-read').textContent = p.read;
+  $('#r-plano').innerHTML = plano(ea, eb);
+  $('#r-reto').textContent = p[bd];
+  $('#r-pensar').textContent = p.pensar;
 
-  const bd = banda(ea, eb);
-  $('#r-riesgo').textContent = 'Lo que conviene vigilar: ' + c.riesgo;
-  $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb);
-  $('#r-name').textContent = c.nombre;
-  $('#r-name').style.color = c.color;
-  $('#r-read').textContent = c.read;
-  parBarra($('#br-a'), 'Cuánto la uso', da, ea, 'var(--lav)');
-  parBarra($('#br-b'), 'Cuánto la reviso', db, eb, 'var(--mint)');
-  /* Que no haya empates no hace la frontera menos delicada: un 2 y un 3 están
-     a una respuesta de distancia. Mejor decirlo que disimularlo. */
-  const cerca = [];
-  if(ea===2 || ea===3) cerca.push(['cuánto la usas', CUADRANTES[clave(ea>2?1:4, eb)].nombre]);
-  if(eb===2 || eb===3) cerca.push(['cuánto la revisas',   CUADRANTES[clave(ea, eb>2?1:4)].nombre]);
-  const fr = $('#r-frontera');
-  if(cerca.length){
-    fr.innerHTML = '<b>Estás pegado a una división.</b> Tu puntuación en '
-      + cerca.map(x=>x[0]).join(' y en ')
-      + (cerca.length>1 ? ' queda' : ' queda') + ' a una sola respuesta de la línea, así que '
-      + (cerca.length>1 ? 'bastaría cambiar una para acabar en otro cuadrante' :
-         'con una respuesta distinta estarías en «' + cerca[0][1] + '»')
-      + '. Léelo como una zona, no como una frontera.';
-    fr.hidden = false;
-  } else fr.hidden = true;
+  const host = $('#r-barras');
+  host.innerHTML = '';
+  barras(host, 'Cuánto la uso', da, ea, '#725BAC');
+  barras(host, 'Cuánto la reviso', db, eb, '#499E79');
 
-  $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c[bd] + '</p>';
-  $('#res').hidden = false;
+  if(oro !== null){
+    $('#r-oro').textContent = ORO[oro].r;
+    $('#r-oro-bloque').hidden = false;
+  }
+
+  const quien = [$('#n-nombre').value.trim(), $('#n-curso').value.trim()].filter(Boolean).join(' · ');
+  $('#f-quien').textContent = quien ? quien + ' · ' + p.nombre : 'Tu compromiso · ' + p.nombre;
+
+  $('#top').classList.remove('on');
+  ver('s-result');
 }
-sync();
 
-$('#reset').addEventListener('click', ()=>{
-  R.fill(null);
-  document.querySelectorAll('.opts button').forEach(b=>b.setAttribute('aria-pressed','false'));
-  sync();
-  window.scrollTo({top:0, behavior:'smooth'});
+$('#a-compromiso').addEventListener('click', () => ver('s-fin'));
+$('#imprimir').addEventListener('click', () => window.print());
+$('#otra').addEventListener('click', () => location.reload());
+
+/* Lo escrito se guarda solo en este navegador, por si se cierra la pestaña. */
+['f1','f2','f3'].forEach(id => {
+  const t = $('#' + id);
+  try{ t.value = localStorage.getItem('brujula-' + id) || ''; }catch(e){}
+  t.addEventListener('input', () => { try{ localStorage.setItem('brujula-' + id, t.value); }catch(e){} });
 });
 </script>
 </body>
