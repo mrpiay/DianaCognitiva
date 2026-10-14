@@ -125,7 +125,7 @@ Cada eje queda entonces en una escala de 0 a 5 —las cinco preguntas de hechos 
 
 ## Tu posición en el plano
 
-En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar.
+En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar. El punto describe tus respuestas: no mide tu capacidad de razonar ni diagnostica dependencia de la IA.
 
 ### 1. Apoyo puntual: la IA como recurso de consulta
 

@@ -182,7 +182,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
         <div class="pista"><i id="n-pista" style="width:0%"></i></div>
       </div>
     </div>
-    <p class="foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
+    <p class="foot" id="n-foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
   </div>
 </aside>
 
@@ -426,6 +426,7 @@ function sync(){
     $('#n-tag').textContent = 'Sin terminar';
     $('#n-name').textContent = 'Faltan ' + f;
     $('#n-name').style.color = 'var(--ink-3)';
+    $('#n-foot').textContent = 'El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.';
     $('#res').hidden = true;
     return;
   }
@@ -439,6 +440,7 @@ function sync(){
   $('#n-tag').textContent = 'Tu posición';
   $('#n-name').textContent = c.nombre;
   $('#n-name').style.color = c.color;
+  $('#n-foot').textContent = 'El punto describe tus respuestas: no mide tu capacidad de razonar ni diagnostica dependencia de la IA.';
 
   const bd = banda(ea, eb);
   $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
