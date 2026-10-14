@@ -21,7 +21,7 @@ profesional:{
   rotulo:'Profesional',
   pie:'Para quien usa la IA en su trabajo',
   titulo:'¿Delegas trabajo o <em>transfieres el criterio</em>?',
-  lede:'Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.',
+  lede:'Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo.<br>Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.',
   como:[
     'Las veinte preguntas tratan de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.',
     '<b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.',
@@ -246,7 +246,7 @@ docente:{
   rotulo:'Docente',
   pie:'Para el uso profesional de la IA en la enseñanza',
   titulo:'¿La IA amplía tu criterio o <em>decide por él</em>?',
-  lede:'La IA puede quitarte de encima horas de preparación y materiales. También puede ir ocupando, sin que nadie lo decida, las decisiones pedagógicas que deberían seguir siendo tuyas.',
+  lede:'La IA puede quitarte de encima horas de preparación y materiales.<br>También puede ir ocupando, sin que nadie lo decida, decisiones pedagógicas que deberían ser tuyas.',
   como:[
     'Las veinte preguntas tratan de lo mismo: cuánto entra la IA en tu trabajo docente y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.',
     '<b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.',
