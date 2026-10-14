@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: intensidad de uso y control crítico.">
+<meta name="description" content="Dieciséis preguntas de sí o no sobre cómo trabajas con la IA. Al final, tu posición en el plano y la distancia entre lo que dices y lo que cuentas.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/">
 <meta property="og:title" content="Tu diana cognitiva">
-<meta property="og:description" content="¿Delegas trabajo o transfieres el criterio? Ocho afirmaciones, dos minutos y una posición en el plano.">
+<meta property="og:description" content="¿Delegas trabajo o transfieres el criterio? Dieciséis preguntas, tres minutos y una posición en el plano.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
 <title>Tu diana cognitiva</title>
@@ -39,7 +39,6 @@ a{color:var(--lav-p)}
 .eyebrow{font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3)}
 .num{font-family:var(--mono); font-variant-numeric:tabular-nums}
 
-/* ── rejilla: preguntas a la izquierda, plano fijo a la derecha ── */
 .app{width:min(1120px,100% - 44px); margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 352px; gap:52px; align-items:start}
 aside{position:sticky; top:22px}
 @media(max-width:940px){
@@ -48,43 +47,29 @@ aside{position:sticky; top:22px}
         background:var(--ground); border-bottom:1px solid var(--line-2); box-shadow:0 6px 18px rgba(25,26,33,.07)}
 }
 
-/* ── cabecera ─────────────────────────────────────────────── */
 header{padding:56px 0 30px; border-bottom:1px solid var(--line)}
 @media(max-width:940px){header{padding-top:16px}}
 h1{font-size:clamp(32px,5vw,50px); line-height:1.05; font-weight:300; margin-top:16px}
 h1 em{font-style:normal; color:var(--coral-p)}
 .lede{font-family:var(--serif); font-size:18.5px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
-.scale{display:flex; gap:9px 24px; flex-wrap:wrap; margin-top:24px; padding:14px 17px; background:var(--surface); border:1px solid var(--line); border-radius:9px}
-.scale span{display:flex; align-items:baseline; gap:8px; font-size:13px; color:var(--ink-2)}
-.scale b{font-family:var(--mono); font-size:12px; color:var(--lav-p); font-weight:600}
-.fine{font-size:13px; line-height:1.6; color:var(--ink-3); margin-top:16px; max-width:52em}
+.como{margin-top:22px; padding:16px 19px; background:var(--surface); border:1px solid var(--line); border-radius:9px; font-size:14px; line-height:1.65; color:var(--ink-2); max-width:46em}
+.como b{color:var(--ink); font-weight:500}
+.como p + p{margin-top:9px}
 
-/* ── bloques de preguntas ─────────────────────────────────── */
-.block{margin-top:40px}
-.block-head{display:flex; align-items:baseline; gap:13px; padding-bottom:11px; border-bottom:1px solid var(--line)}
-.block-head h2{font-size:20px}
-.block-head .axis{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
-.block-head .score{margin-left:auto; font-family:var(--mono); font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums}
-.block-head .score b{font-size:18px; font-weight:600}
-.block-head.a .score b{color:var(--lav-p)}
-.block-head.b .score b{color:var(--mint-p)}
-
-.q{display:grid; grid-template-columns:1fr auto; gap:11px 22px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line)}
+.q{display:grid; grid-template-columns:1fr auto; gap:11px 24px; align-items:center; padding:17px 0; border-bottom:1px solid var(--line)}
 @media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
+.q:first-child{border-top:1px solid var(--line)}
 .q-text{font-size:15px; line-height:1.55}
-.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:9px}
-.q-text .sg{font-family:var(--mono); font-size:10px; letter-spacing:.08em; border:1px solid var(--line-2); border-radius:3px; padding:1px 5px; margin-left:8px; white-space:nowrap; color:var(--ink-3)}
-.opts{display:flex; gap:5px}
+.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:10px}
+.opts{display:flex; gap:7px}
 .opts button{
-  width:42px; height:38px; border-radius:6px; border:1px solid var(--line-2);
-  background:var(--surface); font-family:var(--mono); font-size:14px; color:var(--ink-3);
+  min-width:64px; height:38px; padding:0 14px; border-radius:6px; border:1px solid var(--line-2);
+  background:var(--surface); font-size:14px; color:var(--ink-3);
   transition:border-color .12s, background .12s, color .12s;
 }
 .opts button:hover{border-color:var(--ink-3); color:var(--ink)}
 .opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
-.q.resta .opts button[aria-pressed="true"]{background:var(--ink-3); border-color:var(--ink-3)}
 
-/* ── panel fijo ───────────────────────────────────────────── */
 .panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
 @media(max-width:940px){
   .panel{display:grid; grid-template-columns:104px minmax(0,1fr); gap:16px; align-items:center; padding:12px 15px}
@@ -93,44 +78,37 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .plane-mini{display:none}
 @media(max-width:940px){.plane-full{display:none} .plane-mini{display:block}}
 .panel svg{display:block; width:100%; height:auto}
-
 .now{margin-top:15px; padding-top:14px; border-top:1px solid var(--line)}
 @media(max-width:940px){.now{margin:0; padding:0; border:0}}
 .now .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
 .now .name{font-family:var(--serif); font-size:23px; line-height:1.15; margin-top:5px}
 @media(max-width:940px){.now .name{font-size:19px}}
-.now .sums{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-top:7px; font-variant-numeric:tabular-nums}
-
-.bars{margin-top:16px; display:flex; flex-direction:column; gap:14px}
-@media(max-width:940px){.bars{display:none}}
-.bar-top{display:flex; align-items:baseline; gap:10px; margin-bottom:7px}
-.bar-name{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
-.bar-val{margin-left:auto; font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums}
-.track{position:relative; height:9px; background:#E7E7F1; border:1px solid var(--line-2); border-radius:5px}
-.fill{position:absolute; top:0; bottom:0; border-radius:3px; transition:left .35s cubic-bezier(.2,.8,.3,1), width .35s cubic-bezier(.2,.8,.3,1)}
-.cero{position:absolute; top:-4px; bottom:-4px; left:50%; width:1.5px; background:var(--ink-3)}
-.ends{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; color:var(--ink-3); margin-top:4px}
+.pista{height:5px; background:#E7E7F1; border-radius:3px; margin-top:11px; overflow:hidden}
+.pista i{display:block; height:100%; background:var(--lav); border-radius:3px; transition:width .3s}
 .panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
 @media(max-width:940px){.panel .foot{display:none}}
 
-/* ── resultado ────────────────────────────────────────────── */
 #res[hidden]{display:none}
 #res{margin-top:46px; padding-top:34px; border-top:2px solid var(--line-2)}
 #res h2{font-size:clamp(27px,4.4vw,38px); line-height:1.1; font-weight:300; margin-top:11px}
 #res .read{font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
-.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:28px}
+.brecha{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 25px; margin-top:28px}
+.brecha h3{font-size:18px; margin-bottom:12px}
+.brecha .eje{padding:13px 0; border-bottom:1px solid var(--line)}
+.brecha .eje:last-of-type{border-bottom:0}
+.brecha .lab{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:7px}
+.par{display:flex; align-items:center; gap:10px; font-size:13.5px; margin-bottom:5px}
+.par .q1{width:92px; flex:none; color:var(--ink-3)}
+.par .bar{flex:1; height:8px; background:#E7E7F1; border-radius:4px; position:relative}
+.par .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px}
+.par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
+.brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
+.brecha .dice b{color:var(--ink); font-weight:600}
+.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:22px}
 .advice h3{font-size:17px; margin-bottom:9px}
 .advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
 .advice p + p{margin-top:11px}
 .advice b{color:var(--ink); font-weight:500}
-.alerta{
-  margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
-  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
-}
-.alerta b{color:var(--amber-p); font-weight:600}
-.alerta[hidden]{display:none}
-.panel .alerta{margin-top:14px; padding:11px 13px; font-size:12px}
-@media(max-width:940px){.panel .alerta{display:none}}
 .caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
 .caveat b{color:var(--ink-2); font-weight:500}
 .again{margin-top:26px}
@@ -147,36 +125,35 @@ h1 em{font-style:normal; color:var(--coral-p)}
   <header>
     <div class="eyebrow">Herramienta de autoevaluación</div>
     <h1>¿Delegas trabajo o <em>transfieres el criterio</em>?</h1>
-    <p class="lede">Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión. Estas ocho afirmaciones sitúan tus hábitos en un plano de dos ejes.</p>
-    <div class="scale">
-      <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
+    <p class="lede">Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.</p>
+    <div class="como">
+      <p>Las dieciséis preguntas van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.</p>
+      <p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.</p>
+      <p>Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes. No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo. Nada sale de tu navegador.</p>
     </div>
-    <p class="fine">Puntúa pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar. Empiezas en el centro del plano, sin información. El bloque A mueve tu punto en horizontal y el bloque B en vertical, pero <b>dos afirmaciones de cada bloque lo mueven en sentido contrario</b>: van marcadas como «resta». Nada sale de tu navegador.</p>
   </header>
 
-  <section class="block">
-    <div class="block-head a"><h2>Bloque A</h2><span class="axis">Intensidad de uso</span><span class="score"><b id="sa">0</b> &nbsp;−6…+6</span></div>
-    <div id="qa"></div>
-  </section>
-
-  <section class="block">
-    <div class="block-head b"><h2>Bloque B</h2><span class="axis">Control crítico</span><span class="score"><b id="sb">0</b> &nbsp;−6…+6</span></div>
-    <div id="qb"></div>
-  </section>
+  <div id="preguntas"></div>
 
   <section id="res" hidden>
     <div class="eyebrow" id="r-riesgo">—</div>
     <h2 id="r-name">—</h2>
     <p class="read" id="r-read"></p>
-    <div class="alerta" id="r-alerta" hidden></div>
+
+    <div class="brecha">
+      <h3>Lo que dices y lo que cuentas</h3>
+      <div class="eje" id="br-a"></div>
+      <div class="eje" id="br-b"></div>
+    </div>
+
     <div class="advice" id="r-advice"></div>
+
     <p class="caveat">
-      <b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir
-      consiste precisamente en no advertir cuándo has cedido el control: puedes declarar que verificas y aun así
-      aceptar una recomendación equivocada cuando aparece bien argumentada o cuando tienes prisa. Los cuatro
-      cuadrantes no son categorías establecidas por ninguna investigación: describen hábitos, y los hábitos
-      cambian según la tarea, el contexto y la presión de tiempo. Si tu resultado queda cerca de una división,
-      léelo como una zona y no como una frontera.
+      <b>Esto es una orientación, no un diagnóstico.</b> Sigue siendo un autoinforme: el recuerdo de lo que
+      ocurrió también se distorsiona, solo que menos que la autodescripción general. Los cuatro cuadrantes
+      no son categorías establecidas por ninguna investigación y la distancia entre ambas mitades es
+      sugerente, no una medida validada. Describen hábitos, y los hábitos cambian según la tarea, el
+      contexto y la presión de tiempo.
     </p>
     <div class="again"><button id="reset">Volver a empezar</button></div>
   </section>
@@ -190,14 +167,12 @@ h1 em{font-style:normal; color:var(--coral-p)}
     </div>
     <div>
       <div class="now">
-        <div class="tag" id="n-tag">Sin responder</div>
-        <div class="name" id="n-name">En el centro</div>
-        <div class="sums" id="n-sums">A 0 · B 0 · faltan 8</div>
+        <div class="tag" id="n-tag">Sin terminar</div>
+        <div class="name" id="n-name">Faltan 16</div>
+        <div class="pista"><i id="n-pista" style="width:0%"></i></div>
       </div>
-      <div class="bars" id="bars"></div>
-      <div class="alerta" id="p-alerta" hidden></div>
     </div>
-    <p class="foot">Cada eje va de −6 a +6 y las divisiones del plano caen en el cero, que es donde empiezas.</p>
+    <p class="foot">El resultado aparece al responder las dieciséis. Ninguna pregunta mueve el punto por su cuenta.</p>
   </div>
 </aside>
 
@@ -207,98 +182,106 @@ h1 em{font-style:normal; color:var(--coral-p)}
 const $ = s => document.querySelector(s);
 const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
 
-/* Cada eje se construye restando dos afirmaciones a las otras dos, de modo que
-   el cero sale de la propia construcción y no de un umbral elegido a ojo. El
-   emparejamiento además evita que asentir a todo empuje siempre al mismo sitio. */
-const MAX = 6;
-
-const A = [
-  {t:'Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.', s:+1},
-  {t:'Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.', s:+1},
-  {t:'Hay semanas enteras en que no la abro para nada importante.', s:-1},
-  {t:'Resuelvo por mi cuenta tareas que podría delegarle sin ningún problema.', s:-1}
+/* Dos cuestionarios entrelazados que el lector no distingue: las impares le
+   piden que se describa y las pares que recuerde algo ocurrido. La posición
+   sale solo de los episodios; la distancia entre ambas mitades es el hallazgo.
+   cl: d declaración · e episodio   ·   ej: a intensidad · b control
+   s:  +1 suma · -1 resta (responder «sí» apunta al lado contrario)          */
+const PREGUNTAS = [
+  {cl:'d', ej:'a', s:+1, t:'Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.'},
+  {cl:'e', ej:'a', s:+1, t:'La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.'},
+  {cl:'d', ej:'b', s:+1, t:'Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.'},
+  {cl:'e', ej:'b', s:+1, t:'La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.'},
+  {cl:'d', ej:'b', s:+1, t:'Puedo explicar por qué una respuesta de la IA es adecuada para mi tarea, más allá de que suene convincente.'},
+  {cl:'e', ej:'a', s:+1, t:'Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.'},
+  {cl:'d', ej:'b', s:-1, t:'Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.'},
+  {cl:'e', ej:'b', s:+1, t:'La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.'},
+  {cl:'d', ej:'a', s:-1, t:'Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.'},
+  {cl:'e', ej:'a', s:-1, t:'Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.'},
+  {cl:'d', ej:'a', s:+1, t:'Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.'},
+  {cl:'e', ej:'a', s:+1, t:'La última vez que utilicé la IA para resolver un problema, acepté una propuesta suya sin desarrollar antes una alternativa propia.'},
+  {cl:'d', ej:'b', s:+1, t:'Cuando utilizo la IA, distingo entre lo que puedo aceptar directamente y lo que necesita comprobación adicional.'},
+  {cl:'e', ej:'b', s:-1, t:'La última vez que una respuesta de la IA incluyó una cifra, una cita o una afirmación importante, utilicé al menos una sin verificarla por otra vía.'},
+  {cl:'d', ej:'a', s:+1, t:'Suelo utilizar la IA para decidir qué enfoque seguir, y no únicamente para ejecutar un enfoque que ya he elegido.'},
+  {cl:'e', ej:'b', s:+1, t:'En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.'}
 ];
-const B = [
-  {t:'Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.', s:+1},
-  {t:'Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.', s:+1},
-  {t:'Si la respuesta suena razonable y encaja con lo que esperaba, la doy por buena.', s:-1},
-  {t:'Cuando voy con prisa, uso lo que me devuelve sin revisarlo.', s:-1}
-];
+const MAX = 4;   // cuatro preguntas por celda
 
 const CUADRANTES = {
   apoyo:{
     nombre:'Apoyo puntual', riesgo:'Desaprovechamiento', color:'var(--lav-p)',
-    read:'Recurres poco a la IA y declaras que examinas sus respuestas con cuidado. Tu criterio sigue intacto; lo que puede faltarte es aprovechamiento.',
+    read:'Tus episodios describen poco uso y bastante comprobación. Tu criterio sigue intacto; lo que puede faltarte es aprovechamiento.',
     titulo:'Qué probar',
-    cuerpo:'Tu principal riesgo no es la pérdida de autonomía, sino dejar sin usar una herramienta que podría ampliar tu capacidad. Quizá sigues resolviendo a mano tareas que podrías delegar sin comprometer tu juicio.</p><p><b>Elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta.</b> Delega una parte y conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.'
+    cuerpo:'Tu principal riesgo no es la pérdida de autonomía, sino dejar sin usar una herramienta que podría ampliar tu capacidad.</p><p><b>Elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta.</b> Delega una parte y conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.'
   },
   delegacion:{
     nombre:'Delegación de trabajo', riesgo:'Erosión de la verificación', color:'var(--mint-p)',
-    read:'Utilizas mucho la IA y declaras que mantienes el control crítico. Es la combinación que buscas cuando quieres productividad sin convertir la respuesta de la máquina en una autoridad automática.',
+    read:'Tus episodios describen uso intenso y comprobación sostenida. Es la combinación que buscas cuando quieres productividad sin convertir la respuesta de la máquina en una autoridad automática.',
     titulo:'Qué proteger',
-    cuerpo:'Esta posición tiene una fragilidad: verificar exige tiempo y esfuerzo, justo lo primero que desaparece cuando hay prisa. Y declarar que verificas no garantiza que lo hagas siempre.</p><p><b>Convierte la verificación en un procedimiento, no en una virtud personal.</b> Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin revisión humana. Delegar bien no es revisarlo todo: es saber dónde está el riesgo y concentrar ahí el esfuerzo.'
+    cuerpo:'Esta posición tiene una fragilidad: verificar exige tiempo y esfuerzo, justo lo primero que desaparece cuando hay prisa.</p><p><b>Convierte la verificación en un procedimiento, no en una virtud personal.</b> Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin revisión humana. Delegar bien no es revisarlo todo: es saber dónde está el riesgo y concentrar ahí el esfuerzo.'
   },
   transferencia:{
     nombre:'Transferencia de criterio', riesgo:'Ilusión de autoría', color:'var(--coral-p)',
-    read:'Utilizas mucho la IA y declaras que examinas poco sus respuestas. Eso no significa que trabajes mal: mientras el sistema acierte, tus resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
+    read:'Tus episodios describen uso intenso y poca comprobación. Eso no significa que trabajes mal: mientras el sistema acierte, los resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
     titulo:'Qué hacer',
-    cuerpo:'El problema aparece cuando no detectas un error y careces de los elementos para corregirlo. Tus entregas siguen llevando tu nombre, pero su calidad ya no es enteramente tuya.</p><p><b>Empieza por la afirmación 6.</b> Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.'
+    cuerpo:'El problema aparece cuando no detectas un error y careces de los elementos para corregirlo. Tus entregas siguen llevando tu nombre, pero su calidad ya no es enteramente tuya.</p><p><b>Coge tu última entrega hecha con IA y reconstruye su razonamiento sin ayuda.</b> Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.'
   },
   intuitiva:{
     nombre:'Autonomía intuitiva', riesgo:'Sesgos propios sin contraste', color:'var(--amber-p)',
-    read:'Utilizas poco la IA y declaras que verificas poco cuando la utilizas. Aquí el riesgo no viene necesariamente de la máquina.',
+    read:'Tus episodios describen poco uso y poca comprobación. Aquí el riesgo no viene necesariamente de la máquina.',
     titulo:'Qué probar',
     cuerpo:'Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p><p><b>Introduce un mecanismo de contraste en las decisiones importantes:</b> una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.'
   }
 };
-const clave = (a,b) => (a>=0) ? (b>=0 ? 'delegacion' : 'transferencia')
-                              : (b>=0 ? 'apoyo' : 'intuitiva');
+const clave = (a,b) => (a>=2) ? (b>=2 ? 'delegacion' : 'transferencia')
+                              : (b>=2 ? 'apoyo' : 'intuitiva');
 
-const R = {a:[null,null,null,null], b:[null,null,null,null]};
+const R = PREGUNTAS.map(()=>null);
 
-function pintar(host, items, k, base){
-  items.forEach((it,i)=>{
-    const row = el('div','q' + (it.s<0 ? ' resta' : ''));
+(function pintar(){
+  const host = $('#preguntas');
+  PREGUNTAS.forEach((p,i)=>{
+    const row = el('div','q');
     const tx = el('div','q-text');
-    tx.append(el('span','n', String(base+i)+'.'), document.createTextNode(it.t));
-    tx.append(el('span','sg', it.s>0 ? 'suma' : 'resta'));
+    tx.append(el('span','n', String(i+1)+'.'), document.createTextNode(p.t));
     const opts = el('div','opts');
-    for(let v=0; v<=3; v++){
-      const b = el('button','',String(v));
+    [['Sí',1],['No',0]].forEach(([etiqueta,valor])=>{
+      const b = el('button','',etiqueta);
       b.type='button'; b.setAttribute('aria-pressed','false');
-      b.setAttribute('aria-label', 'Afirmación '+(base+i)+', puntuación '+v);
+      b.setAttribute('aria-label','Pregunta '+(i+1)+': '+etiqueta);
       b.addEventListener('click', ()=>{
-        R[k][i] = v;
+        R[i] = valor;
         [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
         sync();
       });
       opts.append(b);
-    }
+    });
     row.append(tx, opts); host.append(row);
   });
-}
-pintar($('#qa'), A, 'a', 1);
-pintar($('#qb'), B, 'b', 5);
+})();
 
-const items = k => (k==='a' ? A : B);
-/* P = lo que suma, N = lo que resta. Puntuar alto en ambos polos del mismo eje
-   es contradecirse: el neto queda en cero, pero no por moderación. */
-const polo = (k, signo) => R[k].reduce((t,v,i)=> t + (items(k)[i].s===signo ? (v||0) : 0), 0);
-const incoherente = k => R[k].every(v=>v!==null) && polo(k,+1) >= 4 && polo(k,-1) >= 4;
-const suma  = k => R[k].reduce((s,v,i)=> s + (v||0) * items(k)[i].s, 0);
-const faltan = () => [...R.a, ...R.b].filter(v=>v===null).length;
-const signo = v => (v>0 ? '+' : '') + v;
+/* Puntuación de una celda: 0 a 4. En las preguntas invertidas, «sí» resta. */
+function celda(cl, ej){
+  let t = 0;
+  PREGUNTAS.forEach((p,i)=>{
+    if(p.cl!==cl || p.ej!==ej || R[i]===null) return;
+    t += p.s > 0 ? R[i] : (1 - R[i]);
+  });
+  return t;
+}
+const faltan = () => R.filter(v=>v===null).length;
 
 /* ═══════════════ PLANO 2×2 ═══════════════
-   Los ejes van de −6 a +6 y las divisiones caen en el cero, que es el punto de
-   partida: sin responder nada, el marcador está en el centro y no afirma nada. */
+   Sin escalas numéricas y con el mínimo de ambos ejes abajo a la izquierda. El
+   punto solo aparece al terminar: si se moviera con cada respuesta, delataría
+   hacia dónde empuja cada pregunta y se acabaría la gracia. */
 function plane(dot, compacto){
   const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
   const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
   const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
-  const px = v => x0 + (v + MAX) / (2 * MAX) * (x1 - x0);
-  const py = v => y1 - (v + MAX) / (2 * MAX) * (y1 - y0);
-  const cutx = px(0), cuty = py(0);
+  const px = v => x0 + v / MAX * (x1 - x0);
+  const py = v => y1 - v / MAX * (y1 - y0);
+  const cutx = px(MAX/2), cuty = py(MAX/2);
   const q = [
     {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'APOYO PUNTUAL',             s:'usas poco, verificas'},
     {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'DELEGACIÓN DE TRABAJO',     s:'usas mucho, verificas'},
@@ -312,23 +295,17 @@ function plane(dot, compacto){
   s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
 
   if(!compacto){
-    // Los nombres viven fuera del marco y los cuatro se parten en dos líneas,
-    // por simetría con los planos de la guía: todos ocupan el mismo alto.
     q.forEach(r=>{
       const cx = (r.a+r.b)/2, arriba = r.c===y0;
-      let lineas = [r.n];
-      if(r.n.includes(' ')){
-        const w = r.n.split(' ');
-        let corte = 1, mejor = Infinity;
-        for(let k=1; k<w.length; k++){
-          const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
-          if(dd < mejor){ mejor = dd; corte = k; }
-        }
-        lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
+      const w = r.n.split(' ');
+      let corte = 1, mejor = Infinity;
+      for(let k=1; k<w.length; k++){
+        const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
+        if(dd < mejor){ mejor = dd; corte = k; }
       }
-      const extra = (lineas.length-1)*14;
-      const ny = arriba ? y0-36-extra : y1+30;
-      const sy = arriba ? y0-20       : y1+46+extra;
+      const lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
+      const ny = arriba ? y0-50 : y1+30;
+      const sy = arriba ? y0-20 : y1+60;
       lineas.forEach((ln,k)=>{
         s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+r.p+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
            + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
@@ -344,81 +321,70 @@ function plane(dot, compacto){
     s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
   }
   if(!compacto){
-    s += '<text x="'+x0+'" y="'+(y1+20)+'" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="500">−6</text>';
-    s += '<text x="'+x1+'" y="'+(y1+20)+'" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="500" text-anchor="end">+6</text>';
     s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">INTENSIDAD DE USO →</text>';
     s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CONTROL CRÍTICO →</text>';
   }
   return s + '</svg>';
 }
 
-function barra(nombre, valor, color){
-  const d = el('div','');
-  const top = el('div','bar-top');
-  top.append(el('span','bar-name', nombre));
-  const v = el('span','bar-val num', signo(valor)); v.style.color = color;
-  top.append(v); d.append(top);
-  const tr = el('div','track');
-  const fl = el('div','fill'); fl.style.background = color;
-  const ancho = Math.abs(valor) / MAX * 50;
-  fl.style.left  = (valor >= 0 ? 50 : 50 - ancho) + '%';
-  fl.style.width = ancho + '%';
-  tr.append(fl, el('div','cero'));
-  d.append(tr);
-  const e = el('div','ends'); e.append(el('span','','−6'), el('span','','0'), el('span','','+6'));
-  d.append(e);
-  return d;
+function parBarra(host, titulo, dice, hace, color){
+  host.innerHTML = '';
+  host.append(el('div','lab', titulo));
+  [['Dices', dice], ['Cuentas', hace]].forEach(([etiqueta,v])=>{
+    const row = el('div','par');
+    row.append(el('span','q1', etiqueta));
+    const bar = el('div','bar');
+    const i = el('i'); i.style.width = (v/MAX*100)+'%'; i.style.background = color;
+    bar.append(i); row.append(bar);
+    const n = el('span','v num', v + '/' + MAX); n.style.color = color;
+    row.append(n); host.append(row);
+  });
+  const d = dice - hace;
+  const texto = Math.abs(d) <= 1
+    ? 'Lo que dices y lo que cuentas <b>encajan</b>.'
+    : (d > 0
+        ? 'Te describes <b>' + d + ' puntos por encima</b> de lo que muestran tus episodios.'
+        : 'Tus episodios te sitúan <b>' + (-d) + ' puntos por encima</b> de como te describes.');
+  const p = el('p','dice'); p.innerHTML = texto; host.append(p);
 }
 
 function sync(){
-  const a = suma('a'), b = suma('b'), f = faltan();
-  $('#sa').textContent = signo(a);
-  $('#sb').textContent = signo(b);
+  const f = faltan();
+  $('#n-pista').style.width = ((PREGUNTAS.length - f) / PREGUNTAS.length * 100) + '%';
 
-  // el centro significa «sin información», así que el marcador se ve desde el principio
-  $('#plane-full').innerHTML = plane({x:a, y:b}, false);
-  $('#plane-mini').innerHTML = plane({x:a, y:b}, true);
-
-  const c = CUADRANTES[clave(a,b)];
-  const virgen = f === 8;
-  $('#n-tag').textContent  = virgen ? 'Sin responder' : (f===0 ? 'Tu posición' : 'Posición provisional');
-  $('#n-name').textContent = virgen ? 'En el centro' : c.nombre;
-  $('#n-name').style.color = virgen ? 'var(--ink-3)' : c.color;
-  $('#n-sums').textContent = 'A ' + signo(a) + ' · B ' + signo(b) + (f ? ' · faltan ' + f : '');
-
-  const bars = $('#bars'); bars.innerHTML = '';
-  bars.append(barra('Intensidad de uso', a, 'var(--lav)'));
-  bars.append(barra('Control crítico', b, 'var(--mint)'));
-
-  const chocan = ['a','b'].filter(incoherente);
-  const aviso = chocan.length
-    ? '<b>Respuestas contradictorias.</b> En el bloque ' + chocan.map(k=>k.toUpperCase()).join(' y el ')
-      + ' has puntuado alto en afirmaciones que dicen lo contrario entre sí, así que el resultado se queda '
-      + 'en el centro por incoherencia y no por moderación. Vuelve sobre '
-      + chocan.map(k => k==='a' ? 'las afirmaciones 3 y 4' : 'las afirmaciones 7 y 8').join(' y sobre ') + '.'
-    : '';
-  ['#r-alerta','#p-alerta'].forEach(sel=>{
-    const n = $(sel);
-    n.innerHTML = aviso;
-    n.hidden = !aviso;
-  });
-
-  const res = $('#res');
-  if(f===0){
-    $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
-    $('#r-name').textContent = c.nombre;
-    $('#r-name').style.color = c.color;
-    $('#r-read').textContent = c.read;
-    $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c.cuerpo + '</p>';
-    res.hidden = false;
-  } else {
-    res.hidden = true;
+  if(f){
+    $('#plane-full').innerHTML = plane(null, false);
+    $('#plane-mini').innerHTML = plane(null, true);
+    $('#n-tag').textContent = 'Sin terminar';
+    $('#n-name').textContent = 'Faltan ' + f;
+    $('#n-name').style.color = 'var(--ink-3)';
+    $('#res').hidden = true;
+    return;
   }
+
+  const ea = celda('e','a'), eb = celda('e','b');
+  const da = celda('d','a'), db = celda('d','b');
+  const c = CUADRANTES[clave(ea,eb)];
+
+  $('#plane-full').innerHTML = plane({x:ea, y:eb}, false);
+  $('#plane-mini').innerHTML = plane({x:ea, y:eb}, true);
+  $('#n-tag').textContent = 'Tu posición';
+  $('#n-name').textContent = c.nombre;
+  $('#n-name').style.color = c.color;
+
+  $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
+  $('#r-name').textContent = c.nombre;
+  $('#r-name').style.color = c.color;
+  $('#r-read').textContent = c.read;
+  parBarra($('#br-a'), 'Intensidad de uso', da, ea, 'var(--lav)');
+  parBarra($('#br-b'), 'Control crítico',  db, eb, 'var(--mint)');
+  $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c.cuerpo + '</p>';
+  $('#res').hidden = false;
 }
 sync();
 
 $('#reset').addEventListener('click', ()=>{
-  R.a = [null,null,null,null]; R.b = [null,null,null,null];
+  R.fill(null);
   document.querySelectorAll('.opts button').forEach(b=>b.setAttribute('aria-pressed','false'));
   sync();
   window.scrollTo({top:0, behavior:'smooth'});
