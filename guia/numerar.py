@@ -19,7 +19,7 @@ SALIDA = os.path.join(BASE, 'guia', 'la-diana-cognitiva.pdf')
 SECCIONES = [
     ('00', 'Sobre esta guía',                              'Sobre esta guía'),
     ('01', 'Delegar trabajo no es transferir el criterio',  None),
-    ('02', 'El test: ¿cómo trabajas con la IA?',            None),
+    ('02', 'El test: veinte preguntas de sí o no',           None),
     ('03', 'Tu posición en el plano',                       None),
     ('04', '¿Hay un punto óptimo en el plano?',             None),
     ('05', 'Dos resultados que complican el diagnóstico',   None),

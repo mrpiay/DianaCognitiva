@@ -83,6 +83,15 @@ a{color:var(--lav-p); text-decoration:none}
 .stmt .sg{font-family:var(--mono); font-size:7pt; letter-spacing:.08em; border:.3mm solid var(--line-2);
   border-radius:1mm; padding:.3mm 1.4mm; margin-left:2mm; color:var(--ink-3); white-space:nowrap}
 .stmt.resta .t{color:var(--ink-2)}
+.clave{margin:5mm 0; border:.4mm solid var(--line-2); border-radius:2.5mm; overflow:hidden}
+.clave .fila{display:grid; grid-template-columns:34mm 1fr 1fr 16mm; gap:3mm; align-items:center;
+  padding:3.4mm 4mm; font-size:9pt; border-top:.3mm solid var(--line)}
+.clave .fila:first-child{border-top:0}
+.clave .fila.sep{border-top:.5mm solid var(--line-2)}
+.clave .et{font-family:var(--mono); font-size:8pt; letter-spacing:.06em; color:var(--ink-2)}
+.clave .sn{font-family:var(--mono); font-size:8.5pt; color:var(--ink)}
+.clave .sn.rev{color:var(--ink-3)}
+.clave .tot{font-family:var(--mono); font-size:9pt; color:var(--ink-3); text-align:right}
 .formula{display:flex; align-items:baseline; gap:3mm; margin-top:5mm; padding:4mm 5mm;
   background:var(--ground); border-radius:2.5mm; font-family:var(--mono); font-size:10.5pt; color:var(--ink)}
 .formula .slot{border-bottom:.45mm solid var(--ink-3); width:16mm; display:inline-block}
@@ -150,12 +159,18 @@ a{color:var(--lav-p); text-decoration:none}
       <text x="310.0" y="188" fill="#8A3D2D" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.15" text-anchor="middle">DE CRITERIO</text>
       <text x="310.0" y="204" fill="#696E80" font-family="IBM Plex Sans,sans-serif" font-size="9" text-anchor="middle">usas mucho, no verificas</text>
       <text x="310.0" y="220" fill="#8A3D2D" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="600" text-anchor="middle">Ilusión de autoría</text>
-      <text x="40" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" text-anchor="middle">−6</text>
-      <text x="220.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="middle">0</text>
-      <text x="400" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" text-anchor="middle">+6</text>
-      <text x="32" y="254" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" text-anchor="end">−6</text>
-      <text x="32" y="139.0" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" text-anchor="end">0</text>
-      <text x="32" y="24" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" text-anchor="end">+6</text>
+      <text x="70.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">0</text>
+      <text x="32" y="234.8" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">0</text>
+      <text x="130.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">1</text>
+      <text x="32" y="196.5" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">1</text>
+      <text x="190.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">2</text>
+      <text x="32" y="158.2" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">2</text>
+      <text x="250.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">3</text>
+      <text x="32" y="119.8" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">3</text>
+      <text x="310.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">4</text>
+      <text x="32" y="81.5" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">4</text>
+      <text x="370.0" y="266" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">5</text>
+      <text x="32" y="43.2" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="end">5</text>
       <text x="220.0" y="286" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
       <text transform="translate(20,135.0) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
     </svg>
@@ -173,21 +188,21 @@ a{color:var(--lav-p); text-decoration:none}
   <h2><span class="sec-no">Contenido</span>Qué hay en estas páginas</h2>
   <div class="toc-row"><span class="n">·</span><span class="t">Sobre esta guía</span><span class="ld"></span><span class="pg" data-sec="00">3</span></div>
   <div class="toc-row"><span class="n">01</span><span class="t">Delegar trabajo no es transferir el criterio</span><span class="ld"></span><span class="pg" data-sec="01">6</span></div>
-  <div class="toc-row"><span class="n">02</span><span class="t">El test: ¿cómo trabajas con la IA?</span><span class="ld"></span><span class="pg" data-sec="02">8</span></div>
-  <div class="toc-row"><span class="n">03</span><span class="t">Tu posición en el plano</span><span class="ld"></span><span class="pg" data-sec="03">11</span></div>
-  <div class="toc-row"><span class="n">04</span><span class="t">¿Hay un punto óptimo en el plano?</span><span class="ld"></span><span class="pg" data-sec="04">14</span></div>
-  <div class="toc-row"><span class="n">05</span><span class="t">Dos resultados que complican el diagnóstico</span><span class="ld"></span><span class="pg" data-sec="05">15</span></div>
-  <div class="toc-row"><span class="n">06</span><span class="t">Lo que sí cambia la conducta</span><span class="ld"></span><span class="pg" data-sec="06">17</span></div>
-  <div class="toc-row"><span class="n">07</span><span class="t">El problema de este test</span><span class="ld"></span><span class="pg" data-sec="07">19</span></div>
-  <div class="toc-row"><span class="n">08</span><span class="t">Dónde me ha dejado a mí</span><span class="ld"></span><span class="pg" data-sec="08">20</span></div>
-  <div class="toc-row"><span class="n">09</span><span class="t">La pregunta que queda</span><span class="ld"></span><span class="pg" data-sec="09">21</span></div>
-  <div class="toc-row"><span class="n">10</span><span class="t">La fuente y sus límites</span><span class="ld"></span><span class="pg" data-sec="10">22</span></div>
+  <div class="toc-row"><span class="n">02</span><span class="t">El test: veinte preguntas de sí o no</span><span class="ld"></span><span class="pg" data-sec="02">8</span></div>
+  <div class="toc-row"><span class="n">03</span><span class="t">Tu posición en el plano</span><span class="ld"></span><span class="pg" data-sec="03">12</span></div>
+  <div class="toc-row"><span class="n">04</span><span class="t">¿Hay un punto óptimo en el plano?</span><span class="ld"></span><span class="pg" data-sec="04">16</span></div>
+  <div class="toc-row"><span class="n">05</span><span class="t">Dos resultados que complican el diagnóstico</span><span class="ld"></span><span class="pg" data-sec="05">17</span></div>
+  <div class="toc-row"><span class="n">06</span><span class="t">Lo que sí cambia la conducta</span><span class="ld"></span><span class="pg" data-sec="06">19</span></div>
+  <div class="toc-row"><span class="n">07</span><span class="t">El problema de este test</span><span class="ld"></span><span class="pg" data-sec="07">21</span></div>
+  <div class="toc-row"><span class="n">08</span><span class="t">Dónde me ha dejado a mí</span><span class="ld"></span><span class="pg" data-sec="08">22</span></div>
+  <div class="toc-row"><span class="n">09</span><span class="t">La pregunta que queda</span><span class="ld"></span><span class="pg" data-sec="09">23</span></div>
+  <div class="toc-row"><span class="n">10</span><span class="t">La fuente y sus límites</span><span class="ld"></span><span class="pg" data-sec="10">24</span></div>
 </section>
 
 <!-- ═════ SOBRE ESTA GUÍA ═════ -->
 <h2><span class="sec-no">Antes de empezar</span>Sobre esta guía</h2>
 
-<p class="lede">Un cuestionario de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes. Responderlo lleva dos minutos; leer estas páginas, un cuarto de hora.</p>
+<p class="lede">Un cuestionario de veinte preguntas de sí o no que sitúa tus hábitos de trabajo con IA en un plano de dos ejes. Responderlo lleva tres minutos; leer estas páginas, un cuarto de hora.</p>
 
 <p>Parte de un trabajo de Steven D. Shaw y Gideon Nave, de The Wharton School, que midió qué ocurre cuando alguien puede consultar a una IA mientras razona. Las cifras que irás encontrando son suyas. El cuestionario, los cuatro cuadrantes y el plano de dos ejes son elaboración propia.</p>
 
@@ -195,7 +210,7 @@ a{color:var(--lav-p); text-decoration:none}
 
 <p><b>Qué no es.</b> Un diagnóstico. Es un autoinforme, los cuatro cuadrantes no son categorías validadas por ninguna investigación. El apartado 07 explica por qué esa limitación no es un detalle menor, sino parte del propio fenómeno que se describe.</p>
 
-<p><b>Cómo usarla.</b> Puedes leerla de principio a fin o ir directamente al test del apartado 02, responder las ocho afirmaciones y volver después a lo demás. También existe en versión interactiva, que hace las sumas y sitúa el resultado por ti.</p>
+<p><b>Cómo usarla.</b> Puedes leerla de principio a fin o ir directamente al test del apartado 02, responder las veinte y volver después a lo demás. También existe en versión interactiva, que hace las sumas y sitúa el resultado por ti.</p>
 
 <div class="url">mrpiay.github.io/DianaCognitiva</div>
 
@@ -278,44 +293,63 @@ a{color:var(--lav-p); text-decoration:none}
 <p>Por eso necesitamos dos ejes, no una escala que vaya de «usar poca IA» a «depender demasiado de ella».</p>
 
 <!-- ═════ 2 ═════ -->
-<h2><span class="sec-no">02</span>El test: ¿cómo trabajas con la IA?</h2>
+<h2><span class="sec-no">02</span>El test: veinte preguntas de sí o no</h2>
 
-<p>Ocho afirmaciones. Puntúa cada una pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar ni en cómo crees que deberías hacerlo.</p>
+<p>Las veinte van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.</p>
 
-<div class="scale">
-  <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
+<p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí.</b> Ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final. Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes.</p>
+
+<p>No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo.</p>
+
+<div class="note"><p><b>Responde las veinte antes de pasar de página.</b> Lo que viene después explica cómo se cuentan, y saberlo de antemano estropea la medida.</p></div>
+
+<div class="stmt"><span class="n">1</span><span class="t">Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">2</span><span class="t">La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">3</span><span class="t">Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">4</span><span class="t">La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">5</span><span class="t">Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">6</span><span class="t">Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">7</span><span class="t">Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">8</span><span class="t">La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">9</span><span class="t">Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">10</span><span class="t">La última vez que una respuesta de la IA incluyó una cifra, una cita o una afirmación importante, utilicé al menos una sin verificarla por otra vía.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">11</span><span class="t">Normalmente distingo entre una respuesta de la IA bien fundamentada y otra que solo lo parece.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">12</span><span class="t">Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">13</span><span class="t">Si dejara de disponer de IA, mi forma habitual de trabajar cambiaría considerablemente.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">14</span><span class="t">En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">15</span><span class="t">Cuando voy con prisa, tiendo a usar lo que me da la IA sin revisarlo.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">16</span><span class="t">La última vez que utilicé la IA para resolver un problema, acepté una propuesta suya sin desarrollar antes una alternativa propia.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">17</span><span class="t">Cuando utilizo la IA, distingo entre lo que puedo aceptar directamente y lo que necesita comprobación adicional.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">18</span><span class="t">La última vez que me atasqué en un problema, salí adelante sin consultar a la IA.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">19</span><span class="t">Podría desarrollar una primera solución razonada a mis tareas habituales sin que la IA me indique por dónde empezar.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+<div class="stmt"><span class="n">20</span><span class="t">En mi última entrega con IA, di por buena su estructura o su enfoque sin llegar a cuestionarlos.</span><span class="boxes"><i>Sí</i><i>No</i></span></div>
+
+<h3>Lo que acabas de responder</h3>
+
+<p>No era un cuestionario, eran dos entrelazados.</p>
+
+<p><b>Diez preguntas te pedían que te describas</b> —cómo sueles trabajar, qué sueles comprobar— y <b>diez te pedían un hecho</b>: la última vez que, recientemente, en tu última entrega. Parecían lo mismo y no lo son. Lo que uno dice de sí mismo tiende a parecerse a lo que le gustaría ser; lo que recuerda haber hecho se parece algo más a lo que hizo.</p>
+
+<p>Tu posición en el plano se calcula <b>solo con las diez de hechos</b>. Las otras diez sirven para algo distinto y más interesante: medir la distancia entre las dos.</p>
+
+<h3>Cómo contarlo</h3>
+
+<p>Cuenta un punto por cada acierto según esta clave. En las preguntas marcadas <b>al revés</b>, el punto lo da responder <b>No</b>.</p>
+
+<div class="clave">
+  <div class="fila"><span class="et">Intensidad · hechos</span><span class="sn">Sí: 4 · 12 · 16</span><span class="sn rev">No: 6 · 18</span><span class="tot">___ / 5</span></div>
+  <div class="fila"><span class="et">Control · hechos</span><span class="sn">Sí: 2 · 8 · 14</span><span class="sn rev">No: 10 · 20</span><span class="tot">___ / 5</span></div>
+  <div class="fila sep"><span class="et">Intensidad · dices</span><span class="sn">Sí: 1 · 5 · 13</span><span class="sn rev">No: 9 · 19</span><span class="tot">___ / 5</span></div>
+  <div class="fila"><span class="et">Control · dices</span><span class="sn">Sí: 7 · 11 · 17</span><span class="sn rev">No: 3 · 15</span><span class="tot">___ / 5</span></div>
 </div>
 
-<p>Responde con honestidad. Este test no mide tu inteligencia ni tu competencia profesional. Intenta describir dos hábitos: cuánto trabajo transfieres a la IA y cuánto examinas sus respuestas.</p>
-
-<h3>Bloque A · Intensidad de uso</h3>
-<div class="stmt"><span class="n">1</span><span class="t">Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.<span class="sg">suma</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt"><span class="n">2</span><span class="t">Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.<span class="sg">suma</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt resta"><span class="n">3</span><span class="t">Hay semanas enteras en que no la abro para nada importante.<span class="sg">resta</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt resta"><span class="n">4</span><span class="t">Resuelvo por mi cuenta tareas que podría delegarle sin ningún problema.<span class="sg">resta</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="formula"><span><b>A</b> = (1 + 2) − (3 + 4) =</span><span class="slot"></span><span class="rg">de −6 a +6</span></div>
-
-<h3>Bloque B · Control crítico</h3>
-<div class="stmt"><span class="n">5</span><span class="t">Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.<span class="sg">suma</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt"><span class="n">6</span><span class="t">Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.<span class="sg">suma</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt resta"><span class="n">7</span><span class="t">Si la respuesta suena razonable y encaja con lo que esperaba, la doy por buena.<span class="sg">resta</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="stmt resta"><span class="n">8</span><span class="t">Cuando voy con prisa, uso lo que me devuelve sin revisarlo.<span class="sg">resta</span></span><span class="boxes"><i>0</i><i>1</i><i>2</i><i>3</i></span></div>
-<div class="formula"><span><b>B</b> = (5 + 6) − (7 + 8) =</span><span class="slot"></span><span class="rg">de −6 a +6</span></div>
-
-<h3>Cómo interpretar las puntuaciones</h3>
-
-<p>Cada eje va de <b>−6 a +6</b> y el cero es el centro del plano. Los valores positivos te sitúan a la derecha —más intensidad— y arriba —más control—; los negativos, a la izquierda y abajo. No hay ningún umbral que acordar: el corte sale de la propia resta.</p>
-
-<p>Dos de las cuatro afirmaciones de cada bloque están redactadas al revés y por eso restan. Eso tiene una consecuencia útil: quien responde sin leer y marca alto en todo se queda en el centro, en lugar de aterrizar en el cuadrante que le favorece.</p>
+<p>Las dos primeras filas te dan el punto que llevarás al plano. Las dos últimas, dónde te colocarían tus propias palabras.</p>
 
 <div class="note">
-  <p><b>Si un eje te da cero, mira por qué.</b> Puede significar dos cosas muy distintas. Si has puntuado moderado en las cuatro afirmaciones, el cero es correcto: estás en medio de esa dimensión.</p>
-  <p>Pero si has puntuado alto tanto en las que suman como en las que restan, te has contradicho: no se puede a la vez abrir la IA antes de intentar nada y pasar semanas sin abrirla. Ahí el cero no es moderación, es incoherencia, y conviene volver sobre esas cuatro afirmaciones.</p>
+  <p><b>La distancia entre ambas es el hallazgo.</b> Si tu control «dices» supera al de «hechos» en dos puntos o más, te describes como más verificador de lo que muestran tus episodios. Es lo más común, y no es mentir: es que la autodescripción general se parece a lo que uno aspira a ser.</p>
 </div>
 
-<p>Una precisión sobre la afirmación 6: no basta con poder explicar de qué trata una entrega. La prueba es si podrías reconstruir su razonamiento y defender sus decisiones ante alguien que las cuestionara.</p>
-
-<p>Si prefieres no hacer las cuentas a mano, hay una versión interactiva de este mismo test: las ocho afirmaciones, el plano y tu posición recalculada con cada respuesta.</p>
+<p>Si prefieres no contar a mano, hay una versión interactiva que lo hace sola, con las preguntas además en orden distinto cada vez.</p>
 
 <div class="url">mrpiay.github.io/DianaCognitiva</div>
 
@@ -347,16 +381,22 @@ a{color:var(--lav-p); text-decoration:none}
       <text x="390.0" y="253" fill="#8A3D2D" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" letter-spacing="1.15" text-anchor="middle">DE CRITERIO</text>
       <text x="390.0" y="273" fill="#696E80" font-family="IBM Plex Sans,sans-serif" font-size="10.5" text-anchor="middle">usas mucho, no verificas</text>
       <text x="390.0" y="293" fill="#8A3D2D" font-family="IBM Plex Sans,sans-serif" font-size="10.5" font-weight="600" text-anchor="middle">Ilusión de autoría</text>
-      <text x="60" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="400" text-anchor="middle">−6</text>
-      <text x="280.0" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" text-anchor="middle">0</text>
-      <text x="500" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="400" text-anchor="middle">+6</text>
-      <text x="52" y="344" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="400" text-anchor="end">−6</text>
-      <text x="52" y="184.0" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" text-anchor="end">0</text>
-      <text x="52" y="24" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="400" text-anchor="end">+6</text>
+      <text x="96.7" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">0</text>
+      <text x="52" y="317.3" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">0</text>
+      <text x="170.0" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">1</text>
+      <text x="52" y="264.0" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">1</text>
+      <text x="243.3" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">2</text>
+      <text x="52" y="210.7" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">2</text>
+      <text x="316.7" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">3</text>
+      <text x="52" y="157.3" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">3</text>
+      <text x="390.0" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">4</text>
+      <text x="52" y="104.0" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">4</text>
+      <text x="463.3" y="356" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="middle">5</text>
+      <text x="52" y="50.7" fill="#696E80" font-family="IBM Plex Mono,monospace" font-size="11" text-anchor="end">5</text>
       <text x="280.0" y="388" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">INTENSIDAD DE USO →</text>
       <text transform="translate(24,180.0) rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle">CONTROL CRÍTICO →</text>
     </svg>
-  <figcaption>En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar. Los ejes van de −6 a +6 y las divisiones caen en el cero, que es donde empiezas antes de responder nada.</figcaption>
+  <figcaption>En cada cuadrante: el nombre de la posición, qué estás haciendo y, en su color, el riesgo que conviene vigilar. Cada eje va de 0 a 5 —las cinco preguntas de hechos de ese eje— y la división cae entre el 2 y el 3, así que ninguna puntuación puede quedarse encima de la línea.</figcaption>
 </figure>
 
 <h3>1. Apoyo puntual: la IA como recurso de consulta</h3>
@@ -381,6 +421,23 @@ a{color:var(--lav-p); text-decoration:none}
 <p>Aquí el riesgo no es necesariamente la dependencia de la máquina. Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: la autonomía también exige reconocer cuándo tu propio criterio necesita una segunda mirada.</p>
 <p>Puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p>
 <p><b>Qué probar:</b> introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos. La cuestión no es sustituir tu criterio por el de la IA, sino evitar que cualquiera de los dos se convierta en una autoridad incuestionable.</p>
+
+
+<h3>Cuán marcada está tu posición</h3>
+
+<p>Dentro de un mismo cuadrante no es igual estar pegado al cruce que en una esquina. Un 5 y un 0 piden cambiar cómo trabajas; un 3 y un 2, afinar un hábito. La banda sale de los propios valores: <b>leve</b> si los dos ejes están en 2 o 3, <b>extrema</b> si los dos están en 0 o en 5, y <b>marcada</b> en todo lo demás.</p>
+
+<div class="tablewrap">
+<table>
+  <thead><tr><th></th><th>Leve</th><th>Marcada</th><th>Extrema</th></tr></thead>
+  <tbody>
+    <tr><th>Apoyo puntual</th><td>Delega una tarea más y mantén la misma revisión.</td><td>Delega parte de algo repetitivo y conserva la revisión.</td><td>Delega entero tu trabajo más rutinario una temporada.</td></tr>
+    <tr><th>Delegación de trabajo</th><td>Escribe qué comprobarás siempre y trátalo como innegociable.</td><td>Haz de la verificación un procedimiento, no una virtud.</td><td>Suelta la revisión que ya es rutina y reserva el esfuerzo.</td></tr>
+    <tr><th>Transferencia de criterio</th><td>Elige un tipo de dato y compruébalo siempre, sin excepciones.</td><td>Reconstruye sin ayuda el razonamiento de tu última entrega.</td><td>Define por escrito qué no sale sin comprobar, y quién lo hace.</td></tr>
+    <tr><th>Autonomía intuitiva</th><td>Añade un contraste a las decisiones importantes.</td><td>Busca una revisión externa o una explicación alternativa.</td><td>Pide a propósito que alguien te lleve la contraria.</td></tr>
+  </tbody>
+</table>
+</div>
 
 <p>Ninguna de las cuatro posiciones es permanente. Describen hábitos, y un hábito cambia con la tarea, con el contexto y, sobre todo, con el tiempo del que dispongas.</p>
 
@@ -474,7 +531,7 @@ a{color:var(--lav-p); text-decoration:none}
 
 <p>Para detectar la conducta real hace falta observar qué sucede cuando la IA y la evidencia entran en conflicto. Eso es, precisamente, lo que intentaron hacer los investigadores: plantearon tareas de razonamiento, ofrecieron un asistente y manipularon experimentalmente sus respuestas para estudiar cuándo los participantes aceptaban su recomendación y cuándo se apartaban de ella.</p>
 
-<p>Nada de eso cabe en un cuestionario que se responde solo. Lo que estas ocho afirmaciones pueden darte es el principio de una conversación contigo mismo, no su conclusión.</p>
+<p>Nada de eso cabe en un cuestionario que se responde solo. Lo que estas veinte preguntas pueden darte es el principio de una conversación contigo mismo, no su conclusión.</p>
 
 <!-- ═════ 8 ═════ -->
 <h2><span class="sec-no">08</span>Dónde me ha dejado a mí</h2>
@@ -492,7 +549,7 @@ a{color:var(--lav-p); text-decoration:none}
 <!-- ═════ 9 ═════ -->
 <h2><span class="sec-no">09</span>La pregunta que queda</h2>
 
-<p>La afirmación 8 ya te hizo la pregunta decisiva, aunque entonces solo te pidiera una cifra del 0 al 3. Conviene volver sobre ella sin la prisa de estar puntuándote.</p>
+<p>Una de las veinte ya te hizo la pregunta decisiva —si podrías defender hoy, sin la IA delante, el razonamiento de tu última entrega—, aunque entonces solo te pidiera un sí o un no. Conviene volver sobre ella sin la prisa de estar puntuándote.</p>
 
 <p>Importa porque el resultado de una tarea puede ser correcto por casualidad, por la calidad del sistema o por la solidez de tu propio juicio. Desde fuera, las tres cosas pueden parecer iguales. Solo cuando algo falla descubrimos de cuál dependíamos.</p>
 
