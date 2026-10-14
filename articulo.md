@@ -41,6 +41,10 @@ El experimento existe. Lo hicieron Steven D. Shaw y Gideon Nave, de The Wharton 
 
 Y eso tenía consecuencias en sus resultados: quienes resolvían los problemas sin ayuda acertaban el 45,8 % de las veces; quienes tenían el asistente disponible acertaban el 71 % cuando este daba la respuesta correcta, pero solo el 31,5 % cuando daba una respuesta equivocada.
 
+- Sin IA — **45,8 %**
+- Con IA, cuando acertaba — **71,0 %**
+- Con IA, cuando se equivocaba — **31,5 %**
+
 Es decir, **la IA podía mejorar el rendimiento, pero también empeorarlo por debajo del nivel de quienes razonaban sin ella**.
 
 El problema no era consultar una herramienta. Era seguirla incluso cuando se equivocaba.
@@ -63,7 +67,11 @@ Pero usar una herramienta con frecuencia no equivale a renunciar al criterio. Do
 
 La diferencia empieza por distinguir dos conductas.
 
+**Delegación de trabajo**
+
 Transfieres una tarea a la IA, pero conservas la responsabilidad de evaluar el resultado. Tú decides si la respuesta es válida, qué comprobar y qué merece ser descartado.
+
+**Transferencia de criterio**
 
 La IA no solo ejecuta la tarea: su respuesta empieza a sustituir tu propia evaluación. Aceptas una conclusión sin examinarla, confundes fluidez con fundamento o defiendes algo sin entender del todo por qué es correcto.
 
