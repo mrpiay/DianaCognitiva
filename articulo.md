@@ -91,7 +91,7 @@ Las veinte van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con l
 
 No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo.
 
-> **El test se responde en la herramienta, no en estas páginas.** Son tres minutos: lleva ella la cuenta y sitúa el punto en el plano. Esta guía explica de dónde sale ese plano, qué mide cada eje y qué hacer con el resultado, pero no puede medirte.
+> **El test se responde en la herramienta, no en estas páginas.** Son tres minutos: lleva ella la cuenta y sitúa el punto en el plano. Esta guía explica de dónde sale ese plano, qué mide cada eje y qué hacer con el resultado, pero no puede evaluarte.
 
 > **Respóndelo antes de seguir leyendo.** Lo que viene a continuación cuenta cómo está construido el cuestionario, y saberlo de antemano estropea la medida.
 
