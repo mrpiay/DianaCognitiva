@@ -31,6 +31,14 @@ profesional:{
   ejes:{a:'Intensidad de uso', b:'Control crítico'},
   ejesPlano:{a:'INTENSIDAD DE USO →', b:'CONTROL CRÍTICO →'},
   ejesCorto:{a:'intensidad', b:'control'},
+  tres:[
+    {q:'¿Podrías explicar tu última entrega sin la IA delante?',
+     d:'Casi todo el mundo dice que sí hasta que lo intenta. No va de memoria: va de si el razonamiento llegó a ser tuyo en algún momento.'},
+    {q:'¿Cuándo fue la última vez que le llevaste la contraria?',
+     d:'Si no recuerdas la última vez que descartaste una respuesta suya, puede que no te haya dado ninguna mala. O que hayas dejado de mirar.'},
+    {q:'¿Qué pasaría mañana si no estuviera?',
+     d:'No es una pregunta sobre productividad. Es sobre cuánto de lo que entregas depende de algo que no controlas del todo.'}
+  ],
   banco:[
     {cl:'d', ej:'a', s:+1, t:'Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.'},
     {cl:'d', ej:'a', s:+1, t:'Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.'},
@@ -132,6 +140,14 @@ estudiante:{
   ejesPlano:{a:'CUÁNTO LA USO →', b:'CUÁNTO LA REVISO →'},
   ejesCorto:{a:'uso', b:'revisión'},
   ejesFrase:{a:'cuánto la usas', b:'cuánto la revisas'},
+  tres:[
+    {q:'¿Podrías explicar tu último trabajo sin la IA delante?',
+     d:'Casi todos dicen que sí hasta que lo prueban. No va de memorizar: va de si en algún momento llegaste a entenderlo.'},
+    {q:'¿Cuándo fue la última vez que le dijiste que estaba equivocada?',
+     d:'Si no te acuerdas, puede que no haya fallado nunca. O que hayas dejado de comprobarlo.'},
+    {q:'¿Qué harías mañana si te la quitaran?',
+     d:'No es un castigo imaginario. Es la pregunta de qué parte del trabajo sigue sabiendo hacer tu cabeza.'}
+  ],
   banco:[
     {cl:'d', ej:'a', s:+1, t:'Uso la IA para trabajos de clase, no solo para cosas sueltas.'},
     {cl:'d', ej:'a', s:+1, t:'Cuando no sé cómo empezar un trabajo, lo normal es que acuda a la IA.'},
@@ -232,6 +248,14 @@ docente:{
   ejes:{a:'Intensidad de uso', b:'Control pedagógico'},
   ejesPlano:{a:'INTENSIDAD DE USO →', b:'CONTROL PEDAGÓGICO →'},
   ejesCorto:{a:'uso', b:'control'},
+  tres:[
+    {q:'¿Podrías justificar ante una familia cada decisión de tu última programación?',
+     d:'No en general: decisión por decisión. Qué aprende el alumno, por qué en ese orden y cómo sabrás si lo ha aprendido.'},
+    {q:'¿Cuándo fue la última vez que descartaste una propuesta suya por una razón pedagógica?',
+     d:'Un material generado puede estar bien escrito y medir otra cosa. Si nunca descartas nada, la pregunta es quién está decidiendo.'},
+    {q:'¿Qué parte de tu criterio se ha quedado en el borrador que te da?',
+     d:'Partir de una propuesta ahorra horas. También fija el marco antes de que tú hayas pensado el tuyo.'}
+  ],
   banco:[
     {cl:'d', ej:'a', s:+1, t:'Uso la IA en tareas centrales de mi trabajo docente, no solo en gestión o administración.'},
     {cl:'d', ej:'a', s:+1, t:'Cuando preparo algo nuevo —una unidad, una actividad, una rúbrica— suelo empezar pidiéndole una propuesta a la IA.'},
