@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Dieciséis preguntas de sí o no sobre cómo trabajas con la IA. Al final, tu posición en el plano y la distancia entre lo que dices y lo que cuentas.">
+<meta name="description" content="Veinte preguntas de sí o no sobre cómo trabajas con la IA. Al final, tu posición en el plano y la distancia entre lo que dices y lo que cuentas.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/">
 <meta property="og:title" content="Tu diana cognitiva">
-<meta property="og:description" content="¿Delegas trabajo o transfieres el criterio? Dieciséis preguntas, tres minutos y una posición en el plano.">
+<meta property="og:description" content="¿Delegas trabajo o transfieres el criterio? Veinte preguntas, tres minutos y una posición en el plano.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
 <title>Tu diana cognitiva</title>
@@ -104,6 +104,12 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
 .brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
 .brecha .dice b{color:var(--ink); font-weight:600}
+.alerta{
+  margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
+  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
+}
+.alerta b{color:var(--amber-p); font-weight:600}
+.alerta[hidden]{display:none}
 .advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:22px}
 .advice h3{font-size:17px; margin-bottom:9px}
 .advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
@@ -127,7 +133,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <h1>¿Delegas trabajo o <em>transfieres el criterio</em>?</h1>
     <p class="lede">Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.</p>
     <div class="como">
-      <p>Las dieciséis preguntas van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.</p>
+      <p>Las veinte preguntas van de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.</p>
       <p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.</p>
       <p>Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes. No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo. Nada sale de tu navegador.</p>
     </div>
@@ -146,6 +152,7 @@ h1 em{font-style:normal; color:var(--coral-p)}
       <div class="eje" id="br-b"></div>
     </div>
 
+    <div class="alerta" id="r-frontera" hidden></div>
     <div class="advice" id="r-advice"></div>
 
     <p class="caveat">
@@ -168,11 +175,11 @@ h1 em{font-style:normal; color:var(--coral-p)}
     <div>
       <div class="now">
         <div class="tag" id="n-tag">Sin terminar</div>
-        <div class="name" id="n-name">Faltan 16</div>
+        <div class="name" id="n-name">Faltan 20</div>
         <div class="pista"><i id="n-pista" style="width:0%"></i></div>
       </div>
     </div>
-    <p class="foot">El resultado aparece al responder las dieciséis. Ninguna pregunta mueve el punto por su cuenta.</p>
+    <p class="foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
   </div>
 </aside>
 
@@ -189,23 +196,27 @@ const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; i
    s:  +1 suma · -1 resta (responder «sí» apunta al lado contrario)          */
 const PREGUNTAS = [
   {cl:'d', ej:'a', s:+1, t:'Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.'},
-  {cl:'e', ej:'a', s:+1, t:'La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.'},
-  {cl:'d', ej:'b', s:+1, t:'Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.'},
-  {cl:'e', ej:'b', s:+1, t:'La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.'},
-  {cl:'d', ej:'b', s:+1, t:'Puedo explicar por qué una respuesta de la IA es adecuada para mi tarea, más allá de que suene convincente.'},
-  {cl:'e', ej:'a', s:+1, t:'Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.'},
-  {cl:'d', ej:'b', s:-1, t:'Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.'},
-  {cl:'e', ej:'b', s:+1, t:'La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.'},
-  {cl:'d', ej:'a', s:-1, t:'Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.'},
-  {cl:'e', ej:'a', s:-1, t:'Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.'},
   {cl:'d', ej:'a', s:+1, t:'Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.'},
+  {cl:'d', ej:'a', s:+1, t:'Si dejara de disponer de IA, mi forma habitual de trabajar cambiaría considerablemente.'},
+  {cl:'d', ej:'a', s:-1, t:'Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.'},
+  {cl:'d', ej:'a', s:-1, t:'Podría desarrollar una primera solución razonada a mis tareas habituales sin que la IA me indique por dónde empezar.'},
+  {cl:'e', ej:'a', s:+1, t:'La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.'},
+  {cl:'e', ej:'a', s:+1, t:'Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.'},
   {cl:'e', ej:'a', s:+1, t:'La última vez que utilicé la IA para resolver un problema, acepté una propuesta suya sin desarrollar antes una alternativa propia.'},
+  {cl:'e', ej:'a', s:-1, t:'Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.'},
+  {cl:'e', ej:'a', s:-1, t:'La última vez que me atasqué en un problema, salí adelante sin consultar a la IA.'},
+  {cl:'d', ej:'b', s:+1, t:'Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.'},
+  {cl:'d', ej:'b', s:+1, t:'Normalmente distingo entre una respuesta de la IA bien fundamentada y otra que solo lo parece.'},
   {cl:'d', ej:'b', s:+1, t:'Cuando utilizo la IA, distingo entre lo que puedo aceptar directamente y lo que necesita comprobación adicional.'},
+  {cl:'d', ej:'b', s:-1, t:'Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.'},
+  {cl:'d', ej:'b', s:-1, t:'Cuando voy con prisa, tiendo a usar lo que me da la IA sin revisarlo.'},
+  {cl:'e', ej:'b', s:+1, t:'La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.'},
+  {cl:'e', ej:'b', s:+1, t:'La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.'},
+  {cl:'e', ej:'b', s:+1, t:'En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.'},
   {cl:'e', ej:'b', s:-1, t:'La última vez que una respuesta de la IA incluyó una cifra, una cita o una afirmación importante, utilicé al menos una sin verificarla por otra vía.'},
-  {cl:'d', ej:'a', s:+1, t:'Suelo utilizar la IA para decidir qué enfoque seguir, y no únicamente para ejecutar un enfoque que ya he elegido.'},
-  {cl:'e', ej:'b', s:+1, t:'En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.'}
+  {cl:'e', ej:'b', s:-1, t:'En mi última entrega con IA, di por buena su estructura o su enfoque sin llegar a cuestionarlos.'}
 ];
-const MAX = 4;   // cuatro preguntas por celda
+const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
 
 const CUADRANTES = {
   apoyo:{
@@ -233,8 +244,9 @@ const CUADRANTES = {
     cuerpo:'Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p><p><b>Introduce un mecanismo de contraste en las decisiones importantes:</b> una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.'
   }
 };
-const clave = (a,b) => (a>=2) ? (b>=2 ? 'delegacion' : 'transferencia')
-                              : (b>=2 ? 'apoyo' : 'intuitiva');
+const alto = v => v > MAX / 2;   // 2,5: ninguna puntuación entera cae encima
+const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
+                               : (alto(b) ? 'apoyo' : 'intuitiva');
 
 const R = PREGUNTAS.map(()=>null);
 
@@ -401,6 +413,22 @@ function sync(){
   $('#r-read').textContent = c.read;
   parBarra($('#br-a'), 'Intensidad de uso', da, ea, 'var(--lav)');
   parBarra($('#br-b'), 'Control crítico',  db, eb, 'var(--mint)');
+  /* Que no haya empates no hace la frontera menos delicada: un 2 y un 3 están
+     a una respuesta de distancia. Mejor decirlo que disimularlo. */
+  const cerca = [];
+  if(ea===2 || ea===3) cerca.push(['intensidad de uso', CUADRANTES[clave(ea>2?1:4, eb)].nombre]);
+  if(eb===2 || eb===3) cerca.push(['control crítico',   CUADRANTES[clave(ea, eb>2?1:4)].nombre]);
+  const fr = $('#r-frontera');
+  if(cerca.length){
+    fr.innerHTML = '<b>Estás pegado a una división.</b> Tu puntuación en '
+      + cerca.map(x=>x[0]).join(' y en ')
+      + (cerca.length>1 ? ' queda' : ' queda') + ' a una sola respuesta de la línea, así que '
+      + (cerca.length>1 ? 'bastaría cambiar una para acabar en otro cuadrante' :
+         'con una respuesta distinta estarías en «' + cerca[0][1] + '»')
+      + '. Léelo como una zona, no como una frontera.';
+    fr.hidden = false;
+  } else fr.hidden = true;
+
   $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c.cuerpo + '</p>';
   $('#res').hidden = false;
 }
