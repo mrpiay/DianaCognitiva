@@ -184,7 +184,7 @@ Ninguna de las cuatro posiciones es permanente. Describen hábitos, y un hábito
 
 Lo que convierte esa casilla en algo más que una frase es ponerle fecha. **Elige una sola conducta observable** —qué vas a comprobar siempre, qué vas a delegar, a quién vas a pedir que te lleve la contraria— y sosténla un mes. Luego vuelve a responder las veinte preguntas y mira si el punto se ha movido. Si no se ha movido, no es que el test falle: es que el hábito sigue donde estaba.
 
-Y hay una limitación que conviene no perder de vista: este plano mide lo que dices que haces, no lo que haces. Vuelvo sobre ello más abajo.
+Y hay una limitación que conviene no perder de vista: este plano mide lo que recuerdas haber hecho, no lo que hiciste. Vuelvo sobre ello más abajo.
 
 ## ¿Hay un punto óptimo en el plano?
 
