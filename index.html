@@ -287,11 +287,12 @@ function plane(dot, compacto){
   s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
 
   if(!compacto){
-    // Los nombres viven fuera del marco; los largos se parten en dos líneas.
+    // Los nombres viven fuera del marco y los cuatro se parten en dos líneas,
+    // por simetría con los planos de la guía: todos ocupan el mismo alto.
     q.forEach(r=>{
       const cx = (r.a+r.b)/2, arriba = r.c===y0;
       let lineas = [r.n];
-      if(r.n.length > 15 && r.n.includes(' ')){
+      if(r.n.includes(' ')){
         const w = r.n.split(' ');
         let corte = 1, mejor = Infinity;
         for(let k=1; k<w.length; k++){
