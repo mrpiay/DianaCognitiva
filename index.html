@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Veinte preguntas de sí o no sobre cómo trabajas con la IA. Al final, tu posición en el plano y la distancia entre lo que dices y lo que cuentas.">
+<meta name="description" content="Veinte preguntas de sí o no sobre cómo trabajas con la IA. Al final, tu posición en el plano y la distancia entre lo que dices y lo que cuentas. Tres modos: profesional, estudiante y docente.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/">
-<meta property="og:title" content="Tu diana cognitiva">
+<meta property="og:title" content="La diana cognitiva">
 <meta property="og:description" content="¿Delegas trabajo o transfieres el criterio? Veinte preguntas, tres minutos y una posición en el plano.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
-<title>Tu diana cognitiva</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23725BAC%22/><circle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22/><circle cx=%2216%22 cy=%2216%22 r=%223%22 fill=%22white%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap">
+<title>La diana cognitiva</title>
 
 <style>
 /* Tema claro único y deliberado. Paleta de datos validada contra fondo blanco:
@@ -47,30 +47,66 @@ aside{position:sticky; top:22px}
         background:var(--ground); border-bottom:1px solid var(--line-2); box-shadow:0 6px 18px rgba(25,26,33,.07)}
 }
 
-header{padding:56px 0 30px; border-bottom:1px solid var(--line)}
-@media(max-width:940px){header{padding-top:16px}}
+header{padding:40px 0 30px; border-bottom:1px solid var(--line)}
+@media(max-width:940px){header{padding-top:12px}}
 h1{font-size:clamp(32px,5vw,50px); line-height:1.05; font-weight:300; margin-top:16px}
 h1 em{font-style:normal; color:var(--coral-p)}
-.lede{font-family:var(--serif); font-size:18.5px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
-.como{margin-top:22px; padding:16px 19px; background:var(--surface); border:1px solid var(--line); border-radius:9px; font-size:14px; line-height:1.65; color:var(--ink-2); max-width:46em}
+.lede{font-family:var(--serif); font-size:19px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
+.como{margin-top:22px; padding:17px 20px; background:var(--surface); border:1px solid var(--line); border-radius:12px; font-size:14.5px; line-height:1.65; color:var(--ink-2); max-width:46em}
 .como b{color:var(--ink); font-weight:500}
 .como p + p{margin-top:9px}
 
-.q{display:grid; grid-template-columns:1fr auto; gap:11px 24px; align-items:center; padding:17px 0; border-bottom:1px solid var(--line)}
-@media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
+/* ── selector de modo ─────────────────────────────── */
+.modos{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px}
+.modos button{
+  padding:10px 18px; border-radius:999px; border:1.5px solid var(--line-2);
+  background:var(--surface); font-size:14.5px; font-weight:500; color:var(--ink-2);
+  transition:border-color .12s, background .12s, color .12s;
+}
+.modos button:hover{border-color:var(--ink-3); color:var(--ink)}
+.modos button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#fff}
+.modo-pie{font-size:13px; color:var(--ink-3); margin-top:9px}
+
+/* ── identificación ───────────────────────────────── */
+.datos{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px; max-width:46em}
+@media(max-width:620px){.datos{grid-template-columns:1fr}}
+.datos label{display:block; font-size:13px; color:var(--ink-3); margin-bottom:5px}
+.datos input{
+  width:100%; font-family:var(--sans); font-size:16px; color:var(--ink);
+  padding:12px 14px; border:1.5px solid var(--line-2); border-radius:10px; background:var(--surface);
+}
+.datos input:focus{outline:none; border-color:var(--lav)}
+
+/* ── preguntas ────────────────────────────────────── */
+.q{display:grid; grid-template-columns:1fr auto; gap:13px 26px; align-items:center; padding:19px 0; border-bottom:1px solid var(--line)}
+@media(max-width:620px){.q{grid-template-columns:1fr; gap:13px}}
 .q:first-child{border-top:1px solid var(--line)}
-.q-text{font-size:15px; line-height:1.55}
-.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:10px}
-.opts{display:flex; gap:7px}
+.q-text{font-size:16.5px; line-height:1.5}
+.q-text .n{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-right:10px}
+.opts{display:flex; gap:9px}
 .opts button{
-  min-width:64px; height:38px; padding:0 14px; border-radius:6px; border:1px solid var(--line-2);
-  background:var(--surface); font-size:14px; color:var(--ink-3);
+  min-width:80px; height:46px; padding:0 18px; border-radius:11px; border:1.5px solid var(--line-2);
+  background:var(--surface); font-size:16px; font-weight:500; color:var(--ink-3);
   transition:border-color .12s, background .12s, color .12s;
 }
 .opts button:hover{border-color:var(--ink-3); color:var(--ink)}
 .opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
 
-.panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
+/* ── pregunta de oro ──────────────────────────────── */
+.oro{margin-top:30px; padding:24px 26px; background:var(--surface); border:1.5px solid var(--line-2); border-radius:14px}
+.oro .eyebrow{color:var(--amber-p)}
+.oro h3{font-size:22px; line-height:1.3; margin-top:9px; max-width:28em}
+.oro .ops{display:flex; flex-wrap:wrap; gap:9px; margin-top:18px}
+.oro .ops button{
+  padding:13px 20px; border-radius:11px; border:1.5px solid var(--line-2); background:var(--surface);
+  font-size:15.5px; font-weight:500; color:var(--ink-2);
+}
+.oro .ops button:hover{border-color:var(--ink-3); color:var(--ink)}
+.oro .ops button[aria-pressed="true"]{background:var(--amber); border-color:var(--amber); color:#fff}
+.oro .nota{font-size:13.5px; color:var(--ink-3); margin-top:14px}
+
+/* ── panel lateral ────────────────────────────────── */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:17px}
 @media(max-width:940px){
   .panel{display:grid; grid-template-columns:104px minmax(0,1fr); gap:16px; align-items:center; padding:12px 15px}
 }
@@ -83,47 +119,79 @@ h1 em{font-style:normal; color:var(--coral-p)}
 .now .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
 .now .name{font-family:var(--serif); font-size:23px; line-height:1.15; margin-top:5px}
 @media(max-width:940px){.now .name{font-size:19px}}
-.pista{height:5px; background:#E7E7F1; border-radius:3px; margin-top:11px; overflow:hidden}
+.pista{height:6px; background:#E7E7F1; border-radius:3px; margin-top:11px; overflow:hidden}
 .pista i{display:block; height:100%; background:var(--lav); border-radius:3px; transition:width .3s}
-.panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
+.panel .foot{font-size:11.5px; line-height:1.55; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
 @media(max-width:940px){.panel .foot{display:none}}
 
+/* ── resultado ────────────────────────────────────── */
 #res[hidden]{display:none}
 #res{margin-top:46px; padding-top:34px; border-top:2px solid var(--line-2)}
 #res h2{font-size:clamp(27px,4.4vw,38px); line-height:1.1; font-weight:300; margin-top:11px}
-#res .read{font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
-.brecha{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 25px; margin-top:28px}
-.brecha h3{font-size:18px; margin-bottom:12px}
+#res .read{font-family:var(--serif); font-size:18.5px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
+.brecha{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px 25px; margin-top:28px}
+.brecha h3{font-size:19px; margin-bottom:10px}
+.brecha .revela{font-size:14.5px; line-height:1.65; color:var(--ink-2); margin-bottom:14px; max-width:48em}
+.brecha .revela b{color:var(--ink); font-weight:500}
 .brecha .eje{padding:13px 0; border-bottom:1px solid var(--line)}
 .brecha .eje:last-of-type{border-bottom:0}
 .brecha .lab{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:7px}
-.par{display:flex; align-items:center; gap:10px; font-size:13.5px; margin-bottom:5px}
+.par{display:flex; align-items:center; gap:10px; font-size:14px; margin-bottom:5px}
 .par .q1{width:92px; flex:none; color:var(--ink-3)}
-.par .bar{flex:1; height:8px; background:#E7E7F1; border-radius:4px; position:relative}
+.par .bar{flex:1; height:9px; background:#E7E7F1; border-radius:4px; position:relative}
 .par .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px}
-.par .v{width:34px; text-align:right; font-family:var(--mono); font-size:12.5px; flex:none}
-.brecha .dice{font-size:14px; line-height:1.6; color:var(--ink-2); margin-top:9px}
+.par .v{width:34px; text-align:right; font-family:var(--mono); font-size:13px; flex:none}
+.brecha .dice{font-size:14.5px; line-height:1.6; color:var(--ink-2); margin-top:9px}
 .brecha .dice b{color:var(--ink); font-weight:600}
-#res .banda{font-family:var(--sans); font-size:14.5px; line-height:1.62;
-  color:var(--ink-3); margin-top:14px; max-width:52em}
+#res .banda{font-family:var(--sans); font-size:15px; line-height:1.62; color:var(--ink-3); margin-top:14px; max-width:52em}
 .alerta{
   margin-top:22px; background:rgba(138,101,22,.10); border:1px solid rgba(138,101,22,.45);
-  border-radius:9px; padding:15px 18px; font-size:14px; line-height:1.6; color:var(--ink-2);
+  border-radius:11px; padding:15px 18px; font-size:14.5px; line-height:1.6; color:var(--ink-2);
 }
 .alerta b{color:var(--amber-p); font-weight:600}
 .alerta[hidden]{display:none}
-.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:22px}
-.advice h3{font-size:17px; margin-bottom:9px}
-.advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
+.advice{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:21px 24px; margin-top:22px}
+.advice h3{font-size:18px; margin-bottom:9px}
+.advice p{font-size:15px; line-height:1.68; color:var(--ink-2)}
 .advice p + p{margin-top:11px}
 .advice b{color:var(--ink); font-weight:500}
 .advice .pensar{margin-top:14px; padding-top:14px; border-top:1px solid var(--line);
-  font-family:var(--serif); font-size:17px; line-height:1.55; color:var(--ink)}
-.caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
+  font-family:var(--serif); font-size:17.5px; line-height:1.55; color:var(--ink)}
+
+/* ── compromiso ───────────────────────────────────── */
+.fin{margin-top:22px; padding:24px 26px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.fin h3{font-size:19px; margin-bottom:4px}
+.fin .intro{font-size:14.5px; line-height:1.65; color:var(--ink-2); max-width:48em}
+.frase{margin-top:18px}
+.frase label{display:block; font-family:var(--serif); font-size:17.5px; line-height:1.4; margin-bottom:8px}
+.frase textarea{
+  width:100%; min-height:76px; font-family:var(--sans); font-size:15.5px; line-height:1.55;
+  color:var(--ink); padding:12px 14px; border:1.5px solid var(--line-2); border-radius:10px;
+  background:var(--surface); resize:vertical;
+}
+.frase textarea:focus{outline:none; border-color:var(--lav)}
+.rubrica{margin-top:20px; border:1px solid var(--line); border-radius:11px; overflow:hidden}
+.rubrica .r{display:flex; gap:12px; padding:11px 16px; font-size:14px; color:var(--ink-2); border-top:1px solid var(--line)}
+.rubrica .r:first-child{border-top:0; background:var(--ground); color:var(--ink); font-weight:500}
+.rubrica .r b{font-family:var(--mono); font-size:13px; width:14px; flex:none; color:var(--ink-3)}
+.vuelve{font-family:var(--serif); font-size:17.5px; line-height:1.5; color:var(--ink); margin-top:20px;
+  padding:17px 20px; background:var(--ground); border-radius:11px}
+
+.caveat{margin-top:26px; font-size:14px; line-height:1.68; color:var(--ink-3); max-width:60em}
 .caveat b{color:var(--ink-2); font-weight:500}
-.again{margin-top:26px}
-.again button{background:var(--raised); border:1px solid var(--line-2); border-radius:7px; padding:11px 20px; font-size:14px}
+.again{margin-top:26px; display:flex; flex-wrap:wrap; gap:10px}
+.again button{background:var(--raised); border:1px solid var(--line-2); border-radius:9px; padding:12px 22px; font-size:15px}
 .again button:hover{border-color:var(--ink-3)}
+.enlaces{margin-top:22px; font-size:13.5px; color:var(--ink-3)}
+
+@media print{
+  body{background:#fff; padding:0}
+  .app{display:block; width:auto}
+  aside, header .modos, header .como, #preguntas, .oro .ops, .again, .enlaces{display:none !important}
+  #res{border:0; margin:0; padding:0}
+  .brecha, .advice, .fin, .oro{break-inside:avoid}
+  .frase textarea{border:1px solid #999}
+}
 @media(prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
 </style>
 </head>
@@ -133,17 +201,22 @@ h1 em{font-style:normal; color:var(--coral-p)}
 
 <main>
   <header>
-    <div class="eyebrow">Herramienta de autoevaluación</div>
-    <h1>¿Delegas trabajo o <em>transfieres el criterio</em>?</h1>
-    <p class="lede">Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión.</p>
-    <div class="como">
-      <p>Las veinte preguntas tratan de lo mismo: cuánto entra la IA en tu trabajo y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.</p>
-      <p><b>Contesta cada una por su cuenta, sin intentar que encajen entre sí:</b> ninguna puntúa por separado y el resultado no sale de sumarlas, sino de cruzarlas al final.</p>
-      <p>Cuando una pregunta se refiera a algo que ocurrió, piensa en la experiencia más cercana que recuerdes. No hay respuestas buenas ni malas — hay respuestas tuyas y respuestas que te gustaría dar, y solo las primeras sirven de algo. Nada sale de tu navegador.</p>
-    </div>
+    <div class="modos" id="modos" role="group" aria-label="Para quién"></div>
+    <p class="modo-pie" id="modo-pie">—</p>
+    <h1 id="h-titulo">—</h1>
+    <p class="lede" id="h-lede">—</p>
+    <div class="como" id="h-como"></div>
+    <div class="datos" id="h-datos" hidden></div>
   </header>
 
   <div id="preguntas"></div>
+
+  <section class="oro" id="s-oro">
+    <div class="eyebrow">La pregunta de oro</div>
+    <h3 id="oro-q">—</h3>
+    <div class="ops" id="oro-ops"></div>
+    <p class="nota">No puntúa en el plano. Es la que de verdad importa.</p>
+  </section>
 
   <section id="res" hidden>
     <div class="eyebrow" id="r-riesgo">—</div>
@@ -153,21 +226,36 @@ h1 em{font-style:normal; color:var(--coral-p)}
 
     <div class="brecha">
       <h3>Lo que dices y lo que cuentas</h3>
+      <p class="revela">No era un cuestionario, eran dos entrelazados: diez preguntas te pedían que te describieras y diez que recordaras algo que ocurrió. <b>Tu posición sale solo de las diez de hechos.</b> Las otras diez sirven para esto: medir la distancia entre ambas.</p>
       <div class="eje" id="br-a"></div>
       <div class="eje" id="br-b"></div>
     </div>
 
     <div class="alerta" id="r-frontera" hidden></div>
     <div class="advice" id="r-advice"></div>
+    <div class="advice" id="r-oro" hidden></div>
 
-    <p class="caveat">
-      <b>Esto es una orientación, no un diagnóstico.</b> Sigue siendo un autoinforme: el recuerdo de lo que
-      ocurrió también se distorsiona, solo que menos que la autodescripción general. Los cuatro cuadrantes
-      no son categorías establecidas por ninguna investigación y la distancia entre ambas mitades es
-      sugerente, no una medida validada. Describen hábitos, y los hábitos cambian según la tarea, el
-      contexto y la presión de tiempo.
-    </p>
-    <div class="again"><button id="reset">Volver a empezar</button></div>
+    <div class="fin">
+      <h3>Antes de cerrar</h3>
+      <p class="intro">Completa estas tres frases. La tercera es la que cuenta: un compromiso vale cuando dice <b>qué</b> vas a hacer, <b>cuándo</b> y <b>cómo sabrás</b> que lo has hecho.</p>
+      <div id="f-frases"></div>
+      <div class="rubrica">
+        <div class="r"><b></b><div>Así se mide la tercera frase</div></div>
+        <div class="r"><b>4</b><div>Dice qué vas a hacer, cuándo, y cómo sabrás que lo has hecho.</div></div>
+        <div class="r"><b>3</b><div>Dice algo concreto que puedes empezar mañana.</div></div>
+        <div class="r"><b>2</b><div>Dice algo concreto, pero no cuándo ni cómo.</div></div>
+        <div class="r"><b>1</b><div>Es un propósito general: «revisar más», «usarla menos».</div></div>
+        <div class="r"><b>0</b><div>No hay compromiso.</div></div>
+      </div>
+      <p class="vuelve" id="f-vuelve">—</p>
+    </div>
+
+    <p class="caveat" id="r-caveat"></p>
+    <div class="again">
+      <button id="reset">Volver a empezar</button>
+      <button id="imprimir">Imprimir o guardar en PDF</button>
+    </div>
+    <p class="enlaces"><a href="guia/la-diana-cognitiva.pdf">La guía en PDF</a> · <a href="https://github.com/mrpiay/DianaCognitiva">El repositorio</a></p>
   </section>
 </main>
 
@@ -185,157 +273,50 @@ h1 em{font-style:normal; color:var(--coral-p)}
       </div>
     </div>
     <p class="foot" id="n-foot">El resultado aparece al responder las veinte. Ninguna pregunta mueve el punto por su cuenta.</p>
-      <p class="foot"><a href="escolar/">Versión para clase: la brújula cognitiva</a></p>
   </div>
 </aside>
 
 </div>
 
+<script src="contenido.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
 
-/* Dos cuestionarios entrelazados que el lector no distingue: las impares le
-   piden que se describa y las pares que recuerde algo ocurrido. La posición
-   sale solo de los episodios; la distancia entre ambas mitades es el hallazgo.
-   cl: d declaración · e episodio   ·   ej: a intensidad · b control
-   s:  +1 suma · -1 resta (responder «sí» apunta al lado contrario)          */
-const PREGUNTAS = [
-  {cl:'d', ej:'a', s:+1, t:'Utilizo la IA en tareas centrales de mi trabajo, no solo en actividades accesorias.'},
-  {cl:'d', ej:'a', s:+1, t:'Delego en la IA parte del razonamiento necesario para resolver mis tareas, no solo la redacción o la ejecución.'},
-  {cl:'d', ej:'a', s:+1, t:'Si dejara de disponer de IA, mi forma habitual de trabajar cambiaría considerablemente.'},
-  {cl:'d', ej:'a', s:-1, t:'Hay tareas importantes de mi trabajo que prefiero resolver sin IA porque quiero conservar el control del razonamiento.'},
-  {cl:'d', ej:'a', s:-1, t:'Podría desarrollar una primera solución razonada a mis tareas habituales sin que la IA me indique por dónde empezar.'},
-  {cl:'e', ej:'a', s:+1, t:'La última vez que me enfrenté a una tarea nueva, recurrí a la IA antes de intentar resolverla por mi cuenta.'},
-  {cl:'e', ej:'a', s:+1, t:'Recientemente hubo una tarea importante que no habría terminado a tiempo sin la ayuda de la IA.'},
-  {cl:'e', ej:'a', s:+1, t:'La última vez que utilicé la IA para resolver un problema, acepté una propuesta suya sin desarrollar antes una alternativa propia.'},
-  {cl:'e', ej:'a', s:-1, t:'Recientemente terminé una tarea relevante sin recurrir a la IA en ninguna fase del proceso.'},
-  {cl:'e', ej:'a', s:-1, t:'La última vez que me atasqué en un problema, salí adelante sin consultar a la IA.'},
-  {cl:'d', ej:'b', s:+1, t:'Antes de dar por buena una respuesta de la IA que puede tener consecuencias, compruebo si está bien fundamentada.'},
-  {cl:'d', ej:'b', s:+1, t:'Normalmente distingo entre una respuesta de la IA bien fundamentada y otra que solo lo parece.'},
-  {cl:'d', ej:'b', s:+1, t:'Cuando utilizo la IA, distingo entre lo que puedo aceptar directamente y lo que necesita comprobación adicional.'},
-  {cl:'d', ej:'b', s:-1, t:'Cuando una respuesta de la IA coincide con lo que esperaba, tiendo a confiar en ella sin examinarla demasiado.'},
-  {cl:'d', ej:'b', s:-1, t:'Cuando voy con prisa, tiendo a usar lo que me da la IA sin revisarlo.'},
-  {cl:'e', ej:'b', s:+1, t:'La última vez que utilicé una respuesta de la IA en una entrega importante, comprobé por otra vía al menos una de sus afirmaciones relevantes.'},
-  {cl:'e', ej:'b', s:+1, t:'La última vez que detecté una respuesta de la IA poco fiable, decidí no utilizarla.'},
-  {cl:'e', ej:'b', s:+1, t:'En la última tarea en la que utilicé la IA, revisé si el resultado final respondía realmente al problema original antes de darla por terminada.'},
-  {cl:'e', ej:'b', s:-1, t:'La última vez que una respuesta de la IA incluyó una cifra, una cita o una afirmación importante, utilicé al menos una sin verificarla por otra vía.'},
-  {cl:'e', ej:'b', s:-1, t:'En mi última entrega con IA, di por buena su estructura o su enfoque sin llegar a cuestionarlos.'}
-];
-const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
+/* ═══════════════ MOTOR ═══════════════
+   Idéntico en los tres modos. Lo único que cambia es el contenido, que está
+   en contenido.js: enunciados, nombres de perfil y rótulos. */
 
-const CUADRANTES = {
-  apoyo:{
-    nombre:'Apoyo puntual', riesgo:'Desaprovechamiento', color:'var(--lav-p)',
-    read:'Tus episodios describen poco uso y bastante comprobación. Tu criterio sigue intacto; lo que puede faltarte es aprovechamiento.',
-    titulo:'Qué probar',
-    pregunta:'¿Qué tarea sigues haciendo a mano que podrías delegar sin renunciar a tu criterio?',
-    leve:'Tienes margen para ganar sin arriesgar nada: delega una tarea más de las que ya haces y mantén exactamente la misma revisión que ahora.',
-    marcada:'Elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta. Delega su primer borrador y conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.',
-    extrema:'Apenas la usas y revisas todo lo que te devuelve. Es seguro, pero caro: estás pagando con tiempo una herramienta que no empleas. Escoge el tipo de tarea más repetitivo que tengas y delégalo entero una temporada, revisando solo el resultado final.'
-  },
-  delegacion:{
-    nombre:'Delegación de trabajo', riesgo:'Erosión de la verificación', color:'var(--mint-p)',
-    read:'Tus episodios describen uso intenso y comprobación sostenida. Es la combinación que buscas cuando quieres productividad sin convertir la respuesta de la máquina en una autoridad automática.',
-    titulo:'Qué proteger',
-    pregunta:'¿Qué compruebas siempre, pase lo que pase, antes de dar algo por bueno?',
-    leve:'Esta posición se pierde sin darse cuenta: basta una racha de prisa para que la verificación sea lo primero que caiga. Escribe qué vas a comprobar siempre, por corto que sea, y trátalo como innegociable.',
-    marcada:'Convierte la verificación en un procedimiento, no en una virtud personal. Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin revisión humana. Delegar bien no es revisarlo todo: es saber dónde está el riesgo y concentrar ahí el esfuerzo.',
-    extrema:'Usas mucho y compruebas casi todo. Cuidado con el coste: verificar donde no hay riesgo cancela la ganancia de haber delegado. Mira qué parte de tu revisión es ya rutina y suéltala; reserva el esfuerzo para lo que saldría caro si estuviera mal.'
-  },
-  transferencia:{
-    nombre:'Transferencia de criterio', riesgo:'Ilusión de autoría', color:'var(--coral-p)',
-    read:'Tus episodios describen uso intenso y poca comprobación. Eso no significa que trabajes mal: mientras el sistema acierte, los resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
-    titulo:'Qué hacer',
-    pregunta:'¿Podrías defender ante un cliente, un jefe o un comité la razón de cada decisión de tu última entrega?',
-    leve:'No hace falta una reforma. Elige un solo tipo de dato —cifras, citas, nombres— y compruébalo siempre, sin excepciones. Con una sola regla sostenida bastaría para cruzar de vuelta.',
-    marcada:'Coge tu última entrega hecha con IA y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.',
-    extrema:'Esto ya no se arregla acordándose. Define por escrito qué no sale de tu mesa sin una comprobación y quién la hace, porque a este nivel de uso la memoria y la buena intención no dan abasto. Empieza por aquello que tendría consecuencias si estuviera mal.'
-  },
-  intuitiva:{
-    nombre:'Autonomía intuitiva', riesgo:'Sesgos propios sin contraste', color:'var(--amber-p)',
-    read:'Tus episodios describen poco uso y poca comprobación. Aquí el riesgo no viene necesariamente de la máquina: puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla.',
-    titulo:'Qué probar',
-    pregunta:'¿Rechazas la IA por una decisión fundamentada o por no saber lo que puede hacer?',
-    leve:'Introduce un contraste en las decisiones importantes: una fuente independiente o una segunda opinión. No por la máquina, por ti.',
-    marcada:'No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba. Introduce un mecanismo de contraste en las decisiones importantes: una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.',
-    extrema:'Trabajas casi íntegramente desde tu propio criterio y sin someterlo a contraste. Puede ser perfectamente válido, pero no está verificado: nadie te ha llevado la contraria últimamente. Busca a propósito una revisión externa de tu próxima decisión importante, venga de una persona o de una máquina.'
-  }
-};
+const COLORES = {apoyo:'lav', delegacion:'mint', transferencia:'coral', intuitiva:'amber'};
+const MAX = 5;   // cinco preguntas por celda: la división cae en 2,5 y nunca hay empate
+const alto = v => v > MAX / 2;
+const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
+                               : (alto(b) ? 'apoyo' : 'intuitiva');
 
 /* Cuán marcada está la posición. Con enteros de 0 a 5 y la división en 2,5, la
    distancia al cruce solo puede ser 0,5 · 1,5 · 2,5: las bandas salen de ahí. */
 const BANDAS = {leve:'Posición leve', marcada:'Posición marcada', extrema:'Posición extrema'};
-/* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
-   cuadrante no se lee igual pegado al cruce que en una esquina. */
-const MATIZ = {
-  leve: (a,b) => 'tus dos puntuaciones de hechos —intensidad ' + a + ', control ' + b
-    + ' sobre 5— se quedan a un paso de las divisiones, así que esto describe una '
-    + 'inclinación y no un hábito asentado.',
-  marcada: (a,b) => 'tus puntuaciones de hechos —intensidad ' + a + ', control ' + b
-    + ' sobre 5— dejan el patrón claro sin llevarlo al extremo.',
-  extrema: (a,b) => 'tus dos puntuaciones —intensidad ' + a + ', control ' + b
-    + ' sobre 5— están en los bordes del plano: es la versión sin matices de esta posición.'
-};
 function banda(a, b){
   const da = Math.abs(a - MAX/2), db = Math.abs(b - MAX/2);
   if(da === 0.5 && db === 0.5) return 'leve';        // los dos ejes pegados al cruce
   if(da === MAX/2 && db === MAX/2) return 'extrema'; // los dos en un borde
   return 'marcada';                                   // el caso corriente
 }
+/* La banda ya elige el consejo; aquí matiza además la lectura, porque el mismo
+   cuadrante no se lee igual pegado al cruce que en una esquina. */
+const MATIZ = {
+  leve: (a,b,e) => 'tus dos puntuaciones de hechos —' + e.a + ' ' + a + ', ' + e.b + ' ' + b
+    + ' sobre 5— se quedan a un paso de las divisiones: lo que sigue describe una '
+    + 'inclinación y no un hábito asentado.',
+  marcada: (a,b,e) => 'tus puntuaciones de hechos —' + e.a + ' ' + a + ', ' + e.b + ' ' + b
+    + ' sobre 5— dejan el patrón claro sin llevarlo al extremo.',
+  extrema: (a,b,e) => 'tus dos puntuaciones —' + e.a + ' ' + a + ', ' + e.b + ' ' + b
+    + ' sobre 5— están en los bordes del plano: es la versión sin matices de esta posición.'
+};
 
-const alto = v => v > MAX / 2;   // 2,5: ninguna puntuación entera cae encima
-const clave = (a,b) => alto(a) ? (alto(b) ? 'delegacion' : 'transferencia')
-                               : (alto(b) ? 'apoyo' : 'intuitiva');
+let M, PREGUNTAS, ORDEN, R, oro = null;
 
-const R = PREGUNTAS.map(()=>null);
-
-/* Se barajan en cada visita para que no se note el compás de alternancia, pero
-   sin dejar que el azar amontone más de tres de la misma clase seguidas. */
-function barajar(){
-  const o = PREGUNTAS.map((_,i)=>i);
-  const racha = () => {
-    let n = 1;
-    for(let i=1; i<o.length; i++){
-      if(PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl){ if(++n > 3) return true; }
-      else n = 1;
-    }
-    return false;
-  };
-  do{
-    for(let i=o.length-1; i>0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [o[i],o[j]] = [o[j],o[i]];
-    }
-  } while(racha());
-  return o;
-}
-const ORDEN = barajar();
-
-(function pintar(){
-  const host = $('#preguntas');
-  ORDEN.forEach((idx,pos)=>{
-    const p = PREGUNTAS[idx], i = idx;
-    const row = el('div','q');
-    const tx = el('div','q-text');
-    tx.append(el('span','n', String(pos+1)+'.'), document.createTextNode(p.t));
-    const opts = el('div','opts');
-    [['Sí',1],['No',0]].forEach(([etiqueta,valor])=>{
-      const b = el('button','',etiqueta);
-      b.type='button'; b.setAttribute('aria-pressed','false');
-      b.setAttribute('aria-label','Pregunta '+(pos+1)+': '+etiqueta);
-      b.addEventListener('click', ()=>{
-        R[i] = valor;
-        [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
-        sync();
-      });
-      opts.append(b);
-    });
-    row.append(tx, opts); host.append(row);
-  });
-})();
-
-/* Puntuación de una celda: 0 a 4. En las preguntas invertidas, «sí» resta. */
+/* Puntuación de una celda: 0 a 5. En las preguntas invertidas, «sí» resta. */
 function celda(cl, ej){
   let t = 0;
   PREGUNTAS.forEach((p,i)=>{
@@ -345,6 +326,23 @@ function celda(cl, ej){
   return t;
 }
 const faltan = () => R.filter(v=>v===null).length;
+
+/* Se barajan en cada visita para que no se note el compás de alternancia, pero
+   sin dejar que el azar amontone más de tres de la misma clase seguidas. */
+function barajar(){
+  const o = PREGUNTAS.map((_,i)=>i);
+  let corrido;
+  do{
+    for(let i=o.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [o[i],o[j]]=[o[j],o[i]]; }
+    corrido = 0;
+    let n = 1;
+    for(let i=1; i<o.length; i++){
+      n = PREGUNTAS[o[i]].cl === PREGUNTAS[o[i-1]].cl ? n+1 : 1;
+      if(n > 3) corrido = 1;
+    }
+  } while(corrido);
+  return o;
+}
 
 /* ═══════════════ PLANO 2×2 ═══════════════
    Sin escalas numéricas y con el mínimo de ambos ejes abajo a la izquierda. El
@@ -360,14 +358,18 @@ function plane(dot, compacto){
   const px = v => x0 + m + v / MAX * (x1 - x0 - 2*m);
   const py = v => y1 - m - v / MAX * (y1 - y0 - 2*m);
   const cutx = px(MAX/2), cuty = py(MAX/2);
+  const P = M.perfiles;
   const q = [
-    {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'APOYO PUNTUAL',             s:'usas poco, verificas'},
-    {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'DELEGACIÓN DE TRABAJO',     s:'usas mucho, verificas'},
-    {a:x0,   b:cutx, c:cuty, d:y1,   t:'#8A6516', p:'#6F5112', n:'AUTONOMÍA INTUITIVA',       s:'usas poco, no verificas'},
-    {a:cutx, b:x1,   c:cuty, d:y1,   t:'#A24E3C', p:'#8A3D2D', n:'TRANSFERENCIA DE CRITERIO', s:'usas mucho, no verificas'}
+    {a:x0,   b:cutx, c:y0,   d:cuty, k:'apoyo'},
+    {a:cutx, b:x1,   c:y0,   d:cuty, k:'delegacion'},
+    {a:x0,   b:cutx, c:cuty, d:y1,   k:'intuitiva'},
+    {a:cutx, b:x1,   c:cuty, d:y1,   k:'transferencia'}
   ];
-  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano de delegación cognitiva: intensidad de uso frente a control crítico">';
-  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+r.t+'" opacity="0.18"/>'; });
+  const TINTE = {lav:'#725BAC', mint:'#499E79', coral:'#A24E3C', amber:'#8A6516'};
+  const HONDO = {lav:'#5E4A93', mint:'#2F7A5C', coral:'#8A3D2D', amber:'#6F5112'};
+  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano: '
+        + M.ejes.a.toLowerCase() + ' frente a ' + M.ejes.b.toLowerCase() + '">';
+  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+TINTE[COLORES[r.k]]+'" opacity="0.18"/>'; });
   s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" fill="none" stroke="#B4B4C8" stroke-width="1"/>';
   s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#B4B4C8" stroke-width="1"/>';
   s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
@@ -375,32 +377,33 @@ function plane(dot, compacto){
   if(!compacto){
     q.forEach(r=>{
       const cx = (r.a+r.b)/2, arriba = r.c===y0;
-      const w = r.n.split(' ');
-      let corte = 1, mejor = Infinity;
+      const w = P[r.k].plano.split(' ');
+      let corte = w.length, mejor = Infinity;
       for(let k=1; k<w.length; k++){
         const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
         if(dd < mejor){ mejor = dd; corte = k; }
       }
-      const lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
-      const ny = arriba ? y0-50 : y1+30;
-      const sy = arriba ? y0-20 : y1+60;
+      const lineas = w.length > 1 ? [w.slice(0,corte).join(' '), w.slice(corte).join(' ')] : w;
+      const ny = arriba ? y0-50+(lineas.length<2?14:0) : y1+30;
+      const sy = arriba ? y0-20 : y1+30+lineas.length*14+10;
       lineas.forEach((ln,k)=>{
-        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+r.p+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
+        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+HONDO[COLORES[r.k]]+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
            + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
       });
       s += '<text x="'+cx+'" y="'+sy+'" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11"'
-         + ' font-weight="500" text-anchor="middle">'+r.s+'</text>';
+         + ' font-weight="500" text-anchor="middle">'+P[r.k].sub+'</text>';
     });
   }
 
   if(dot){
+    const t = TINTE[COLORES[clave(dot.x, dot.y)]];
     const cx = px(dot.x), cy = py(dot.y), r1 = compacto ? 11 : 18, r2 = compacto ? 5.5 : 7.5;
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#725BAC" opacity="0.16"/>';
-    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="'+t+'" opacity="0.18"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="'+t+'" stroke="#FFFFFF" stroke-width="2.5"/>';
   }
   if(!compacto){
-    s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">INTENSIDAD DE USO →</text>';
-    s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CONTROL CRÍTICO →</text>';
+    s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">'+M.ejesPlano.a+'</text>';
+    s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">'+M.ejesPlano.b+'</text>';
   }
   return s + '</svg>';
 }
@@ -443,33 +446,35 @@ function sync(){
 
   const ea = celda('e','a'), eb = celda('e','b');
   const da = celda('d','a'), db = celda('d','b');
-  const c = CUADRANTES[clave(ea,eb)];
+  const k = clave(ea, eb), c = M.perfiles[k], color = 'var(--' + COLORES[k] + '-p)';
 
   $('#plane-full').innerHTML = plane({x:ea, y:eb}, false);
   $('#plane-mini').innerHTML = plane({x:ea, y:eb}, true);
   $('#n-tag').textContent = 'Tu posición';
   $('#n-name').textContent = c.nombre;
-  $('#n-name').style.color = c.color;
+  $('#n-name').style.color = color;
   $('#n-foot').textContent = 'El punto describe tus respuestas: no mide tu capacidad de razonar ni diagnostica dependencia de la IA.';
 
   const bd = banda(ea, eb);
   $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
-  $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb);
+  $('#r-banda').innerHTML = '<b>' + BANDAS[bd] + ':</b> ' + MATIZ[bd](ea, eb, M.ejesCorto);
   $('#r-name').textContent = c.nombre;
-  $('#r-name').style.color = c.color;
+  $('#r-name').style.color = color;
   $('#r-read').textContent = c.read;
-  parBarra($('#br-a'), 'Intensidad de uso', da, ea, 'var(--lav)');
-  parBarra($('#br-b'), 'Control crítico',  db, eb, 'var(--mint)');
+  parBarra($('#br-a'), M.ejes.a, da, ea, 'var(--lav)');
+  parBarra($('#br-b'), M.ejes.b, db, eb, 'var(--mint)');
+
   /* Que no haya empates no hace la frontera menos delicada: un 2 y un 3 están
      a una respuesta de distancia. Mejor decirlo que disimularlo. */
+  const frase = M.ejesFrase || {a:M.ejes.a.toLowerCase(), b:M.ejes.b.toLowerCase()};
   const cerca = [];
-  if(ea===2 || ea===3) cerca.push(['intensidad de uso', CUADRANTES[clave(ea>2?1:4, eb)].nombre]);
-  if(eb===2 || eb===3) cerca.push(['control crítico',   CUADRANTES[clave(ea, eb>2?1:4)].nombre]);
+  if(ea===2 || ea===3) cerca.push([frase.a, M.perfiles[clave(ea>2?1:4, eb)].nombre]);
+  if(eb===2 || eb===3) cerca.push([frase.b, M.perfiles[clave(ea, eb>2?1:4)].nombre]);
   const fr = $('#r-frontera');
   if(cerca.length){
     fr.innerHTML = '<b>Estás pegado a una división.</b> Tu puntuación en '
       + cerca.map(x=>x[0]).join(' y en ')
-      + (cerca.length>1 ? ' queda' : ' queda') + ' a una sola respuesta de la línea, así que '
+      + ' queda a una sola respuesta de la línea, así que '
       + (cerca.length>1 ? 'bastaría cambiar una para acabar en otro cuadrante' :
          'con una respuesta distinta estarías en «' + cerca[0][1] + '»')
       + '. Léelo como una zona, no como una frontera.';
@@ -478,16 +483,119 @@ function sync(){
 
   $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c[bd] + '</p>'
     + '<p class="pensar"><b>Para pensar:</b> ' + c.pregunta + '</p>';
+
+  if(oro !== null){
+    $('#r-oro').innerHTML = '<h3>La pregunta de oro</h3><p>' + M.oro.respuestas[oro] + '</p>';
+    $('#r-oro').hidden = false;
+  } else $('#r-oro').hidden = true;
+
   $('#res').hidden = false;
 }
-sync();
+
+/* ═══════════════ MONTAJE DE UN MODO ═══════════════ */
+function monta(nombre){
+  M = MODOS[nombre];
+  PREGUNTAS = M.banco;
+  R = PREGUNTAS.map(()=>null);
+  ORDEN = barajar();
+  oro = null;
+
+  document.querySelectorAll('#modos button').forEach(b =>
+    b.setAttribute('aria-pressed', b.dataset.modo === nombre));
+  $('#modo-pie').textContent = M.pie;
+  $('#h-titulo').innerHTML = M.titulo;
+  $('#h-lede').innerHTML = M.lede;
+  $('#h-como').innerHTML = M.como.map(p => '<p>' + p + '</p>').join('');
+
+  const datos = $('#h-datos');
+  datos.innerHTML = '';
+  datos.hidden = !M.datos;
+  if(M.datos) M.datos.forEach(d=>{
+    const caja = el('div');
+    const lab = el('label', null, d.et); lab.setAttribute('for', 'dato-' + d.id);
+    const inp = el('input'); inp.id = 'dato-' + d.id; inp.autocomplete = 'off';
+    caja.append(lab, inp); datos.append(caja);
+  });
+
+  const host = $('#preguntas');
+  host.innerHTML = '';
+  ORDEN.forEach((idx, pos) => {
+    const p = PREGUNTAS[idx];
+    const fila = el('div','q');
+    const texto = el('div','q-text');
+    texto.innerHTML = '<span class="n">' + String(pos+1).padStart(2,'0') + '</span>' + p.t;
+    const opts = el('div','opts');
+    [['Sí',1], ['No',0]].forEach(([et,v])=>{
+      const b = el('button', null, et);
+      b.setAttribute('aria-pressed','false');
+      b.addEventListener('click', ()=>{
+        R[idx] = v;
+        opts.querySelectorAll('button').forEach((x,j)=> x.setAttribute('aria-pressed', (j===0) === (v===1)));
+        sync();
+      });
+      opts.append(b);
+    });
+    fila.append(texto, opts); host.append(fila);
+  });
+
+  $('#oro-q').textContent = M.oro.q;
+  const ops = $('#oro-ops');
+  ops.innerHTML = '';
+  M.oro.opciones.forEach((t,i)=>{
+    const b = el('button', null, t);
+    b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', ()=>{
+      oro = i;
+      ops.querySelectorAll('button').forEach((x,j)=> x.setAttribute('aria-pressed', j===i));
+      sync();
+    });
+    ops.append(b);
+  });
+
+  const frases = $('#f-frases');
+  frases.innerHTML = '';
+  M.frases.forEach((t,i)=>{
+    const caja = el('div','frase');
+    const lab = el('label', null, (i+1) + '. ' + t); lab.setAttribute('for','frase-'+i);
+    const ta = el('textarea'); ta.id = 'frase-' + i;
+    const llave = 'diana-' + nombre + '-' + i;
+    try{ ta.value = localStorage.getItem(llave) || ''; }catch(e){}
+    ta.addEventListener('input', ()=>{ try{ localStorage.setItem(llave, ta.value); }catch(e){} });
+    caja.append(lab, ta); frases.append(caja);
+  });
+  $('#f-vuelve').textContent = nombre === 'docente'
+    ? 'Vuelve dentro de un trimestre y responde otra vez las veinte. Si el punto no se ha movido, no es que el test falle: es que el hábito sigue donde estaba.'
+    : 'Vuelve dentro de un mes y responde otra vez las veinte. Si el punto no se ha movido, no es que el test falle: es que el hábito sigue donde estaba.';
+  $('#r-caveat').innerHTML = M.caveat;
+
+  sync();
+}
+
+const MODO_DEFECTO = 'profesional';
+['profesional','estudiante','docente'].forEach(k=>{
+  const b = el('button', null, MODOS[k].rotulo);
+  b.dataset.modo = k;
+  b.setAttribute('aria-pressed','false');
+  b.addEventListener('click', ()=>{
+    if(b.getAttribute('aria-pressed') === 'true') return;
+    if(R.some(v=>v!==null) && !confirm('Cambiar de modo borra lo que llevas respondido. ¿Seguimos?')) return;
+    const url = new URL(location);
+    if(k === MODO_DEFECTO) url.searchParams.delete('modo'); else url.searchParams.set('modo', k);
+    history.replaceState(null, '', url);
+    monta(k);
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+  $('#modos').append(b);
+});
 
 $('#reset').addEventListener('click', ()=>{
-  R.fill(null);
-  document.querySelectorAll('.opts button').forEach(b=>b.setAttribute('aria-pressed','false'));
-  sync();
+  monta(document.querySelector('#modos [aria-pressed="true"]').dataset.modo);
   window.scrollTo({top:0, behavior:'smooth'});
 });
+$('#imprimir').addEventListener('click', ()=> window.print());
+
+const pedido = new URLSearchParams(location.search).get('modo');
+monta(MODOS[pedido] ? pedido : MODO_DEFECTO);
 </script>
 </body>
 </html>

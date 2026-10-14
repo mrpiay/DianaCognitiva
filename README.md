@@ -6,11 +6,20 @@ Un test de veinte preguntas de sí o no que sitúa tus hábitos de trabajo con I
 
 La guía explica qué mide el test, de dónde sale y qué hacer con el resultado. Para evaluarte hace falta la herramienta: es ella la que lleva la cuenta y sitúa el punto.
 
-### Para clase
+### Tres modos
 
-**[La brújula cognitiva](https://mrpiay.github.io/DianaCognitiva/escolar/)** es la versión para estudiantes: una pregunta por pantalla, cuatro perfiles reconocibles —Explorador, Piloto, Pasajero y Solitario—, la pregunta de oro y tres frases que terminan en un compromiso para el mes, con su rúbrica. Se puede imprimir o guardar en PDF para entregarla.
+La misma herramienta sirve a tres públicos, y el modo va en la URL para poder repartir el enlace exacto:
 
-La mecánica es la misma que la de la Diana, y a propósito: veinte preguntas barajadas, diez de hechos y diez de autodescripción, tres directas y dos al revés por bloque, la posición solo con los hechos. Cambian el banco, los rótulos y la interfaz, pensada para el móvil.
+| Modo | Para quién | Enlace |
+|---|---|---|
+| Profesional | Quien usa la IA en su trabajo | [?modo=profesional](https://mrpiay.github.io/DianaCognitiva/) |
+| Estudiante | Clase, de 1º de ESO en adelante | [?modo=estudiante](https://mrpiay.github.io/DianaCognitiva/?modo=estudiante) |
+| Docente | Uso profesional de la IA en la enseñanza | [?modo=docente](https://mrpiay.github.io/DianaCognitiva/?modo=docente) |
+
+Cambian el banco de veinte preguntas, los nombres de los cuatro perfiles, los rótulos de los ejes, la
+pregunta de oro y las tres frases del compromiso final. **No cambia nada del cálculo**: veinte barajadas,
+cinco por bloque, tres directas y dos al revés, la posición solo con las de hechos y la división en 2,5.
+Un solo sitio donde pueda haber un error.
 
 ## Qué mide
 
@@ -47,7 +56,7 @@ Es un *preprint*, no un artículo revisado por pares, y sus experimentos se real
 
 ## Cómo está hecho
 
-Una sola página sin dependencias ni compilación: `index.html` lo lleva todo, salvo las tipografías, que vienen de Google Fonts. Para trabajar en ella basta abrirla en el navegador.
+Sin dependencias ni compilación: `index.html` es el motor y `contenido.js` los tres juegos de preguntas y textos; las tipografías vienen de Google Fonts. Para trabajar en ella basta abrirla en el navegador.
 
 `articulo.md` es la guía en texto, extraída del HTML compuesto para que las dos versiones no se desvíen. `guia/index.html` es ese mismo texto compuesto como cuadernillo 4:5 (200×250 mm): el texto fluye y cada sección abre página. El PDF se compone desde el fichero local en dos pasadas —la primera averigua en qué página cae cada sección, para el índice— y lleva folios y marcadores:
 
