@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Test de ocho afirmaciones que sitúa tus hábitos de trabajo con IA en un plano de dos ejes: intensidad de uso y control crítico.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpiay.github.io/DianaCognitiva/">
+<meta property="og:title" content="Tu diana cognitiva">
+<meta property="og:description" content="¿Delegas o transfieres el criterio? Ocho afirmaciones, dos minutos y una posición en el plano.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23F5F5F9%22/><circle cx=%2216%22 cy=%2216%22 r=%2210%22 fill=%22none%22 stroke=%22%23CBCBDA%22 stroke-width=%222%22/><circle cx=%2219%22 cy=%2213%22 r=%224%22 fill=%22%23725BAC%22/></svg>">
+<title>Tu diana cognitiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap">
+
+<style>
+/* Tema claro único y deliberado. Paleta de datos validada contra fondo blanco:
+   banda de luminosidad, suelo de croma, separación bajo deuteranopia y
+   protanopia, y contraste. */
+:root{
+  --ground:#F5F5F9; --surface:#FFFFFF; --raised:#EDEDF4;
+  --line:#E3E3EC; --line-2:#CBCBDA;
+  --ink:#191A21; --ink-2:#4E5262; --ink-3:#696E80;
+  --lav:#725BAC; --mint:#499E79; --coral:#A24E3C; --amber:#8A6516;
+  --lav-p:#5E4A93; --mint-p:#2F7A5C; --coral-p:#8A3D2D; --amber-p:#6F5112;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; margin:0; padding:0 0 80px}
+h1,h2,h3{font-family:var(--serif); font-weight:400; text-wrap:balance; margin:0; letter-spacing:-.012em}
+p{margin:0}
+button{font-family:inherit; font-size:inherit; color:inherit; cursor:pointer}
+a{color:var(--lav-p)}
+:focus-visible{outline:2px solid var(--lav); outline-offset:3px; border-radius:3px}
+.eyebrow{font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3)}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+/* ── rejilla: preguntas a la izquierda, plano fijo a la derecha ── */
+.app{width:min(1120px,100% - 44px); margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 352px; gap:52px; align-items:start}
+aside{position:sticky; top:22px}
+@media(max-width:940px){
+  .app{grid-template-columns:1fr; gap:0}
+  aside{order:-1; position:sticky; top:0; z-index:20; margin:0 -22px 26px; padding:10px 22px 12px;
+        background:var(--ground); border-bottom:1px solid var(--line-2); box-shadow:0 6px 18px rgba(25,26,33,.07)}
+}
+
+/* ── cabecera ─────────────────────────────────────────────── */
+header{padding:56px 0 30px; border-bottom:1px solid var(--line)}
+@media(max-width:940px){header{padding-top:16px}}
+h1{font-size:clamp(32px,5vw,50px); line-height:1.05; font-weight:300; margin-top:16px}
+h1 em{font-style:normal; color:var(--coral-p)}
+.lede{font-family:var(--serif); font-size:18.5px; line-height:1.55; color:var(--ink-2); margin-top:18px; max-width:34em}
+.scale{display:flex; gap:9px 24px; flex-wrap:wrap; margin-top:24px; padding:14px 17px; background:var(--surface); border:1px solid var(--line); border-radius:9px}
+.scale span{display:flex; align-items:baseline; gap:8px; font-size:13px; color:var(--ink-2)}
+.scale b{font-family:var(--mono); font-size:12px; color:var(--lav-p); font-weight:600}
+.fine{font-size:13px; line-height:1.6; color:var(--ink-3); margin-top:16px; max-width:52em}
+
+/* ── bloques de preguntas ─────────────────────────────────── */
+.block{margin-top:40px}
+.block-head{display:flex; align-items:baseline; gap:13px; padding-bottom:11px; border-bottom:1px solid var(--line)}
+.block-head h2{font-size:20px}
+.block-head .axis{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.block-head .score{margin-left:auto; font-family:var(--mono); font-size:14px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.block-head .score b{font-size:18px; font-weight:600}
+.block-head.a .score b{color:var(--lav-p)}
+.block-head.b .score b{color:var(--mint-p)}
+
+.q{display:grid; grid-template-columns:1fr auto; gap:11px 22px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line)}
+@media(max-width:620px){.q{grid-template-columns:1fr; gap:11px}}
+.q-text{font-size:15px; line-height:1.55}
+.q-text .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-right:9px}
+.opts{display:flex; gap:5px}
+.opts button{
+  width:42px; height:38px; border-radius:6px; border:1px solid var(--line-2);
+  background:var(--surface); font-family:var(--mono); font-size:14px; color:var(--ink-3);
+  transition:border-color .12s, background .12s, color .12s;
+}
+.opts button:hover{border-color:var(--ink-3); color:var(--ink)}
+.opts button[aria-pressed="true"]{background:var(--lav); border-color:var(--lav); color:#FFFFFF; font-weight:600}
+
+/* ── panel fijo ───────────────────────────────────────────── */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:17px}
+@media(max-width:940px){
+  .panel{display:grid; grid-template-columns:104px minmax(0,1fr); gap:16px; align-items:center; padding:12px 15px}
+}
+.plane-full{display:block}
+.plane-mini{display:none}
+@media(max-width:940px){.plane-full{display:none} .plane-mini{display:block}}
+.panel svg{display:block; width:100%; height:auto}
+
+.now{margin-top:15px; padding-top:14px; border-top:1px solid var(--line)}
+@media(max-width:940px){.now{margin:0; padding:0; border:0}}
+.now .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+.now .name{font-family:var(--serif); font-size:23px; line-height:1.15; margin-top:5px}
+@media(max-width:940px){.now .name{font-size:19px}}
+.now .sums{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-top:7px; font-variant-numeric:tabular-nums}
+
+.bars{margin-top:16px; display:flex; flex-direction:column; gap:14px}
+@media(max-width:940px){.bars{display:none}}
+.bar-top{display:flex; align-items:baseline; gap:10px; margin-bottom:7px}
+.bar-name{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
+.bar-val{margin-left:auto; font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums}
+.track{position:relative; height:7px; background:#E7E7F1; border:1px solid var(--line-2); border-radius:5px}
+.fill{position:absolute; left:0; top:0; bottom:0; border-radius:4px; transition:width .35s cubic-bezier(.2,.8,.3,1)}
+.thresh{position:absolute; top:-4px; bottom:-4px; width:1.5px; background:var(--ink-3); left:58.33%}
+.panel .foot{font-size:11px; line-height:1.5; color:var(--ink-3); margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
+@media(max-width:940px){.panel .foot{display:none}}
+
+/* ── resultado ────────────────────────────────────────────── */
+#res[hidden]{display:none}
+#res{margin-top:46px; padding-top:34px; border-top:2px solid var(--line-2)}
+#res h2{font-size:clamp(27px,4.4vw,38px); line-height:1.1; font-weight:300; margin-top:11px}
+#res .read{font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-2); margin-top:15px; max-width:38em}
+.advice{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:21px 24px; margin-top:28px}
+.advice h3{font-size:17px; margin-bottom:9px}
+.advice p{font-size:14.5px; line-height:1.68; color:var(--ink-2)}
+.advice p + p{margin-top:11px}
+.advice b{color:var(--ink); font-weight:500}
+.caveat{margin-top:26px; font-size:13.5px; line-height:1.68; color:var(--ink-3); max-width:60em}
+.caveat b{color:var(--ink-2); font-weight:500}
+.again{margin-top:26px}
+.again button{background:var(--raised); border:1px solid var(--line-2); border-radius:7px; padding:11px 20px; font-size:14px}
+.again button:hover{border-color:var(--ink-3)}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<main>
+  <header>
+    <div class="eyebrow">Autoevaluación · 8 afirmaciones · 2 minutos</div>
+    <h1>¿Delegas o <em>transfieres el criterio</em>?</h1>
+    <p class="lede">Delegar trabajo en una IA no es lo mismo que cederle el juicio que debería permitirte evaluar ese trabajo. Dicho rápido: delegación <em>con</em> supervisión frente a delegación <em>sin</em> supervisión. Estas ocho afirmaciones sitúan tus hábitos en un plano de dos ejes.</p>
+    <div class="scale">
+      <span><b>0</b> Nunca</span><span><b>1</b> A veces</span><span><b>2</b> A menudo</span><span><b>3</b> Casi siempre</span>
+    </div>
+    <p class="fine">Puntúa pensando en tu rutina real de trabajo, no en cómo te gustaría trabajar. El punto del plano se mueve con cada respuesta. Nada sale de tu navegador.</p>
+  </header>
+
+  <section class="block">
+    <div class="block-head a"><h2>Bloque A</h2><span class="axis">Intensidad de uso</span><span class="score"><b id="sa">0</b> / 12</span></div>
+    <div id="qa"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head b"><h2>Bloque B</h2><span class="axis">Control crítico</span><span class="score"><b id="sb">0</b> / 12</span></div>
+    <div id="qb"></div>
+  </section>
+
+  <section id="res" hidden>
+    <div class="eyebrow" id="r-riesgo">—</div>
+    <h2 id="r-name">—</h2>
+    <p class="read" id="r-read"></p>
+    <div class="advice" id="r-advice"></div>
+    <p class="caveat">
+      <b>Esto es una orientación, no un diagnóstico.</b> Es un autoinforme, y el fenómeno que intenta describir consiste
+      precisamente en no advertir cuándo has cedido el control: puedes declarar que verificas y aun así aceptar una
+      recomendación equivocada cuando aparece bien argumentada o cuando tienes prisa. El umbral de 7 es una convención
+      práctica de este test, no un punto de corte validado, y los cuatro cuadrantes no son categorías establecidas por
+      la investigación. Describen hábitos, y los hábitos cambian según la tarea, el contexto y la presión de tiempo.
+    </p>
+    <div class="again"><button id="reset">Volver a empezar</button></div>
+  </section>
+</main>
+
+<aside>
+  <div class="panel">
+    <div>
+      <div class="plane-full" id="plane-full"></div>
+      <div class="plane-mini" id="plane-mini"></div>
+    </div>
+    <div>
+      <div class="now">
+        <div class="tag" id="n-tag">Posición provisional</div>
+        <div class="name" id="n-name">Sin respuestas</div>
+        <div class="sums" id="n-sums">A 0/12 · B 0/12</div>
+      </div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <p class="foot">El umbral de cada eje está en 7 de 12. Las divisiones del plano marcan ese mismo corte.</p>
+  </div>
+</aside>
+
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const el = (t,c,x) => {const n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;};
+
+const UMBRAL = 7, MAX = 12, FRAC = UMBRAL/MAX;   // 7 de 12 — el corte del artículo
+
+const A = [
+  'Ante una tarea nueva, abro la IA antes de intentar resolver nada por mi cuenta.',
+  'Utilizo la IA en tareas que afectan al núcleo de mi criterio profesional, no solo en labores accesorias.',
+  'En una jornada normal, consulto la IA más de cinco veces.',
+  'Si mañana la IA dejara de estar disponible, mi ritmo de trabajo caería de forma notable.'
+];
+const B = [
+  'Aunque una respuesta me encaje, compruebo al menos un dato, una fuente o un paso del razonamiento.',
+  'Recientemente he descartado alguna respuesta de la IA porque me ha parecido incorrecta o insuficientemente fundamentada.',
+  'Antes de dar por buena una respuesta importante, le pido que justifique sus conclusiones, la contrasto o formulo preguntas adicionales.',
+  'Podría defender ahora mismo, sin la IA delante, el razonamiento que hay detrás de mi última entrega importante realizada con su ayuda.'
+];
+
+const CUADRANTES = {
+  apoyo:{
+    nombre:'Apoyo puntual', riesgo:'Desaprovechamiento', color:'var(--lav-p)',
+    read:'Recurres poco a la IA y declaras que examinas sus respuestas con cuidado. Tu criterio sigue intacto; lo que puede faltarte es aprovechamiento.',
+    titulo:'Qué probar',
+    cuerpo:'Tu principal riesgo no es la pérdida de autonomía, sino dejar sin usar una herramienta que podría ampliar tu capacidad. Quizá sigues resolviendo a mano tareas que podrías delegar sin comprometer tu juicio.</p><p><b>Elige una tarea repetitiva o de bajo riesgo que hoy haces por tu cuenta.</b> Delega una parte y conserva la revisión. No se trata de confiar más, sino de aprender qué puedes transferir sin renunciar a decidir.'
+  },
+  delegacion:{
+    nombre:'Delegación de trabajo', riesgo:'Erosión de la verificación', color:'var(--mint-p)',
+    read:'Utilizas mucho la IA y declaras que mantienes el control crítico. Es la combinación que buscas cuando quieres productividad sin convertir la respuesta de la máquina en una autoridad automática.',
+    titulo:'Qué proteger',
+    cuerpo:'Esta posición tiene una fragilidad: verificar exige tiempo y esfuerzo, justo lo primero que desaparece cuando hay prisa. Y declarar que verificas no garantiza que lo hagas siempre.</p><p><b>Convierte la verificación en un procedimiento, no en una virtud personal.</b> Define qué fuentes consultar, qué resultados comprobar y qué decisiones no deberían cerrarse sin revisión humana. Delegar bien no es revisarlo todo: es saber dónde está el riesgo y concentrar ahí el esfuerzo.'
+  },
+  transferencia:{
+    nombre:'Transferencia de criterio', riesgo:'Ilusión de autoría', color:'var(--coral-p)',
+    read:'Utilizas mucho la IA y declaras que examinas poco sus respuestas. Eso no significa que trabajes mal: mientras el sistema acierte, tus resultados pueden ser excelentes. Significa que dependen cada vez más de algo que no controlas del todo.',
+    titulo:'Qué hacer',
+    cuerpo:'El problema aparece cuando no detectas un error y careces de los elementos para corregirlo. Tus entregas siguen llevando tu nombre, pero su calidad ya no es enteramente tuya.</p><p><b>Empieza por la afirmación 8.</b> Elige una entrega reciente y reconstruye su razonamiento sin ayuda. Identifica qué puedes justificar, qué tendrías que comprobar y qué aceptaste porque sonaba convincente. El objetivo no es dejar de usar la IA: es recuperar la capacidad de responder por lo que entregas.'
+  },
+  intuitiva:{
+    nombre:'Autonomía intuitiva', riesgo:'Sesgos propios sin contraste', color:'var(--amber-p)',
+    read:'Utilizas poco la IA y declaras que verificas poco cuando la utilizas. Aquí el riesgo no viene necesariamente de la máquina.',
+    titulo:'Qué probar',
+    cuerpo:'Puede ser el exceso de confianza en tu propio juicio, la repetición de hábitos o la aceptación de una primera impresión sin contrastarla. No recurrir a la IA no te vuelve automáticamente más autónomo: puedes equivocarte siguiendo a una máquina, pero también siguiendo una intuición que nunca has puesto a prueba.</p><p><b>Introduce un mecanismo de contraste en las decisiones importantes:</b> una fuente independiente, una revisión por otra persona o una explicación alternativa que te obligue a examinar tus supuestos.'
+  }
+};
+const clave = (a,b) => (a>=UMBRAL) ? (b>=UMBRAL ? 'delegacion' : 'transferencia')
+                                   : (b>=UMBRAL ? 'apoyo' : 'intuitiva');
+
+const R = {a:[null,null,null,null], b:[null,null,null,null]};
+
+function pintar(host, textos, k, base){
+  textos.forEach((t,i)=>{
+    const row = el('div','q');
+    const tx = el('div','q-text');
+    tx.append(el('span','n', String(base+i)+'.'), document.createTextNode(t));
+    const opts = el('div','opts');
+    for(let v=0; v<=3; v++){
+      const b = el('button','',String(v));
+      b.type='button'; b.setAttribute('aria-pressed','false');
+      b.setAttribute('aria-label', 'Afirmación '+(base+i)+', puntuación '+v);
+      b.addEventListener('click', ()=>{
+        R[k][i] = v;
+        [...opts.children].forEach(c=>c.setAttribute('aria-pressed', c===b));
+        sync();
+      });
+      opts.append(b);
+    }
+    row.append(tx, opts); host.append(row);
+  });
+}
+pintar($('#qa'), A, 'a', 1);
+pintar($('#qb'), B, 'b', 5);
+
+const suma = k => R[k].reduce((s,v)=>s+(v||0),0);
+const faltan = () => [...R.a, ...R.b].filter(v=>v===null).length;
+
+/* ═══════════════ PLANO 2×2 ═══════════════
+   Las divisiones van en 7/12, el mismo umbral con el que se puntúa, para que el
+   dibujo y el criterio digan lo mismo. En la versión compacta no hay rótulos:
+   el nombre del cuadrante lo lleva el panel, en HTML. */
+function plane(dot, compacto){
+  const W = compacto ? 200 : 460, H = compacto ? 200 : 400;
+  const x0 = compacto ? 4 : 56, x1 = compacto ? 196 : 444;
+  const y0 = compacto ? 4 : 70, y1 = compacto ? 196 : 306;
+  const px = v => x0 + v*(x1-x0), py = v => y1 - v*(y1-y0);
+  const cutx = px(FRAC), cuty = py(FRAC);
+  const q = [
+    {a:x0,   b:cutx, c:y0,   d:cuty, t:'#725BAC', p:'#5E4A93', n:'APOYO PUNTUAL',             s:'usas poco, verificas'},
+    {a:cutx, b:x1,   c:y0,   d:cuty, t:'#499E79', p:'#2F7A5C', n:'DELEGACIÓN DE TRABAJO',     s:'usas mucho, verificas'},
+    {a:x0,   b:cutx, c:cuty, d:y1,   t:'#8A6516', p:'#6F5112', n:'AUTONOMÍA INTUITIVA',       s:'ni consultas ni verificas'},
+    {a:cutx, b:x1,   c:cuty, d:y1,   t:'#A24E3C', p:'#8A3D2D', n:'TRANSFERENCIA DE CRITERIO', s:'usas mucho, no verificas'}
+  ];
+  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Plano de delegación cognitiva: intensidad de uso frente a control crítico">';
+  q.forEach(r=>{ s += '<rect x="'+r.a+'" y="'+r.c+'" width="'+(r.b-r.a)+'" height="'+(r.d-r.c)+'" fill="'+r.t+'" opacity="0.18"/>'; });
+  s += '<rect x="'+x0+'" y="'+y0+'" width="'+(x1-x0)+'" height="'+(y1-y0)+'" fill="none" stroke="#B4B4C8" stroke-width="1"/>';
+  s += '<line x1="'+cutx+'" y1="'+y0+'" x2="'+cutx+'" y2="'+y1+'" stroke="#B4B4C8" stroke-width="1"/>';
+  s += '<line x1="'+x0+'" y1="'+cuty+'" x2="'+x1+'" y2="'+cuty+'" stroke="#B4B4C8" stroke-width="1"/>';
+
+  if(!compacto){
+    // Los nombres viven fuera del marco; los largos se parten en dos líneas.
+    q.forEach(r=>{
+      const cx = (r.a+r.b)/2, arriba = r.c===y0;
+      let lineas = [r.n];
+      if(r.n.length > 15 && r.n.includes(' ')){
+        const w = r.n.split(' ');
+        let corte = 1, mejor = Infinity;
+        for(let k=1; k<w.length; k++){
+          const dd = Math.abs(w.slice(0,k).join(' ').length - w.slice(k).join(' ').length);
+          if(dd < mejor){ mejor = dd; corte = k; }
+        }
+        lineas = [w.slice(0,corte).join(' '), w.slice(corte).join(' ')];
+      }
+      const extra = (lineas.length-1)*14;
+      const ny = arriba ? y0-36-extra : y1+30;
+      const sy = arriba ? y0-20       : y1+46+extra;
+      lineas.forEach((ln,k)=>{
+        s += '<text x="'+cx+'" y="'+(ny+k*14)+'" fill="'+r.p+'" font-family="IBM Plex Mono,monospace" font-size="11.5"'
+           + ' font-weight="600" letter-spacing="1.25" text-anchor="middle">'+ln+'</text>';
+      });
+      s += '<text x="'+cx+'" y="'+sy+'" fill="#4E5262" font-family="IBM Plex Sans,sans-serif" font-size="11"'
+         + ' font-weight="500" text-anchor="middle">'+r.s+'</text>';
+    });
+  }
+
+  if(dot){
+    const cx = px(dot.x), cy = py(dot.y), r1 = compacto ? 11 : 18, r2 = compacto ? 5.5 : 7.5;
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#725BAC" opacity="0.16"/>';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#725BAC" stroke="#FFFFFF" stroke-width="2.5"/>';
+  }
+  if(!compacto){
+    s += '<text x="'+((x0+x1)/2)+'" y="'+(H-10)+'" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">INTENSIDAD DE USO →</text>';
+    s += '<text transform="translate(18,'+((y0+y1)/2)+') rotate(-90)" fill="#4E5262" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.3" text-anchor="middle">CONTROL CRÍTICO →</text>';
+  }
+  return s + '</svg>';
+}
+
+function barra(nombre, valor, color){
+  const d = el('div','');
+  const top = el('div','bar-top');
+  top.append(el('span','bar-name', nombre));
+  const v = el('span','bar-val num', valor+' / 12'); v.style.color = color;
+  top.append(v); d.append(top);
+  const tr = el('div','track');
+  const fl = el('div','fill'); fl.style.background = color; fl.style.width = (valor/MAX*100)+'%';
+  tr.append(fl, el('div','thresh'));
+  d.append(tr);
+  return d;
+}
+
+function sync(){
+  const a = suma('a'), b = suma('b'), f = faltan();
+  $('#sa').textContent = a;
+  $('#sb').textContent = b;
+
+  const hay = f < 8;
+  const punto = hay ? {x:a/MAX, y:b/MAX} : null;
+  $('#plane-full').innerHTML = plane(punto, false);
+  $('#plane-mini').innerHTML = plane(punto, true);
+
+  const c = CUADRANTES[clave(a,b)];
+  $('#n-tag').textContent = f===0 ? 'Tu posición' : 'Posición provisional';
+  $('#n-name').textContent = hay ? c.nombre : 'Sin respuestas';
+  $('#n-name').style.color = hay ? c.color : 'var(--ink-3)';
+  $('#n-sums').textContent = f===0
+    ? 'A ' + a + '/12 · B ' + b + '/12'
+    : 'A ' + a + '/12 · B ' + b + '/12 · faltan ' + f;
+
+  const bars = $('#bars'); bars.innerHTML = '';
+  bars.append(barra('Intensidad de uso', a, 'var(--lav)'));
+  bars.append(barra('Control crítico', b, 'var(--mint)'));
+
+  const res = $('#res');
+  if(f===0){
+    $('#r-riesgo').textContent = 'Riesgo que conviene vigilar: ' + c.riesgo;
+    $('#r-name').textContent = c.nombre;
+    $('#r-name').style.color = c.color;
+    $('#r-read').textContent = c.read;
+    $('#r-advice').innerHTML = '<h3>' + c.titulo + '</h3><p>' + c.cuerpo + '</p>';
+    res.hidden = false;
+  } else {
+    res.hidden = true;
+  }
+}
+sync();
+
+$('#reset').addEventListener('click', ()=>{
+  R.a = [null,null,null,null]; R.b = [null,null,null,null];
+  document.querySelectorAll('.opts button').forEach(b=>b.setAttribute('aria-pressed','false'));
+  sync();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
