@@ -132,7 +132,7 @@ profesional:{
 estudiante:{
   rotulo:'Estudiante',
   pie:'Para clase, de secundaria en adelante',
-  titulo:'¿Quién pilota, tú o <em>la IA</em>?',
+  titulo:'¿Quién pilota,<br>tú o <em>la IA</em>?',
   lede:'Usar mucho la IA no es el problema.<br>El problema es entregar algo que no sabrías explicar sin su ayuda.',
   como:[
     'Son veinte preguntas de sí o no sobre lo mismo: cuánto entra la IA en tus trabajos y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes algo que pasó.',
@@ -245,7 +245,7 @@ estudiante:{
 docente:{
   rotulo:'Docente',
   pie:'Para el uso profesional de la IA en la enseñanza',
-  titulo:'¿La IA amplía tu capacidad o <em>decide por ti</em>?',
+  titulo:'¿La IA amplía tu capacidad<br>o <em>decide por ti</em>?',
   lede:'La IA puede quitarte de encima horas de preparación y materiales.<br>También puede ir tomando decisiones pedagógicas que deberían ser tuyas, sin tú saberlo.',
   como:[
     'Las veinte preguntas tratan de lo mismo: cuánto entra la IA en tu trabajo docente y qué haces con lo que te devuelve. Unas te piden que te describas y otras que recuerdes una ocasión concreta.',
